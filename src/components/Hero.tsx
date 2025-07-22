@@ -1,12 +1,15 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  const switchingWords = ['Digitization', 'Decentralization', 'Decarbonization'];
 
   useEffect(() => {
     const video = videoRef.current;
@@ -17,9 +20,17 @@ const Hero = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % switchingWords.length);
+    }, 3000); // Switch every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [switchingWords.length]);
+
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      
+
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         {/* YouTube Video as Background */}
@@ -58,35 +69,51 @@ const Hero = () => {
           <source src="/videos/hero-background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        
+
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/80 bg-opacity-40 z-10"></div>
       </div>
 
-      
+
 
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
         <motion.div
-           initial={{ opacity: 0, y: 50 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, delay: 0.2 }}
-         >
-           <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-8 leading-tight">
-             Empowering <span className="text-primary">MSMEs</span><br />
-             for <span className="text-secondary">Digital Future</span>
-           </h1>
-         </motion.div>
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-8 leading-tight">
+            Leading <br />
+            <span className="text-secondary">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentWordIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-block"
+                >
+                  {switchingWords[currentWordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span><br />
+            towards <br /> <span className="text-primary">Sustainable Development</span>
+          </h1>
+        </motion.div>
 
-         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, delay: 0.5 }}
-         >
-           <p className="text-xl md:text-2xl mb-12 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-             Transform your business with our comprehensive digital solutions
-           </p>
-         </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <p className="text-xl md:text-xl mb-12 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            {/* Transform your business with our comprehensive digital solutions */}
+            Digital Infrastructures & Solutions to power MSMEs,
+            <br /> Financial Institutions and Governments
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -100,7 +127,7 @@ const Hero = () => {
           >
             Explore Our Solutions
           </Link>
-          
+
           <Link
             href="/about"
             className="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
@@ -109,31 +136,31 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        
+
       </div>
 
       {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-        >
-          <div className="flex flex-col items-center text-white">
-            <span className="text-sm mb-2 opacity-75">Scroll Down</span>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+      >
+        <div className="flex flex-col items-center text-white">
+          <span className="text-sm mb-2 opacity-75">Scroll Down</span>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+          >
             <motion.div
-              animate={{ y: [0, 10, 0] }}
+              animate={{ y: [0, 12, 0] }}
               transition={{ repeat: Infinity, duration: 2 }}
-              className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
-            >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="w-1 h-3 bg-white rounded-full mt-2"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
+              className="w-1 h-3 bg-white rounded-full mt-2"
+            />
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 };

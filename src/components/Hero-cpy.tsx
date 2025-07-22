@@ -72,15 +72,9 @@ const Hero = () => {
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8, delay: 0.2 }}
          >
-           <h1 className="text-5xl md:text-7xl lg:text-5xl font-bold mb-8 leading-tight">
-             {/* Empowering <span className="text-primary">MSMEs</span><br />
-             for <span className="text-secondary">Digital Future</span> */}
-             Leading <br />
-             <span className="text-secondary"> Digitization & Decentralization </span>
-<br />
-towards  <br />
-<span className="text-primary">Sustainable Development</span>
-
+           <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-8 leading-tight">
+             Empowering <span className="text-primary">MSMEs</span><br />
+             for <span className="text-secondary">Digital Future</span>
            </h1>
          </motion.div>
 
@@ -89,10 +83,8 @@ towards  <br />
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8, delay: 0.5 }}
          >
-           <p className="text-xl md:text-xl mb-12 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-             {/* Transform your business with our comprehensive digital solutions */}
-             Digital Infrastructures & Solutions to power MSMEs,
-<br /> Financial Institutions and Governments
+           <p className="text-xl md:text-2xl mb-12 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+             Transform your business with our comprehensive digital solutions
            </p>
          </motion.div>
 
