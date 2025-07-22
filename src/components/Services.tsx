@@ -41,7 +41,7 @@ const services = [
   },
 ];
 
-const getColorClasses = (color: any) => {
+const getColorClasses = (color: string) => {
   const colorMap = {
     blue: {
       bg: 'bg-primary/5',
@@ -125,7 +125,7 @@ const Services = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            We offer a wide range of services designed to help micro, small, and medium enterprises thrive in today's competitive business environment.
+            We offer a wide range of services designed to help micro, small, and medium enterprises thrive in today&apos;s competitive business environment.
           </motion.p>
         </div>
 

@@ -77,7 +77,7 @@ const ContactPage = () => {
               Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0D9244] to-[#4DB97A]">Us</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              We're here to help your MSME business grow. Reach out to our expert team for consultation and solutions.
+              We are here to help your MSME business grow. Reach out to our expert team for consultation and solutions.
             </p>
           </motion.div>
         </div>

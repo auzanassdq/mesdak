@@ -26,7 +26,7 @@ const Footer = () => {
           >
             <Link href="/" className="inline-block mb-6">
               <Image 
-                src="/images/Logo MSME World (1)-02.jpg" 
+                src="/images/logo.jpg" 
                 alt="MSME World Logo" 
                 width={150} 
                 height={50} 
@@ -34,7 +34,7 @@ const Footer = () => {
               />
             </Link>
             <p className="mb-4">
-              Empowering MSMEs to grow, innovate, and succeed in today's competitive business landscape.
+              Empowering MSMEs to grow, innovate, and succeed in today&apos;s competitive business landscape.
             </p>
             <div className="flex space-x-4 mt-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
