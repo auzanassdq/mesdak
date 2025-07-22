@@ -144,7 +144,7 @@ const Testimonials = () => {
                     </div>
                     
                     {/* Content */}
-                    <p className="text-xl text-gray-700 mb-8 relative z-10">&quot;{testimonial.content}"</p>
+                    <p className="text-xl text-gray-700 mb-8 relative z-10">&quot;{testimonial.content}&quot;</p>
                     
                     {/* Author */}
                     <div className="flex items-center">
