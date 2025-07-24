@@ -2,12 +2,17 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { gsap } from 'gsap';
+// import { Twitter, Facebook, Linkedin, XIcon } from 'lucide-react';
+import {XLogoIcon, FacebookLogoIcon, LinkedinLogoIcon} from '@phosphor-icons/react';
 import Link from 'next/link';
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   const switchingWords = ['Digitization', 'Decentralization', 'Decarbonization'];
 
@@ -23,10 +28,43 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % switchingWords.length);
-    }, 3000); // Switch every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [switchingWords.length]);
+
+  useEffect(() => {
+    // GSAP Timeline Animation
+    const tl = gsap.timeline({ delay: 0.5 });
+    
+    // Set initial states
+    gsap.set('.hero-leading', { opacity: 0, y: 50 });
+    gsap.set('.hero-switching', { opacity: 0, y: 50 });
+    gsap.set('.hero-towards', { opacity: 0, y: 50 });
+    gsap.set('.hero-sustainable', { opacity: 0, y: 50 });
+    gsap.set('.hero-description', { opacity: 0, y: 30 });
+    gsap.set('.hero-buttons', { opacity: 0, y: 30 });
+
+    
+    // Animation sequence
+    tl.to('.hero-leading', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
+      .to('.hero-switching', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
+      .to('.hero-towards', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
+      .to('.hero-sustainable', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
+      .to('.hero-description', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.2')
+      .to('.hero-buttons', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.2')
+      .to(".bg-reveal", { 
+        y: '100%', 
+        duration: 1.2, 
+        ease: 'power2.inOut',
+        onComplete: () => setAnimationComplete(true)
+      }, '>')
+
+      
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
@@ -74,59 +112,71 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black/80 bg-opacity-40 z-10"></div>
       </div>
 
+      {/* Logo Collection - positioned at bottom */}
+       <div className="absolute bottom-20 left-8 z-15">
+         <div className="flex flex-col gap-2">
+           <img src="/logo/blue.png" alt="Blue Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+           <img src="/logo/teal.png" alt="Teal Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+           <img src="/logo/green.png" alt="Green Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+           <img src="/logo/orange.png" alt="Orange Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+           <img src="/logo/brown.png" alt="Brown Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+           <img src="/logo/indigo.png" alt="Indigo Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+           
+           {/* Social Media Icons */}
+           <div className="mt-2 pt-2 border-t border-white/20">
+             <div className="flex flex-col gap-2">
+               <XLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-400 transition-all cursor-pointer" />
+               <FacebookLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-600 transition-all cursor-pointer" />
+               <LinkedinLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-500 transition-all cursor-pointer" />
+             </div>
+           </div>
+         </div>
+       </div>
 
+      {/* Full Screen Background Overlay */}
+      <div 
+        // ref={backgroundRef}
+        className="bg-reveal absolute inset-0 w-full h-full z-20 "
+        style={{background: "#111111"}}
+      >
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-8 leading-tight">
-            Leading <br />
-            <span className="text-secondary">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentWordIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-block"
-                >
-                  {switchingWords[currentWordIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span><br />
-            towards <br /> <span className="text-primary">Sustainable Development</span>
-          </h1>
-        </motion.div>
+      <div className="relative z-30 text-center text-white px-4 max-w-6xl mx-auto">
+        <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-8 leading-snug">
+          <span className="hero-leading inline-block text-5xl">Leading</span> <br />
+          <span className="hero-switching text-secondary inline-block">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentWordIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block"
+              >
+                {switchingWords[currentWordIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span><br />
+          <span className="hero-towards inline-block text-5xl">Towards</span> <br /> 
+          <span className="hero-sustainable text-primary inline-block">Sustainable Development</span>
+        </h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <p className="text-xl md:text-xl mb-12 text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            {/* Transform your business with our comprehensive digital solutions */}
+        <div className="hero-description">
+          <p className="text-xl md:text-xl lg:text-2xl mb-12 text-gray-200 max-w-3xl mx-auto leading-normal">
             Digital Infrastructures & Solutions to power MSMEs,
             <br /> Financial Institutions and Governments
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-        >
-          <Link
+        <div className="hero-buttons flex flex-col sm:flex-row gap-6 justify-center items-center">
+          {/* <Link
             href="/services"
             className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Explore Our Solutions
-          </Link>
+          </Link> */}
 
           <Link
             href="/about"
@@ -134,7 +184,7 @@ const Hero = () => {
           >
             Learn More
           </Link>
-        </motion.div>
+        </div>
 
 
       </div>
@@ -142,9 +192,9 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        animate={{ opacity: animationComplete ? 1 : 0 }}
+        transition={{ duration: 1, delay: animationComplete ? 0.5 : 0 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-25"
       >
         <div className="flex flex-col items-center text-white">
           <span className="text-sm mb-2 opacity-75">Scroll Down</span>

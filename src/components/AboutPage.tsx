@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const AboutPage = () => {
   const fadeInUp = {
@@ -17,12 +18,62 @@ const AboutPage = () => {
     }
   };
 
+  const slideInLeft = {
+    initial: { opacity: 0, x: -60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
+  const slideInRight = {
+    initial: { opacity: 0, x: 60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
+  const slideInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
   const stats = [
     { number: '500+', label: 'MSMEs Empowered' },
     { number: '50+', label: 'Digital Solutions' },
     { number: '25+', label: 'Countries Reached' },
     { number: '98%', label: 'Client Satisfaction' }
   ];
+
+  const [selectedBoard, setSelectedBoard] = useState<string | null>(null);
+
+  const boardData = {
+    executive: {
+      title: 'Executive Board',
+      description: 'Our executive team leads strategic initiatives and drives organizational growth.',
+      members: [
+        { name: 'John Smith', position: 'Chief Executive Officer', experience: '15+ years in MSME development' },
+        { name: 'Sarah Johnson', position: 'Chief Operating Officer', experience: '12+ years in business operations' },
+        { name: 'Michael Chen', position: 'Chief Technology Officer', experience: '10+ years in digital transformation' }
+      ]
+    },
+    supervisory: {
+      title: 'Supervisory Board',
+      description: 'Our supervisory board ensures governance, compliance, and strategic oversight.',
+      members: [
+        { name: 'Dr. Emily Davis', position: 'Board Chairperson', experience: '20+ years in corporate governance' },
+        { name: 'Robert Wilson', position: 'Independent Director', experience: '18+ years in financial oversight' },
+        { name: 'Lisa Anderson', position: 'Compliance Officer', experience: '14+ years in regulatory affairs' }
+      ]
+    },
+    advisory: {
+      title: 'Advisory Board',
+      description: 'Our advisory board provides expert guidance and industry insights.',
+      members: [
+        { name: 'Prof. David Kumar', position: 'Industry Advisor', experience: '25+ years in MSME research' },
+        { name: 'Maria Rodriguez', position: 'Technology Advisor', experience: '16+ years in innovation strategy' },
+        { name: 'James Thompson', position: 'Market Advisor', experience: '22+ years in market development' }
+      ]
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
@@ -103,14 +154,17 @@ const AboutPage = () => {
       {/* Vision & Mission Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-3 gap-12"
+          >
             {/* Vision */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300"
+              variants={slideInLeft}
+              className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,11 +180,8 @@ const AboutPage = () => {
 
             {/* Mission */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300"
+              variants={slideInUp}
+              className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="w-16 h-16 bg-primary-dark/10 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,11 +194,28 @@ const AboutPage = () => {
                 global marketplace. We achieve this through expert consulting, cutting-edge innovation, and collaborative partnerships.
               </p>
             </motion.div>
-          </div>
+
+            {/* Action */}
+            <motion.div
+              variants={slideInRight}
+              className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div className="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Action</h3>
+              <p className="text-gray-700 leading-relaxed text-lg">
+                  We are committed to taking decisive actions that directly benefit MSMEs. Our initiatives include providing access to 
+                  funding, facilitating market linkages, promoting technology adoption, and advocating for supportive policies.
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Our Actions Section */}
+      {/* Our Board Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
@@ -155,62 +223,130 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="text-center mb-16"
           >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Actions</h2>
-              <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            </div>
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl p-8 lg:p-12">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  We are committed to taking decisive actions that directly benefit MSMEs. Our initiatives include providing access to 
-                  funding, facilitating market linkages, promoting technology adoption, and advocating for supportive policies.
-                </p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Board</h2>
+            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Meet our distinguished board members who guide our organization with their expertise and vision.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-3 gap-12"
+          >
+            {/* Executive Board */}
+            <motion.div
+              variants={slideInLeft}
+              onClick={() => setSelectedBoard('executive')}
+              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
+            >
+              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
               </div>
-            </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Executive</h3>
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                Strategic leadership and organizational direction.
+              </p>
+              <div className="text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
+                Click to learn more →
+              </div>
+            </motion.div>
+
+            {/* Supervisory Board */}
+            <motion.div
+              variants={slideInUp}
+              onClick={() => setSelectedBoard('supervisory')}
+              className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
+            >
+              <div className="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Supervisory</h3>
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                Governance, compliance, and strategic oversight.
+              </p>
+              <div className="text-purple-600 font-semibold group-hover:text-purple-700 transition-colors">
+                Click to learn more →
+              </div>
+            </motion.div>
+
+            {/* Advisory Board */}
+            <motion.div
+              variants={slideInRight}
+              onClick={() => setSelectedBoard('advisory')}
+              className="bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
+            >
+              <div className="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-colors">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Advisory</h3>
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                Expert guidance and industry insights.
+              </p>
+              <div className="text-green-600 font-semibold group-hover:text-green-700 transition-colors">
+                Click to learn more →
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Our Boards Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6">
+      {/* Modal */}
+      {selectedBoard && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="bg-white rounded-3xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
           >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Boards</h2>
-              <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-3xl font-bold text-gray-900">{boardData[selectedBoard as keyof typeof boardData].title}</h3>
+              <button
+                onClick={() => setSelectedBoard(null)}
+                className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+              >
+                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
+            
+            <p className="text-lg text-gray-600 mb-8">{boardData[selectedBoard as keyof typeof boardData].description}</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {boardData[selectedBoard as keyof typeof boardData].members.map((member, index) => (
+                <div key={index} className="bg-gray-50 rounded-2xl p-6">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2 text-center">{member.name}</h4>
+                  <p className="text-primary font-semibold mb-2 text-center">{member.position}</p>
+                  <p className="text-gray-600 text-sm text-center">{member.experience}</p>
                 </div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Our boards comprise industry leaders, seasoned entrepreneurs, and policy experts who provide strategic direction 
-                  and oversight. Their collective expertise ensures that Innovate MSME remains at the forefront of MSME development.
-                </p>
-              </div>
+              ))}
             </div>
           </motion.div>
         </div>
-      </section>
+      )}
+
+            
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-dark">
+      {/* <section className="py-20 bg-gradient-to-r from-primary to-primary-dark">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -244,7 +380,7 @@ const AboutPage = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

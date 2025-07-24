@@ -25,10 +25,10 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/services' },
     { name: 'Group Companies', href: '/companies' },
+    { name: 'Services', href: '/services' },
     { name: 'Careers', href: '/careers' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Our Reach', href: '/contact' },
   ];
 
   return (
@@ -60,12 +60,6 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link 
-            href="/contact"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition-colors"
-          >
-            Get Started
-          </Link>
         </div>
 
         {/* Mobile Menu Button */}

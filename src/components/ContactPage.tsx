@@ -62,10 +62,13 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary/5">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D9244] to-[#4DB97A] opacity-10"></div>
+        {/* Background Decorations */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary-light/5 rounded-full blur-3xl"></div>
+        
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -73,8 +76,12 @@ const ContactPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0D9244] to-[#4DB97A]">Us</span>
+            <span className="inline-block px-6 py-3 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">
+              Contact Us
+            </span>
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              Get in <span className="text-primary">Touch</span> with 
+              <span className="text-primary-dark"> Our Experts</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               We are here to help your MSME business grow. Reach out to our expert team for consultation and solutions.
@@ -276,7 +283,7 @@ const ContactPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#0D9244] to-[#4DB97A]">
+      {/* <section className="py-20 bg-gradient-to-r from-[#0D9244] to-[#4DB97A]">
         <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -301,7 +308,7 @@ const ContactPage = () => {
             </motion.button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

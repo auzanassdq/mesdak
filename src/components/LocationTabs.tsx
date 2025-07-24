@@ -27,28 +27,6 @@ const LocationTabs: React.FC = () => {
       mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25341.550706934835!2d-122.15570059556174!3d37.44433678335635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb1790b6fa6d%3A0x896629522dfd3707!2sPalo%20Alto%2C%20California%2094301%2C%20Amerika%20Serikat!5e0!3m2!1sid!2sid!4v1753158612452!5m2!1sid!2sid'
     },
     {
-      id: 'asia',
-      name: 'Asia',
-      address: [
-        '88 Orchard Road, #15-01',
-        'Singapore 238844'
-      ],
-      phone: '+65 6123 4567',
-      email: 'asia@innovatemsme.com',
-      mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8132122876707!2d103.83150731475398!3d1.3021119990476383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a1a06b3a45%3A0x1f8c8ebb0b1c4d9e!2sOrchard%20Rd%2C%20Singapore!5e0!3m2!1sen!2sid!4v1654321098765!5m2!1sen!2sid'
-    },
-    {
-      id: 'europe',
-      name: 'Europe',
-      address: [
-        '10 Baker Street',
-        'London W1U 3BU, United Kingdom'
-      ],
-      phone: '+44 20 7123 4567',
-      email: 'europe@innovatemsme.com',
-      mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9048136585925!2d-0.15840548459134284!3d51.52377167963643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761acf33628211%3A0x445d7677a88322e1!2sBaker%20St%2C%20London%2C%20UK!5e0!3m2!1sen!2sid!4v1654321234567!5m2!1sen!2sid'
-    },
-    {
       id: 'africa',
       name: 'Africa',
       address: [
@@ -58,6 +36,17 @@ const LocationTabs: React.FC = () => {
       phone: '+27 21 123 4567',
       email: 'africa@innovatemsme.com',
       mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.9784398685483!2d18.41721231513654!3d-33.92128798063958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc676e2a9934c7%3A0x7c0e3d6cb0d5f79b!2sLong%20St%2C%20Cape%20Town%2C%208001%2C%20South%20Africa!5e0!3m2!1sen!2sid!4v1654321345678!5m2!1sen!2sid'
+    },
+    {
+      id: 'asia',
+      name: 'Asia',
+      address: [
+        '88 Orchard Road, #15-01',
+        'Singapore 238844'
+      ],
+      phone: '+65 6123 4567',
+      email: 'asia@innovatemsme.com',
+      mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8132122876707!2d103.83150731475398!3d1.3021119990476383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a1a06b3a45%3A0x1f8c8ebb0b1c4d9e!2sOrchard%20Rd%2C%20Singapore!5e0!3m2!1sen!2sid!4v1654321098765!5m2!1sen!2sid'
     },
     {
       id: 'latin-america',
@@ -80,6 +69,17 @@ const LocationTabs: React.FC = () => {
       phone: '+1 (212) 555-6789',
       email: 'northamerica@innovatemsme.com',
       mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6175869047057!2d-73.98673708459445!3d40.74844797932764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9aeb1c6b5%3A0x35b1cfbc89a6097f!2sEmpire%20State%20Building%2C%20350%205th%20Ave%2C%20New%20York%2C%20NY%2010118%2C%20USA!5e0!3m2!1sen!2sid!4v1654321567890!5m2!1sen!2sid'
+    },
+    {
+      id: 'europe',
+      name: 'Europe',
+      address: [
+        '10 Baker Street',
+        'London W1U 3BU, United Kingdom'
+      ],
+      phone: '+44 20 7123 4567',
+      email: 'europe@innovatemsme.com',
+      mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9048136585925!2d-0.15840548459134284!3d51.52377167963643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761acf33628211%3A0x445d7677a88322e1!2sBaker%20St%2C%20London%2C%20UK!5e0!3m2!1sen!2sid!4v1654321234567!5m2!1sen!2sid'
     },
     {
       id: 'aseu',

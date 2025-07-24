@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-host-grotesk)', 'system-ui', '-apple-system', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#0D9244',
