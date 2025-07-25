@@ -215,7 +215,7 @@ const ContactPage = () => {
                   Get in Touch
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-8 font-medium">
-                  We're here to help your MSME business thrive. Choose the best way to reach us.
+                  We&apos;re here to help your MSME business thrive. Choose the best way to reach us.
                 </p>
               </div>
 

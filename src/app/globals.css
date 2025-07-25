@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import "tailwindcss";
 
@@ -98,8 +97,10 @@ body {
   --color-secondary: var(--secondary);
   --color-secondary-dark: var(--secondary-dark);
   --color-secondary-light: var(--secondary-light);
-  --font-sans: var(--font-host-grotesk), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-sansation), var(--font-host-grotesk), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono);
+  --font-sansation: var(--font-sansation), system-ui, -apple-system, sans-serif;
+  --font-host-grotesk: var(--font-host-grotesk), system-ui, -apple-system, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -112,7 +113,7 @@ body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-host-grotesk), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sansation), var(--font-host-grotesk), system-ui, -apple-system, sans-serif;
 }
 
 /* Animation for blob effect */

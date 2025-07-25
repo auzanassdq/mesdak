@@ -178,12 +178,12 @@ const Hero = () => {
             Explore Our Solutions
           </Link> */}
 
-          <Link
+          {/* <Link
             href="/about"
             className="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Learn More
-          </Link>
+          </Link> */}
         </div>
 
 
@@ -197,7 +197,7 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-25"
       >
         <div className="flex flex-col items-center text-white">
-          <span className="text-sm mb-2 opacity-75">Scroll Down</span>
+          {/* <span className="text-sm mb-2 opacity-75">Scroll Down</span> */}
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}

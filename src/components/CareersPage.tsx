@@ -102,7 +102,7 @@ const CareersPage: React.FC = () => {
                 <span className='bg-primary-400 inline p-2'>
                   Ready to make an impact?
                 </span>
-                &nbsp; We're building the future of MSME consulting and looking for passionate individuals who share our vision of empowering small and medium enterprises globally.
+                &nbsp; We&apos;re building the future of MSME consulting and looking for passionate individuals who share our vision of empowering small and medium enterprises globally.
               </p>
             </div>
           </motion.div>
