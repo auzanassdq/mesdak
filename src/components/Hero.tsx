@@ -143,16 +143,16 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-30 text-center text-white px-4 max-w-6xl mx-auto">
-        <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-8 leading-snug">
+        <h1 className="text-5xl md:text-7xl lg:text-7xl/17 font-bold mb-8 leading-snug">
           <span className="hero-leading inline-block text-5xl">Leading</span> <br />
-          <span className="hero-switching text-secondary inline-block">
+          <span className="hero-switching text-secondary inline-block py-4 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentWordIndex}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
+                exit={{ opacity: 1, y: -80 }}
+                transition={{ duration: 0.2 }}
                 className="inline-block"
               >
                 {switchingWords[currentWordIndex]}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import LocationTabs from './LocationTabs';
@@ -62,36 +63,40 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary/5">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background Decorations */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary-light/5 rounded-full blur-3xl"></div>
+      <section className="relative h-[500px] overflow-hidden">
+        <Image
+          src="/images/contact.jpg"
+          alt="Contact Background"
+          width={1200}
+          height={800}
+          className="absolute inset-0 w-full h-full object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <span className="inline-block px-6 py-3 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">
-              Contact Us
-            </span>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Get in <span className="text-primary">Touch</span> with 
-              <span className="text-primary-dark"> Our Experts</span>
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              We are here to help your MSME business grow. Reach out to our expert team for consultation and solutions.
-            </p>
-          </motion.div>
+        <div className="relative z-10 h-full flex items-center">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl"
+            >
+              <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                Get in <span className="text-primary">Touch</span> with our
+              </h1>
+              {/* <p className="text-xl text-white leading-relaxed max-w-2xl">
+                We are here to help your MSME business grow. Reach out to our expert team for consultation and solutions.
+              </p> */}
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Contact Form & Info Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
@@ -99,7 +104,7 @@ const ContactPage = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+              className="bg-white border-4 border-black p-8"
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Send a Message
@@ -107,7 +112,7 @@ const ContactPage = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -117,12 +122,12 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D9244] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="Enter your full name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">
                       Email *
                     </label>
                     <input
@@ -132,7 +137,7 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D9244] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="name@example.com"
                     />
                   </div>
@@ -140,7 +145,7 @@ const ContactPage = () => {
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-bold text-gray-900 mb-2">
                       Phone Number
                     </label>
                     <input
@@ -149,12 +154,12 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D9244] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="+1 (123) 456-7890"
                     />
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-bold text-gray-900 mb-2">
                       Subject *
                     </label>
                     <input
@@ -164,14 +169,14 @@ const ContactPage = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D9244] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="Topic of your message"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
                     Message *
                   </label>
                   <textarea
@@ -181,7 +186,7 @@ const ContactPage = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0D9244] focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none"
                     placeholder="Tell us how we can help your MSME business..."
                   ></textarea>
                 </div>
@@ -190,7 +195,7 @@ const ContactPage = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-[#0D9244] to-[#4DB97A] text-white font-semibold py-4 px-6 rounded-lg hover:from-[#0A7A38] hover:to-[#0D9244] transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full bg-[#0D9244] text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5" />
                   Send Message
@@ -207,10 +212,10 @@ const ContactPage = () => {
             >
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Contact Information
+                  Get in Touch
                 </h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  Our expert team is available 24/7 to assist you. Feel free to reach out through any of our available channels.
+                <p className="text-lg text-gray-700 leading-relaxed mb-8 font-medium">
+                  We're here to help your MSME business thrive. Choose the best way to reach us.
                 </p>
               </div>
 
@@ -223,19 +228,19 @@ const ContactPage = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                      className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+                      className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300"
                     >
                       <div className="flex items-start gap-4">
-                        <div className="bg-gradient-to-r from-[#0D9244] to-[#4DB97A] p-3 rounded-lg">
-                          <IconComponent className="w-6 h-6 text-white" />
+                        <div className="bg-primary group-hover:bg-white p-3 border-2 border-black">
+                          <IconComponent className="w-6 h-6 text-white group-hover:text-primary" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-white mb-2">
                             {info.title}
                           </h3>
                           <div className="space-y-1">
                             {info.details.map((detail, detailIndex) => (
-                              <p key={detailIndex} className="text-gray-600">
+                              <p key={detailIndex} className="text-gray-700 group-hover:text-white font-medium">
                                 {detail}
                               </p>
                             ))}
@@ -252,27 +257,30 @@ const ContactPage = () => {
       </section>
 
       {/* Office Locations Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-center mb-12"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-12"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Our Global Presence
             </h2>
-            <p className="text-xl text-gray-600">
+            <div className="w-24 h-1 bg-primary mb-6"></div>
+            <p className="text-xl text-gray-700 font-medium max-w-2xl">
               Visit our offices for direct consultation with our expert team
             </p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="bg-white rounded-2xl shadow-xl overflow-hidden"
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-white border-4 border-black overflow-hidden"
           >
             {/* Office Locations Tabs */}
             <div className="w-full">

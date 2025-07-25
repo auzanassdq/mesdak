@@ -14,7 +14,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer ref={ref} className="bg-gray-900 text-gray-300">
+    <footer ref={ref} className="bg-[#111111] text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -70,10 +70,10 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/companies" className="hover:text-white transition-colors">Group Companies</Link></li>
               <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link href="/resources" className="hover:text-white transition-colors">Resources</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/resources" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Our Reach</Link></li>
             </ul>
           </motion.div>
 
@@ -85,12 +85,10 @@ const Footer = () => {
           >
             <h3 className="text-lg font-semibold text-white mb-4">Our Services</h3>
             <ul className="space-y-2">
-              <li><Link href="/services/business-consulting" className="hover:text-white transition-colors">Business Consulting</Link></li>
-              <li><Link href="/services/financial-support" className="hover:text-white transition-colors">Financial Support</Link></li>
-              <li><Link href="/services/digital-transformation" className="hover:text-white transition-colors">Digital Transformation</Link></li>
-              <li><Link href="/services/market-access" className="hover:text-white transition-colors">Market Access</Link></li>
-              <li><Link href="/services/capacity-building" className="hover:text-white transition-colors">Capacity Building</Link></li>
-              <li><Link href="/services/networking" className="hover:text-white transition-colors">Networking</Link></li>
+              <li><Link href="/services/business-consulting" className="hover:text-white transition-colors">Strategic Management</Link></li>
+              <li><Link href="/services/financial-support" className="hover:text-white transition-colors">Research and Development</Link></li>
+              <li><Link href="/services/digital-transformation" className="hover:text-white transition-colors">MSME development consulting</Link></li>
+            
             </ul>
           </motion.div>
 

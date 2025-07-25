@@ -105,16 +105,17 @@ const LocationTabs: React.FC = () => {
   return (
     <div className="w-full">
       {/* Tabs */}
-      <div className="border-b border-gray-200">
+      <div className="border-b-4 border-black">
         <div className="flex overflow-x-auto hide-scrollbar">
           {locations.map((location) => (
             <button
               key={location.id}
               onClick={() => handleTabChange(location.id)}
-              className={`px-6 py-4 text-sm font-medium whitespace-nowrap ${activeTab === location.id
-                ? 'border-b-2 border-[#0D9244] text-[#0D9244]'
-                : 'text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
+              className={`px-6 py-4 text-sm font-bold whitespace-nowrap border-r-2 border-black last:border-r-0 ${
+                activeTab === location.id
+                  ? 'bg-primary text-white'
+                  : 'text-gray-900 hover:bg-gray-100'
+              }`}
             >
               {location.name}
             </button>
@@ -138,53 +139,53 @@ const LocationTabs: React.FC = () => {
             
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="bg-gradient-to-r from-[#0D9244] to-[#4DB97A] p-2 rounded-lg mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900">Address</h4>
+                  <h4 className="text-lg font-bold text-gray-900">Address</h4>
                   {activeLocation.address.map((line, index) => (
-                    <p key={index} className="text-gray-600">{line}</p>
+                    <p key={index} className="text-gray-700 font-medium">{line}</p>
                   ))}
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="bg-gradient-to-r from-[#0D9244] to-[#4DB97A] p-2 rounded-lg mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900">Phone</h4>
-                  <p className="text-gray-600">{activeLocation.phone}</p>
+                  <h4 className="text-lg font-bold text-gray-900">Phone</h4>
+                  <p className="text-gray-700 font-medium">{activeLocation.phone}</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="bg-gradient-to-r from-[#0D9244] to-[#4DB97A] p-2 rounded-lg mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900">Email</h4>
-                  <p className="text-gray-600">{activeLocation.email}</p>
+                  <h4 className="text-lg font-bold text-gray-900">Email</h4>
+                  <p className="text-gray-700 font-medium">{activeLocation.email}</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="bg-gradient-to-r from-[#0D9244] to-[#4DB97A] p-2 rounded-lg mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1">
                   <Clock className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900">Office Hours</h4>
-                  <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p className="text-gray-600">Saturday: 10:00 AM - 2:00 PM</p>
-                  <p className="text-gray-600">Sunday: Closed</p>
+                  <h4 className="text-lg font-bold text-gray-900">Office Hours</h4>
+                  <p className="text-gray-700 font-medium">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p className="text-gray-700 font-medium">Saturday: 10:00 AM - 2:00 PM</p>
+                  <p className="text-gray-700 font-medium">Sunday: Closed</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Map */}
-          <div className="h-96 overflow-hidden rounded-lg shadow-md">
+          <div className="h-96 overflow-hidden border-4 border-black">
             <iframe 
               src={activeLocation.mapEmbedUrl} 
               width="100%" 

@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 
 /* PP Neue Montreal Font Faces */
-@font-face {
+/* @font-face {
   font-family: 'PP Neue Montreal';
   src: url('/font/ppneuemontreal-thin.otf') format('opentype');
   font-weight: 100;
@@ -49,7 +50,7 @@
   font-weight: 600;
   font-style: italic;
   font-display: swap;
-}
+} */
 
 body {
   background: #f9f9f9
@@ -58,9 +59,20 @@ body {
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #0D9244;
-  --primary-dark: #0A7A38;
-  --primary-light: #4DB97A;
+  --primary-50: #f0fdf4;
+  --primary-100: #dcfce7;
+  --primary-200: #bbf7d0;
+  --primary-300: #86efac;
+  --primary-400: #4ade80;
+  --primary-500: #53B54B;
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
+  --primary-800: #166534;
+  --primary-900: #14532d;
+  --primary-950: #052e16;
+  --primary: #53B54B;
+  --primary-dark: #15803d;
+  --primary-light: #86efac;
   --secondary: #F5A623;
   --secondary-dark: #D68C1C;
   --secondary-light: #FFBE5C;
@@ -69,6 +81,17 @@ body {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light);

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, TrendingUp, Users, Award, ArrowRight, Globe, BarChart3, Lightbulb, DollarSign, Target, Briefcase, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 const GroupCompaniesPage = () => {
   const fadeInUp = {
@@ -18,6 +19,12 @@ const GroupCompaniesPage = () => {
         staggerChildren: 0.1
       }
     }
+  };
+
+  const slideInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
   };
 
   const companies = [
@@ -91,33 +98,68 @@ const GroupCompaniesPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary/5">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background Decorations */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary-light/5 rounded-full blur-3xl"></div>
+      <section className="relative h-[500px] overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/images/companies.jpg"
+          alt="Companies Hero"
+          className="w-full h-full object-cover absolute inset-0"
+          width={1200}
+          height={800}
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center max-w-4xl mx-auto"
+            >
+              <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                Group <span className="text-primary-light">Companies</span> 
+                {/* & <br /> */}
+                {/* <span className="text-primary"> Investments</span> */}
+              </h1>
+              <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+                Explore the diverse portfolio of companies within the MSME Group, each dedicated to fostering growth and innovation in the MSME sector.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-28 bg-white">
+        <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            viewport={{ once: true }}
+            className="max-w-4xl"
           >
-            <span className="inline-block px-6 py-3 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">
-              Our Portfolio
-            </span>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Group <span className="text-primary">Companies</span> & 
-              <span className="text-primary-dark"> Investments</span>
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Explore the diverse portfolio of companies within the MSME Group, each dedicated to fostering growth and innovation in the MSME sector.
-            </p>
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Portfolio</h2>
+              <div className="w-24 h-1 bg-primary mb-8"></div>
+            </div>
+            <div className="py-8 lg:py-2">
+              <p className="text-3xl text-black leading-relaxed text-justify font-medium">
+                <span className='bg-primary-400 inline p-2'>
+                  Our diversified portfolio spans across multiple sectors, creating a robust ecosystem
+                </span>
+                &nbsp; that supports MSME growth through integrated services and strategic partnerships, driving innovation and sustainable development.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
+
+ 
 
       {/* Portfolio Overview */}
       <section className="py-20 bg-white">
@@ -127,12 +169,12 @@ const GroupCompaniesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Investment Portfolio</h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Our diversified portfolio spans across multiple sectors, creating a robust ecosystem that supports MSME growth through integrated services and strategic partnerships.
+            <div className="w-24 h-1 bg-primary mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
+              Meet our portfolio companies, each playing a vital role in the MSME ecosystem.
             </p>
           </motion.div>
 
@@ -149,55 +191,35 @@ const GroupCompaniesPage = () => {
                 <motion.div
                   key={company.id}
                   variants={fadeInUp}
-                  className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer border-2 border-primary"
+                  className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white"
                 >
-                  <div className="flex items-start justify-between mb-6">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
-                      index === 0 ? 'bg-blue-100' :
-                      index === 1 ? 'bg-green-100' :
-                      index === 2 ? 'bg-purple-100' :
-                      index === 3 ? 'bg-orange-100' :
-                      index === 4 ? 'bg-red-100' :
-                      index === 5 ? 'bg-indigo-100' :
-                      'bg-pink-100'
-                    }`}>
-                      <IconComponent className={`w-8 h-8 ${
-                        index === 0 ? 'text-blue-600' :
-                        index === 1 ? 'text-green-600' :
-                        index === 2 ? 'text-purple-600' :
-                        index === 3 ? 'text-orange-600' :
-                        index === 4 ? 'text-red-600' :
-                        index === 5 ? 'text-indigo-600' :
-                        'text-pink-600'
-                      }`} />
-                    </div>
+                  <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                    <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{company.name}</h3>
-                  <p className="text-sm font-semibold text-primary mb-4">{company.tagline}</p>
-                  <p className="text-gray-700 leading-relaxed mb-6">{company.description}</p>
+                  <h3 className="text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors">{company.name}</h3>
+                  <p className="text-sm font-semibold text-primary group-hover:text-primary-light mb-4 transition-colors">{company.tagline}</p>
+                  <p className="leading-relaxed mb-6 text-lg font-medium group-hover:text-white text-black/80 transition-colors">{company.description}</p>
 
 
 
-                  <div className="mb-6">
-                    <div className="text-sm font-semibold text-gray-700 mb-2">Key Services:</div>
+                  {/* <div className="mb-6">
+                    <h4 className="text-sm font-bold mb-3 group-hover:text-white transition-colors">Services:</h4>
                     <div className="flex flex-wrap gap-2">
-                      {company.services.slice(0, 2).map((service, idx) => (
-                        <span key={idx} className="text-xs bg-white/70 text-gray-700 px-3 py-1 rounded-full">
+                      {company.services.map((service, serviceIndex) => (
+                        <span
+                          key={serviceIndex}
+                          className="px-3 py-2 bg-black text-white text-xs font-bold border-2 border-black group-hover:bg-white group-hover:text-black transition-colors"
+                        >
                           {service}
                         </span>
                       ))}
-                      {company.services.length > 2 && (
-                        <span className="text-xs bg-gray-200 text-gray-600 px-3 py-1 rounded-full">
-                          +{company.services.length - 2} more
-                        </span>
-                      )}
                     </div>
-                  </div>
+                  </div> */}
 
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-600">{company.sector}</span>
-                    <div className="flex items-center text-primary group-hover:text-primary-dark transition-colors">
+                  <div className="flex items-center justify-between text-sm font-bold">
+                    {/* <span className="group-hover:text-white transition-colors">Sector: {company.sector}</span> */}
+                    <div className="flex items-center text-primary group-hover:text-primary-light transition-colors">
                       <span className="text-sm font-semibold mr-2">Learn More</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -210,17 +232,17 @@ const GroupCompaniesPage = () => {
       </section>
 
       {/* Investment Highlights */}
-      <section className="py-20 bg-primary/50">
+      <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Investment Highlights</h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-primary mb-8"></div>
           </motion.div>
 
           <motion.div
@@ -230,42 +252,42 @@ const GroupCompaniesPage = () => {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
+              <div className="w-20 h-20 bg-primary border-2 border-black flex items-center justify-center mb-6">
                 <TrendingUp className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Consistent Growth</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed font-medium">
                 All portfolio companies demonstrate strong year-over-year growth and sustainable business models.
               </p>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
+              <div className="w-20 h-20 bg-secondary border-2 border-black flex items-center justify-center mb-6">
                 <Award className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Market Leadership</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed font-medium">
                 Each company holds a strong position in their respective sectors, with recognized expertise and market presence.
               </p>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
+              <div className="w-20 h-20 bg-primary border-2 border-black flex items-center justify-center mb-6">
                 <Users className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Synergistic Ecosystem</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed font-medium">
                 Companies work together to create comprehensive solutions, maximizing value for MSME clients across all touchpoints.
               </p>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
+              <div className="w-20 h-20 bg-secondary border-2 border-black flex items-center justify-center mb-6">
                 <Briefcase className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Diversified Portfolio</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed font-medium">
                 Strategic diversification across technology, finance, consulting, and media sectors ensures balanced risk and opportunity.
               </p>
             </motion.div>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const ServicesPage = () => {
@@ -74,30 +75,86 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-primary/5">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background Decorations */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary-light/5 rounded-full blur-3xl"></div>
+      <section className="relative h-[500px] overflow-hidden">
+        <Image
+          src="/images/services.jpg"
+          alt="Services Background"
+          width={1200}
+          height={800}
+          className="absolute inset-0 w-full h-full object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="relative z-10 h-full flex items-center">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl"
+            >
+              <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                Comprehensive <span className="text-primary">Solutions</span> for 
+                <span className="text-primary"> MSME Success</span>
+              </h1>
+              <p className="text-xl text-white leading-relaxed max-w-2xl">
+                We offer a range of services to help micro, small, and medium enterprises thrive and innovate.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-28 bg-white">
+        <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            viewport={{ once: true }}
+            className="max-w-4xl"
           >
-            <span className="inline-block px-6 py-3 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">
-              Our Services
-            </span>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Comprehensive <span className="text-primary">Solutions</span> for 
-              <span className="text-primary-dark"> MSME Success</span>
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              We offer a range of services to help micro, small, and medium enterprises thrive and innovate.
-            </p>
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
+              <div className="w-24 h-1 bg-primary mb-8"></div>
+            </div>
+            <div className="py-8 lg:py-2">
+              <p className="text-3xl text-black leading-relaxed text-justify font-medium">
+                <span className='bg-primary-400 inline p-2'>
+                  We provide comprehensive solutions designed to empower MSMEs
+                </span>
+                &nbsp; through strategic management, innovative research & development, and specialized consulting services that drive sustainable growth and digital transformation.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Parallax Section */}
+      <section className="relative h-[400px] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed grayscale"
+          style={{
+            backgroundImage: 'url(/images/building.jpg)',
+          }}
+        >
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center text-white px-6"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Empowering Business Excellence</h2>
           </motion.div>
         </div>
       </section>
@@ -132,14 +189,14 @@ const ServicesPage = () => {
                 >
                   {/* Service Content */}
                   <div className="flex-1">
-                    <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-all duration-300">
-                      <h3 className="text-3xl font-bold text-gray-900 mb-6">{service.title}</h3>
-                      <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                    <div className="bg-white border-4 border-black p-8 lg:p-12 hover:bg-primary hover:text-white transition-all duration-300 group">
+                      <h3 className="text-3xl font-bold mb-6 group-hover:text-white transition-colors">{service.title}</h3>
+                      <p className="text-lg leading-relaxed mb-8 font-medium group-hover:text-white transition-colors">
                         {service.description}
                       </p>
-                      <div className="flex items-center text-primary font-semibold">
+                      <div className="flex items-center text-primary group-hover:text-primary-light font-bold transition-colors">
                         <span>Learn More</span>
-                        <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
@@ -148,21 +205,16 @@ const ServicesPage = () => {
 
                   {/* Service Image */}
                   <div className="flex-1">
-                    <div className="relative">
-                      <div className="w-full h-80 bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-3xl flex items-center justify-center">
-                        {/* Placeholder for service images */}
-                        <div className="text-center">
-                          <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                            <svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                            </svg>
-                          </div>
-                          <p className="text-gray-600 font-medium">{service.title}</p>
+                    <div className="w-full h-80 bg-gray-100 border-4 border-black flex items-center justify-center">
+                      {/* Placeholder for service images */}
+                      <div className="text-center">
+                        <div className="w-20 h-20 bg-primary border-2 border-black flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
                         </div>
+                        <p className="text-gray-900 font-bold text-lg">{service.title}</p>
                       </div>
-                      {/* Decorative elements */}
-                      <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full"></div>
-                      <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-light/10 rounded-full"></div>
                     </div>
                   </div>
                 </motion.div>
@@ -173,7 +225,7 @@ const ServicesPage = () => {
       ))}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-dark">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -185,13 +237,13 @@ const ServicesPage = () => {
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl text-primary-light mb-8 leading-relaxed">
+            <p className="text-xl text-white mb-8 leading-relaxed">
               Let&apos;s work together to unlock your MSME&apos;s full potential with our comprehensive services and expert guidance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/contact" 
-                className="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-8 py-4 bg-white text-primary font-bold border-4 border-black transition-all duration-300 hover:bg-black hover:text-white"
               >
                 Get Started Today
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +252,7 @@ const ServicesPage = () => {
               </a>
               <a 
                 href="/about" 
-                className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white hover:text-blue-600"
+                className="inline-flex items-center px-8 py-4 bg-black text-white font-bold border-4 border-black transition-all duration-300 hover:bg-white hover:text-black"
               >
                 Learn More About Us
               </a>

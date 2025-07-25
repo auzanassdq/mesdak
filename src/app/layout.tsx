@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Host_Grotesk} from "next/font/google";
+import { Geist_Mono, Host_Grotesk, Sansation } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,6 +11,12 @@ const geistMono = Geist_Mono({
 
 const hostGrotesk = Host_Grotesk({
   variable: "--font-host-grotesk",
+  subsets: ["latin"],
+});
+
+const sansation = Sansation({
+  weight: ["300", "400", "700"],
+  variable: "--font-sansation",
   subsets: ["latin"],
 });
 
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${hostGrotesk.variable} ${geistMono.variable} antialiased`}
+        className={`${sansation.className} ${sansation.variable} antialiased`}
       >
         <Navbar />
         {children}
