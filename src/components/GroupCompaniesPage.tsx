@@ -285,7 +285,7 @@ Each delivers specialized expertise, united in a seamless mission: empowering MS
                  <div className="bg-primary-dark group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-4 transition-colors">
                    <Users className="w-8 h-8 text-white group-hover:text-primary-dark transition-colors" />
                  </div>
-                 <h3 className="text-xl font-bold text-gray-900  transition-colors">MSME Development Consulting</h3>
+                 <h3 className="text-xl font-bold text-gray-900  transition-colors">Consulting</h3>
                </motion.div>
              </div>
             

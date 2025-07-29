@@ -184,23 +184,14 @@ const ServicesPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white transition-all duration-300 group"
+              className="bg-white border-4 border-black p-12 hover:bg-primary hover:text-white transition-all duration-300 group text-center"
             >
-              <div className="bg-primary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors">
-                <svg className="w-8 h-8 text-white group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-primary group-hover:bg-white w-20 h-20 flex items-center justify-center mx-auto mb-8 transition-colors">
+                <svg className="w-10 h-10 text-white group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors mb-4">Strategic Management</h3>
-              <p className="text-gray-600 group-hover:text-white transition-colors mb-6">
-                Comprehensive strategic planning and organizational development to optimize business performance and achieve long-term goals.
-              </p>
-              <ul className="text-sm text-gray-500 group-hover:text-gray-200 transition-colors space-y-2">
-                <li>• Strategic Planning & Vision Development</li>
-                <li>• Organizational Restructuring</li>
-                <li>• Performance Management Systems</li>
-                <li>• Leadership Development</li>
-              </ul>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors">Strategic Management</h3>
             </motion.div>
             
             <motion.div
@@ -208,23 +199,14 @@ const ServicesPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white border-4 border-black p-8 hover:bg-secondary hover:text-white transition-all duration-300 group"
+              className="bg-white border-4 border-black p-12 hover:bg-secondary hover:text-white transition-all duration-300 group text-center"
             >
-              <div className="bg-secondary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors">
-                <svg className="w-8 h-8 text-white group-hover:text-secondary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-secondary group-hover:bg-white w-20 h-20 flex items-center justify-center mx-auto mb-8 transition-colors">
+                <svg className="w-10 h-10 text-white group-hover:text-secondary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors mb-4">Research & Development</h3>
-              <p className="text-gray-600 group-hover:text-white transition-colors mb-6">
-                Innovation-driven research and development services to help businesses stay competitive and create breakthrough solutions.
-              </p>
-              <ul className="text-sm text-gray-500 group-hover:text-gray-200 transition-colors space-y-2">
-                <li>• Market Research & Analysis</li>
-                <li>• Product Development & Innovation</li>
-                <li>• Technology Assessment</li>
-                <li>• Competitive Intelligence</li>
-              </ul>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors">Research & Development</h3>
             </motion.div>
             
             <motion.div
@@ -232,23 +214,14 @@ const ServicesPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-white border-4 border-black p-8 hover:bg-primary-dark hover:text-white transition-all duration-300 group"
+              className="bg-white border-4 border-black p-12 hover:bg-primary-dark hover:text-white transition-all duration-300 group text-center"
             >
-              <div className="bg-primary-dark group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors">
-                <svg className="w-8 h-8 text-white group-hover:text-primary-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-primary-dark group-hover:bg-white w-20 h-20 flex items-center justify-center mx-auto mb-8 transition-colors">
+                <svg className="w-10 h-10 text-white group-hover:text-primary-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors mb-4">MSME Development Consulting</h3>
-              <p className="text-gray-600 group-hover:text-white transition-colors mb-6">
-                Specialized consulting services tailored for micro, small, and medium enterprises to accelerate growth and sustainability.
-              </p>
-              <ul className="text-sm text-gray-500 group-hover:text-gray-200 transition-colors space-y-2">
-                <li>• Financial Planning & Management</li>
-                <li>• Operational Efficiency Optimization</li>
-                <li>• Digital Transformation</li>
-                <li>• Capacity Building & Training</li>
-              </ul>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors">Consulting</h3>
             </motion.div>
           </div>
         </div>
