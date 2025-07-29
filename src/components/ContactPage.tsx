@@ -85,7 +85,7 @@ const ContactPage = () => {
               className="max-w-4xl"
             >
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                Get in <span className="text-primary">Touch</span> with our
+                Get in <span className="text-primary-light">Touch</span>
               </h1>
               {/* <p className="text-xl text-white leading-relaxed max-w-2xl">
                 We are here to help your MSME business grow. Reach out to our expert team for consultation and solutions.

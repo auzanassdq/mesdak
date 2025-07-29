@@ -4,6 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, TrendingUp, Users, Award, ArrowRight, Globe, BarChart3, Lightbulb, DollarSign, Target, Briefcase, Zap } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 const GroupCompaniesPage = () => {
   const fadeInUp = {
@@ -110,7 +112,7 @@ const GroupCompaniesPage = () => {
           height={800}
         />
         <div className="absolute inset-0 bg-black/60"></div>
-        
+
         {/* Content */}
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="container mx-auto px-6">
@@ -121,13 +123,11 @@ const GroupCompaniesPage = () => {
               className="text-center max-w-4xl mx-auto"
             >
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                Group <span className="text-primary-light">Companies</span> 
+                Group <span className="text-primary-light">Companies</span>
                 {/* & <br /> */}
                 {/* <span className="text-primary"> Investments</span> */}
               </h1>
-              <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-                Explore the diverse portfolio of companies within the MSME Group, each dedicated to fostering growth and innovation in the MSME sector.
-              </p>
+
             </motion.div>
           </div>
         </div>
@@ -143,38 +143,39 @@ const GroupCompaniesPage = () => {
             viewport={{ once: true }}
             className="max-w-4xl"
           >
-            <div className="mb-12">
+            {/* <div className="mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Portfolio</h2>
               <div className="w-24 h-1 bg-primary mb-8"></div>
-            </div>
+            </div> */}
             <div className="py-8 lg:py-2">
               <p className="text-3xl text-black leading-relaxed text-justify font-medium">
                 <span className='bg-primary-400 inline p-2'>
-                  Our diversified portfolio spans across multiple sectors, creating a robust ecosystem
+                  Explore the diverse portfolio of companies within the MSME Group,
                 </span>
-                &nbsp; that supports MSME growth through integrated services and strategic partnerships, driving innovation and sustainable development.
+                each dedicated to fostering growth and innovation in the MSME sector.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
- 
+
 
       {/* Portfolio Overview */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+      <section className="pb-28 bg-white">
+        <div className="container mx-auto px-6 ">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-16 mx-auto text-center"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Investment Portfolio</h2>
-            <div className="w-24 h-1 bg-primary mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-              Meet our portfolio companies, each playing a vital role in the MSME ecosystem.
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Group Companies</h2>
+            <div className="w-24 h-1 bg-primary mb-8 mx-auto"></div>
+            <p className="text-xl text-gray-600 max-w-3xl leading-relaxed mx-auto">
+              One Precision Engine
+Each delivers specialized expertise, united in a seamless mission: empowering MSMEs, Financial Institutions, and Governments with innovative digital solutions to unlock hidden potential and drive socio-economic growth
             </p>
           </motion.div>
 
@@ -183,7 +184,7 @@ const GroupCompaniesPage = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8"
+            className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8"
           >
             {companies.map((company, index) => {
               const IconComponent = company.icon;
@@ -191,15 +192,15 @@ const GroupCompaniesPage = () => {
                 <motion.div
                   key={company.id}
                   variants={fadeInUp}
-                  className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white"
+                  className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full"
                 >
                   <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
                     <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                   </div>
 
-                  <h3 className="text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors">{company.name}</h3>
-                  <p className="text-sm font-semibold text-primary group-hover:text-primary-light mb-4 transition-colors">{company.tagline}</p>
-                  <p className="leading-relaxed mb-6 text-lg font-medium group-hover:text-white text-black/80 transition-colors">{company.description}</p>
+                  <h3 className="text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
+                  {/* <p className="text-sm font-semibold text-primary group-hover:text-primary-light mb-4 transition-colors">{company.tagline}</p> */}
+                  {/* <p className="leading-relaxed mb-6 text-lg font-medium group-hover:text-white text-black/80 transition-colors">{company.description}</p> */}
 
 
 
@@ -217,7 +218,7 @@ const GroupCompaniesPage = () => {
                     </div>
                   </div> */}
 
-                  <div className="flex items-center justify-between text-sm font-bold">
+                  <div className="flex items-center justify-between text-sm font-bold mt-auto">
                     {/* <span className="group-hover:text-white transition-colors">Sector: {company.sector}</span> */}
                     <div className="flex items-center text-primary group-hover:text-primary-light transition-colors">
                       <span className="text-sm font-semibold mr-2">Learn More</span>
@@ -231,104 +232,85 @@ const GroupCompaniesPage = () => {
         </div>
       </section>
 
-      {/* Investment Highlights */}
-      <section className="py-20 bg-gray-100">
+      {/* Services Section */}
+      <section className="py-20 bg-gray-200">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="text-center"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Investment Highlights</h2>
-            <div className="w-24 h-1 bg-primary mb-8"></div>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
-              <div className="w-20 h-20 bg-primary border-2 border-black flex items-center justify-center mb-6">
-                <TrendingUp className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Consistent Growth</h3>
-              <p className="text-gray-700 leading-relaxed font-medium">
-                All portfolio companies demonstrate strong year-over-year growth and sustainable business models.
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
-              <div className="w-20 h-20 bg-secondary border-2 border-black flex items-center justify-center mb-6">
-                <Award className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Market Leadership</h3>
-              <p className="text-gray-700 leading-relaxed font-medium">
-                Each company holds a strong position in their respective sectors, with recognized expertise and market presence.
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
-              <div className="w-20 h-20 bg-primary border-2 border-black flex items-center justify-center mb-6">
-                <Users className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Synergistic Ecosystem</h3>
-              <p className="text-gray-700 leading-relaxed font-medium">
-                Companies work together to create comprehensive solutions, maximizing value for MSME clients across all touchpoints.
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="bg-white border-4 border-black p-8">
-              <div className="w-20 h-20 bg-secondary border-2 border-black flex items-center justify-center mb-6">
-                <Briefcase className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Diversified Portfolio</h3>
-              <p className="text-gray-700 leading-relaxed font-medium">
-                Strategic diversification across technology, finance, consulting, and media sectors ensures balanced risk and opportunity.
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      {/* <section className="py-20 bg-gradient-to-r from-primary to-primary-dark">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Interested in Our Portfolio?
-            </h2>
-            <p className="text-xl text-primary-light mb-8 leading-relaxed">
-              Discover investment opportunities and partnership possibilities within our growing ecosystem of MSME-focused companies.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
-                className="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Contact Our Investment Team
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-              <a 
-                href="/about" 
-                className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white hover:text-primary"
-              >
-                Learn About MSME Group
-              </a>
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
+              <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             </div>
+            
+            {/* Visual Elements */}
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+               <motion.div
+                 initial={{ opacity: 0, scale: 0.8 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ duration: 0.6, delay: 0.1 }}
+                 viewport={{ once: true }}
+                 className="bg-white border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 group"
+               >
+                 <div className="bg-primary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-4 transition-colors">
+                   <Target className="w-8 h-8 text-white group-hover:text-primary transition-colors" />
+                 </div>
+                 <h3 className="text-xl font-bold text-gray-900  transition-colors">Strategic Management</h3>
+               </motion.div>
+               
+               <motion.div
+                 initial={{ opacity: 0, scale: 0.8 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ duration: 0.6, delay: 0.2 }}
+                 viewport={{ once: true }}
+                 className="bg-white border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 group"
+               >
+                 <div className="bg-secondary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-4 transition-colors">
+                   <Lightbulb className="w-8 h-8 text-white group-hover:text-secondary transition-colors" />
+                 </div>
+                 <h3 className="text-xl font-bold text-gray-900  transition-colors">Research & Development</h3>
+               </motion.div>
+               
+               <motion.div
+                 initial={{ opacity: 0, scale: 0.8 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ duration: 0.6, delay: 0.3 }}
+                 viewport={{ once: true }}
+                 className="bg-white border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 group"
+               >
+                 <div className="bg-primary-dark group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-4 transition-colors">
+                   <Users className="w-8 h-8 text-white group-hover:text-primary-dark transition-colors" />
+                 </div>
+                 <h3 className="text-xl font-bold text-gray-900  transition-colors">MSME Development Consulting</h3>
+               </motion.div>
+             </div>
+            
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Link href="/careers">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                >
+                  Learn more
+                  <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>   
     </div>
   );
 };

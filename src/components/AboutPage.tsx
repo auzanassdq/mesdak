@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import Link from 'next/link';
+import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,7 +132,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[600px] overflow-hidden">
+      <section className="relative h-[500px] overflow-hidden">
         {/* Background Image */}
         <Image
           src="/images/about.jpg"
@@ -154,8 +156,7 @@ const AboutPage = () => {
                 ABOUT INNOVATE MSME
               </span> */}
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                Empowering <span className="">MSMEs</span> for <br />
-                <span className="-light"> Digital Success</span>
+                About <span className="text-primary-light">Us</span>
               </h1>
             </motion.div>
           </div>
@@ -196,10 +197,10 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="max-w-4xl"
           >
-            <div className=" mb-12">
+            {/* <div className=" mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">About Us</h2>
               <div className="w-24 h-1 bg-primary mb-8"></div>
-            </div>
+            </div> */}
             <div className="py-8 lg:py-2">
               <p className="text-3xl text-black leading-relaxed text-justify font-medium">
                 <span className='bg-primary-400 inline p-2'>
@@ -243,7 +244,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center text-white px-6"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Building the Future</h2>
+            {/* <h2 className="text-4xl md:text-5xl font-bold mb-4">Building the Future</h2> */}
             {/* <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
               Empowering MSMEs with innovative solutions and strategic guidance
             </p> */}
@@ -274,6 +275,11 @@ const AboutPage = () => {
                   }`}>
                   <h3 className={`text-xl font-bold transition-colors ${currentSection === 'action' ? 'text-primary-400' : 'text-gray-400'
                     }`}>ACTION</h3>
+                </div>
+                                <div className={`p-4 border-l-4 transition-all duration-300 ${currentSection === 'action' ? 'border-primary-400 bg-primary-500/10' : 'border-gray-600 bg-gray-800/20'
+                  }`}>
+                  <h3 className={`text-xl font-bold transition-colors ${currentSection === 'action' ? 'text-primary-400' : 'text-gray-400'
+                    }`}>OUR BOARD</h3>
                 </div>
 
                 {/* <div className={`p-4 border-l-4 transition-all duration-300 ${currentSection === 'vision' ? 'border-blue-400 bg-blue-500/10' : 'border-gray-600 bg-gray-800/20'
@@ -395,7 +401,7 @@ const AboutPage = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold mb-4">EXECUTIVE</h3>
+              <h3 className="text-3xl font-bold mb-4">EXECUTIVE BOARD</h3>
               <p className="leading-relaxed text-lg mb-4 font-medium">
                 Strategic leadership and organizational direction.
               </p>
@@ -415,7 +421,7 @@ const AboutPage = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold mb-4">SUPERVISORY</h3>
+              <h3 className="text-3xl font-bold mb-4">SUPERVISORY BOARD</h3>
               <p className="leading-relaxed text-lg mb-4 font-medium">
                 Governance, compliance, and strategic oversight.
               </p>
@@ -435,7 +441,7 @@ const AboutPage = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold mb-4">ADVISORY</h3>
+              <h3 className="text-3xl font-bold mb-4">ADVISORY BOARD</h3>
               <p className="leading-relaxed text-lg mb-4 font-medium">
                 Expert guidance and industry insights.
               </p>
@@ -491,42 +497,46 @@ const AboutPage = () => {
         </div>
       )}
 
-      {/* CTA Section */}
-      {/* <section className="py-20 bg-gradient-to-r from-primary to-primary-dark">
+      {/* Group Companies Section */}
+      <section className="py-20 bg-gray-200">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Transform Your MSME?
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Our Group Companies
             </h2>
-            <p className="text-xl text-primary-light mb-8 leading-relaxed">
-              Join thousands of successful MSMEs who have partnered with us to achieve sustainable growth and digital transformation.
+            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+              Discover our diverse portfolio of companies working together to empower MSMEs
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
-                className="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Get Started Today
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a 
-                href="/services" 
-                className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white hover:text-primary"
-              >
-                Explore Our Services
-              </a>
-            </div>
+            
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Link href="/careers">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                >
+                  Learn more
+                  <CaretRightIcon  className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };

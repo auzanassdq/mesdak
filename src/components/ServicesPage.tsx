@@ -2,6 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 const ServicesPage = () => {
   const fadeInUp = {
@@ -97,12 +100,8 @@ const ServicesPage = () => {
               className="max-w-4xl"
             >
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                Comprehensive <span className="text-primary">Solutions</span> for 
-                <span className="text-primary"> MSME Success</span>
+                Our <span className="text-primary-light">Services</span>
               </h1>
-              <p className="text-xl text-white leading-relaxed max-w-2xl">
-                We offer a range of services to help micro, small, and medium enterprises thrive and innovate.
-              </p>
             </motion.div>
           </div>
         </div>
@@ -118,16 +117,16 @@ const ServicesPage = () => {
             viewport={{ once: true }}
             className="max-w-4xl"
           >
-            <div className="mb-12">
+            {/* <div className="mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
               <div className="w-24 h-1 bg-primary mb-8"></div>
-            </div>
+            </div> */}
             <div className="py-8 lg:py-2">
               <p className="text-3xl text-black leading-relaxed text-justify font-medium">
                 <span className='bg-primary-400 inline p-2'>
-                  We provide comprehensive solutions designed to empower MSMEs
+                  We offer a range of services
                 </span>
-                &nbsp; through strategic management, innovative research & development, and specialized consulting services that drive sustainable growth and digital transformation.
+                to help micro, small, and medium enterprise (MSMEs) thrive and innovate.
               </p>
             </div>
           </motion.div>
@@ -154,112 +153,148 @@ const ServicesPage = () => {
             viewport={{ once: true }}
             className="text-center text-white px-6"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Empowering Business Excellence</h2>
+            {/* <h2 className="text-4xl md:text-5xl font-bold mb-4">Empowering Business Excellence</h2> */}
           </motion.div>
         </div>
       </section>
 
       {/* Services Sections */}
-      {services.map((serviceCategory, categoryIndex) => (
-        <section key={serviceCategory.id} className={`py-20 ${categoryIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
-          <div className="container mx-auto px-6">
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              Our Services
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8"></div>
+            {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive solutions designed to empower MSMEs and drive sustainable growth.
+            </p> */}
+          </motion.div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white transition-all duration-300 group"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">{serviceCategory.category}</h2>
-              <div className="w-24 h-1 bg-primary mx-auto"></div>
+              <div className="bg-primary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors">
+                <svg className="w-8 h-8 text-white group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors mb-4">Strategic Management</h3>
+              <p className="text-gray-600 group-hover:text-white transition-colors mb-6">
+                Comprehensive strategic planning and organizational development to optimize business performance and achieve long-term goals.
+              </p>
+              <ul className="text-sm text-gray-500 group-hover:text-gray-200 transition-colors space-y-2">
+                <li>• Strategic Planning & Vision Development</li>
+                <li>• Organizational Restructuring</li>
+                <li>• Performance Management Systems</li>
+                <li>• Leadership Development</li>
+              </ul>
             </motion.div>
-
-            <motion.div 
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="animate"
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="space-y-16"
+              className="bg-white border-4 border-black p-8 hover:bg-secondary hover:text-white transition-all duration-300 group"
             >
-              {serviceCategory.items.map((service, index) => (
-                <motion.div 
-                  key={index}
-                  variants={fadeInUp}
-                  className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-                >
-                  {/* Service Content */}
-                  <div className="flex-1">
-                    <div className="bg-white border-4 border-black p-8 lg:p-12 hover:bg-primary hover:text-white transition-all duration-300 group">
-                      <h3 className="text-3xl font-bold mb-6 group-hover:text-white transition-colors">{service.title}</h3>
-                      <p className="text-lg leading-relaxed mb-8 font-medium group-hover:text-white transition-colors">
-                        {service.description}
-                      </p>
-                      <div className="flex items-center text-primary group-hover:text-primary-light font-bold transition-colors">
-                        <span>Learn More</span>
-                        <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Service Image */}
-                  <div className="flex-1">
-                    <div className="w-full h-80 bg-gray-100 border-4 border-black flex items-center justify-center">
-                      {/* Placeholder for service images */}
-                      <div className="text-center">
-                        <div className="w-20 h-20 bg-primary border-2 border-black flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                          </svg>
-                        </div>
-                        <p className="text-gray-900 font-bold text-lg">{service.title}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="bg-secondary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors">
+                <svg className="w-8 h-8 text-white group-hover:text-secondary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors mb-4">Research & Development</h3>
+              <p className="text-gray-600 group-hover:text-white transition-colors mb-6">
+                Innovation-driven research and development services to help businesses stay competitive and create breakthrough solutions.
+              </p>
+              <ul className="text-sm text-gray-500 group-hover:text-gray-200 transition-colors space-y-2">
+                <li>• Market Research & Analysis</li>
+                <li>• Product Development & Innovation</li>
+                <li>• Technology Assessment</li>
+                <li>• Competitive Intelligence</li>
+              </ul>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white border-4 border-black p-8 hover:bg-primary-dark hover:text-white transition-all duration-300 group"
+            >
+              <div className="bg-primary-dark group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-6 transition-colors">
+                <svg className="w-8 h-8 text-white group-hover:text-primary-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors mb-4">MSME Development Consulting</h3>
+              <p className="text-gray-600 group-hover:text-white transition-colors mb-6">
+                Specialized consulting services tailored for micro, small, and medium enterprises to accelerate growth and sustainability.
+              </p>
+              <ul className="text-sm text-gray-500 group-hover:text-gray-200 transition-colors space-y-2">
+                <li>• Financial Planning & Management</li>
+                <li>• Operational Efficiency Optimization</li>
+                <li>• Digital Transformation</li>
+                <li>• Capacity Building & Training</li>
+              </ul>
             </motion.div>
           </div>
-        </section>
-      ))}
-
-      {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h2 className="text-4xl font-bold text-white mb-6">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-xl text-white mb-8 leading-relaxed">
-              Let&apos;s work together to unlock your MSME&apos;s full potential with our comprehensive services and expert guidance.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
-                className="inline-flex items-center px-8 py-4 bg-white text-primary font-bold border-4 border-black transition-all duration-300 hover:bg-black hover:text-white"
-              >
-                Get Started Today
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a 
-                href="/about" 
-                className="inline-flex items-center px-8 py-4 bg-black text-white font-bold border-4 border-black transition-all duration-300 hover:bg-white hover:text-black"
-              >
-                Learn More About Us
-              </a>
-            </div>
-          </motion.div>
         </div>
       </section>
+
+      {/* Careers Section */}
+      <section className="py-20 bg-gray-200">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              Join Our Team
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Be part of our mission to empower MSMEs and drive economic growth across the globe.
+            </p>
+          </motion.div>
+
+        <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Link href="/careers">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                >
+                  Explore Careers
+                  <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };

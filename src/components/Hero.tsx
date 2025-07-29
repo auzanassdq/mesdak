@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 // import { Twitter, Facebook, Linkedin, XIcon } from 'lucide-react';
-import {XLogoIcon, FacebookLogoIcon, LinkedinLogoIcon} from '@phosphor-icons/react';
+import { XLogoIcon, FacebookLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react';
+import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
 const Hero = () => {
@@ -36,7 +37,7 @@ const Hero = () => {
   useEffect(() => {
     // GSAP Timeline Animation
     const tl = gsap.timeline({ delay: 0.5 });
-    
+
     // Set initial states
     gsap.set('.hero-leading', { opacity: 0, y: 50 });
     gsap.set('.hero-switching', { opacity: 0, y: 50 });
@@ -45,7 +46,7 @@ const Hero = () => {
     gsap.set('.hero-description', { opacity: 0, y: 30 });
     gsap.set('.hero-buttons', { opacity: 0, y: 30 });
 
-    
+
     // Animation sequence
     tl.to('.hero-leading', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
       .to('.hero-switching', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
@@ -53,14 +54,14 @@ const Hero = () => {
       .to('.hero-sustainable', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
       .to('.hero-description', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.2')
       .to('.hero-buttons', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.2')
-      .to(".bg-reveal", { 
-        y: '100%', 
-        duration: 1.2, 
+      .to(".bg-reveal", {
+        y: '100%',
+        duration: 1.2,
         ease: 'power2.inOut',
         onComplete: () => setAnimationComplete(true)
       }, '>')
 
-      
+
     return () => {
       tl.kill();
     };
@@ -113,31 +114,33 @@ const Hero = () => {
       </div>
 
       {/* Logo Collection - positioned at bottom */}
-       <div className="absolute bottom-20 left-8 z-15">
-         <div className="flex flex-col gap-2">
-           <img src="/logo/blue.png" alt="Blue Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-           <img src="/logo/teal.png" alt="Teal Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-           <img src="/logo/green.png" alt="Green Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-           <img src="/logo/orange.png" alt="Orange Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-           <img src="/logo/brown.png" alt="Brown Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-           <img src="/logo/indigo.png" alt="Indigo Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-           
-           {/* Social Media Icons */}
-           <div className="mt-2 pt-2 border-t border-white/20">
-             <div className="flex flex-col gap-2">
-               <XLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-400 transition-all cursor-pointer" />
-               <FacebookLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-600 transition-all cursor-pointer" />
-               <LinkedinLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-500 transition-all cursor-pointer" />
-             </div>
-           </div>
-         </div>
-       </div>
+      <div className="absolute bottom-6 z-15 container mx-auto px-8">
+        <div className="flex justify-between">
+          <div className='flex gap-2'>
+            <img src="/logo/blue.png" alt="Blue Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/logo/teal.png" alt="Teal Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/logo/green.png" alt="Green Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/logo/orange.png" alt="Orange Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/logo/brown.png" alt="Brown Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/logo/indigo.png" alt="Indigo Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+
+          {/* Social Media Icons */}
+
+          <div className="flex gap-2">
+            <XLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-400 transition-all cursor-pointer" />
+            <FacebookLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-600 transition-all cursor-pointer" />
+            <LinkedinLogoIcon className="h-5 w-5 text-white opacity-80 hover:opacity-100 hover:text-blue-500 transition-all cursor-pointer" />
+          </div>
+
+        </div>
+      </div>
 
       {/* Full Screen Background Overlay */}
-      <div 
+      <div
         // ref={backgroundRef}
         className="bg-reveal absolute inset-0 w-full h-full z-20 "
-        style={{background: "#111111"}}
+        style={{ background: "#111111" }}
       >
       </div>
 
@@ -159,8 +162,8 @@ const Hero = () => {
               </motion.span>
             </AnimatePresence>
           </span><br />
-          <span className="hero-towards inline-block text-5xl">Towards</span> <br /> 
-          <span className="hero-sustainable text-primary inline-block">Sustainable Development</span>
+          <span className="hero-towards inline-block text-5xl">Towards</span> <br />
+          <span className="hero-sustainable text-5xl text-primary inline-block">Sustainable Development</span>
         </h1>
 
         <div className="hero-description">
@@ -197,10 +200,9 @@ const Hero = () => {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-25"
       >
         <div className="flex flex-col items-center text-white">
-          {/* <span className="text-sm mb-2 opacity-75">Scroll Down</span> */}
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
+            // animate={{ y: [0, 10, 0] }}
+            // transition={{ repeat: Infinity, duration: 2 }}
             className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
           >
             <motion.div
@@ -210,6 +212,14 @@ const Hero = () => {
             />
           </motion.div>
         </div>
+        {/* panah arah ke bawah */}
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+          className="mt-2"
+        >
+          <ChevronDown className="w-6 h-6 text-white" />
+        </motion.div>
       </motion.div>
     </section>
   );
