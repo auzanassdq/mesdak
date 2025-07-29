@@ -500,7 +500,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Link href="/careers">
+                <Link href="/companies">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
