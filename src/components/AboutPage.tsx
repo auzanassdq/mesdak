@@ -19,7 +19,7 @@ const AboutPage = () => {
   useEffect(() => {
     if (!sectionRef.current || !containerRef.current) return;
 
-    const sections = ['vision', 'mission', 'action'];
+    const sections = ['vision', 'mission', 'action', 'our board'];
     let currentIndex = 0;
 
     // Create ScrollTrigger for pinning the section with smooth scrolling
@@ -38,12 +38,14 @@ const AboutPage = () => {
         // Calculate which section should be active with smoother transitions
         // Add buffer zones for smoother transitions
         let newIndex;
-        if (progress < 0.25) {
+        if (progress < 0.15) {
           newIndex = 0; // vision
         } else if (progress < 0.65) {
           newIndex = 1; // mission
-        } else {
+        } else if (progress < 0.95) {
           newIndex = 2; // action
+        } else {
+          newIndex = 3; // board
         }
 
         if (newIndex !== currentIndex) {
@@ -58,12 +60,6 @@ const AboutPage = () => {
     };
   }, []);
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
   const staggerContainer = {
     animate: {
       transition: {
@@ -72,30 +68,12 @@ const AboutPage = () => {
     }
   };
 
-  const slideInLeft = {
-    initial: { opacity: 0, x: -60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
-
-  const slideInRight = {
-    initial: { opacity: 0, x: 60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
 
   const slideInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.8, ease: "easeOut" }
   };
-
-  const stats = [
-    { number: '500+', label: 'MSMEs Empowered' },
-    { number: '50+', label: 'Digital Solutions' },
-    { number: '25+', label: 'Countries Reached' },
-    { number: '98%', label: 'Client Satisfaction' }
-  ];
 
   const [selectedBoard, setSelectedBoard] = useState<string | null>(null);
 
@@ -276,9 +254,9 @@ const AboutPage = () => {
                   <h3 className={`text-xl font-bold transition-colors ${currentSection === 'action' ? 'text-primary-400' : 'text-gray-400'
                     }`}>ACTION</h3>
                 </div>
-                                <div className={`p-4 border-l-4 transition-all duration-300 ${currentSection === 'action' ? 'border-primary-400 bg-primary-500/10' : 'border-gray-600 bg-gray-800/20'
+                <div className={`p-4 border-l-4 transition-all duration-300 ${currentSection === 'our board' ? 'border-primary-400 bg-primary-500/10' : 'border-gray-600 bg-gray-800/20'
                   }`}>
-                  <h3 className={`text-xl font-bold transition-colors ${currentSection === 'action' ? 'text-primary-400' : 'text-gray-400'
+                  <h3 className={`text-xl font-bold transition-colors ${currentSection === 'our board' ? 'text-primary-400' : 'text-gray-400'
                     }`}>OUR BOARD</h3>
                 </div>
 
@@ -514,26 +492,26 @@ const AboutPage = () => {
             <p className="text-xl text-gray-600 mb-12 leading-relaxed">
               Discover our diverse portfolio of companies working together to empower MSMEs
             </p>
-            
-          <div className="text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Link href="/careers">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
-                >
-                  Learn more
-                  <CaretRightIcon  className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                </motion.button>
-              </Link>
-            </motion.div>
-          </div>
+
+            <div className="text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Link href="/careers">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                  >
+                    Learn more
+                    <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                  </motion.button>
+                </Link>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
