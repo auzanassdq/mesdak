@@ -179,7 +179,7 @@ const CareersPage: React.FC = () => {
               Unleash Your Ideas, Build a Better Tomorrow
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              We're committed to fostering a collaborative environment where your expertise can drive meaningful change in the MSME landscape.
+              We&apos;re committed to fostering a collaborative environment where your expertise can drive meaningful change in the MSME landscape.
             </p>
           </motion.div>
 
