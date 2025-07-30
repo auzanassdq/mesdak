@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 import { XLogoIcon, FacebookLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react';
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -173,7 +174,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="hero-buttons flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="hero-buttons flex flex-col sm:flex-row gap-6 justify-center items-center relative">
           {/* <Link
             href="/services"
             className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
@@ -187,13 +188,32 @@ const Hero = () => {
           >
             Learn More
           </Link> */}
+          <div className="text-center absolute bottom-[-100px]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Link href="/about">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                >
+                  About Us
+                  <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
 
 
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: animationComplete ? 1 : 0 }}
         transition={{ duration: 1, delay: animationComplete ? 0.5 : 0 }}
@@ -201,8 +221,6 @@ const Hero = () => {
       >
         <div className="flex flex-col items-center text-white">
           <motion.div
-            // animate={{ y: [0, 10, 0] }}
-            // transition={{ repeat: Infinity, duration: 2 }}
             className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
           >
             <motion.div
@@ -212,7 +230,6 @@ const Hero = () => {
             />
           </motion.div>
         </div>
-        {/* panah arah ke bawah */}
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
@@ -220,7 +237,9 @@ const Hero = () => {
         >
           <ChevronDown className="w-6 h-6 text-white" />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
+
+
     </section>
   );
 };

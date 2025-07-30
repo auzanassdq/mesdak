@@ -107,57 +107,6 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-28 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl"
-          >
-            {/* <div className="mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
-              <div className="w-24 h-1 bg-primary mb-8"></div>
-            </div> */}
-            <div className="py-8 lg:py-2">
-              <p className="text-3xl text-black leading-relaxed text-justify font-medium">
-                <span className='bg-primary-400 inline p-2'>
-                  We offer a range of services
-                </span>
-                to help micro, small, and medium enterprise (MSMEs) thrive and innovate.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Parallax Section */}
-      <section className="relative h-[400px] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed grayscale"
-          style={{
-            backgroundImage: 'url(/images/building.jpg)',
-          }}
-        >
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-        
-        {/* Content */}
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center text-white px-6"
-          >
-            {/* <h2 className="text-4xl md:text-5xl font-bold mb-4">Empowering Business Excellence</h2> */}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Services Sections */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -168,9 +117,9 @@ const ServicesPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+            {/* <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
               Our Services
-            </h2>
+            </h2> */}
             <div className="w-24 h-2 bg-primary mx-auto mb-8"></div>
             {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive solutions designed to empower MSMEs and drive sustainable growth.
@@ -224,6 +173,9 @@ const ServicesPage = () => {
               <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors">Consulting</h3>
             </motion.div>
           </div>
+
+            <div className="w-24 h-2 bg-primary mx-auto mt-8"></div>
+
         </div>
       </section>
 

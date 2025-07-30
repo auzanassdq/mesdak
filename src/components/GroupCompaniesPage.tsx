@@ -245,49 +245,12 @@ Each delivers specialized expertise, united in a seamless mission: empowering MS
             <div className="mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
               <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Explore our services page to find the right solutions to support the growth and sustainability of your business.
+              </p>
             </div>
             
-            {/* Visual Elements */}
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-               <motion.div
-                 initial={{ opacity: 0, scale: 0.8 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.6, delay: 0.1 }}
-                 viewport={{ once: true }}
-                 className="bg-white border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 group"
-               >
-                 <div className="bg-primary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-4 transition-colors">
-                   <Target className="w-8 h-8 text-white group-hover:text-primary transition-colors" />
-                 </div>
-                 <h3 className="text-xl font-bold text-gray-900  transition-colors">Strategic Management</h3>
-               </motion.div>
-               
-               <motion.div
-                 initial={{ opacity: 0, scale: 0.8 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.6, delay: 0.2 }}
-                 viewport={{ once: true }}
-                 className="bg-white border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 group"
-               >
-                 <div className="bg-secondary group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-4 transition-colors">
-                   <Lightbulb className="w-8 h-8 text-white group-hover:text-secondary transition-colors" />
-                 </div>
-                 <h3 className="text-xl font-bold text-gray-900  transition-colors">Research & Development</h3>
-               </motion.div>
-               
-               <motion.div
-                 initial={{ opacity: 0, scale: 0.8 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.6, delay: 0.3 }}
-                 viewport={{ once: true }}
-                 className="bg-white border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 group"
-               >
-                 <div className="bg-primary-dark group-hover:bg-white w-16 h-16 flex items-center justify-center mx-auto mb-4 transition-colors">
-                   <Users className="w-8 h-8 text-white group-hover:text-primary-dark transition-colors" />
-                 </div>
-                 <h3 className="text-xl font-bold text-gray-900  transition-colors">Consulting</h3>
-               </motion.div>
-             </div>
+    
             
           <div className="text-center">
             <motion.div
