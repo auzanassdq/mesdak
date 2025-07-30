@@ -189,12 +189,30 @@ const AboutPage = () => {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   />
                 </div>
+                
+                {/* Interactive Hint */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="text-center mb-4"
+                >
+                  {/* <div className="flex items-center justify-center space-x-2 text-gray-600 text-sm">
+                    <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                    <span className="font-medium">Scroll or click menu</span>
+                    <svg className="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                    </svg>
+                  </div> */}
+                </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   onClick={() => handleSectionClick('vision')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 ${currentSection === 'vision'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'vision'
                       ? 'bg-primary text-white'
                       : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -207,7 +225,17 @@ const AboutPage = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold">VISION</h3>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold">VISION</h3>
+                      {currentSection !== 'vision' && (
+                        <div className="flex items-center mt-1 opacity-70">
+                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-xs">click to see</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
 
@@ -216,7 +244,7 @@ const AboutPage = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   onClick={() => handleSectionClick('mission')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 ${currentSection === 'mission'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'mission'
                       ? 'bg-primary text-white'
                       : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -228,7 +256,17 @@ const AboutPage = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold">MISSION</h3>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold">MISSION</h3>
+                      {currentSection !== 'mission' && (
+                        <div className="flex items-center mt-1 opacity-70">
+                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-xs">click to see</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
 
@@ -237,7 +275,7 @@ const AboutPage = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                   onClick={() => handleSectionClick('action')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 ${currentSection === 'action'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'action'
                       ? 'bg-primary text-white'
                       : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -249,7 +287,17 @@ const AboutPage = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold">ACTION</h3>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold">ACTION</h3>
+                      {currentSection !== 'action' && (
+                        <div className="flex items-center mt-1 opacity-70">
+                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-xs">click to see</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
 
@@ -258,7 +306,7 @@ const AboutPage = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                   onClick={() => handleSectionClick('our board')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 ${currentSection === 'our board'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'our board'
                       ? 'bg-primary text-white'
                       : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -270,7 +318,17 @@ const AboutPage = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold">OUR BOARD</h3>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold">OUR BOARD</h3>
+                      {currentSection !== 'our board' && (
+                        <div className="flex items-center mt-1 opacity-70">
+                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                          <span className="text-xs">click to see</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               </div>
