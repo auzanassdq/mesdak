@@ -56,11 +56,13 @@ const CareersPage: React.FC = () => {
   ];
 
   const companyOptions: CompanyOption[] = [
-    { id: 'msme-solutions', name: 'MSME Solutions World' },
-    { id: 'innovation-hub', name: 'Innovation Hub' },
-    { id: 'business-consulting', name: 'Business Consulting Group' },
-    { id: 'tech-solutions', name: 'Tech Solutions Inc' },
-    { id: 'global-ventures', name: 'Global Ventures Ltd' }
+    { id: 'msme-network', name: 'MSME Network Incorporation' },
+    { id: 'mbutic', name: 'M\'Butic Incorporation' },
+    { id: 'mdatatalk', name: 'M\'DataTalk Incorporation' },
+    { id: 'msme-finance', name: 'MSME Finance Incorporation' },
+    { id: 'msme-development', name: 'MSME Development Consulting' },
+    { id: 'mizitec', name: 'M\'IZITec Incorporation' },
+    { id: 'mmedia', name: 'M\'Media Incorporation' }
   ];
 
   const handleSectorChange = (sectorId: string) => {
@@ -283,8 +285,8 @@ const CareersPage: React.FC = () => {
 
             {/* A- by sector */}
             <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">A- by sector</h4>
-              <div className="space-y-3">
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Sector</h4>
+              <div className="">
                 {jobCategories.map((category) => (
                   <motion.label
                     key={category.id}
@@ -308,7 +310,7 @@ const CareersPage: React.FC = () => {
 
             {/* B- by Location */}
             <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">B- by Location</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Location</h4>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
                 {locations.map((location) => (
                   <motion.div
@@ -318,8 +320,9 @@ const CareersPage: React.FC = () => {
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                     onClick={() => setSelectedLocation(selectedLocation === location.id ? '' : location.id)}
-                    className={`bg-white border-2 p-3 hover:bg-primary hover:text-white group transition-all duration-300 cursor-pointer ${selectedLocation === location.id ? 'border-primary bg-primary text-white' : 'border-gray-300'
-                      }`}
+                    className={`border-2 p-3 text-black/80  hover:bg-primary hover:text-white group transition-all duration-300 cursor-pointer ${
+                      selectedLocation === location.id ? 'border-primary bg-primary text-white' : 'border-gray-300'
+                    }`}
                   >
                     <div className="flex flex-col items-center gap-2">
                       <div className="text-lg">{location.icon}</div>
@@ -334,8 +337,8 @@ const CareersPage: React.FC = () => {
 
             {/* C- by Group companies */}
             <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">C- by Group companies</h4>
-              <div className="relative">
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Group companies</h4>
+              <div className="relative max-w-md">
                 <select
                   value={selectedCompany}
                   onChange={(e) => setSelectedCompany(e.target.value)}
@@ -348,7 +351,7 @@ const CareersPage: React.FC = () => {
                     </option>
                   ))}
                 </select>
-                <CaretDownIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                <CaretDownIcon className="absolute right-3  top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
               </div>
             </div>
 
