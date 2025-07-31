@@ -8,6 +8,7 @@ import { XLogoIcon, FacebookLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/r
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
+import Image from 'next/image';
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -40,6 +41,7 @@ const Hero = () => {
     const tl = gsap.timeline({ delay: 0.5 });
 
     // Set initial states
+    gsap.set('.hero-logo', { opacity: 0, y: 50 });
     gsap.set('.hero-leading', { opacity: 0, y: 50 });
     gsap.set('.hero-switching', { opacity: 0, y: 50 });
     gsap.set('.hero-towards', { opacity: 0, y: 50 });
@@ -49,7 +51,8 @@ const Hero = () => {
 
 
     // Animation sequence
-    tl.to('.hero-leading', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
+    tl.to('.hero-logo', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
+      .to('.hero-leading', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
       .to('.hero-switching', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
       .to('.hero-towards', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
       .to('.hero-sustainable', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
@@ -147,6 +150,17 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-30 text-center text-white px-4 max-w-6xl mx-auto">
+        {/* MSME World White Logo */}
+        <div className="hero-logo mb-8">
+          <Image 
+            src="/logo/msme-world-green.jpg" 
+            width={100}
+            height={100}
+            alt="MSME World" 
+            className="h-16 md:h-12 lg:h-12 w-auto mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+          />
+        </div>
+        
         <h1 className="text-5xl md:text-7xl lg:text-7xl/17 font-bold mb-8 leading-snug">
           <span className="hero-leading inline-block text-5xl">Leading</span> <br />
           <span className="hero-switching text-secondary inline-block py-4 overflow-hidden">
@@ -174,6 +188,7 @@ const Hero = () => {
           </p>
         </div>
 
+          {/* CTA Button */}
         <div className="hero-buttons flex flex-col sm:flex-row gap-6 justify-center items-center relative">
           {/* <Link
             href="/services"
@@ -188,7 +203,7 @@ const Hero = () => {
           >
             Learn More
           </Link> */}
-          <div className="text-center absolute bottom-[-100px]">
+          {/* <div className="text-center absolute bottom-[-100px]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -206,14 +221,14 @@ const Hero = () => {
                 </motion.button>
               </Link>
             </motion.div>
-          </div>
+          </div> */}
         </div>
 
 
       </div>
 
       {/* Scroll Indicator */}
-      {/* <motion.div
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: animationComplete ? 1 : 0 }}
         transition={{ duration: 1, delay: animationComplete ? 0.5 : 0 }}
@@ -237,7 +252,7 @@ const Hero = () => {
         >
           <ChevronDown className="w-6 h-6 text-white" />
         </motion.div>
-      </motion.div> */}
+      </motion.div>
 
 
     </section>

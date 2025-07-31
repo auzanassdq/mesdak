@@ -125,7 +125,7 @@ Institutions Financial Governments
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p>&copy; {currentYear} MSME World. All rights reserved.</p>
+          <p>&copy; {currentYear} MSME Solutions World. All rights reserved.</p>
           <div className="mt-4 md:mt-0 space-x-6">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Legal</Link>
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
