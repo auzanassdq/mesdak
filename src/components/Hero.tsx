@@ -151,13 +151,13 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-30 text-center text-white px-4 max-w-6xl mx-auto">
         {/* MSME World White Logo */}
-        <div className="hero-logo mb-8">
+        <div className="absolute hero-logo top-[-110] left-1/2 -translate-x-1/2">
           <Image 
             src="/logo/msme-world-green.jpg" 
-            width={100}
-            height={100}
+            width={200}
+            height={200}
             alt="MSME World" 
-            className="h-16 md:h-12 lg:h-12 w-auto mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+            className="h-20 md:h-20 lg:h-20 w-auto mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
         </div>
         
@@ -188,43 +188,6 @@ const Hero = () => {
           </p>
         </div>
 
-          {/* CTA Button */}
-        <div className="hero-buttons flex flex-col sm:flex-row gap-6 justify-center items-center relative">
-          {/* <Link
-            href="/services"
-            className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            Explore Our Solutions
-          </Link> */}
-
-          {/* <Link
-            href="/about"
-            className="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            Learn More
-          </Link> */}
-          {/* <div className="text-center absolute bottom-[-100px]">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Link href="/about">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
-                >
-                  About Us
-                  <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                </motion.button>
-              </Link>
-            </motion.div>
-          </div> */}
-        </div>
-
-
       </div>
 
       {/* Scroll Indicator */}
@@ -234,7 +197,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: animationComplete ? 0.5 : 0 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-25"
       >
-        <div className="flex flex-col items-center text-white">
+        <div className="flex flex-col items-center text-white cursor-pointer" onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}>
           <motion.div
             className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
           >

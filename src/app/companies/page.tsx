@@ -39,10 +39,9 @@ const GroupCompaniesPage = () => {
     },
     {
       id: 3,
-      name: "M'DataTalk Incorporation",
-      description: "A data analytics company providing insights and data-driven strategies to help MSMEs make informed decisions and optimize their performance.",
-      icon: ChartBarIcon,
-
+      name: "MSME Development Consulting",
+      description: "A consulting firm focused on providing comprehensive development services to MSMEs, including training, mentorship, and capacity building programs.",
+      icon: UsersIcon,
     },
     {
       id: 4,
@@ -52,22 +51,23 @@ const GroupCompaniesPage = () => {
     },
     {
       id: 5,
-      name: "MSME Development Consulting",
-      description: "A consulting firm focused on providing comprehensive development services to MSMEs, including training, mentorship, and capacity building programs.",
-      icon: UsersIcon,
-    },
-    {
-      id: 6,
       name: "M'IZITec Incorporation",
       description: "A technology company developing innovative tech solutions for MSMEs, including software, platforms, and digital tools to enhance their operations and competitiveness.",
       icon: LightningIcon,
     },
     {
-      id: 7,
+      id: 6,
       name: "M'Media Incorporation",
       description: "A media and communications agency specializing in creating impactful marketing and communication strategies for MSMEs, helping them build their brand and reach their target audience.",
       icon: MonitorIcon,
-    }
+    },
+    {
+      id: 7,
+      name: "M'DataTalk Incorporation",
+      description: "A data analytics company providing insights and data-driven strategies to help MSMEs make informed decisions and optimize their performance.",
+      icon: ChartBarIcon,
+
+    },
   ];
 
   return (
@@ -161,50 +161,61 @@ Each delivers specialized expertise, united in a seamless mission: empowering MS
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8"
+            className="space-y-8"
           >
-            {companies.map((company, index) => {
-              const IconComponent = company.icon;
-              return (
-                <motion.div
-                  key={company.id}
-                  variants={fadeInUp}
-                  className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full"
-                >
-                  <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
-                    <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
-                  </div>
-
-                  <h3 className="text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
-                  {/* <p className="text-sm font-semibold text-primary group-hover:text-primary-light mb-4 transition-colors">{company.tagline}</p> */}
-                  {/* <p className="leading-relaxed mb-6 text-lg font-medium group-hover:text-white text-black/80 transition-colors">{company.description}</p> */}
-
-
-
-                  {/* <div className="mb-6">
-                    <h4 className="text-sm font-bold mb-3 group-hover:text-white transition-colors">Services:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {company.services.map((service, serviceIndex) => (
-                        <span
-                          key={serviceIndex}
-                          className="px-3 py-2 bg-black text-white text-xs font-bold border-2 border-black group-hover:bg-white group-hover:text-black transition-colors"
-                        >
-                          {service}
-                        </span>
-                      ))}
+            {/* First Row - 3 companies */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {companies.slice(0, 3).map((company, index) => {
+                const IconComponent = company.icon;
+                return (
+                  <motion.div
+                    key={company.id}
+                    variants={fadeInUp}
+                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full"
+                  >
+                    <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                      <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                     </div>
-                  </div> */}
 
-                  <div className="flex items-center justify-between text-sm font-bold mt-auto">
-                    {/* <span className="group-hover:text-white transition-colors">Sector: {company.sector}</span> */}
-                    <div className="flex items-center text-primary group-hover:text-primary-light transition-colors">
-                      <span className="text-sm font-semibold mr-2">Learn More</span>
-                      <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
+
+                    <div className="flex items-center justify-between text-sm font-bold mt-auto">
+                      <div className="flex items-center text-primary group-hover:text-primary-light transition-colors">
+                        <span className="text-sm font-semibold mr-2">Learn More</span>
+                        <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Second Row - 4 companies */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {companies.slice(3, 7).map((company, index) => {
+                const IconComponent = company.icon;
+                return (
+                  <motion.div
+                    key={company.id}
+                    variants={fadeInUp}
+                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full"
+                  >
+                    <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                      <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
+                    </div>
+
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
+
+                    <div className="flex items-center justify-between text-sm font-bold mt-auto">
+                      <div className="flex items-center text-primary group-hover:text-primary-light transition-colors">
+                        <span className="text-sm font-semibold mr-2">Learn More</span>
+                        <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </motion.div>
         </div>
       </section>

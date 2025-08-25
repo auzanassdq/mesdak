@@ -366,7 +366,7 @@ const AboutPage = () => {
                       <h2 className="text-5xl lg:text-6xl font-bold text-black mb-8">MISSION</h2>
                       <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
                       <p className="text-2xl text-gray-700 leading-relaxed font-medium">
-                        Assist MSMEs to become the driver of Industrialisation, Growth and Job creation in Developing & Emerging countries.
+                        Assist MSMEs to become the driver of <br /> Industrialisation, Growth and Job creation in <br /> Developing & Emerging countries.
                       </p>
                     </motion.div>
                   )}

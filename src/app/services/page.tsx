@@ -125,7 +125,7 @@ const ServicesPage = () => {
             </h2>
             <div className="w-24 h-2 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-Be part of our mission to empower <br /> MSMEs, Financial Institutions & Government <br /> and drive sustainable economic growth across the globe.            </p>
+Be part of our mission to empower <br /> MSMEs, Financial Institutions & Governments <br /> and drive sustainable economic growth across the globe.            </p>
           </motion.div>
 
         <div className="text-center">
