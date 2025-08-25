@@ -7,6 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
+import { useRouter } from 'next/navigation';
+import SectionWithVideo from '@/components/SectionWithVideo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,36 +17,60 @@ const AboutPage = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const router = useRouter();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Function to handle navigation click and update scroll progress
   const handleSectionClick = (section: string) => {
     setCurrentSection(section);
+    // Update URL hash
+    const sectionHash = section.replace(' ', '-');
+    window.history.pushState(null, '', `#${sectionHash}`);
+    
     // Update scroll progress based on section
     const progressMap = {
       'vision': 0,
       'mission': 0.33,
       'action': 0.66,
-      'our board': 1
+      'our-board': 1
     };
-    const newProgress = progressMap[section as keyof typeof progressMap];
+    const newProgress = progressMap[sectionHash as keyof typeof progressMap];
     setScrollProgress(newProgress);
-    
+
     // Update browser scroll position to specific values
     const scrollPositionMap = {
       'vision': 500,
       'mission': 700,
       'action': 1200,
-      'our board': 1400
+      'our-board': 1400
     };
-    const targetScrollY = scrollPositionMap[section as keyof typeof scrollPositionMap];
-    
+    const targetScrollY = scrollPositionMap[sectionHash as keyof typeof scrollPositionMap];
+
     console.log('Section Click:', section, 'Progress:', newProgress, 'TargetScrollY:', targetScrollY);
-    
+
     window.scrollTo({
       top: targetScrollY,
       behavior: 'smooth'
     });
   };
+
+  // Handle URL hash on component mount
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const sectionName = hash.replace('-', ' ');
+      if (['vision', 'mission', 'action', 'our board'].includes(sectionName)) {
+        setCurrentSection(sectionName);
+        const progressMap = {
+          'vision': 0,
+          'mission': 0.33,
+          'action': 0.66,
+          'our-board': 1
+        };
+        setScrollProgress(progressMap[hash as keyof typeof progressMap] || 0);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current || !containerRef.current) return;
@@ -80,7 +106,11 @@ const AboutPage = () => {
 
         if (newIndex !== currentIndex) {
           currentIndex = newIndex;
-          setCurrentSection(sections[newIndex]);
+          const newSection = sections[newIndex];
+          setCurrentSection(newSection);
+          // Update URL hash without triggering navigation
+          const sectionHash = newSection.replace(' ', '-');
+          window.history.replaceState(null, '', `#${sectionHash}`);
         }
       }
     });
@@ -114,7 +144,10 @@ const AboutPage = () => {
       members: [
         { name: 'John Smith', position: 'Chief Executive Officer', experience: '15+ years in MSME development' },
         { name: 'Sarah Johnson', position: 'Chief Operating Officer', experience: '12+ years in business operations' },
-        { name: 'Michael Chen', position: 'Chief Technology Officer', experience: '10+ years in digital transformation' }
+        { name: 'Michael Chen', position: 'Chief Financial Officer', experience: '10+ years in digital transformation' },
+        { name: 'Michael Chen', position: 'Chief Information Officer', experience: '10+ years in digital transformation' },
+        { name: 'Michael Chen', position: 'Chief Legal Officer', experience: '10+ years in digital transformation' },
+        { name: 'Michael Chen', position: 'Chief Economist', experience: '10+ years in digital transformation' },
       ]
     },
     supervisory: {
@@ -175,7 +208,21 @@ const AboutPage = () => {
 
       {/* Vision, Mission, Action Section */}
       <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
-        <div ref={containerRef} className="relative h-full">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover opacity-20"
+          >
+            <source src="/videos/hero-background.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-white/80"></div>
+        </div>
+        <div ref={containerRef} className="relative h-full z-10">
           <div className="container mx-auto px-6 relative z-10 h-full">
             <div className="flex h-full">
               {/* Floating Navigation - Left Side */}
@@ -189,7 +236,7 @@ const AboutPage = () => {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                   />
                 </div>
-                
+
                 {/* Interactive Hint */}
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -213,8 +260,8 @@ const AboutPage = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   onClick={() => handleSectionClick('vision')}
                   className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'vision'
-                      ? 'bg-primary text-white'
-                      : 'bg-white text-black hover:bg-primary hover:text-white'
+                    ? 'bg-primary text-white'
+                    : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
                 >
                   <div className="flex items-center space-x-4">
@@ -245,8 +292,8 @@ const AboutPage = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   onClick={() => handleSectionClick('mission')}
                   className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'mission'
-                      ? 'bg-primary text-white'
-                      : 'bg-white text-black hover:bg-primary hover:text-white'
+                    ? 'bg-primary text-white'
+                    : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
                 >
                   <div className="flex items-center space-x-4">
@@ -276,8 +323,8 @@ const AboutPage = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   onClick={() => handleSectionClick('action')}
                   className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'action'
-                      ? 'bg-primary text-white'
-                      : 'bg-white text-black hover:bg-primary hover:text-white'
+                    ? 'bg-primary text-white'
+                    : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
                 >
                   <div className="flex items-center space-x-4">
@@ -307,8 +354,8 @@ const AboutPage = () => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   onClick={() => handleSectionClick('our board')}
                   className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'our board'
-                      ? 'bg-primary text-white'
-                      : 'bg-white text-black hover:bg-primary hover:text-white'
+                    ? 'bg-primary text-white'
+                    : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
                 >
                   <div className="flex items-center space-x-4">
@@ -338,54 +385,32 @@ const AboutPage = () => {
                 <div className="max-w-4xl">
                   {/* Vision Content */}
                   {currentSection === 'vision' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6 }}
-                      className="text-center"
-                    >
-                      <h2 className="text-5xl lg:text-6xl font-bold text-black mb-8">VISION</h2>
-                      <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-                      <p className="text-2xl text-gray-700 leading-relaxed font-medium">
-                        Lead <br />
-                        Digitization, Decentralization & Decarbonization <br /> towards <br /> Sustainable Development.<br /> <br />
-                        Make the inclusive growth a reality.
-                      </p>
-                    </motion.div>
+                    <SectionWithVideo
+                      title="VISION"
+                      content="Lead <br />Digitization, Decentralization & Decarbonization <br /> towards <br /> Sustainable Development.<br /> <br />Make the inclusive growth a reality."
+                      youtubeVideoId="uWQ_8CtvzoY"
+                      fallbackVideoSrc="/videos/hero-background.mp4"
+                    />
                   )}
 
                   {/* Mission Content */}
                   {currentSection === 'mission' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6 }}
-                      className="text-center"
-                    >
-                     
-                      <h2 className="text-5xl lg:text-6xl font-bold text-black mb-8">MISSION</h2>
-                      <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-                      <p className="text-2xl text-gray-700 leading-relaxed font-medium">
-                        Assist MSMEs to become the driver of <br /> Industrialisation, Growth and Job creation in <br /> Developing & Emerging countries.
-                      </p>
-                    </motion.div>
+                    <SectionWithVideo
+                      title="MISSION"
+                      content="Assist MSMEs to become the driver of <br /> Industrialisation, Growth and Job creation in <br /> Developing & Emerging countries."
+                      youtubeVideoId="gW22hVe5_fI"
+                      fallbackVideoSrc="/videos/hero-background.mp4"
+                    />
                   )}
 
                   {/* Action Content */}
                   {currentSection === 'action' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6 }}
-                      className="text-center"
-                    >
-                  
-                      <h2 className="text-5xl lg:text-6xl font-bold text-black mb-8">ACTION</h2>
-                      <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-                      <p className="text-2xl text-gray-700 leading-relaxed font-medium">
-                        Build digital infrastructures, solutions and products to serve <br /> MSMEs, Financial Institutions and Governments.
-                      </p>
-                    </motion.div>
+                    <SectionWithVideo
+                      title="ACTION"
+                      content="Build digital infrastructures, solutions and products to serve <br /> MSMEs, Financial Institutions and Governments."
+                      youtubeVideoId="Dezxrb9fpM0"
+                      fallbackVideoSrc="/videos/hero-background.mp4"
+                    />
                   )}
 
                   {/* Our Board Content */}
@@ -397,10 +422,10 @@ const AboutPage = () => {
                       className="w-full"
                     >
                       <div className="text-center mb-12">
-       
+
                         <h2 className="text-5xl lg:text-6xl font-bold text-black mb-8">OUR BOARD</h2>
                         <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-                   
+
                       </div>
 
                       <div className="grid lg:grid-cols-3 gap-8">
@@ -418,7 +443,7 @@ const AboutPage = () => {
                             </svg>
                           </div>
                           <h3 className="text-2xl font-bold mb-4">EXECUTIVE BOARD</h3>
-                  
+
                           <div className="font-bold text-sm">
                             CLICK TO LEARN MORE →
                           </div>
@@ -438,7 +463,7 @@ const AboutPage = () => {
                             </svg>
                           </div>
                           <h3 className="text-2xl font-bold mb-4">SUPERVISORY BOARD</h3>
-                   
+
                           <div className="font-bold text-sm">
                             CLICK TO LEARN MORE →
                           </div>
@@ -487,7 +512,7 @@ const AboutPage = () => {
               <h3 className="text-3xl font-bold text-black">{boardData[selectedBoard as keyof typeof boardData].title.toUpperCase()}</h3>
               <button
                 onClick={() => setSelectedBoard(null)}
-                className="w-10 h-10 bg-white hover:bg-black hover:text-white border-2 border-black flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-white hover:bg-black text-black/80 hover:text-white border-2 border-black flex items-center justify-center transition-colors"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -501,18 +526,99 @@ const AboutPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {boardData[selectedBoard as keyof typeof boardData].members.map((member, index) => (
-                <div key={index} className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white transition-colors">
-                  <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
-                    <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
-                  </div>
-                  <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
-                  <p className="font-bold mb-2 text-center">{member.position.toUpperCase()}</p>
-                  <p className="text-sm text-center font-medium">{member.experience}</p>
+            {/* Special layout for Executive Board */}
+            {selectedBoard === 'executive' ? (
+              <div className="space-y-12">
+                {/* CEO Section - Centered */}
+                <div className="flex justify-center">
+                  {boardData.executive.members
+                    .filter(member => member.position === 'Chief Executive Officer')
+                    .map((ceo, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 max-w-sm"
+                      >
+                        <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
+                          <span className="text-white font-bold text-xl">{ceo.name.charAt(0)}</span>
+                        </div>
+                        <div className="text-center mb-2">
+                          {/* <span className="inline-block px-3 py-1 bg-primary text-white font-bold text-xs mb-2">
+                            CHIEF EXECUTIVE
+                          </span> */}
+                        </div>
+                        <h4 className="text-xl font-bold mb-2 text-center">{ceo.name.toUpperCase()}</h4>
+                        <p className="font-bold mb-2 text-center bg-primary px-1">{ceo.position.toUpperCase()}</p>
+                        <p className="text-sm text-center font-medium">{ceo.experience}</p>
+                      </motion.div>
+                    ))
+                  }
                 </div>
-              ))}
-            </div>
+
+                {/* Other Executive Members */}
+                <div>
+                  {/* <h5 className="text-2xl font-bold text-center mb-8 text-black">EXECUTIVE TEAM</h5> */}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {boardData.executive.members
+                      .filter(member => member.position !== 'Chief Executive Officer')
+                      .map((member, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                          className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105"
+                        >
+                          <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
+                            <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
+                          </div>
+                          <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
+                          <p className="font-bold mb-2 text-center">{member.position.toUpperCase()}</p>
+                          <p className="text-sm text-center font-medium">{member.experience}</p>
+                        </motion.div>
+                      ))
+                    }
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* Default layout for other boards */
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {boardData[selectedBoard as keyof typeof boardData].members.map((member, index) => (
+                  <div key={index} className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-colors">
+                    <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
+                      <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
+                    </div>
+                    <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
+                    <p className="font-bold mb-2 text-center">{member.position.toUpperCase()}</p>
+                    <p className="text-sm text-center font-medium">{member.experience}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </motion.div>
+
+          {/* Floating Companies Button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="fixed bottom-6 right-6 z-50"
+          >
+            <Link href="/companies">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group bg-primary hover:bg-primary-dark text-white px-6 py-3 hover:cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-semibold border-2 border-black"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                <span>Our Companies</span>
+                <CaretRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       )}
@@ -557,6 +663,8 @@ const AboutPage = () => {
           </motion.div>
         </div>
       </section>
+
+
     </div>
   );
 };
