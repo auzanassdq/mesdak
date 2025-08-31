@@ -127,6 +127,8 @@ const Hero = () => {
             <img src="/logo/orange.png" alt="Orange Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
             <img src="/logo/brown.png" alt="Brown Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
             <img src="/logo/indigo.png" alt="Indigo Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/logo/pink.png" alt="Pink Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+
           </div>
 
           {/* Social Media Icons */}

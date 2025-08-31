@@ -26,7 +26,7 @@ export default function SectionWithVideo({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative text-center"
+      className="relative text-center h-[370px] mt-5"
     >
       {/* Video Background */}
       <div className="absolute inset-0 -m-12 rounded-2xl overflow-hidden">
@@ -64,7 +64,7 @@ export default function SectionWithVideo({
       </div>
       
       {/* Content */}
-      <div className="relative z-10 p-12 text-white">
+      <div className="relative h-full flex flex-col items-center justify-center z-10 text-white">
         <h2 className={`text-5xl lg:text-6xl font-bold mb-8 ${titleColor}`}>
           {title}
         </h2>

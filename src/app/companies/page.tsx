@@ -120,42 +120,22 @@ const GroupCompaniesPage = () => {
             </div> */}
             <div className="py-8 lg:py-2">
               <p className="text-3xl text-black leading-relaxed text-center font-medium">
-                <span >
-                  Seven Companies. One Precision Engine <br />
-                  Each delivers specialized expertise, united in a seamless mission: <br />
-                </span>
-                <span className='bg-primary-400 inline p-2'>
-                  empowering MSMEs, Financial Institutions, and Governments <br />
-
-                </span>
-                with innovative digital solutions <br /> to unlock hidden potential and drive socio-economic growth
-
+                Seven Companies. One Precision Engine <br />
+                Each delivers specialized expertise, united in a seamless mission: <br />
+                empowering MSMEs, Financial Institutions, and Governments <br />
+                with innovative digital solutions <br /> to unlock hidden potentials and drive socio-economic growth
               </p>
+              <div className="w-36 h-1 bg-primary mt-8 mx-auto"></div>
+
             </div>
           </motion.div>
         </div>
       </section>
 
 
-
-      {/* Portfolio Overview */}
+      {/* List Companies */}
       <section className="pb-28 bg-white">
         <div className="container mx-auto px-6 ">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16 mx-auto text-center"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Group Companies</h2>
-            <div className="w-24 h-1 bg-primary mb-8 mx-auto"></div>
-            {/* <p className="text-xl text-gray-600 max-w-3xl leading-relaxed mx-auto">
-              One Precision Engine
-Each delivers specialized expertise, united in a seamless mission: empowering MSMEs, Financial Institutions, and Governments with innovative digital solutions to unlock hidden potential and drive socio-economic growth
-            </p> */}
-          </motion.div>
-
           <motion.div
             variants={staggerContainer}
             initial="initial"

@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <footer ref={ref} className="bg-[#111111] text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,6 +64,24 @@ Institutions Financial Governments
             </ul>
           </motion.div>
 
+          {/* Office Locations */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="text-lg font-semibold text-white mb-4">Office Locations</h3>
+            <ul className="space-y-2">
+              <li><Link href="#" className="hover:text-white transition-colors">Headquarters</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Africa</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Asia</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Latin America</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">North America</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">Europe</Link></li>
+              <li><Link href="#" className="hover:text-white transition-colors">ASEU</Link></li>
+            </ul>
+          </motion.div>
+
           {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,12 +95,13 @@ Institutions Financial Governments
               <li><Image alt="logo" src="/logo/orange.png" width={20} height={20} /> </li>
               <li><Image alt="logo" src="/logo/brown.png" width={20} height={20} /> </li>
               <li><Image alt="logo" src="/logo/indigo.png" width={20} height={20} /> </li>
+              <li><Image alt="logo" src="/logo/pink.png" width={20} height={20} /> </li>
             </ul>
 
             <ul className="space-y-2 mt-4">
+              <li><Link href="/services/financial-support" className="hover:text-white transition-colors">M&apos;Brand</Link></li>
               <li><Link href="/services/business-consulting" className="hover:text-white transition-colors">M&apos;SuperDeal</Link></li>
               <li><Link href="/services/financial-support" className="hover:text-white transition-colors">Business Directory</Link></li>
-              <li><Link href="/services/financial-support" className="hover:text-white transition-colors">M&apos;Brand</Link></li>
 
               {/* <li><Link href="/services/digital-transformation" className="hover:text-white transition-colors">MSME development consulting</Link></li> */}
             

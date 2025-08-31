@@ -165,49 +165,62 @@ const CareersPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* About Section */}
-            <section className="py-28 bg-white">
+            {/* Unleash Your Ideas Section */}
+            <section className="py-32 bg-white relative overflow-hidden">
               <div className="container mx-auto px-6">
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="max-w-7xl"
+                  className="text-center max-w-5xl mx-auto"
                 >
-                  <div className="py-8 lg:py-2">
-                    <p className="text-3xl text-black leading-relaxed text-justify font-medium">
-                      <span className='bg-primary-400 inline p-2'>
-                        Lead innovation in MSMEs development. No traditional job descriptions needed. <br />
-                      </span>
-                      Share your game-changing ideas and shape the future of MSMEs.
+                  <div className="bg-white border-4 border-black p-12 shadow-xl hover:bg-primary hover:text-white group transition-all duration-300">
+                    <div className="flex items-center justify-center mb-8">
+                      <div className="bg-primary group-hover:bg-white p-4 border-2 border-black">
+                        <LightbulbFilamentIcon className="w-8 h-8 text-white group-hover:text-primary" />
+                      </div>
+                    </div>
+                    <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 group-hover:text-white leading-tight mb-8">
+                      Unleash Your Ideas, Build a Better Tomorrow
+                    </h3>
+                    <p className="text-lg text-gray-700 group-hover:text-white leading-relaxed max-w-3xl mx-auto font-medium">
+                      We&apos;re committed to fostering a collaborative environment where your expertise can drive meaningful change in the MSME landscape.
                     </p>
                   </div>
                 </motion.div>
               </div>
             </section>
 
-
-            {/* Unleash Your Idea */}
-            <section className="py-28 bg-gray-100 relative overflow-hidden">
+            {/* Share Your Game-Changing Ideas Section */}
+            <section className="py-32 bg-gray-100 relative overflow-hidden">
               <div className="container mx-auto px-6">
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="max-w-4xl"
+                  className="text-center max-w-6xl mx-auto"
                 >
-                  <h3 className="text-4xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8">
-                    Unleash Your Ideas, Build a Better Tomorrow
-                  </h3>
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    We&apos;re committed to fostering a collaborative environment where your expertise can drive meaningful change in the MSME landscape.
-                  </p>
+                  <div className="bg-white border-4 border-black p-16 shadow-xl hover:bg-primary hover:text-white group transition-all duration-300">
+                    <div className="flex items-center justify-center mb-8">
+                      <div className="bg-primary group-hover:bg-white p-4 border-2 border-black">
+                        <TrendUpIcon className="w-8 h-8 text-white group-hover:text-primary" />
+                      </div>
+                    </div>
+                    <p className="text-3xl lg:text-4xl font-bold text-gray-900 group-hover:text-white leading-relaxed mb-12">
+                      Share your game-changing ideas and shape the future of MSMEs.
+                    </p>
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className='bg-primary hover:bg-white hover:text-primary text-white group-hover:bg-white group-hover:text-primary font-bold py-4 px-8 border-2 border-black shadow-lg transform transition-all duration-300 text-lg'
+                    >
+                      Click Here
+                    </motion.button>
+                  </div>
                 </motion.div>
               </div>
-
-              <LightbulbFilamentIcon className='w-80 h-80 absolute right-10 bottom-0 text-black/5' />
             </section>
 
             {/* Benefit section */}

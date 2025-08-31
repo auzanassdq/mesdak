@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
+import { ArrowArcRightIcon, ArrowRightIcon, CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
 import { useRouter } from 'next/navigation';
 import SectionWithVideo from '@/components/SectionWithVideo';
 
@@ -26,7 +26,7 @@ const AboutPage = () => {
     // Update URL hash
     const sectionHash = section.replace(' ', '-');
     window.history.pushState(null, '', `#${sectionHash}`);
-    
+
     // Update scroll progress based on section
     const progressMap = {
       'vision': 0,
@@ -148,6 +148,8 @@ const AboutPage = () => {
         { name: 'Michael Chen', position: 'Chief Information Officer', experience: '10+ years in digital transformation' },
         { name: 'Michael Chen', position: 'Chief Legal Officer', experience: '10+ years in digital transformation' },
         { name: 'Michael Chen', position: 'Chief Economist', experience: '10+ years in digital transformation' },
+        { name: 'Michael Chen', position: 'Chief Strategy Officer', experience: '10+ years in digital transformation' },
+
       ]
     },
     supervisory: {
@@ -163,8 +165,12 @@ const AboutPage = () => {
       title: 'Advisory Board',
       description: 'Our advisory board provides expert guidance and industry insights.',
       members: [
+        { name: 'James Thompson', position: 'Chairman', experience: '22+ years in market development' },
         { name: 'Prof. David Kumar', position: 'Industry Advisor', experience: '25+ years in MSME research' },
         { name: 'Maria Rodriguez', position: 'Technology Advisor', experience: '16+ years in innovation strategy' },
+        { name: 'James Thompson', position: 'Market Advisor', experience: '22+ years in market development' },
+        { name: 'James Thompson', position: 'Market Advisor', experience: '22+ years in market development' },
+        { name: 'James Thompson', position: 'Market Advisor', experience: '22+ years in market development' },
         { name: 'James Thompson', position: 'Market Advisor', experience: '22+ years in market development' }
       ]
     }
@@ -203,8 +209,6 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* Vision, Mission, Action Section */}
       <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
@@ -254,6 +258,7 @@ const AboutPage = () => {
                     </svg>
                   </div> */}
                 </motion.div>
+
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -380,6 +385,18 @@ const AboutPage = () => {
                 </motion.div>
               </div>
 
+              {/* Contact - Get in Touch */}
+              <div className='absolute bottom-8 w-[272px]'>
+                <Link href='/contact'>
+                  <button className='w-full bg-secondary flex items-center justify-center gap-4 text-black/80 border-2 px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
+                    <span>
+                      Contact - Get in Touch
+                    </span>
+                    <ArrowRightIcon className='w-6 h-6' />
+                  </button>
+                </Link>
+              </div>
+
               {/* Content Area - Right Side */}
               <div className="flex-1 flex items-center justify-center pl-12">
                 <div className="max-w-4xl">
@@ -455,10 +472,10 @@ const AboutPage = () => {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.2 }}
                           onClick={() => setSelectedBoard('supervisory')}
-                          className="bg-secondary text-black border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
+                          className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
                         >
-                          <div className="w-16 h-16 bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
-                            <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                           </div>
@@ -501,6 +518,7 @@ const AboutPage = () => {
       {/* Modal */}
       {selectedBoard && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={() => setSelectedBoard(null)}>
+          {/* Modal Content */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -527,12 +545,12 @@ const AboutPage = () => {
             </div>
 
             {/* Special layout for Executive Board */}
-            {selectedBoard === 'executive' ? (
+            {selectedBoard === 'executive' || selectedBoard === 'advisory' ? (
               <div className="space-y-12">
                 {/* CEO Section - Centered */}
                 <div className="flex justify-center">
-                  {boardData.executive.members
-                    .filter(member => member.position === 'Chief Executive Officer')
+                  {boardData[selectedBoard].members
+                    .filter(member => member.position === 'Chief Executive Officer' || member.position === 'Chairman')
                     .map((ceo, index) => (
                       <motion.div
                         key={index}
@@ -550,7 +568,7 @@ const AboutPage = () => {
                           </span> */}
                         </div>
                         <h4 className="text-xl font-bold mb-2 text-center">{ceo.name.toUpperCase()}</h4>
-                        <p className="font-bold mb-2 text-center bg-primary px-1">{ceo.position.toUpperCase()}</p>
+                        <p className="font-bold mb-2 text-center px-1">{ceo.position.toUpperCase()}</p>
                         <p className="text-sm text-center font-medium">{ceo.experience}</p>
                       </motion.div>
                     ))
@@ -559,10 +577,9 @@ const AboutPage = () => {
 
                 {/* Other Executive Members */}
                 <div>
-                  {/* <h5 className="text-2xl font-bold text-center mb-8 text-black">EXECUTIVE TEAM</h5> */}
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {boardData.executive.members
-                      .filter(member => member.position !== 'Chief Executive Officer')
+                    {boardData[selectedBoard].members
+                      .filter(member => member.position !== 'Chief Executive Officer' && member.position !== 'Chairman')
                       .map((member, index) => (
                         <motion.div
                           key={index}
