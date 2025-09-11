@@ -114,17 +114,45 @@ const GroupCompaniesPage = () => {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            {/* <div className="mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Portfolio</h2>
-              <div className="w-24 h-1 bg-primary mb-8"></div>
-            </div> */}
             <div className="py-8 lg:py-2">
-              <p className="text-3xl text-black leading-relaxed text-center font-medium">
-                Seven Companies. One Precision Engine <br />
+              <div className="text-3xl text-black leading-relaxed text-center font-medium">
+                <motion.span 
+                  className="text-primary font-bold text-5xl inline-block relative"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    textShadow: "0 0 8px rgb(var(--primary-rgb) / 0.6)"
+                  }}
+                >
+                  Seven Companies. One Precision Engine
+                  <motion.div
+                    className="absolute -bottom-2 left-0 right-0 h-1 bg-primary"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  />
+                </motion.span> <br className="mb-4"/> <br className="mb-4"/>
                 Each delivers specialized expertise, united in a seamless mission: <br />
                 empowering MSMEs, Financial Institutions, and Governments <br />
-                with innovative digital solutions <br /> to unlock hidden potentials and drive socio-economic growth
-              </p>
+                with innovative digital solutions <br /> 
+                <motion.span 
+                  className="text-primary relative inline-block bg-primary/10 px-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+      
+                >
+                  to unlock hidden potentials and drive socio-economic growth
+                  <motion.div
+                    className="absolute -z-10 inset-0 bg-primary/10 rounded-lg"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </motion.span>
+              </div>
               <div className="w-36 h-1 bg-primary mt-8 mx-auto"></div>
 
             </div>
@@ -134,8 +162,8 @@ const GroupCompaniesPage = () => {
 
 
       {/* List Companies */}
-      <section className="pb-28 bg-white">
-        <div className="container mx-auto px-6 ">
+      <section className="pb-12 bg-white">
+        <div className="container mx-auto px-6 mb-12">
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -198,7 +226,20 @@ const GroupCompaniesPage = () => {
             </div>
           </motion.div>
         </div>
+
+        <div>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-2xl text-black leading-relaxed text-center font-medium"
+          >
+            This is a purpose-built ecosystem that makes scale and complexity its core moat and value driver
+          </motion.p>
+        </div>
       </section>
+
 
       {/* Services Section */}
       <section className="py-20 bg-gray-200">

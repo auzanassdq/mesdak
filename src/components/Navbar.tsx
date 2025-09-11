@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import TranslateComponent from './translate-btn';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,7 +56,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden xl:flex items-center space-x-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -78,11 +79,12 @@ const Navbar = () => {
               </Link>
             );
           })}
+          <TranslateComponent />
         </div>
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-gray-800"
+          className="xl:hidden text-gray-800"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
@@ -104,31 +106,37 @@ const Navbar = () => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-white shadow-lg"
+          className="xl:hidden bg-white/90 backdrop-blur-md shadow-lg"
         >
-          <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link 
                   key={link.name} 
                   href={link.href}
-                  className={`relative text-gray-800 hover:text-blue-600 py-2 font-medium transition-colors ${
-                    isActive ? 'text-blue-600 border-l-2 border-blue-600 pl-3' : ''
+                  className={`relative text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${
+                    isActive ? 'text-blue-600' : ''
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="mobileActiveIndicator"
+                      className="absolute top-0 bottom-0 left-0 w-1 h-full bg-primary-600"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
                 </Link>
               );
             })}
-            <Link 
-              href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition-colors text-center"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Get Started
-            </Link>
+            
+            {/* Language Selector - Mobile */}
+            <div className="flex items-center py-3">
+              <TranslateComponent />
+            </div>
           </div>
         </motion.div>
       )}

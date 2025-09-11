@@ -13,7 +13,8 @@ import SectionWithVideo from '@/components/SectionWithVideo';
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutPage = () => {
-  const [currentSection, setCurrentSection] = useState('vision');
+  type SectionType = 'vision' | 'mission' | 'action' | 'our board';
+const [currentSection, setCurrentSection] = useState<SectionType>('vision');
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -21,14 +22,14 @@ const AboutPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Function to handle navigation click and update scroll progress
-  const handleSectionClick = (section: string) => {
+  const handleSectionClick = (section: SectionType) => {
     setCurrentSection(section);
     // Update URL hash
     const sectionHash = section.replace(' ', '-');
     window.history.pushState(null, '', `#${sectionHash}`);
 
     // Update scroll progress based on section
-    const progressMap = {
+    const progressMap: Record<string, number> = {
       'vision': 0,
       'mission': 0.33,
       'action': 0.66,
@@ -38,7 +39,7 @@ const AboutPage = () => {
     setScrollProgress(newProgress);
 
     // Update browser scroll position to specific values
-    const scrollPositionMap = {
+    const scrollPositionMap: Record<string, number> = {
       'vision': 500,
       'mission': 700,
       'action': 1200,
@@ -55,27 +56,27 @@ const AboutPage = () => {
   };
 
   // Handle URL hash on component mount
-  useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      const sectionName = hash.replace('-', ' ');
-      if (['vision', 'mission', 'action', 'our board'].includes(sectionName)) {
-        setCurrentSection(sectionName);
-        const progressMap = {
-          'vision': 0,
-          'mission': 0.33,
-          'action': 0.66,
-          'our-board': 1
-        };
-        setScrollProgress(progressMap[hash as keyof typeof progressMap] || 0);
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const hash = window.location.hash.replace('#', '');
+  //   if (hash) {
+  //     const sectionName = hash.replace('-', ' ');
+  //     if (['vision', 'mission', 'action', 'our board'].includes(sectionName)) {
+  //       setCurrentSection(sectionName);
+  //       const progressMap = {
+  //         'vision': 0,
+  //         'mission': 0.33,
+  //         'action': 0.66,
+  //         'our-board': 1
+  //       };
+  //       setScrollProgress(progressMap[hash as keyof typeof progressMap] || 0);
+  //     }
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (!sectionRef.current || !containerRef.current) return;
 
-    const sections = ['vision', 'mission', 'action', 'our board'];
+    const sections: SectionType[] = ['vision', 'mission', 'action', 'our board'];
     let currentIndex = 0;
 
     // Create ScrollTrigger for pinning the section with smooth scrolling
@@ -135,9 +136,21 @@ const AboutPage = () => {
     transition: { duration: 0.8, ease: "easeOut" }
   };
 
-  const [selectedBoard, setSelectedBoard] = useState<string | null>(null);
+  const [selectedBoard, setSelectedBoard] = useState<'executive' | 'supervisory' | 'advisory' | null>(null);
 
-  const boardData = {
+  interface BoardMember {
+  name: string;
+  position: string;
+  experience: string;
+}
+
+interface BoardData {
+  title: string;
+  description: string;
+  members: BoardMember[];
+}
+
+const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
     executive: {
       title: 'Executive Board',
       description: 'Our executive team leads strategic initiatives and drives organizational growth.',
@@ -156,6 +169,7 @@ const AboutPage = () => {
       title: 'Supervisory Board',
       description: 'Our supervisory board ensures governance, compliance, and strategic oversight.',
       members: [
+        { name: 'Mr. Sallam ATTIM', position: 'Chairman of the Board', experience: '20+ years in corporate governance' },
         { name: 'Dr. Emily Davis', position: 'Board Chairperson', experience: '20+ years in corporate governance' },
         { name: 'Robert Wilson', position: 'Independent Director', experience: '18+ years in financial oversight' },
         { name: 'Lisa Anderson', position: 'Compliance Officer', experience: '14+ years in regulatory affairs' }
@@ -451,7 +465,7 @@ const AboutPage = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.1 }}
-                          onClick={() => setSelectedBoard('executive')}
+                          onClick={() => setSelectedBoard('executive' as const)}
                           className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
                         >
                           <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
@@ -471,7 +485,7 @@ const AboutPage = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.2 }}
-                          onClick={() => setSelectedBoard('supervisory')}
+                          onClick={() => setSelectedBoard('supervisory' as const)}
                           className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
                         >
                           <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
@@ -491,7 +505,7 @@ const AboutPage = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.3 }}
-                          onClick={() => setSelectedBoard('advisory')}
+                          onClick={() => setSelectedBoard('advisory' as const)}
                           className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
                         >
                           <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
@@ -523,9 +537,10 @@ const AboutPage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-white border-8 border-black p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-white border-8 border-black p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Title */}
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-3xl font-bold text-black">{boardData[selectedBoard as keyof typeof boardData].title.toUpperCase()}</h3>
               <button
@@ -538,105 +553,100 @@ const AboutPage = () => {
               </button>
             </div>
 
+            {/* desciption */}
             <div className="mb-8">
               <p className="text-lg text-black leading-relaxed font-medium border-l-4 border-primary pl-4">
                 {boardData[selectedBoard as keyof typeof boardData].description}
               </p>
             </div>
 
-            {/* Special layout for Executive Board */}
-            {selectedBoard === 'executive' || selectedBoard === 'advisory' ? (
-              <div className="space-y-12">
-                {/* CEO Section - Centered */}
-                <div className="flex justify-center">
+            {/* members */}
+            <div className="space-y-12">
+              {/* CEO Section - Centered */}
+              <motion.div
+                key="ceo"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 max-w-sm mx-auto"
+              >
+                <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
+                  <span className="text-white font-bold text-xl">{boardData[selectedBoard].members[0].name.charAt(0)}</span>
+                </div>
+                <h4 className="text-xl font-bold mb-2 text-center">{boardData[selectedBoard].members[0].name.toUpperCase()}</h4>
+                <p className="font-bold mb-2 text-center px-1">{boardData[selectedBoard].members[0].position.toUpperCase()}</p>
+                <p className="text-sm text-center font-medium">{boardData[selectedBoard].members[0].experience}</p>
+              </motion.div>
+
+              {/* Other Executive Members */}
+              <div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {boardData[selectedBoard].members
-                    .filter(member => member.position === 'Chief Executive Officer' || member.position === 'Chairman')
-                    .map((ceo, index) => (
+                    .slice(1)
+                    .map((member, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 max-w-sm"
+                        transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                        className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105"
                       >
                         <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
-                          <span className="text-white font-bold text-xl">{ceo.name.charAt(0)}</span>
+                          <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
                         </div>
-                        <div className="text-center mb-2">
-                          {/* <span className="inline-block px-3 py-1 bg-primary text-white font-bold text-xs mb-2">
-                            CHIEF EXECUTIVE
-                          </span> */}
-                        </div>
-                        <h4 className="text-xl font-bold mb-2 text-center">{ceo.name.toUpperCase()}</h4>
-                        <p className="font-bold mb-2 text-center px-1">{ceo.position.toUpperCase()}</p>
-                        <p className="text-sm text-center font-medium">{ceo.experience}</p>
+                        <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
+                        <p className="font-bold mb-2 text-center">{member.position.toUpperCase()}</p>
+                        <p className="text-sm text-center font-medium">{member.experience}</p>
                       </motion.div>
                     ))
                   }
                 </div>
+              </div>
+            </div>
 
-                {/* Other Executive Members */}
-                <div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {boardData[selectedBoard].members
-                      .filter(member => member.position !== 'Chief Executive Officer' && member.position !== 'Chairman')
-                      .map((member, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-                          className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105"
-                        >
-                          <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
-                            <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
-                          </div>
-                          <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
-                          <p className="font-bold mb-2 text-center">{member.position.toUpperCase()}</p>
-                          <p className="text-sm text-center font-medium">{member.experience}</p>
-                        </motion.div>
-                      ))
-                    }
-                  </div>
-                </div>
-              </div>
+            {/* Navigation Buttons - Positioned outside the modal */}
+            {/* Previous Button - Show only for supervisory and advisory boards */}
+            {(selectedBoard === 'supervisory' || selectedBoard === 'advisory') && (
+              <button
+                onClick={() => setSelectedBoard(selectedBoard === 'supervisory' ? 'executive' : 'supervisory')}
+                className="fixed left-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60]"
+              >
+                <svg className="w-8 h-8 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-lg">{selectedBoard === 'supervisory' ? 'Executive Board' : 'Supervisory Board'}</span>
+              </button>
+            )}
+            
+            {/* Next Button */}
+            {selectedBoard !== 'advisory' ? (
+              <button
+                onClick={() => setSelectedBoard(selectedBoard === 'executive' ? 'supervisory' : 'advisory')}
+                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60]"
+              >
+                <span className="text-lg">{selectedBoard === 'executive' ? 'Supervisory' : 'Advisory'}</span>
+                <span className="text-lg">Board</span>
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             ) : (
-              /* Default layout for other boards */
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {boardData[selectedBoard as keyof typeof boardData].members.map((member, index) => (
-                  <div key={index} className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-colors">
-                    <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
-                      <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
-                    </div>
-                    <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
-                    <p className="font-bold mb-2 text-center">{member.position.toUpperCase()}</p>
-                    <p className="text-sm text-center font-medium">{member.experience}</p>
-                  </div>
-                ))}
-              </div>
+              <button
+                onClick={() => {
+                  setSelectedBoard(null);
+                  router.push('/companies');
+                }}
+                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60]"
+              >
+                <span className="text-lg">Our Companies</span>
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             )}
           </motion.div>
 
-          {/* Floating Companies Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="fixed bottom-6 right-6 z-50"
-          >
-            <Link href="/companies">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-primary hover:bg-primary-dark text-white px-6 py-3 hover:cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-semibold border-2 border-black"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <span>Our Companies</span>
-                <CaretRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </motion.button>
-            </Link>
-          </motion.div>
+          {/* Floating Companies Button removed as it's now part of the navigation buttons */}
         </div>
       )}
 

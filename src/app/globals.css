@@ -1,7 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import "tailwindcss";
 
+body {
+  @apply antialiased;
+  top: 0 !important;
+  /* font-family: "Plus Jakarta Sans", sans-serif; */
 
+  & > .skiptranslate {
+    display: none;
+  }
+}
+
+/* Menghilangkan top bar Google Translate */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* Menyembunyikan iframe Google Translate */
+/* body > .skiptranslate {
+  display: none;
+} */
+ 
 /* PP Neue Montreal Font Faces */
 /* @font-face {
   font-family: 'PP Neue Montreal';

@@ -2,11 +2,65 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import LocationTabs from '@/components/LocationTabs';
 import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon } from '@phosphor-icons/react/dist/ssr';
 
 const ContactPage = () => {
+  const [selectedOffice, setSelectedOffice] = useState(0);
+  
+  const officeData = [
+    { 
+      name: 'New York', 
+      address: '123 Business Avenue, NY 10001',
+      description: 'Our flagship office located in the heart of New York City provides comprehensive services for MSMEs across North America.',
+      services: ['Business Development', 'Financial Advisory', 'Market Research', 'Digital Transformation'],
+      hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 2:00 PM', 'Sunday: Closed']
+    },
+    { 
+      name: 'London', 
+      address: '456 Finance Street, London EC4',
+      description: 'Our London office serves as the European headquarters, focusing on international trade and EU market access for MSMEs.',
+      services: ['EU Market Access', 'Trade Consulting', 'Regulatory Compliance', 'Investment Advisory'],
+      hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
+    },
+    { 
+      name: 'Singapore', 
+      address: '789 Marina Bay, SG 018956',
+      description: 'The Singapore office is our gateway to Southeast Asian markets, specializing in regional expansion strategies.',
+      services: ['ASEAN Market Entry', 'Supply Chain Optimization', 'Tech Startup Incubation', 'Cross-border Payments'],
+      hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
+    },
+    { 
+      name: 'Dubai', 
+      address: '321 Business Bay, Dubai UAE',
+      description: 'Our Dubai office connects MSMEs to Middle Eastern and North African markets with specialized knowledge in regional regulations.',
+      services: ['MENA Market Strategy', 'Islamic Finance', 'Trade Show Representation', 'Local Partnership Facilitation'],
+      hours: ['Sunday - Thursday: 8:00 AM - 5:00 PM', 'Friday - Saturday: Closed']
+    },
+    { 
+      name: 'Tokyo', 
+      address: '567 Shibuya, Tokyo 150-0002',
+      description: 'The Tokyo office specializes in helping MSMEs navigate the unique Japanese market and expand into East Asia.',
+      services: ['Japanese Market Entry', 'Product Localization', 'Distribution Channel Development', 'Technology Licensing'],
+      hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday - Sunday: Closed']
+    },
+    { 
+      name: 'Sydney', 
+      address: '890 Harbour View, NSW 2000',
+      description: 'Our Sydney office serves the Oceania region, with expertise in Australia-Pacific trade relations and market development.',
+      services: ['Pacific Market Strategy', 'Agricultural Export', 'Tourism Industry Support', 'Resource Sector Consulting'],
+      hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
+    },
+    { 
+       name: 'Jakarta', 
+       address: '432 SCBD, Jakarta 12190',
+       description: 'The Jakarta office focuses on Indonesia\'s dynamic market, helping MSMEs navigate the largest economy in Southeast Asia.',
+       services: ['Indonesia Market Entry', 'Local Partnership Development', 'Regulatory Navigation', 'Digital Economy Integration'],
+       hours: ['Monday - Friday: 8:00 AM - 5:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
+     }
+  ];
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -85,7 +139,7 @@ const ContactPage = () => {
               className="max-w-4xl"
             >
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                Get in <span className="text-primary-light">Touch</span>
+                Our <span className="text-primary-light">Global Reach</span>
               </h1>
               {/* <p className="text-xl text-white leading-relaxed max-w-2xl">
                 We are here to help your MSME business grow. Reach out to our expert team for consultation and solutions.
@@ -94,6 +148,156 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Office Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              <span className="text-primary">Offices</span>
+            </h2>
+            <div className="w-24 h-1 bg-primary mx-auto"></div>
+          </motion.div>
+
+          <div className="flex flex-col lg:flex-row gap-10">
+            {/* Office List - Left Side */}
+            <div className="lg:w-1/3">
+              <div className="space-y-4 sticky top-24">
+                {[
+                  { 
+                    name: 'MSME Solutions Africa', 
+                    address: '321 Business Bay, Dubai UAE',
+                    description: 'Our Dubai office connects MSMEs to Middle Eastern and North African markets with specialized knowledge in regional regulations.',
+                    services: ['MENA Market Strategy', 'Islamic Finance', 'Trade Show Representation', 'Local Partnership Facilitation'],
+                    hours: ['Sunday - Thursday: 8:00 AM - 5:00 PM', 'Friday - Saturday: Closed']
+                  },
+                  { 
+                    name: 'MSME Solutions Asia', 
+                    address: '567 Shibuya, Tokyo 150-0002',
+                    description: 'The Tokyo office specializes in helping MSMEs navigate the unique Japanese market and expand into East Asia.',
+                    services: ['Japanese Market Entry', 'Product Localization', 'Distribution Channel Development', 'Technology Licensing'],
+                    hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday - Sunday: Closed']
+                  },
+                  { 
+                    name: 'MSME Solutions Latin America', 
+                    address: '432 SCBD, Jakarta 12190',
+                    description: 'The Jakarta office focuses on Indonesia\'s dynamic market, helping MSMEs navigate the largest economy in Southeast Asia.',
+                    services: ['Indonesia Market Entry', 'Local Partnership Development', 'Regulatory Navigation', 'Digital Economy Integration'],
+                    hours: ['Monday - Friday: 8:00 AM - 5:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
+                  },
+                  { 
+                    name: 'MSME Solutions North America', 
+                    address: '123 Business Avenue, NY 10001',
+                    description: 'Our flagship office located in the heart of New York City provides comprehensive services for MSMEs across North America.',
+                    services: ['Business Development', 'Financial Advisory', 'Market Research', 'Digital Transformation'],
+                    hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 2:00 PM', 'Sunday: Closed']
+                  },
+                  { 
+                    name: 'MSME Solutions ASEU', 
+                    address: '789 Marina Bay, SG 018956',
+                    description: 'The Singapore office is our gateway to Southeast Asian markets, specializing in regional expansion strategies.',
+                    services: ['ASEAN Market Entry', 'Supply Chain Optimization', 'Tech Startup Incubation', 'Cross-border Payments'],
+                    hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
+                  },
+                  { 
+                    name: 'MSME Solutions Europe', 
+                    address: '456 Finance Street, London EC4',
+                    description: 'Our London office serves as the European headquarters, focusing on international trade and EU market access for MSMEs.',
+                    services: ['EU Market Access', 'Trade Consulting', 'Regulatory Compliance', 'Investment Advisory'],
+                    hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
+                  },
+                  { 
+                    name: 'MSME Solutions World', 
+                    address: '890 Harbour View, NSW 2000',
+                    description: 'Our Sydney office serves the Oceania region, with expertise in Australia-Pacific trade relations and market development.',
+                    services: ['Pacific Market Strategy', 'Agricultural Export', 'Tourism Industry Support', 'Resource Sector Consulting'],
+                    hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
+                  }
+                ].map((office, index) => (
+                  <motion.button
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 * index }}
+                    className={`w-full text-left p-4 border-l-4 text-black/20 hover:cursor-pointer ${selectedOffice === index ? 'border-primary bg-gray-100 text-black/80' : 'border-gray-300 hover:bg-gray-50'} transition-all duration-200`}
+                    onClick={() => setSelectedOffice(index)}
+                  >
+                    <h3 className="text-xl font-bold ">{office.name}</h3>
+                    {/* <p className="text-gray-600 text-sm mt-1">{office.address}</p> */}
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* Office Content - Right Side */}
+            <div className="lg:w-2/3">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedOffice}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {/* Office Images */}
+                    <div className="relative h-60 border-4 border-black overflow-hidden">
+                      <Image
+                        src="/images/building.jpg"
+                        alt="Office Building"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="relative h-60 border-4 border-black overflow-hidden">
+                      <Image
+                        src="/images/sean-pollock-PhYq704ffdA-unsplash.jpg"
+                        alt="Office Interior"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="relative h-60 border-4 border-black overflow-hidden">
+                      <Image
+                        src="/images/marjan-blan-6bXvYyAYVrE-unsplash.jpg"
+                        alt="Office Meeting Room"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Office Video (replacing Office Details) */}
+                  <div className="mt-8 border-4 border-black overflow-hidden">
+                    <div className="relative pt-[56.25%]">
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute top-0 left-0 w-full h-full object-cover"
+                      >
+                        <source src="/videos/hero-background.mp4" type="video/mp4" />
+                      </video>
+                      
+                      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white">
+                        <h3 className="text-2xl font-bold mb-2">{officeData[selectedOffice].name} Office</h3>
+                        {/* <p className="text-sm md:text-base">{officeData[selectedOffice].description}</p> */}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Contact Form & Info Section */}
       <section className="py-20 bg-gray-100">
@@ -290,33 +494,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      {/* <section className="py-20 bg-gradient-to-r from-[#0D9244] to-[#4DB97A]">
-        <div className="container mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Grow Your MSME Business?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Join thousands of MSMEs who have benefited from our consulting services. 
-              Start your business transformation today!
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#0D9244] font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-all duration-200 inline-flex items-center gap-2"
-            >
-              <Phone className="w-5 h-5" />
-              Get Free Consultation Now
-            </motion.button>
-          </motion.div>
-        </div>
-      </section> */}
     </div>
   );
 };
