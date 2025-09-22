@@ -26,7 +26,7 @@ export default function SectionWithVideo({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative text-center h-[370px] mt-5"
+      className="relative text-center h-[370px] w-2xl mt-5"
     >
       {/* Video Background */}
       <div className="absolute inset-0 -m-12 rounded-2xl overflow-hidden">

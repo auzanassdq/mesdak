@@ -8,73 +8,92 @@ import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon } from '@
 
 const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState(0);
-  
-  const officeData = [
-    { 
-      name: 'New York', 
-      address: '123 Business Avenue, NY 10001',
-      description: 'Our flagship office located in the heart of New York City provides comprehensive services for MSMEs across North America.',
-      services: ['Business Development', 'Financial Advisory', 'Market Research', 'Digital Transformation'],
-      hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 2:00 PM', 'Sunday: Closed']
-    },
-    { 
-      name: 'London', 
-      address: '456 Finance Street, London EC4',
-      description: 'Our London office serves as the European headquarters, focusing on international trade and EU market access for MSMEs.',
-      services: ['EU Market Access', 'Trade Consulting', 'Regulatory Compliance', 'Investment Advisory'],
-      hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
-    },
-    { 
-      name: 'Singapore', 
-      address: '789 Marina Bay, SG 018956',
-      description: 'The Singapore office is our gateway to Southeast Asian markets, specializing in regional expansion strategies.',
-      services: ['ASEAN Market Entry', 'Supply Chain Optimization', 'Tech Startup Incubation', 'Cross-border Payments'],
-      hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
-    },
-    { 
-      name: 'Dubai', 
-      address: '321 Business Bay, Dubai UAE',
-      description: 'Our Dubai office connects MSMEs to Middle Eastern and North African markets with specialized knowledge in regional regulations.',
-      services: ['MENA Market Strategy', 'Islamic Finance', 'Trade Show Representation', 'Local Partnership Facilitation'],
-      hours: ['Sunday - Thursday: 8:00 AM - 5:00 PM', 'Friday - Saturday: Closed']
-    },
-    { 
-      name: 'Tokyo', 
-      address: '567 Shibuya, Tokyo 150-0002',
-      description: 'The Tokyo office specializes in helping MSMEs navigate the unique Japanese market and expand into East Asia.',
-      services: ['Japanese Market Entry', 'Product Localization', 'Distribution Channel Development', 'Technology Licensing'],
-      hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday - Sunday: Closed']
-    },
-    { 
-      name: 'Sydney', 
-      address: '890 Harbour View, NSW 2000',
-      description: 'Our Sydney office serves the Oceania region, with expertise in Australia-Pacific trade relations and market development.',
-      services: ['Pacific Market Strategy', 'Agricultural Export', 'Tourism Industry Support', 'Resource Sector Consulting'],
-      hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
-    },
-    { 
-       name: 'Jakarta', 
-       address: '432 SCBD, Jakarta 12190',
-       description: 'The Jakarta office focuses on Indonesia\'s dynamic market, helping MSMEs navigate the largest economy in Southeast Asia.',
-       services: ['Indonesia Market Entry', 'Local Partnership Development', 'Regulatory Navigation', 'Digital Economy Integration'],
-       hours: ['Monday - Friday: 8:00 AM - 5:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
-     }
-  ];
-  
-  const [formData, setFormData] = useState({
+
+  interface OfficeData {
+  name: string;
+  headquarter: string;
+  img: string[];
+  video: string;
+}
+
+const officeData: OfficeData[] = [
+                  {
+                    name: 'MSME Solutions Africa',
+                    headquarter: 'Mauritius',
+                    img: [],
+                    video: ""
+                  },
+                  {
+                    name: 'MSME Solutions Asia',
+                                        headquarter: 'Singapore',
+                    img: [],
+                    video: ""
+                  },
+                  {
+                    name: 'MSME Solutions Latin America',
+                    headquarter: 'Brazil',
+                    img: [],
+                    video: ""
+                  },
+                  {
+                    name: 'MSME Solutions North America',
+                      headquarter: 'USA',
+                    img: [],
+                    video: ""
+                  },
+                  {
+                    name: 'MSME Solutions ASEU',
+                         headquarter: 'Russia',
+                    img: [],
+                    video: ""
+                  },
+                  {
+                    name: 'MSME Solutions Europe',
+                    headquarter: 'Germany',
+                    img: [],
+                    video: ""
+                  },
+                  {
+                    name: 'MSME Solutions World',
+                       headquarter: 'Mauritius',
+                    img: [],
+                    video: ""
+                  }
+                ]
+
+  interface FormData {
+    name: string;
+    email: string;
+    phone: string;
+    subject: string;
+    message: string;
+    file: File | null;
+  }
+
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    file: null
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    const { name, value, files } = e.target as HTMLInputElement;
+
+    if (files && name === 'file') {
+      setFormData(prev => ({
+        ...prev,
+        [name]: files[0]
+
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -87,7 +106,8 @@ const ContactPage = () => {
       email: '',
       phone: '',
       subject: '',
-      message: ''
+      message: '',
+      file: null
     });
   };
 
@@ -129,7 +149,7 @@ const ContactPage = () => {
           priority
         />
         <div className="absolute inset-0 bg-black/60"></div>
-        
+
         <div className="relative z-10 h-full flex items-center">
           <div className="container mx-auto px-6">
             <motion.div
@@ -168,57 +188,7 @@ const ContactPage = () => {
             {/* Office List - Left Side */}
             <div className="lg:w-1/3">
               <div className="space-y-4 sticky top-24">
-                {[
-                  { 
-                    name: 'MSME Solutions Africa', 
-                    address: '321 Business Bay, Dubai UAE',
-                    description: 'Our Dubai office connects MSMEs to Middle Eastern and North African markets with specialized knowledge in regional regulations.',
-                    services: ['MENA Market Strategy', 'Islamic Finance', 'Trade Show Representation', 'Local Partnership Facilitation'],
-                    hours: ['Sunday - Thursday: 8:00 AM - 5:00 PM', 'Friday - Saturday: Closed']
-                  },
-                  { 
-                    name: 'MSME Solutions Asia', 
-                    address: '567 Shibuya, Tokyo 150-0002',
-                    description: 'The Tokyo office specializes in helping MSMEs navigate the unique Japanese market and expand into East Asia.',
-                    services: ['Japanese Market Entry', 'Product Localization', 'Distribution Channel Development', 'Technology Licensing'],
-                    hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday - Sunday: Closed']
-                  },
-                  { 
-                    name: 'MSME Solutions Latin America', 
-                    address: '432 SCBD, Jakarta 12190',
-                    description: 'The Jakarta office focuses on Indonesia\'s dynamic market, helping MSMEs navigate the largest economy in Southeast Asia.',
-                    services: ['Indonesia Market Entry', 'Local Partnership Development', 'Regulatory Navigation', 'Digital Economy Integration'],
-                    hours: ['Monday - Friday: 8:00 AM - 5:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
-                  },
-                  { 
-                    name: 'MSME Solutions North America', 
-                    address: '123 Business Avenue, NY 10001',
-                    description: 'Our flagship office located in the heart of New York City provides comprehensive services for MSMEs across North America.',
-                    services: ['Business Development', 'Financial Advisory', 'Market Research', 'Digital Transformation'],
-                    hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 10:00 AM - 2:00 PM', 'Sunday: Closed']
-                  },
-                  { 
-                    name: 'MSME Solutions ASEU', 
-                    address: '789 Marina Bay, SG 018956',
-                    description: 'The Singapore office is our gateway to Southeast Asian markets, specializing in regional expansion strategies.',
-                    services: ['ASEAN Market Entry', 'Supply Chain Optimization', 'Tech Startup Incubation', 'Cross-border Payments'],
-                    hours: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday: 9:00 AM - 1:00 PM', 'Sunday: Closed']
-                  },
-                  { 
-                    name: 'MSME Solutions Europe', 
-                    address: '456 Finance Street, London EC4',
-                    description: 'Our London office serves as the European headquarters, focusing on international trade and EU market access for MSMEs.',
-                    services: ['EU Market Access', 'Trade Consulting', 'Regulatory Compliance', 'Investment Advisory'],
-                    hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
-                  },
-                  { 
-                    name: 'MSME Solutions World', 
-                    address: '890 Harbour View, NSW 2000',
-                    description: 'Our Sydney office serves the Oceania region, with expertise in Australia-Pacific trade relations and market development.',
-                    services: ['Pacific Market Strategy', 'Agricultural Export', 'Tourism Industry Support', 'Resource Sector Consulting'],
-                    hours: ['Monday - Friday: 8:30 AM - 5:30 PM', 'Saturday - Sunday: Closed']
-                  }
-                ].map((office, index) => (
+                {officeData.map((office, index) => (
                   <motion.button
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -284,10 +254,9 @@ const ContactPage = () => {
                       >
                         <source src="/videos/hero-background.mp4" type="video/mp4" />
                       </video>
-                      
+
                       <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white">
-                        <h3 className="text-2xl font-bold mb-2">{officeData[selectedOffice].name} Office</h3>
-                        {/* <p className="text-sm md:text-base">{officeData[selectedOffice].description}</p> */}
+                        <h3 className="text-2xl font-bold mb-1">Headquarter - {officeData[selectedOffice].headquarter}</h3>
                       </div>
                     </div>
                   </div>
@@ -346,7 +315,8 @@ const ContactPage = () => {
                     />
                   </div>
                 </div>
-                
+
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-bold text-gray-900 mb-2">
@@ -380,6 +350,29 @@ const ContactPage = () => {
                 </div>
 
                 <div>
+                  <label htmlFor="file" className="block text-sm font-bold text-gray-900 mb-2">
+                    Upload File
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="file"
+                      id="file"
+                      name="file"
+                      onChange={handleInputChange}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
+                    />
+                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between">
+                      <span className="text-gray-500">{formData.file ? formData.file.name : 'Choose a file...'}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div>
                   <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
                     Message *
                   </label>
@@ -401,7 +394,7 @@ const ContactPage = () => {
                   whileTap={{ scale: 0.98 }}
                   className="w-full bg-[#0D9244] text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
                 >
-                  <PaperPlaneTiltIcon  className="w-5 h-5" />
+                  <PaperPlaneTiltIcon className="w-5 h-5" />
                   Send Message
                 </motion.button>
               </form>
@@ -419,7 +412,7 @@ const ContactPage = () => {
                   Get in Touch
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-8 font-medium">
-                  We&apos;re here to help your MSME business thrive. Choose the best way to reach us.
+                  We are here to help feel free to reach out
                 </p>
               </div>
 

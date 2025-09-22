@@ -30,43 +30,49 @@ const GroupCompaniesPage = () => {
       name: "MSME Network Incorporation",
       description: "A leading network organization dedicated to connecting MSMEs with resources, opportunities, and expertise to drive their growth and success.",
       icon: GlobeIcon,
+      tagline: "Unlock Untapped Potentials"
     },
     {
       id: 2,
       name: "M'Butic Incorporation",
       description: "A boutique consulting firm specializing in tailored solutions for MSMEs, focusing on strategic planning, operational efficiency, and market expansion.",
       icon: TargetIcon,
+      tagline: "The future of Commerce"
     },
     {
       id: 3,
       name: "MSME Development Consulting",
       description: "A consulting firm focused on providing comprehensive development services to MSMEs, including training, mentorship, and capacity building programs.",
       icon: UsersIcon,
+      tagline: "Think the Unthough"
     },
     {
       id: 4,
       name: "MSME Finance Incorporation",
       description: "A financial institution offering specialized financial products and services to support the funding needs of MSMEs, including loans and investment solutions.",
       icon: CurrencyDollarIcon,
+      tagline: "Rock Your Finance"
     },
     {
       id: 5,
       name: "M'IZITec Incorporation",
       description: "A technology company developing innovative tech solutions for MSMEs, including software, platforms, and digital tools to enhance their operations and competitiveness.",
       icon: LightningIcon,
+      tagline: "Driving Business<br/>Through<br/>Digital Power"
     },
     {
       id: 6,
       name: "M'Media Incorporation",
       description: "A media and communications agency specializing in creating impactful marketing and communication strategies for MSMEs, helping them build their brand and reach their target audience.",
       icon: MonitorIcon,
+      tagline: "Be Faster,Easier <br/> & Everywhere"
     },
     {
       id: 7,
       name: "M'DataTalk Incorporation",
       description: "A data analytics company providing insights and data-driven strategies to help MSMEs make informed decisions and optimize their performance.",
       icon: ChartBarIcon,
-
+      tagline: "Unlock the power of Data"
     },
   ];
 
@@ -127,18 +133,13 @@ const GroupCompaniesPage = () => {
                   }}
                 >
                   Seven Companies. One Precision Engine
-                  <motion.div
-                    className="absolute -bottom-2 left-0 right-0 h-1 bg-primary"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  />
+             
                 </motion.span> <br className="mb-4"/> <br className="mb-4"/>
                 Each delivers specialized expertise, united in a seamless mission: <br />
                 empowering MSMEs, Financial Institutions, and Governments <br />
                 with innovative digital solutions <br /> 
                 <motion.span 
-                  className="text-primary relative inline-block bg-primary/10 px-2"
+                  className="text-primary relative inline-block px-2"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
@@ -179,8 +180,9 @@ const GroupCompaniesPage = () => {
                   <motion.div
                     key={company.id}
                     variants={fadeInUp}
-                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full"
+                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative"
                   >
+                    <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
                     <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
                       <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                     </div>
@@ -206,8 +208,10 @@ const GroupCompaniesPage = () => {
                   <motion.div
                     key={company.id}
                     variants={fadeInUp}
-                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full"
+                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative"
                   >
+                    <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-right text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
+
                     <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
                       <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                     </div>
@@ -233,7 +237,7 @@ const GroupCompaniesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-2xl text-black leading-relaxed text-center font-medium"
+            className="text-2xl text-primary leading-relaxed text-center font-medium"
           >
             This is a purpose-built ecosystem that makes scale and complexity its core moat and value driver
           </motion.p>
@@ -254,7 +258,7 @@ const GroupCompaniesPage = () => {
             <div className="mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
               <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
                 Strategic Services to Keep Our Businesses Agile and Forward-Thinking              </p>
             </div>
 

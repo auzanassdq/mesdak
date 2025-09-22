@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { BuildingIcon, ClockIcon, LightbulbFilamentIcon, MapPinIcon, TrendUpIcon, UserCheckIcon } from '@phosphor-icons/react/dist/ssr';
 
 export default function TabPartnership() {
@@ -10,7 +11,7 @@ export default function TabPartnership() {
       transition={{ duration: 0.5 }}
     >
       {/* Combined Unleash Your Ideas and Share Your Game Section */}
-      <section className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden py-16">
+      <section className="min-h-[calc(100vh-16rem)] bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden py-16">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -52,7 +53,7 @@ export default function TabPartnership() {
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-6 relative z-10 flex flex-col gap-8 h-screen justify-center">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col gap-8 h-[calc(100vh-16rem)] justify-center">
           {/* Unleash Your Ideas */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -191,7 +192,10 @@ export default function TabPartnership() {
                   }}
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
                 />
-                <span className="relative z-10">Click Here</span>
+                <Link href="#partnership-form" className="relative z-10" onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}>Click Here</Link>
               </motion.button>
             </motion.div>
           </motion.div>
@@ -282,8 +286,8 @@ export default function TabPartnership() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-gray-100">
+      {/* partnership-form */}
+      <section className="py-20 bg-gray-100" id='partnership-form'>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}

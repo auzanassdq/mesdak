@@ -568,14 +568,18 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 max-w-sm mx-auto"
+                className="relative group bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 max-w-sm mx-auto"
               >
                 <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
                   <span className="text-white font-bold text-xl">{boardData[selectedBoard].members[0].name.charAt(0)}</span>
                 </div>
                 <h4 className="text-xl font-bold mb-2 text-center">{boardData[selectedBoard].members[0].name.toUpperCase()}</h4>
                 <p className="font-bold mb-2 text-center px-1">{boardData[selectedBoard].members[0].position.toUpperCase()}</p>
-                <p className="text-sm text-center font-medium">{boardData[selectedBoard].members[0].experience}</p>
+                <div className="hidden group-hover:flex hover:cursor-pointer absolute bottom-4 right-4 opacity-70 hover:opacity-100 transition-opacity">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
               </motion.div>
 
               {/* Other Executive Members */}
@@ -589,14 +593,18 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-                        className="bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105"
+                        className="relative group bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105"
                       >
                         <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
                           <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
                         </div>
                         <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
                         <p className="font-bold mb-2 text-center">{member.position.toUpperCase()}</p>
-                        <p className="text-sm text-center font-medium">{member.experience}</p>
+                        <div className="hidden group-hover:flex hover:cursor-pointer absolute bottom-4 right-4 opacity-70 hover:opacity-100 transition-opacity">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </div>
                       </motion.div>
                     ))
                   }
@@ -664,7 +672,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
               Our Group Companies
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+            <p className="text-2xl text-gray-600 mb-12 leading-relaxed">
               Seven Companies. One Precision Engine
             </p>
 

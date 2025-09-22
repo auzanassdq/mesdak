@@ -98,7 +98,7 @@ const CareersPage: React.FC = () => {
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Our Reach</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-12">
+            <p className="text-2xl text-gray-700 leading-relaxed max-w-7xl mx-auto mb-12">
               Connect with us to explore opportunities in your area and become part of our growing community.
             </p>
 
