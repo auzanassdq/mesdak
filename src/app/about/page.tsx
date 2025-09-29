@@ -428,7 +428,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
               </div>
 
               {/* Content Area - Right Side */}
-              <div className="flex items-center pr-12 ">
+              <div className="flex items-center">
                 <div className="max-w-4xl">
                   {/* Vision Content */}
                   {currentSection === 'vision' && (
