@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FacebookLogoIcon, LinkedinLogoIcon, XLogoIcon } from '@phosphor-icons/react/dist/ssr';
+import { FacebookLogoIcon, LinkedinLogoIcon, MagnifyingGlassIcon, XLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 const Footer = () => {
   const { ref, inView } = useInView({
@@ -102,6 +102,7 @@ Institutions Financial Governments
               <li><Link href="/services/financial-support" className="hover:text-white transition-colors">M&apos;Brand</Link></li>
               <li><Link href="/services/business-consulting" className="hover:text-white transition-colors">M&apos;SuperDeal</Link></li>
               <li><Link href="/services/financial-support" className="hover:text-white transition-colors">Business Directory</Link></li>
+              <li><Link href="/services/financial-support" className="hover:text-white transition-colors flex items-center gap-2">Search <MagnifyingGlassIcon size={16} /></Link></li>
 
               {/* <li><Link href="/services/digital-transformation" className="hover:text-white transition-colors">MSME development consulting</Link></li> */}
             

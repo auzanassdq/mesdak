@@ -51,7 +51,7 @@ const GroupCompaniesPage = () => {
       name: "MSME Finance Incorporation",
       description: "A financial institution offering specialized financial products and services to support the funding needs of MSMEs, including loans and investment solutions.",
       icon: CurrencyDollarIcon,
-      tagline: "Rock Your Finance"
+      tagline: "Rocking MSME Finance"
     },
     {
       id: 5,
@@ -237,7 +237,7 @@ const GroupCompaniesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-2xl text-primary leading-relaxed text-center font-medium"
+            className="text-3xl text-primary leading-relaxed text-center font-medium"
           >
             This is a purpose-built ecosystem that makes scale and complexity its core moat and value driver
           </motion.p>
@@ -259,7 +259,7 @@ const GroupCompaniesPage = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
               <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
               <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                Strategic Services to Keep Our Businesses Agile and Forward-Thinking              </p>
+                Strategic Services to keep Our Businesses Agile and Forward-Thinking              </p>
             </div>
 
 

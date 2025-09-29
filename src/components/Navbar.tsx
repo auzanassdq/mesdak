@@ -34,7 +34,7 @@ const Navbar = () => {
     { name: 'Our Reach', href: '/contact' },
     { name: "M'Brand", href: '/brand' },
     { name: "M'SuperDeal", href: '/puperdeal' },
-    { name: 'Business Directory', href: '/directory' },
+    { name: 'Business Directory', href: 'https://mnetgo.com/bd' },
   ];
 
   return (
@@ -79,6 +79,32 @@ const Navbar = () => {
               </Link>
             );
           })}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors group"
+          >
+            <motion.div
+              className="relative"
+              transition={{ duration: 0.2 }}
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="7" strokeWidth="2" />
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth="2.5"
+                  d="M21 21l-4.35-4.35"
+                />
+              </svg>
+            </motion.div>
+          </motion.button>
           <TranslateComponent />
         </div>
 
@@ -133,8 +159,36 @@ const Navbar = () => {
               );
             })}
             
-            {/* Language Selector - Mobile */}
-            <div className="flex items-center py-3">
+            {/* Search and Language - Mobile */}
+            <div className="flex items-center justify-between py-3">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors group"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <motion.div
+                  className="relative"
+                  whileHover={{ rotate: 90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <circle cx="11" cy="11" r="7" strokeWidth="2" />
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth="2.5"
+                      d="M21 21l-4.35-4.35"
+                    />
+                  </svg>
+                </motion.div>
+              </motion.button>
               <TranslateComponent />
             </div>
           </div>

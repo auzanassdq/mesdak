@@ -1,8 +1,70 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { BuildingIcon, ClockIcon, LightbulbFilamentIcon, MapPinIcon, TrendUpIcon, UserCheckIcon } from '@phosphor-icons/react/dist/ssr';
+import { useState } from 'react';
+
+interface FormData {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  'partnership-type': string;
+  message: string;
+  file: File | null;
+}
 
 export default function TabPartnership() {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    'partnership-type': '',
+    message: '',
+    file: null
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, files } = e.target as HTMLInputElement;
+
+    if (files && name === 'file') {
+      setFormData(prev => ({
+        ...prev,
+        [name]: files[0]
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    try {
+      // Di sini Anda bisa menambahkan logika untuk mengirim data ke server
+      console.log('Form Data:', formData);
+      
+      // Reset form setelah berhasil
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        'partnership-type': '',
+        message: '',
+        file: null
+      });
+      
+      alert('Form berhasil dikirim!');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Terjadi kesalahan saat mengirim form. Silakan coba lagi.');
+    }
+  };
+
   return (
     <motion.div
       key="partnership"
@@ -116,89 +178,6 @@ export default function TabPartnership() {
               </motion.p>
             </motion.div>
           </motion.div>
-
-          {/* Share Your Game */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                rotateY: 5,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-              }}
-              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden"
-            >
-              {/* Animated Border Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Sparkle Effects */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute top-4 right-4 w-2 h-2 bg-yellow-400 rounded-full"
-              />
-
-              <div className="flex items-center justify-center mb-4 relative z-10">
-                <motion.div
-                  whileHover={{
-                    rotate: [0, -10, 10, 0],
-                    scale: 1.1
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg"
-                >
-                  <TrendUpIcon className="w-8 h-8 text-white group-hover:text-primary transition-colors duration-300" />
-                </motion.div>
-              </div>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl font-bold text-gray-900 group-hover:text-white leading-tight mb-4 relative z-10"
-              >
-                Share Your Game-Changing Ideas and <br /> Shape the Future of MSMEs
-              </motion.h3>
-
-              <motion.button
-                whileHover={{
-                  scale: 1.1,
-                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                className='bg-primary hover:bg-white hover:text-primary text-white group-hover:bg-white group-hover:text-primary font-bold py-4 px-8 border-2 border-black shadow-lg transform transition-all duration-300 text-lg relative overflow-hidden'
-              >
-                {/* Button Shine Effect */}
-                <motion.div
-                  animate={{
-                    x: [-100, 200],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                />
-                <Link href="#partnership-form" className="relative z-10" onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' });
-                }}>Click Here</Link>
-              </motion.button>
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
@@ -286,6 +265,95 @@ export default function TabPartnership() {
         </div>
       </section>
 
+      {/* Share Your Game */}
+      <section className="bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden py-16">
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <motion.div
+              whileHover={{
+                scale: 1.02,
+                rotateY: 5,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              }}
+              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden"
+            >
+              {/* Animated Border Glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Sparkle Effects */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-4 right-4 w-2 h-2 bg-yellow-400 rounded-full"
+              />
+
+              <div className="flex items-center justify-center mb-4 relative z-10">
+                <motion.div
+                  whileHover={{
+                    rotate: [0, -10, 10, 0],
+                    scale: 1.1
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg"
+                >
+                  <TrendUpIcon className="w-8 h-8 text-white group-hover:text-primary transition-colors duration-300" />
+                </motion.div>
+              </div>
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-4xl font-bold text-gray-900 group-hover:text-white leading-tight mb-4 relative z-10"
+              >
+                Share Your Game-Changing Ideas and <br /> Shape the Future of MSMEs
+              </motion.h3>
+
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                className='bg-primary hover:bg-white hover:text-primary text-white group-hover:bg-white group-hover:text-primary font-bold py-4 px-8 border-2 border-black shadow-lg transform transition-all duration-300 text-lg relative overflow-hidden'
+              >
+                {/* Button Shine Effect */}
+                <motion.div
+                  animate={{
+                    x: [-100, 200],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatDelay: 3,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+                />
+                <Link href="#partnership-form" className="relative z-10" onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}>Click Here</Link>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+
+
       {/* partnership-form */}
       <section className="py-20 bg-gray-100" id='partnership-form'>
         <div className="container mx-auto px-6">
@@ -301,7 +369,10 @@ export default function TabPartnership() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Partnership Inquiry
               </h2>
-              <form className="space-y-6">
+              <form 
+                className="grid gap-6"
+                onSubmit={handleSubmit}
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
@@ -314,6 +385,8 @@ export default function TabPartnership() {
                       required
                       className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="Enter your full name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div>
@@ -327,6 +400,8 @@ export default function TabPartnership() {
                       required
                       className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="name@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
@@ -343,6 +418,8 @@ export default function TabPartnership() {
                       required
                       className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="Your company name"
+                      value={formData.company}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div>
@@ -355,6 +432,8 @@ export default function TabPartnership() {
                       name="phone"
                       className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="+1 (123) 456-7890"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
@@ -368,6 +447,8 @@ export default function TabPartnership() {
                     name="partnership-type"
                     required
                     className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                    value={formData['partnership-type']}
+                    onChange={handleInputChange}
                   >
                     <option value="">Select Partnership Type</option>
                     <option value="strategic">Strategic Partnership</option>
@@ -375,6 +456,28 @@ export default function TabPartnership() {
                     <option value="technology">Technology Partnership</option>
                     <option value="other">Other</option>
                   </select>
+                </div>
+
+                                <div>
+                  <label htmlFor="file" className="block text-sm font-bold text-gray-900 mb-2">
+                    Upload File
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="file"
+                      id="file"
+                      name="file"
+                      onChange={handleInputChange}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
+                    />
+                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between">
+                      <span className="text-gray-500">{formData.file ? formData.file.name : 'Choose a file...'}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
@@ -388,6 +491,8 @@ export default function TabPartnership() {
                     rows={6}
                     className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none"
                     placeholder="Tell us about your partnership proposal..."
+                    value={formData.message}
+                    onChange={handleInputChange}
                   ></textarea>
                 </div>
 

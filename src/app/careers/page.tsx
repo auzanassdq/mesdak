@@ -48,7 +48,7 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Tab Navigation */}
-      <section className="bg-white border-b border-gray-200">
+      <section className="sticky top-14 bg-white border-b border-gray-200 z-20 shadow-2xl">
         <div className="container mx-auto px-6">
           <div className="flex w-full">
             <button

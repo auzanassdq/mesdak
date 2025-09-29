@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import LocationTabs from '@/components/LocationTabs';
 import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon } from '@phosphor-icons/react/dist/ssr';
+import Link from 'next/link';
+import { ArrowRightIcon } from '@phosphor-icons/react';
 
 const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState(0);
@@ -14,48 +16,55 @@ const ContactPage = () => {
   headquarter: string;
   img: string[];
   video: string;
+  link?: string;
 }
 
 const officeData: OfficeData[] = [
                   {
-                    name: 'MSME Solutions Africa',
-                    headquarter: 'Mauritius',
+                    name: 'MSME Solutions Africa - Mauritius',
+                    headquarter: 'Headquarters - Mauritius',
                     img: [],
-                    video: ""
+                    video: "",
+                    link: '#'
                   },
                   {
-                    name: 'MSME Solutions Asia',
-                                        headquarter: 'Singapore',
+                    name: 'MSME Solutions Asia - Singapore',
+                    headquarter: 'Singapore',
                     img: [],
-                    video: ""
+                    video: "",
+                    link: '#'
                   },
                   {
-                    name: 'MSME Solutions Latin America',
-                    headquarter: 'Brazil',
+                    name: 'MSME Solutions Latin America - Panama',
+                    headquarter: 'Panama',
                     img: [],
-                    video: ""
+                    video: "",
+                    link: '#'
                   },
                   {
-                    name: 'MSME Solutions North America',
-                      headquarter: 'USA',
+                    name: 'MSME Solutions North America - Canada',
+                    headquarter: 'Canada',
                     img: [],
-                    video: ""
+                    video: "",
+                    link: '#'
                   },
                   {
-                    name: 'MSME Solutions ASEU',
-                         headquarter: 'Russia',
+                    name: 'MSME Solutions ASEU - Georgia',
+                    headquarter: 'Georgia',
                     img: [],
-                    video: ""
+                    video: "",
+                    link: '#'
                   },
                   {
-                    name: 'MSME Solutions Europe',
+                    name: 'MSME Solutions Europe - Germany',
                     headquarter: 'Germany',
                     img: [],
-                    video: ""
+                    video: "",
+                    link: '#'
                   },
                   {
-                    name: 'MSME Solutions World',
-                       headquarter: 'Mauritius',
+                    name: 'MSME Solutions World - Mauritius (Headquarters)',
+                    headquarter: 'Mauritius (Headquarters)',
                     img: [],
                     video: ""
                   }
@@ -214,9 +223,9 @@ const officeData: OfficeData[] = [
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {/* Office Images */}
-                    <div className="relative h-60 border-4 border-black overflow-hidden">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="relative h-40 border-4 border-black overflow-hidden">
                       <Image
                         src="/images/building.jpg"
                         alt="Office Building"
@@ -224,7 +233,7 @@ const officeData: OfficeData[] = [
                         className="object-cover"
                       />
                     </div>
-                    <div className="relative h-60 border-4 border-black overflow-hidden">
+                    <div className="relative h-40 border-4 border-black overflow-hidden">
                       <Image
                         src="/images/sean-pollock-PhYq704ffdA-unsplash.jpg"
                         alt="Office Interior"
@@ -232,7 +241,7 @@ const officeData: OfficeData[] = [
                         className="object-cover"
                       />
                     </div>
-                    <div className="relative h-60 border-4 border-black overflow-hidden">
+                    <div className="relative h-40 border-4 border-black overflow-hidden">
                       <Image
                         src="/images/marjan-blan-6bXvYyAYVrE-unsplash.jpg"
                         alt="Office Meeting Room"
@@ -244,21 +253,25 @@ const officeData: OfficeData[] = [
 
                   {/* Office Video (replacing Office Details) */}
                   <div className="mt-8 border-4 border-black overflow-hidden">
-                    <div className="relative pt-[56.25%]">
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="absolute top-0 left-0 w-full h-full object-cover"
-                      >
-                        <source src="/videos/hero-background.mp4" type="video/mp4" />
-                      </video>
+                      <iframe
+                        src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className=" top-0 left-0 w-full  object-cover h-[300px]"
+                        style={{ border: 'none' }}
+                      />
 
-                      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white">
-                        <h3 className="text-2xl font-bold mb-1">Headquarter - {officeData[selectedOffice].headquarter}</h3>
+                      <div className=" bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
+                        <h3 className="text-2xl font-bold mb-1">{officeData[selectedOffice].headquarter}</h3>
+                        {officeData[selectedOffice].link && (
+                          <Link href={officeData[selectedOffice].link} target="_blank" className="group text-primary flex items-center">
+                            <span>Visit</span>
+                            <ArrowRightIcon className="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+                          </Link>
+                        )}
                       </div>
-                    </div>
+                    {/* <div className="relative pt-[56.25%]">
+                    </div> */}
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -412,7 +425,7 @@ const officeData: OfficeData[] = [
                   Get in Touch
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-8 font-medium">
-                  We are here to help feel free to reach out
+                  We are here to help — feel free to reach out
                 </p>
               </div>
 

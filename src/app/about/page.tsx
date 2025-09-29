@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowArcRightIcon, ArrowRightIcon, CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
+import { ArrowArcRightIcon, ArrowRightIcon, CaretRightIcon, NewspaperIcon } from '@phosphor-icons/react/dist/ssr';
 import { useRouter } from 'next/navigation';
 import SectionWithVideo from '@/components/SectionWithVideo';
 
@@ -226,6 +226,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
 
       {/* Vision, Mission, Action Section */}
       <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
+        
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
@@ -240,9 +241,11 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
           </video>
           <div className="absolute inset-0 bg-white/80"></div>
         </div>
+        
         <div ref={containerRef} className="relative h-full z-10">
           <div className="container mx-auto px-6 relative z-10 h-full">
-            <div className="flex h-full">
+            <div className="flex h-full justify-between">
+              
               {/* Floating Navigation - Left Side */}
               <div className="w-80 flex flex-col justify-center space-y-4 pr-12">
                 {/* Scroll Progress Indicator */}
@@ -411,8 +414,21 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                 </Link>
               </div>
 
+              {/* News */}
+              <div className='absolute bottom-8 right-6 w-[272px]'>
+                <Link href='/contact'>
+                  <button className='w-full bg-secondary flex items-center justify-center gap-4 text-black/80 border-2 px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
+                    <span>
+                      News
+                    </span>
+                    {/* <ArrowRightIcon className='w-6 h-6' /> */}
+                    <NewspaperIcon size={24} />
+                  </button>
+                </Link>
+              </div>
+
               {/* Content Area - Right Side */}
-              <div className="flex-1 flex items-center justify-center pl-12">
+              <div className="flex items-center pr-12 ">
                 <div className="max-w-4xl">
                   {/* Vision Content */}
                   {currentSection === 'vision' && (
@@ -450,13 +466,11 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6 }}
-                      className="w-full"
+                      className="w-full pl-20"
                     >
                       <div className="text-center mb-12">
-
                         <h2 className="text-5xl lg:text-6xl font-bold text-black mb-8">OUR BOARD</h2>
                         <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-
                       </div>
 
                       <div className="grid lg:grid-cols-3 gap-8">
