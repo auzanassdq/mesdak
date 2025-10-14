@@ -90,7 +90,7 @@ export default function MBrandPage() {
                 ></path>
               </svg>
             </div>
-            <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">M'Brand</h2>
+            <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">M&apos;Brand</h2>
           </div>
           <div className="flex flex-1 justify-end gap-8">
             <div className="flex items-center gap-9">
@@ -166,7 +166,7 @@ export default function MBrandPage() {
                       transition={{ duration: 0.8, delay: 0.2 }}
                       className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
                     >
-                      Welcome to M'Brand
+                      Welcome to M&apos;Brand
                     </motion.h1>
                     <motion.h2
                       initial={{ opacity: 0, y: 20 }}

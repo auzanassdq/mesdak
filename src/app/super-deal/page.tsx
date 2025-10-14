@@ -67,7 +67,7 @@ export default function SuperDealPage() {
           className="bg-white p-6 rounded-xl shadow-sm mb-8"
         >
           <div className="flex justify-between items-center mb-2">
-            <h2 className="text-lg font-semibold text-gray-700">M'SuperDeal Setup</h2>
+            <h2 className="text-lg font-semibold text-gray-700">M&apos;SuperDeal Setup</h2>
             <span className="text-sm text-gray-500">25% Complete</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2.5">
@@ -94,7 +94,7 @@ export default function SuperDealPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl font-bold mb-2 text-[var(--vibrant-orange)]"
             >
-              Setup Your M'SuperDeal
+              Setup Your M&apos;SuperDeal
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
