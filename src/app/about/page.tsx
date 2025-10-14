@@ -405,7 +405,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
               {/* Contact - Get in Touch */}
               <div className='absolute bottom-8 w-[272px]'>
                 <Link href='/contact'>
-                  <button className='w-full bg-secondary flex items-center justify-center gap-4 text-black/80 border-2 px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
+                  <button className='w-full flex items-center justify-center gap-4 text-black/80  px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
                     <span>
                       Contact - Get in Touch
                     </span>
@@ -417,7 +417,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
               {/* News */}
               <div className='absolute bottom-8 right-6 w-[272px]'>
                 <Link href='/contact'>
-                  <button className='w-full bg-secondary flex items-center justify-center gap-4 text-black/80 border-2 px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
+                  <button className='w-full flex items-center justify-center gap-4 text-black/80  px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
                     <span>
                       News
                     </span>

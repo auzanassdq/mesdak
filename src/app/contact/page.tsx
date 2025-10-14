@@ -77,6 +77,7 @@ const officeData: OfficeData[] = [
     subject: string;
     message: string;
     file: File | null;
+    countryOffice: string;
   }
 
   const [formData, setFormData] = useState<FormData>({
@@ -85,10 +86,11 @@ const officeData: OfficeData[] = [
     phone: '',
     subject: '',
     message: '',
-    file: null
+    file: null,
+    countryOffice: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, files } = e.target as HTMLInputElement;
 
     if (files && name === 'file') {
@@ -116,7 +118,8 @@ const officeData: OfficeData[] = [
       phone: '',
       subject: '',
       message: '',
-      file: null
+      file: null,
+      countryOffice: ''
     });
   };
 
@@ -360,6 +363,25 @@ const officeData: OfficeData[] = [
                       placeholder="Topic of your message"
                     />
                   </div>
+                </div>
+
+                <div>
+                  <label htmlFor="countryOffice" className="block text-sm font-bold text-gray-900 mb-2">
+                    Select Country Office *
+                  </label>
+                  <select
+                    id="countryOffice"
+                    name="countryOffice"
+                    value={formData.countryOffice}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 bg-white"
+                  >
+                    <option value="">Select an office...</option>
+                    {officeData.map((office, idx) => (
+                      <option key={idx} value={office.name}>{office.name}</option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>

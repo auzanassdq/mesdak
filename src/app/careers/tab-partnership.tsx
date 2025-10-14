@@ -72,7 +72,7 @@ export default function TabPartnership() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Combined Unleash Your Ideas and Share Your Game Section */}
+     
       <section className="min-h-[calc(100vh-16rem)] bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden py-16">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -321,32 +321,7 @@ export default function TabPartnership() {
                 Share Your Game-Changing Ideas and <br /> Shape the Future of MSMEs
               </motion.h3>
 
-              <motion.button
-                whileHover={{
-                  scale: 1.1,
-                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                className='bg-primary hover:bg-white hover:text-primary text-white group-hover:bg-white group-hover:text-primary font-bold py-4 px-8 border-2 border-black shadow-lg transform transition-all duration-300 text-lg relative overflow-hidden'
-              >
-                {/* Button Shine Effect */}
-                <motion.div
-                  animate={{
-                    x: [-100, 200],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                />
-                <Link href="#partnership-form" className="relative z-10" onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' });
-                }}>Click Here</Link>
-              </motion.button>
+        
             </motion.div>
           </motion.div>
         </div>

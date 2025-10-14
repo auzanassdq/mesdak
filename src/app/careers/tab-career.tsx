@@ -289,7 +289,7 @@ function TabCareer() {
 
                 {/* Country Selection */}
                 <div className="filter-group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Continent</label>
                   <div className="relative group">
                     <select
                       value={selectedLocation}
@@ -361,9 +361,6 @@ function TabCareer() {
 
                 {/* Dynamic Selection */}
                 <div className="filter-group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {selectedOption === 'location' ? 'Select Location' : 'Select Company'}
-                  </label>
                   <motion.div
                     initial={false}
                     animate={{ opacity: 1 }}
@@ -371,36 +368,64 @@ function TabCareer() {
                     transition={{ duration: 0.2 }}
                   >
                     {selectedOption === 'location' ? (
-                      <div className="relative group">
-                        <select
-                          value={selectedLocation}
-                          onChange={(e) => setSelectedLocation(e.target.value)}
-                          className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
-                        >
-                          <option value="">All Locations</option>
-                          {locations.map((location) => (
-                            <option key={location.id} value={location.id}>
-                              {location.icon} {location.name}
-                            </option>
-                          ))}
-                        </select>
-                        <CaretDownIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-primary transition-colors pointer-events-none" />
+                      <div className='flex items-center justify-center gap-4'>
+                        <div className="filter-group w-full">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Region</label>
+                          <div className="relative group">
+                            <select
+                              value={selectedLocation}
+                              onChange={(e) => setSelectedLocation(e.target.value)}
+                              className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                            >
+                              <option value="">All Countries</option>
+                              {locations.map((location) => (
+                                <option key={location.id} value={location.id}>
+                                  {location.icon} {location.name}
+                                </option>
+                              ))}
+                            </select>
+                            <CaretDownIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-primary transition-colors pointer-events-none" />
+                          </div>
+                        </div>
+
+                        <div className="filter-group w-full">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+                          <div className="relative group">
+                            <select
+                              value={selectedLocation}
+                              onChange={(e) => setSelectedLocation(e.target.value)}
+                              className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                            >
+                              <option value="">All Countries</option>
+                              {locations.map((location) => (
+                                <option key={location.id} value={location.id}>
+                                  {location.icon} {location.name}
+                                </option>
+                              ))}
+                            </select>
+                            <CaretDownIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-primary transition-colors pointer-events-none" />
+                          </div>
+                        </div>
                       </div>
+
                     ) : (
-                      <div className="relative group">
-                        <select
-                          value={selectedCompany}
-                          onChange={(e) => setSelectedCompany(e.target.value)}
-                          className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
-                        >
-                          <option value="">All Companies</option>
-                          {companyOptions.map((company) => (
-                            <option key={company.id} value={company.id}>
-                              {company.name}
-                            </option>
-                          ))}
-                        </select>
-                        <CaretDownIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-primary transition-colors pointer-events-none" />
+                      <div className="filter-group">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                        <div className="relative group">
+                          <select
+                            value={selectedLocation}
+                            onChange={(e) => setSelectedLocation(e.target.value)}
+                            className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                          >
+                            <option value="">All Countries</option>
+                            {locations.map((location) => (
+                              <option key={location.id} value={location.id}>
+                                {location.icon} {location.name}
+                              </option>
+                            ))}
+                          </select>
+                          <CaretDownIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-primary transition-colors pointer-events-none" />
+                        </div>
                       </div>
                     )}
                   </motion.div>

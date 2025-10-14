@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Host_Grotesk, Sansation } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -113,9 +112,10 @@ export default function RootLayout({
       <body
         className={`${sansation.className} ${sansation.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        {/* Render Navbar/Footer conditionally based on route */}
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
       </body>
       </html>
     );
