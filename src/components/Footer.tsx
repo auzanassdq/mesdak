@@ -59,8 +59,8 @@ Institutions Financial Governments
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/companies" className="hover:text-white transition-colors">Group Companies</Link></li>
               <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link href="/resources" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Our Reach</Link></li>
+              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Our Reach</Link></li>
             </ul>
           </motion.div>
 
@@ -72,13 +72,13 @@ Institutions Financial Governments
           >
             <h3 className="text-lg font-semibold text-white mb-4">Office Locations</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-white transition-colors">Headquarters</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Africa</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Asia</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Latin America</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">North America</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Europe</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">ASEU</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Headquarters</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Africa</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Asia</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Latin America</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">North America</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Europe</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">ASEU</Link></li>
             </ul>
           </motion.div>
 
@@ -99,10 +99,10 @@ Institutions Financial Governments
             </ul>
 
             <ul className="space-y-2 mt-4">
-              <li><Link href="/services/financial-support" className="hover:text-white transition-colors">M&apos;Brand</Link></li>
-              <li><Link href="/services/business-consulting" className="hover:text-white transition-colors">M&apos;SuperDeal</Link></li>
-              <li><Link href="/services/financial-support" className="hover:text-white transition-colors">Business Directory</Link></li>
-              <li><Link href="/services/financial-support" className="hover:text-white transition-colors flex items-center gap-2">Search <MagnifyingGlassIcon size={16} /></Link></li>
+              <li><Link href="/mbrand" className="hover:text-white transition-colors">M&apos;Brand</Link></li>
+              <li><Link href="/super-deal" className="hover:text-white transition-colors">M&apos;SuperDeal</Link></li>
+              <li><Link href="/companies" className="hover:text-white transition-colors">Business Directory</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors flex items-center gap-2">Search <MagnifyingGlassIcon size={16} /></Link></li>
 
               {/* <li><Link href="/services/digital-transformation" className="hover:text-white transition-colors">MSME development consulting</Link></li> */}
             
