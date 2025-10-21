@@ -208,7 +208,7 @@ export default function TabPartnership() {
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Unleash Your Ideas</h4>
             <p className="text-gray-700 leading-relaxed font-medium group-hover:text-white">
-              Your innovative ideas are the cornerstone of our success. We provide the platform for your vision to flourish.
+              Your innovative ideas are the cornerstone for further success. We provide the platform for your vision to flourish.
             </p>
           </motion.div>
 
@@ -242,7 +242,7 @@ export default function TabPartnership() {
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Swift Response</h4>
             <p className="text-gray-700 leading-relaxed font-medium group-hover:text-white">
-              We value your time and ideas. Expect a prompt and thorough review of your proposals.
+              We value your time and ideas. Expect from us, a prompt and thorough review of your proposals.
             </p>
           </motion.div>
 
