@@ -30,49 +30,56 @@ const GroupCompaniesPage = () => {
       name: "MSME Network Incorporation",
       description: "A leading network organization dedicated to connecting MSMEs with resources, opportunities, and expertise to drive their growth and success.",
       icon: GlobeIcon,
-      tagline: "Unlock Untapped Potentials"
+      tagline: "Unlock Untapped Potentials",
+      link: "/companies/msme-network"
     },
     {
       id: 2,
       name: "M'Butic Incorporation",
       description: "A boutique consulting firm specializing in tailored solutions for MSMEs, focusing on strategic planning, operational efficiency, and market expansion.",
       icon: TargetIcon,
-      tagline: "The future of Commerce"
+      tagline: "Welcome to the Future of Commerce",
+      link: "/companies/msme-butic"
     },
     {
       id: 3,
       name: "MSME Development Consulting",
       description: "A consulting firm focused on providing comprehensive development services to MSMEs, including training, mentorship, and capacity building programs.",
       icon: UsersIcon,
-      tagline: "Think the Unthough"
+      tagline: "Think the Unthought",
+      link: "/companies/msme-development"
     },
     {
       id: 4,
       name: "MSME Finance Incorporation",
       description: "A financial institution offering specialized financial products and services to support the funding needs of MSMEs, including loans and investment solutions.",
       icon: CurrencyDollarIcon,
-      tagline: "Rocking MSME Finance"
+      tagline: "Finance Re-Imagined. Growth Re-Defined. Inclusion Powered",
+      link: "/companies/msme-finance"   
     },
     {
       id: 5,
       name: "M'IZITec Incorporation",
       description: "A technology company developing innovative tech solutions for MSMEs, including software, platforms, and digital tools to enhance their operations and competitiveness.",
       icon: LightningIcon,
-      tagline: "Driving Business<br/>Through<br/>Digital Power"
+      tagline: "Driving Business<br/>Through<br/>Digital Power",
+      link: "/companies/msme-izitec"
     },
     {
       id: 6,
       name: "M'Media Incorporation",
       description: "A media and communications agency specializing in creating impactful marketing and communication strategies for MSMEs, helping them build their brand and reach their target audience.",
       icon: MonitorIcon,
-      tagline: "Be Faster,Easier <br/> & Everywhere"
+      tagline: "Be Faster, Easier <br/> & Everywhere",
+      link: "/companies/msme-media"
     },
     {
       id: 7,
       name: "M'DataTalk Incorporation",
       description: "A data analytics company providing insights and data-driven strategies to help MSMEs make informed decisions and optimize their performance.",
       icon: ChartBarIcon,
-      tagline: "Unlock the power of Data"
+      tagline: "Unlock Insight Within Data to Accelerate Socio-Economic Development",
+      link: "/companies/msme-datatalk"
     },
   ];
 
@@ -190,10 +197,10 @@ const GroupCompaniesPage = () => {
                     <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
 
                     <div className="flex items-center justify-between text-sm font-bold mt-auto">
-                      <div className="flex items-center text-primary group-hover:text-primary-light transition-colors">
+                      <Link href={company.link} className="text-primary group-hover:text-white transition-colors flex items-center">
                         <span className="text-sm font-semibold mr-2">Learn More</span>
                         <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
+                      </Link>
                     </div>
                   </motion.div>
                 );
@@ -219,10 +226,10 @@ const GroupCompaniesPage = () => {
                     <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
 
                     <div className="flex items-center justify-between text-sm font-bold mt-auto">
-                      <div className="flex items-center text-primary group-hover:text-primary-light transition-colors">
+                      <Link href={company.link} className="text-primary group-hover:text-white transition-colors flex items-center">
                         <span className="text-sm font-semibold mr-2">Learn More</span>
                         <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
+                      </Link>
                     </div>
                   </motion.div>
                 );

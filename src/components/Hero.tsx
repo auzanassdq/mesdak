@@ -153,18 +153,18 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-30 text-center text-white px-4 max-w-6xl mx-auto">
         {/* MSME World White Logo */}
-        <div className="absolute hero-logo top-[-110] left-1/2 -translate-x-1/2">
-          <Image 
-            src="/logo/msme-world-green.jpg" 
+        <div className="absolute hero-logo top-[-150] left-1/2 -translate-x-1/2">
+          <Image
+            src="/logo-msme-white.jpg"
             width={200}
             height={200}
-            alt="MSME World" 
+            alt="MSME World"
             className="h-20 md:h-20 lg:h-20 w-auto mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
         </div>
-        
-        <h1 className="text-5xl md:text-7xl lg:text-7xl/17 font-bold mb-8 leading-snug">
-          <span className="hero-leading inline-block text-5xl">Leading</span> <br />
+
+        <h1 className="text-5xl md:text-7xl lg:text-6xl/17 font-bold mb-8 leading-snug">
+          {/* <span className="hero-leading inline-block text-5xl">Leading</span> <br />
           <span className="hero-switching text-secondary inline-block py-4 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.span
@@ -180,7 +180,8 @@ const Hero = () => {
             </AnimatePresence>
           </span><br />
           <span className="hero-towards inline-block text-5xl">Towards</span> <br />
-          <span className="hero-sustainable text-5xl text-primary inline-block">Sustainable Development</span>
+          <span className="hero-sustainable text-5xl text-primary inline-block">Sustainable Development</span> */}
+          Welcome to MSME Solutions World
         </h1>
 
         <div className="hero-description">
@@ -192,31 +193,20 @@ const Hero = () => {
 
       </div>
 
-      {/* Scroll Indicator */}
+      {/* About Us Button */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: animationComplete ? 1 : 0 }}
         transition={{ duration: 1, delay: animationComplete ? 0.5 : 0 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-25"
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-25"
       >
-        <div className="flex flex-col items-center text-white cursor-pointer" onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}>
-          <motion.div
-            className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="w-1 h-3 bg-white rounded-full mt-2"
-            />
-          </motion.div>
-        </div>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
-          className="mt-2"
+        <Link
+          href="/about"
+          className="group flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium transition-all duration-300 hover:scale-105"
         >
-          <ChevronDown className="w-6 h-6 text-white" />
-        </motion.div>
+          About Us
+          <CaretRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Link>
       </motion.div>
 
 

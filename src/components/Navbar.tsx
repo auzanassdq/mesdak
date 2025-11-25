@@ -46,12 +46,12 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <Image 
-            src="/images/logo.jpg" 
-            alt="MSME World Logo" 
-            width={150} 
-            height={50} 
-            className="object-contain" 
+          <Image
+            src="/images/logo.jpg"
+            alt="MSME World Logo"
+            width={150}
+            height={50}
+            className="object-contain"
           />
         </Link>
 
@@ -60,12 +60,11 @@ const Navbar = () => {
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <Link 
-                key={link.name} 
+              <Link
+                key={link.name}
                 href={link.href}
-                className={`relative text-gray-800 hover:text-primary-600 font-medium transition-colors ${
-                  isActive ? 'text-blue-600' : ''
-                }`}
+                className={`relative text-gray-800 hover:text-primary-600 font-medium transition-colors ${isActive ? 'text-blue-600' : ''
+                  }`}
               >
                 {link.name}
                 {isActive && (
@@ -88,17 +87,17 @@ const Navbar = () => {
               className="relative"
               transition={{ duration: 0.2 }}
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <circle cx="11" cy="11" r="7" strokeWidth="2" />
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth="2.5"
                   d="M21 21l-4.35-4.35"
                 />
@@ -109,7 +108,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="xl:hidden text-gray-800"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -127,7 +126,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -138,12 +137,11 @@ const Navbar = () => {
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <Link 
-                  key={link.name} 
+                <Link
+                  key={link.name}
                   href={link.href}
-                  className={`relative text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${
-                    isActive ? 'text-blue-600' : ''
-                  }`}
+                  className={`relative text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${isActive ? 'text-blue-600' : ''
+                    }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -158,7 +156,7 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            
+
             {/* Search and Language - Mobile */}
             <div className="flex items-center justify-between py-3">
               <motion.button
@@ -172,17 +170,17 @@ const Navbar = () => {
                   whileHover={{ rotate: 90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
+                    fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
                     <circle cx="11" cy="11" r="7" strokeWidth="2" />
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       strokeWidth="2.5"
                       d="M21 21l-4.35-4.35"
                     />
