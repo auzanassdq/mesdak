@@ -294,9 +294,9 @@ export default function IzitecPage() {
           </div>
           <h2 className="text-2xl font-bold text-white mb-4">The Digital Engine of MSME Growth</h2>
           <p className="max-w-2xl mx-auto mb-8">
-            M’IZITec is more than a technology provider—it is the digital backbone enabling MSMEs, institutions, and entire economies to modernise, grow, and compete in the digital age.
+            M&apos;IZITec is more than a technology provider—it is the digital backbone enabling MSMEs, institutions, and entire economies to modernise, grow, and compete in the digital age.
           </p>
-          <p className="text-sm">© {new Date().getFullYear()} M'IZITec Incorporation. All rights reserved.</p>
+          <p className="text-sm">© {new Date().getFullYear()} M&apos;IZITec Incorporation. All rights reserved.</p>
         </div>
       </footer>
     </div>
