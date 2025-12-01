@@ -71,7 +71,7 @@ export default function MButicPage() {
               <span className="text-cyan-400">Future of Commerce</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
-              M’Butic is the next-generation commerce ecosystem delivering innovative, data-driven sales solutions for producers, enterprises, institutions, and consumers worldwide.
+              M&apos;Butic is the next-generation commerce ecosystem delivering innovative, data-driven sales solutions for producers, enterprises, institutions, and consumers worldwide.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-full transition-all flex items-center gap-2 group">
@@ -252,7 +252,7 @@ export default function MButicPage() {
       <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            &copy; {new Date().getFullYear()} M'Butic Incorporation. All rights reserved.
+            &copy; {new Date().getFullYear()} M&apos;Butic Incorporation. All rights reserved.
           </div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
