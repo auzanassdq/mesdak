@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, CurrencyDollarIcon, GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon } from '@phosphor-icons/react/dist/ssr';
+import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon , GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon } from '@phosphor-icons/react/dist/ssr';
 
 const GroupCompaniesPage = () => {
   const fadeInUp = {
@@ -53,7 +53,7 @@ const GroupCompaniesPage = () => {
       id: 4,
       name: "MSME Finance Incorporation",
       description: "A financial institution offering specialized financial products and services to support the funding needs of MSMEs, including loans and investment solutions.",
-      icon: CurrencyDollarIcon,
+      icon: MoneyWavyIcon,
       tagline: "Finance Re-Imagined",
       link: "/msme-finance"   
     },
