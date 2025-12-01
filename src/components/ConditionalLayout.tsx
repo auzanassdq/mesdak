@@ -11,7 +11,7 @@ export default function ConditionalLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const hideNavFooterRoutes = ["/mbrand", "/super-deal"];
+  const hideNavFooterRoutes = ["/mbrand", "/super-deal", "/msme-butic", "/msme-consulting", "/msme-finance", "/msme-izitec", "/msme-media", "/msme-datatalk", "/msme-network"];
   const shouldHide = hideNavFooterRoutes.some(
     (route) => pathname === route || pathname.startsWith(`${route}/`)
   );

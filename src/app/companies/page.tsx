@@ -31,7 +31,7 @@ const GroupCompaniesPage = () => {
       description: "A leading network organization dedicated to connecting MSMEs with resources, opportunities, and expertise to drive their growth and success.",
       icon: GlobeIcon,
       tagline: "Unlock Untapped Potentials",
-      link: "/companies/msme-network"
+      link: "/msme-network"
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ const GroupCompaniesPage = () => {
       description: "A boutique consulting firm specializing in tailored solutions for MSMEs, focusing on strategic planning, operational efficiency, and market expansion.",
       icon: TargetIcon,
       tagline: "Welcome to the Future of Commerce",
-      link: "/companies/msme-butic"
+      link: "/msme-butic"
     },
     {
       id: 3,
@@ -47,39 +47,39 @@ const GroupCompaniesPage = () => {
       description: "A consulting firm focused on providing comprehensive development services to MSMEs, including training, mentorship, and capacity building programs.",
       icon: UsersIcon,
       tagline: "Think the Unthought",
-      link: "/companies/msme-development"
+      link: "/msme-consulting"
     },
     {
       id: 4,
       name: "MSME Finance Incorporation",
       description: "A financial institution offering specialized financial products and services to support the funding needs of MSMEs, including loans and investment solutions.",
       icon: CurrencyDollarIcon,
-      tagline: "Finance Re-Imagined. Growth Re-Defined. Inclusion Powered",
-      link: "/companies/msme-finance"   
+      tagline: "Finance Re-Imagined",
+      link: "/msme-finance"   
     },
     {
       id: 5,
       name: "M'IZITec Incorporation",
       description: "A technology company developing innovative tech solutions for MSMEs, including software, platforms, and digital tools to enhance their operations and competitiveness.",
       icon: LightningIcon,
-      tagline: "Driving Business<br/>Through<br/>Digital Power",
-      link: "/companies/msme-izitec"
+      tagline: "Driving Business Through Digital Power",
+      link: "/msme-izitec"
     },
     {
       id: 6,
       name: "M'Media Incorporation",
       description: "A media and communications agency specializing in creating impactful marketing and communication strategies for MSMEs, helping them build their brand and reach their target audience.",
       icon: MonitorIcon,
-      tagline: "Be Faster, Easier <br/> & Everywhere",
-      link: "/companies/msme-media"
+      tagline: "Be Faster, Easier & Everywhere",
+      link: "/msme-media"
     },
     {
       id: 7,
       name: "M'DataTalk Incorporation",
       description: "A data analytics company providing insights and data-driven strategies to help MSMEs make informed decisions and optimize their performance.",
       icon: ChartBarIcon,
-      tagline: "Unlock Insight Within Data to Accelerate Socio-Economic Development",
-      link: "/companies/msme-datatalk"
+      tagline: "Unlock Insight Within Data",
+      link: "/msme-datatalk"
     },
   ];
 
