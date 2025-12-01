@@ -13,7 +13,7 @@ export default function IzitecPage() {
             <div className="relative h-10 w-32 md:h-12 md:w-40">
               <Image 
                 src="/izitec-logo.png" 
-                alt="M'IZITec Logo" 
+                alt="M&apos;IZITec Logo" 
                 fill 
                 className="object-contain object-left"
                 priority
@@ -45,7 +45,7 @@ export default function IzitecPage() {
               Driving Business Through <span className="text-blue-600">Digital Power</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-              M’IZITec Incorporation, a member of the MSME Solutions World Group, is the technology powerhouse behind the design, development, and deployment of next-generation digital solutions for MSMEs, institutions, and large organisations worldwide.
+              M&apos;IZITec Incorporation, a member of the MSME Solutions World Group, is the technology powerhouse behind the design, development, and deployment of next-generation digital solutions for MSMEs, institutions, and large organisations worldwide.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               <Link href="#solutions" className="px-8 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
@@ -63,10 +63,10 @@ export default function IzitecPage() {
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-slate-900">The Technology Engine</h2>
               <p className="text-slate-600 leading-relaxed">
-                As the technology engine of the Group, M’IZI Tech builds the digital systems that power the entire M’World ecosystem—keeping it continually at the forefront of technological innovation.
+                As the technology engine of the Group, M&apos;IZI Tech builds the digital systems that power the entire M&apos;World ecosystem—keeping it continually at the forefront of technological innovation.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                Beyond powering the group, M’IZITec also serves external clients, leveraging the existing M’World digital infrastructure to deliver world-class, enterprise-grade solutions without requiring additional investment in new systems or platforms.
+                Beyond powering the group, M&apos;IZITec also serves external clients, leveraging the existing M&apos;World digital infrastructure to deliver world-class, enterprise-grade solutions without requiring additional investment in new systems or platforms.
               </p>
             </div>
             <div className="bg-slate-100 rounded-2xl p-8 border border-slate-200">
@@ -99,7 +99,7 @@ export default function IzitecPage() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Solutions for Transformation</h2>
             <p className="text-slate-600">
-              M’IZITec develops digital solutions primarily aimed at advancing the MSME sector, while also creating adjacent system-solutions that enable governments and institutions to better support MSMEs.
+              M&apos;IZITec develops digital solutions primarily aimed at advancing the MSME sector, while also creating adjacent system-solutions that enable governments and institutions to better support MSMEs.
             </p>
           </div>
 
@@ -108,7 +108,7 @@ export default function IzitecPage() {
               <div className="p-8 md:p-12 space-y-6">
                 <h3 className="text-2xl font-bold text-slate-900">Government & Institutional Support</h3>
                 <p className="text-slate-600">
-                  M’IZITec provides digital tools that help governments modernise and optimise the collection of social security, pension contributions, and fiscal revenue.
+                  M&apos;IZITec provides digital tools that help governments modernise and optimise the collection of social security, pension contributions, and fiscal revenue.
                 </p>
                 <ul className="space-y-3">
                   {[
@@ -153,7 +153,7 @@ export default function IzitecPage() {
       {/* Deliverables Section */}
       <section id="deliverables" className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">What M’IZITec Delivers</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">What M&apos;IZITec Delivers</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -162,7 +162,7 @@ export default function IzitecPage() {
               },
               {
                 title: "Payment Infrastructure",
-                desc: "Advanced digital payment systems for governments, banks, DFIs, large enterprises, and MSMEs—fully integrated with the M’World ecosystem."
+                desc: "Advanced digital payment systems for governments, banks, DFIs, large enterprises, and MSMEs—fully integrated with the M&apos;World ecosystem."
               },
               {
                 title: "Revenue Collection Solutions",
@@ -196,7 +196,7 @@ export default function IzitecPage() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">More Than Software: Testing, Validation & Adoption at Scale</h2>
               <p className="text-slate-300 text-lg mb-8">
-                All M’IZITec solutions benefit from a unique advantage: They can be tested, improved, validated, and scaled using real end-users inside the M’World ecosystem.
+                All M&apos;IZITec solutions benefit from a unique advantage: They can be tested, improved, validated, and scaled using real end-users inside the M&apos;World ecosystem.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {[
@@ -229,7 +229,7 @@ export default function IzitecPage() {
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Integrated Solutions Powered by the Whole Group</h2>
           <p className="max-w-3xl mx-auto text-slate-600 mb-12">
-            Because it is part of the MSME Solutions World Group, M’IZITec can join forces with other divisions—M’Network, M’Butic, MSME Finance Incorporation, MSME Development Consulting, and M’DataTalk—to deliver top-tier, integrated, end-to-end solutions.
+            Because it is part of the MSME Solutions World Group, M&apos;IZITec can join forces with other divisions—M&apos;Network, M&apos;Butic, MSME Finance Incorporation, MSME Development Consulting, and M&apos;DataTalk—to deliver top-tier, integrated, end-to-end solutions.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
@@ -251,7 +251,7 @@ export default function IzitecPage() {
           <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-xl">
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">A Faster, More Cost-Efficient, Higher-Performance Delivery Model</h2>
             <p className="text-center text-slate-600 mb-10">
-              All M’IZITec solutions are delivered faster, at a more competitive cost, and with superior performance thanks to the ability to build on the M’World digital infrastructure.
+              All M&apos;IZITec solutions are delivered faster, at a more competitive cost, and with superior performance thanks to the ability to build on the M&apos;World digital infrastructure.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -287,7 +287,7 @@ export default function IzitecPage() {
           <div className="relative h-12 w-40 mx-auto mb-6 opacity-80">
              <Image 
                 src="/izitec-logo.png" 
-                alt="M'IZITec Logo" 
+                alt="M&apos;IZITec Logo" 
                 fill 
                 className="object-contain"
               />

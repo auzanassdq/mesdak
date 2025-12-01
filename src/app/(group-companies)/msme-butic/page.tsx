@@ -109,7 +109,7 @@ export default function MButicPage() {
                 A New <span className="text-purple-400">Commercial Infrastructure</span>
               </h2>
               <p className="text-slate-400 text-lg mb-6 leading-relaxed">
-                M’Butic is more than an online store — it is a new commercial infrastructure designed to redefine how markets work and how value is created and distributed.
+                M&apos;Butic is more than an online store — it is a new commercial infrastructure designed to redefine how markets work and how value is created and distributed.
               </p>
               <p className="text-slate-400 text-lg mb-8 leading-relaxed">
                 We merge a decentralised e-commerce and logistics framework with a centralised marketplace and integrated B2B / B2C / B2G sales engines, enabling direct, efficient, and intelligent transactions across the entire value chain.
@@ -239,7 +239,7 @@ export default function MButicPage() {
               Enabling producers to focus entirely on <span className="text-cyan-400">production</span>
             </h2>
             <p className="text-xl text-slate-400 mb-12">
-              While M’Butic manages everything else. We are building one of the largest distribution channels in the world.
+              While M&apos;Butic manages everything else. We are building one of the largest distribution channels in the world.
             </p>
             <button className="px-10 py-5 bg-white text-slate-950 font-bold text-lg rounded-full hover:bg-cyan-50 transition-colors shadow-2xl">
               Partner With Us

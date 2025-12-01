@@ -149,7 +149,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block py-1 px-3 rounded-full bg-purple-100 text-[#6b21a8] text-sm font-semibold mb-6">
-              M’DataTalk Incorporation
+              M&apos;DataTalk Incorporation
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
               Unlock Insight Within Data to Accelerate <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6b21a8] to-blue-600">Socio-Economic Development</span>
@@ -253,7 +253,7 @@ const D3MP = () => {
             AI-Accelerated Intelligence for MSME Transformation
           </p>
           <p className="text-gray-600">
-            One of M’DataTalk’s most innovative solutions is the Dynamic Development Data Management Platform (D³MP) — a breakthrough technology delivering unmatched visibility into the MSME economy.
+            One of M&apos;DataTalk&apos;s most innovative solutions is the Dynamic Development Data Management Platform (D³MP) — a breakthrough technology delivering unmatched visibility into the MSME economy.
           </p>
         </div>
 
@@ -291,7 +291,7 @@ const D3MP = () => {
         <div className="bg-[#6b21a8] rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
           <div className="relative z-10 max-w-4xl mx-auto">
             <p className="text-lg md:text-xl font-medium leading-relaxed">
-              "This level of intelligence is simply groundbreaking — empowering institutions to make decisions that are fast, data-driven, inclusive, and future-proof, while reducing time, investment costs, operational risks, and the fragmentation caused by siloed systems."
+              &quot;This level of intelligence is simply groundbreaking — empowering institutions to make decisions that are fast, data-driven, inclusive, and future-proof, while reducing time, investment costs, operational risks, and the fragmentation caused by siloed systems.&quot;
             </p>
           </div>
           {/* Decorative circles */}
@@ -322,7 +322,7 @@ const DataCollection = () => {
              <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
                 <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-xl relative z-10">
-                  <h4 className="text-lg font-bold text-gray-900 mb-6">M’Doc & Intelligent Tools</h4>
+                  <h4 className="text-lg font-bold text-gray-900 mb-6">M&apos;Doc & Intelligent Tools</h4>
                   <ul className="space-y-4">
                     {collectionTypes.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-3">
@@ -339,10 +339,10 @@ const DataCollection = () => {
               Advanced Data Collection at Scale
             </h2>
             <p className="text-xl text-[#6b21a8] mb-6">
-              Powered by M’Doc and Intelligent AI-Driven Survey Tools
+              Powered by M&apos;Doc and Intelligent AI-Driven Survey Tools
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              M’DataTalk enhances D³MP with advanced, AI-enabled data collection tools such as M’Doc. These tools create a continuous, high-quality flow of fresh data, enhancing the accuracy, depth, and reliability of every insight.
+              M&apos;DataTalk enhances D³MP with advanced, AI-enabled data collection tools such as M&apos;Doc. These tools create a continuous, high-quality flow of fresh data, enhancing the accuracy, depth, and reliability of every insight.
             </p>
           </div>
         </div>
@@ -367,7 +367,7 @@ const Audience = () => {
     <section id="audience" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Who M’DataTalk Serves</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Who M&apos;DataTalk Serves</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Every stakeholder gains access to clean, reliable, AI-enhanced intelligence tailored to their operational and strategic needs.
           </p>
@@ -422,7 +422,7 @@ const Benefits = () => {
     <section id="benefits" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
-          What M’DataTalk Enables
+          What M&apos;DataTalk Enables
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, idx) => (
@@ -448,14 +448,14 @@ const Footer = () => {
           <div>
             <h2 className="text-2xl font-bold mb-4">A New Intelligence Architecture for MSME Development</h2>
             <p className="text-gray-400 leading-relaxed">
-              M’DataTalk is more than a data platform — It is a new intelligence architecture that provides institutions with the depth, clarity, and foresight needed to unlock growth, strengthen ecosystems, and transform millions of lives.
+              M&apos;DataTalk is more than a data platform — It is a new intelligence architecture that provides institutions with the depth, clarity, and foresight needed to unlock growth, strengthen ecosystems, and transform millions of lives.
             </p>
           </div>
           <div className="flex justify-start md:justify-end">
              <div className="relative h-16 w-64">
                 <Image 
                   src="/images/mdatatalk-logo.png" 
-                  alt="M'DataTalk Logo" 
+                  alt="M&apos;DataTalk Logo" 
                   fill
                   className="object-contain object-left md:object-right brightness-0 invert"
                 />

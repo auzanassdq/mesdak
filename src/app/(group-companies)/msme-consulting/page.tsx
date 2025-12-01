@@ -136,7 +136,7 @@ export default function ConsultingPage() {
                 {[
                   "Understand the true structure and performance of the MSME economy",
                   "Design growth-enabling policies and institutional reforms",
-                  "Build systems that strengthen MSMEs’ access to markets, finance, skills, data, and technology",
+                  "Build systems that strengthen MSMEs&apos; access to markets, finance, skills, data, and technology",
                   "Implement large-scale MSME programmes with measurable development outcomes",
                   "Monitor results in real time and continuously refine programme delivery"
                 ].map((item, index) => (

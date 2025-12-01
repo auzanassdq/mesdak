@@ -59,7 +59,7 @@ export default function MSMENetworkIncorporationPage() {
                   Unlock Untapped Potential
                 </h1>
                 <p className="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
-                  MSME Network Incorporation is the operating firm behind M’Network, a unified digital ecosystem connecting individuals and organizations for collaboration, visibility, and growth.
+                  MSME Network Incorporation is the operating firm behind M&apos;Network, a unified digital ecosystem connecting individuals and organizations for collaboration, visibility, and growth.
                 </p>
                 <button
                   className="mt-8 flex mx-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary hover:bg-primary-700 text-white text-base font-bold transition-colors"
