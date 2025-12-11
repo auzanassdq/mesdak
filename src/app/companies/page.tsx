@@ -8,14 +8,36 @@ import Link from 'next/link';
 import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon, GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon, X } from '@phosphor-icons/react/dist/ssr';
 import companySummaries from '@/app/companies/data/companies-summary.json';
 
+
+interface Company {
+  id: number;
+  name: string;
+  description: string;
+  icon: React.ElementType;
+  tagline: string;
+  link: string;
+  summary: string;
+}
+
+
+interface BaseCompany {
+  id: number;
+  name: string;
+  description: string;
+  icon: React.ElementType;
+  tagline: string;
+  link: string;
+}
+
 const GroupCompaniesPage = () => {
-  const [selectedCompany, setSelectedCompany] = useState<any | null>(null);
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
   };
+  
 
   const staggerContainer = {
     initial: {},
@@ -86,9 +108,11 @@ const GroupCompaniesPage = () => {
     },
   ];
 
-  const handleCompanyClick = (company: any) => {
-    const summaryData = companySummaries.find((s: any) => s.id === company.id);
-    setSelectedCompany({ ...company, ...summaryData });
+  const handleCompanyClick = (company: BaseCompany) => {
+    const summaryData = companySummaries.find((s) => s.id === company.id);
+    if (summaryData) {
+        setSelectedCompany({ ...company, ...summaryData, icon: company.icon } as Company);
+    }
   };
 
   const closeModal = () => {
