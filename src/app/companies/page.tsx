@@ -1,13 +1,16 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon , GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon } from '@phosphor-icons/react/dist/ssr';
+import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon, GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon, X } from '@phosphor-icons/react/dist/ssr';
+import companySummaries from '@/app/companies/data/companies-summary.json';
 
 const GroupCompaniesPage = () => {
+  const [selectedCompany, setSelectedCompany] = useState<any | null>(null);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -55,7 +58,7 @@ const GroupCompaniesPage = () => {
       description: "A financial institution offering specialized financial products and services to support the funding needs of MSMEs, including loans and investment solutions.",
       icon: MoneyWavyIcon,
       tagline: "Finance Re-Imagined",
-      link: "/msme-finance"   
+      link: "/msme-finance"
     },
     {
       id: 5,
@@ -82,6 +85,15 @@ const GroupCompaniesPage = () => {
       link: "/msme-datatalk"
     },
   ];
+
+  const handleCompanyClick = (company: any) => {
+    const summaryData = companySummaries.find((s: any) => s.id === company.id);
+    setSelectedCompany({ ...company, ...summaryData });
+  };
+
+  const closeModal = () => {
+    setSelectedCompany(null);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -129,28 +141,28 @@ const GroupCompaniesPage = () => {
           >
             <div className="py-8 lg:py-2">
               <div className="text-3xl text-black leading-relaxed text-center font-medium">
-                <motion.span 
+                <motion.span
                   className="text-primary font-bold text-5xl inline-block relative"
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     textShadow: "0 0 8px rgb(var(--primary-rgb) / 0.6)"
                   }}
                 >
                   Seven Companies. One Precision Engine
-             
-                </motion.span> <br className="mb-4"/> <br className="mb-4"/>
+
+                </motion.span> <br className="mb-4" /> <br className="mb-4" />
                 Each delivers specialized expertise, united in a seamless mission: <br />
                 empowering MSMEs, Financial Institutions, and Governments <br />
-                with innovative digital solutions <br /> 
-                <motion.span 
+                with innovative digital solutions <br />
+                <motion.span
                   className="text-primary relative inline-block px-2"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-      
+
                 >
                   to unlock hidden potentials and drive socio-economic growth
                   <motion.div
@@ -188,6 +200,7 @@ const GroupCompaniesPage = () => {
                     key={company.id}
                     variants={fadeInUp}
                     className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative"
+                    onClick={() => handleCompanyClick(company)}
                   >
                     <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
                     <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
@@ -197,10 +210,10 @@ const GroupCompaniesPage = () => {
                     <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
 
                     <div className="flex items-center justify-between text-sm font-bold mt-auto">
-                      <Link href={company.link} className="text-primary group-hover:text-white transition-colors flex items-center">
+                      <button className="text-primary group-hover:text-white transition-colors flex items-center">
                         <span className="text-sm font-semibold mr-2">Learn More</span>
                         <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
                 );
@@ -216,6 +229,7 @@ const GroupCompaniesPage = () => {
                     key={company.id}
                     variants={fadeInUp}
                     className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative"
+                    onClick={() => handleCompanyClick(company)}
                   >
                     <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-right text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
 
@@ -226,10 +240,10 @@ const GroupCompaniesPage = () => {
                     <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-white text-black/80 transition-colors flex-grow">{company.name}</h3>
 
                     <div className="flex items-center justify-between text-sm font-bold mt-auto">
-                      <Link href={company.link} className="text-primary group-hover:text-white transition-colors flex items-center">
+                      <button className="text-primary group-hover:text-white transition-colors flex items-center">
                         <span className="text-sm font-semibold mr-2">Learn More</span>
                         <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
+                      </button>
                     </div>
                   </motion.div>
                 );
@@ -293,6 +307,60 @@ const GroupCompaniesPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedCompany && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeModal}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl"
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
+              >
+                <X className="w-6 h-6 text-gray-500" />
+              </button>
+
+              <div className="p-8 lg:p-12">
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                       {selectedCompany.name}
+                    </h2>
+                     <p className="text-xl text-primary font-medium" dangerouslySetInnerHTML={{ __html: selectedCompany.tagline }}></p>
+                  </div>
+                  
+                  <div className="w-full h-px bg-gray-200 my-2"></div>
+                  
+                  <div className="prose prose-lg max-w-none text-gray-600">
+                    <div className="whitespace-pre-line leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedCompany.summary }}></div>
+                  </div>
+
+                  <div className="mt-8 flex justify-end">
+                    <Link href={selectedCompany.link}>
+                      <button className="bg-primary text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
+                        Visit {selectedCompany.name}
+                        <ArrowRightIcon className="w-5 h-5" />
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

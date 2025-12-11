@@ -478,7 +478,7 @@ const Footer = () => {
 export default function MDataTalkPage() {
   return (
     <main className="min-h-screen font-sans text-gray-900 selection:bg-purple-100 selection:text-purple-900">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <About />
       <D3MP />

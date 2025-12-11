@@ -20,60 +20,11 @@ export default function ConsultingPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-teal-100 shadow-sm">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="relative h-10 w-40">
-               <Image
-                src="/assets/mdc-logo.png"
-                alt="MDC Logo"
-                fill
-                className="object-contain object-left"
-              />
-            </div>
-          </div>
+      
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <button onClick={() => scrollToSection("hero")} className="hover:text-teal-700 transition-colors">Home</button>
-            <button onClick={() => scrollToSection("mandate")} className="hover:text-teal-700 transition-colors">Our Mandate</button>
-            <button onClick={() => scrollToSection("who-we-serve")} className="hover:text-teal-700 transition-colors">Who We Serve</button>
-            <button onClick={() => scrollToSection("intelligence")} className="hover:text-teal-700 transition-colors">Intelligence</button>
-            <button onClick={() => scrollToSection("deliverables")} className="hover:text-teal-700 transition-colors">Deliverables</button>
-            <button className="px-5 py-2 bg-teal-700 text-white rounded-full hover:bg-teal-800 transition-colors">
-              Contact Us
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 text-slate-600"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 py-4 px-6 flex flex-col gap-4 shadow-lg">
-            <button onClick={() => scrollToSection("hero")} className="text-left py-2 hover:text-teal-700">Home</button>
-            <button onClick={() => scrollToSection("mandate")} className="text-left py-2 hover:text-teal-700">Our Mandate</button>
-            <button onClick={() => scrollToSection("who-we-serve")} className="text-left py-2 hover:text-teal-700">Who We Serve</button>
-            <button onClick={() => scrollToSection("intelligence")} className="text-left py-2 hover:text-teal-700">Intelligence</button>
-            <button onClick={() => scrollToSection("deliverables")} className="text-left py-2 hover:text-teal-700">Deliverables</button>
-          </div>
-        )}
-      </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="relative pt-20 pb-32 overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
+      <section id="hero" className="relative pt-40 pb-32 overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div

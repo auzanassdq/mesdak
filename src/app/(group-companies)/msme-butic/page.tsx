@@ -25,7 +25,7 @@ export default function MButicPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 selection:bg-cyan-500 selection:text-cyan-950 font-sans overflow-x-hidden">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+      {/* <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="relative h-12 w-48">
              <Image 
@@ -44,7 +44,7 @@ export default function MButicPage() {
             </button>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative h-screen flex items-center justify-center pt-20 overflow-hidden">

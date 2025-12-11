@@ -40,71 +40,7 @@ export default function MFIPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden selection:bg-[#D4AF37] selection:text-slate-950 scroll-smooth">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/50">
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-          <div className="relative h-16 w-64">
-             <Image 
-               src="/images/mfi-logo.png" 
-               alt="MFI Logo" 
-               fill 
-               className="object-contain object-left"
-             />
-          </div>
-          
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name}
-                href={link.href} 
-                className="text-sm font-medium text-slate-300 hover:text-[#D4AF37] transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-            <button className="px-5 py-2 bg-[#D4AF37] hover:bg-[#b8962e] text-slate-950 font-bold rounded-full transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
-              Contact Us
-            </button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-slate-300 hover:text-[#D4AF37] transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={32} /> : <List size={32} />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-slate-950 border-b border-slate-800 overflow-hidden"
-            >
-              <div className="flex flex-col p-6 gap-4">
-                {navLinks.map((link) => (
-                  <a 
-                    key={link.name}
-                    href={link.href}
-                    className="text-lg font-medium text-slate-300 hover:text-[#D4AF37] transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                <button className="px-5 py-3 bg-[#D4AF37] text-slate-950 font-bold rounded-xl w-full">
-                  Contact Us
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
