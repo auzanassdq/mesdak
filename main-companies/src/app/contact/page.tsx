@@ -25,42 +25,42 @@ const officeData: OfficeData[] = [
                     headquarter: 'Headquarters - Mauritius',
                     img: [],
                     video: "",
-                    link: '#'
+                    link: 'https://mesdak-africa.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions Asia - Singapore',
                     headquarter: 'Singapore',
                     img: [],
                     video: "",
-                    link: '#'
+                    link: 'https://mesdak-asia.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions Latin America - Panama',
                     headquarter: 'Panama',
                     img: [],
                     video: "",
-                    link: '#'
+                    link: 'https://mesdak-latin.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions North America - Canada',
                     headquarter: 'Canada',
                     img: [],
                     video: "",
-                    link: '#'
+                    link: 'https://mesdak-north.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions ASEU - Georgia',
                     headquarter: 'Georgia',
                     img: [],
                     video: "",
-                    link: '#'
+                    link: 'https://mesdak-aseu.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions Europe - Germany',
                     headquarter: 'Germany',
                     img: [],
                     video: "",
-                    link: '#'
+                    link: 'https://mesdak-europe.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions World - Mauritius (Headquarters)',
