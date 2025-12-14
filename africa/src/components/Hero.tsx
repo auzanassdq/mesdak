@@ -181,7 +181,7 @@ const Hero = () => {
           </span><br />
           <span className="hero-towards inline-block text-5xl">Towards</span> <br />
           <span className="hero-sustainable text-5xl text-primary inline-block">Sustainable Development</span> */}
-          Welcome to MSME Solutions World
+          Welcome to MSME Solutions Africa
         </h1>
 
         <div className="hero-description">
