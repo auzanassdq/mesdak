@@ -39,14 +39,14 @@ const officeData: OfficeData[] = [
                     headquarter: 'Panama',
                     img: [],
                     video: "",
-                    link: 'https://mesdak-latin.vercel.app/'
+                    link: 'https://mesdak-latin-america.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions North America - Canada',
                     headquarter: 'Canada',
                     img: [],
                     video: "",
-                    link: 'https://mesdak-north.vercel.app/'
+                    link: 'https://mesdak-north-america.vercel.app/'
                   },
                   {
                     name: 'MSME Solutions ASEU - Georgia',
