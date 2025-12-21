@@ -118,19 +118,19 @@ export default function MButicPage() {
               <div className="grid grid-cols-2 gap-6">
                 <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
                   <div className="text-3xl font-bold text-cyan-400 mb-1">B2B</div>
-                  <div className="text-sm text-slate-500">Business to Business</div>
+                  <div className="text-md text-slate-500">Business to Business</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
                   <div className="text-3xl font-bold text-purple-400 mb-1">B2C</div>
-                  <div className="text-sm text-slate-500">Business to Consumer</div>
+                  <div className="text-md text-slate-500">Business to Consumer</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
                   <div className="text-3xl font-bold text-emerald-400 mb-1">B2G</div>
-                  <div className="text-sm text-slate-500">Business to Government</div>
+                  <div className="text-md text-slate-500">Business to Government</div>
                 </div>
                 <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
                   <div className="text-3xl font-bold text-amber-400 mb-1">Logistics</div>
-                  <div className="text-sm text-slate-500">Integrated Framework</div>
+                  <div className="text-md text-slate-500">Integrated Framework</div>
                 </div>
               </div>
             </motion.div>
@@ -192,7 +192,7 @@ export default function MButicPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-slate-400 max-w-2xl mx-auto"
+              className="text-slate-400 text-xl max-w-2xl mx-auto"
             >
               Comprehensive solutions designed to accelerate growth, optimize visibility, and streamline operations.
             </motion.p>
@@ -215,7 +215,7 @@ export default function MButicPage() {
                 </div>
                 
                 <h3 className="text-xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">{service.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-slate-400 text-lg leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>

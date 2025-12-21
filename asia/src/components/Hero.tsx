@@ -155,7 +155,7 @@ const Hero = () => {
         {/* MSME World White Logo */}
         <div className="absolute hero-logo top-[-150] left-1/2 -translate-x-1/2">
           <Image
-            src="/logo-msme-white.jpg"
+            src="/images/logo.png"
             width={200}
             height={200}
             alt="MSME World"

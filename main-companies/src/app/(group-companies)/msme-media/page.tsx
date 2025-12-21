@@ -180,8 +180,8 @@ export default function MediaPage() {
               },
               {
                 icon: <Globe className="w-8 h-8" />,
-                title: "Online Advertising Across M&apos;World",
-                desc: "Exclusive access to targeted advertising placements across M&apos;Network, M&apos;Butic, M&apos;Market, M&apos;SuperDeal, and more.",
+                title: "Online Advertising Across M'World",
+                desc: "Exclusive access to targeted advertising placements across M'Network, M'Butic, M'Market, M'SuperDeal, and more.",
               },
               {
                 icon: <Tv className="w-8 h-8" />,
@@ -196,7 +196,7 @@ export default function MediaPage() {
               {
                 icon: <Calendar className="w-8 h-8" />,
                 title: "Corporate Events & Conferences",
-                desc: "From classic corporate gatherings to large-scale national and regional events via M&apos;Event Division.",
+                desc: "From classic corporate gatherings to large-scale national and regional events via M'Event Division.",
               },
             ].map((item, index) => (
               <motion.div

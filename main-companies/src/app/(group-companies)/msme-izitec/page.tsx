@@ -162,7 +162,7 @@ export default function IzitecPage() {
               },
               {
                 title: "Payment Infrastructure",
-                desc: "Advanced digital payment systems for governments, banks, DFIs, large enterprises, and MSMEs—fully integrated with the M&apos;World ecosystem."
+                desc: "Advanced digital payment systems for governments, banks, DFIs, large enterprises, and MSMEs—fully integrated with the M'World ecosystem."
               },
               {
                 title: "Revenue Collection Solutions",
