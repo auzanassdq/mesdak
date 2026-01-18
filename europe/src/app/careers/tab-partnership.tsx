@@ -1,67 +1,78 @@
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { BuildingIcon, ClockIcon, LightbulbFilamentIcon, MapPinIcon, TrendUpIcon, UserCheckIcon } from '@phosphor-icons/react/dist/ssr';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  BuildingIcon,
+  ClockIcon,
+  LightbulbFilamentIcon,
+  MapPinIcon,
+  TrendUpIcon,
+  UserCheckIcon,
+} from "@phosphor-icons/react/dist/ssr";
+import { useState } from "react";
 
 interface FormData {
   name: string;
   email: string;
   company: string;
   phone: string;
-  'partnership-type': string;
+  "partnership-type": string;
   message: string;
   file: File | null;
 }
 
 export default function TabPartnership() {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    'partnership-type': '',
-    message: '',
-    file: null
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    "partnership-type": "",
+    message: "",
+    file: null,
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value, files } = e.target as HTMLInputElement;
 
-    if (files && name === 'file') {
-      setFormData(prev => ({
+    if (files && name === "file") {
+      setFormData((prev) => ({
         ...prev,
-        [name]: files[0]
+        [name]: files[0],
       }));
     } else {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        [name]: value
+        [name]: value,
       }));
     }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     try {
       // Di sini Anda bisa menambahkan logika untuk mengirim data ke server
-      console.log('Form Data:', formData);
-      
+      console.log("Form Data:", formData);
+
       // Reset form setelah berhasil
       setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        'partnership-type': '',
-        message: '',
-        file: null
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        "partnership-type": "",
+        message: "",
+        file: null,
       });
-      
-      alert('Form berhasil dikirim!');
+
+      alert("Form berhasil dikirim!");
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Terjadi kesalahan saat mengirim form. Silakan coba lagi.');
+      console.error("Error submitting form:", error);
+      alert("Terjadi kesalahan saat mengirim form. Silakan coba lagi.");
     }
   };
 
@@ -72,7 +83,6 @@ export default function TabPartnership() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-     
       <section className="min-h-[calc(100vh-16rem)] bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden py-16">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -84,7 +94,7 @@ export default function TabPartnership() {
             transition={{
               duration: 6,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"
           />
@@ -96,7 +106,7 @@ export default function TabPartnership() {
             transition={{
               duration: 8,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className="absolute top-40 right-20 w-32 h-32 bg-blue-400/10 rounded-full blur-xl"
           />
@@ -108,7 +118,7 @@ export default function TabPartnership() {
             transition={{
               duration: 7,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-400/10 rounded-full blur-xl"
           />
@@ -127,7 +137,7 @@ export default function TabPartnership() {
             <motion.div
               whileHover={{
                 scale: 1.02,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
               }}
               className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden"
             >
@@ -143,7 +153,7 @@ export default function TabPartnership() {
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
                 className="absolute top-4 right-4 w-2 h-2 bg-yellow-400 rounded-full"
               />
@@ -152,7 +162,7 @@ export default function TabPartnership() {
                 <motion.div
                   whileHover={{
                     rotate: [0, -10, 10, 0],
-                    scale: 1.1
+                    scale: 1.1,
                   }}
                   transition={{ duration: 0.5 }}
                   className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg"
@@ -174,7 +184,9 @@ export default function TabPartnership() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-xl text-gray-700 group-hover:text-white leading-relaxed max-w-3xl mx-auto font-medium relative z-10"
               >
-                We are committed to fostering a collaborative environment where <br /> your expertise can drive meaningful change in the MSME landscape.
+                We are committed to fostering a collaborative environment where{" "}
+                <br /> your expertise can drive meaningful change in the MSME
+                landscape.
               </motion.p>
             </motion.div>
           </motion.div>
@@ -182,7 +194,7 @@ export default function TabPartnership() {
       </section>
 
       {/* Benefits of Working with Us */}
-      <section className='py-28 container mx-auto'>
+      <section className="py-28 container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -190,11 +202,12 @@ export default function TabPartnership() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6 text-center">Benefits of Working with Us</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6 text-center">
+            Benefits of Working with Us
+          </h2>
           <div className="w-24 h-1 bg-primary mb-8 mx-auto"></div>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
           {/* Unleash Your Ideas */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -206,9 +219,12 @@ export default function TabPartnership() {
             <div className="w-16 h-16 bg-blue-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
               <MapPinIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Unleash Your Ideas</h4>
+            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">
+              Unleash Your Ideas
+            </h4>
             <p className="text-gray-700 leading-relaxed font-medium group-hover:text-white">
-              Your innovative ideas are the cornerstone for further success. We provide the platform for your vision to flourish.
+              Your innovative ideas are the cornerstone for further success. We
+              provide the platform for your vision to flourish.
             </p>
           </motion.div>
 
@@ -223,9 +239,12 @@ export default function TabPartnership() {
             <div className="w-16 h-16 bg-green-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
               <BuildingIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Building a Better Tomorrow</h4>
+            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">
+              Building a Better Tomorrow
+            </h4>
             <p className="text-gray-700 leading-relaxed font-medium group-hover:text-white">
-              Contribute to the growth and development of MSMEs, shaping a more prosperous future for businesses and communities.
+              Contribute to the growth and development of MSMEs, shaping a more
+              prosperous future for businesses and communities.
             </p>
           </motion.div>
 
@@ -240,9 +259,12 @@ export default function TabPartnership() {
             <div className="w-16 h-16 bg-orange-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
               <ClockIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Swift Response</h4>
+            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">
+              Swift Response
+            </h4>
             <p className="text-gray-700 leading-relaxed font-medium group-hover:text-white">
-              We value your time and ideas. Expect from us, a prompt and thorough review of your proposals.
+              We value your time and ideas. Expect from us, a prompt and
+              thorough review of your proposals.
             </p>
           </motion.div>
 
@@ -257,9 +279,12 @@ export default function TabPartnership() {
             <div className="w-16 h-16 bg-purple-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
               <TrendUpIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Exciting Opportunities</h4>
+            <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">
+              Exciting Opportunities
+            </h4>
             <p className="text-gray-700 leading-relaxed font-medium group-hover:text-white">
-              Be at the forefront of MSME development, with opportunities to lead projects and influence industry trends.
+              Be at the forefront of MSME development, with opportunities to
+              lead projects and influence industry trends.
             </p>
           </motion.div>
         </div>
@@ -279,7 +304,7 @@ export default function TabPartnership() {
               whileHover={{
                 scale: 1.02,
                 rotateY: 5,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
               }}
               className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden"
             >
@@ -295,7 +320,7 @@ export default function TabPartnership() {
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
                 className="absolute top-4 right-4 w-2 h-2 bg-yellow-400 rounded-full"
               />
@@ -304,7 +329,7 @@ export default function TabPartnership() {
                 <motion.div
                   whileHover={{
                     rotate: [0, -10, 10, 0],
-                    scale: 1.1
+                    scale: 1.1,
                   }}
                   transition={{ duration: 0.5 }}
                   className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg"
@@ -318,19 +343,16 @@ export default function TabPartnership() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-4xl font-bold text-gray-900 group-hover:text-white leading-tight mb-4 relative z-10"
               >
-                Share Your Game-Changing Ideas and <br /> Shape the Future of MSMEs
+                Share Your Game-Changing Ideas and <br /> Shape the Future of
+                MSMEs
               </motion.h3>
-
-        
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-
-
       {/* partnership-form */}
-      <section className="py-20 bg-gray-100" id='partnership-form'>
+      <section className="py-20 bg-gray-100" id="partnership-form">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
@@ -344,13 +366,13 @@ export default function TabPartnership() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Partnership Inquiry
               </h2>
-              <form 
-                className="grid gap-6"
-                onSubmit={handleSubmit}
-              >
+              <form className="grid gap-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-bold text-gray-900 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -358,14 +380,17 @@ export default function TabPartnership() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                       placeholder="Enter your full name"
                       value={formData.name}
                       onChange={handleInputChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-bold text-gray-900 mb-2"
+                    >
                       Email *
                     </label>
                     <input
@@ -373,7 +398,7 @@ export default function TabPartnership() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                       placeholder="name@example.com"
                       value={formData.email}
                       onChange={handleInputChange}
@@ -383,7 +408,10 @@ export default function TabPartnership() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-bold text-gray-900 mb-2">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-bold text-gray-900 mb-2"
+                    >
                       Company Name *
                     </label>
                     <input
@@ -391,21 +419,24 @@ export default function TabPartnership() {
                       id="company"
                       name="company"
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                       placeholder="Your company name"
                       value={formData.company}
                       onChange={handleInputChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-gray-900 mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-bold text-gray-900 mb-2"
+                    >
                       Phone Number
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
                       placeholder="+1 (123) 456-7890"
                       value={formData.phone}
                       onChange={handleInputChange}
@@ -414,15 +445,18 @@ export default function TabPartnership() {
                 </div>
 
                 <div>
-                  <label htmlFor="partnership-type" className="block text-sm font-bold text-gray-900 mb-2">
+                  <label
+                    htmlFor="partnership-type"
+                    className="block text-sm font-bold text-gray-900 mb-2"
+                  >
                     Partnership Type *
                   </label>
                   <select
                     id="partnership-type"
                     name="partnership-type"
                     required
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
-                    value={formData['partnership-type']}
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                    value={formData["partnership-type"]}
                     onChange={handleInputChange}
                   >
                     <option value="">Select Partnership Type</option>
@@ -433,8 +467,11 @@ export default function TabPartnership() {
                   </select>
                 </div>
 
-                                <div>
-                  <label htmlFor="file" className="block text-sm font-bold text-gray-900 mb-2">
+                <div>
+                  <label
+                    htmlFor="file"
+                    className="block text-sm font-bold text-gray-900 mb-2"
+                  >
                     Upload File
                   </label>
                   <div className="relative">
@@ -446,17 +483,35 @@ export default function TabPartnership() {
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
                     />
-                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between">
-                      <span className="text-gray-500">{formData.file ? formData.file.name : 'Choose a file...'}</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition-all duration-200 flex items-center justify-between">
+                      <span className="text-gray-500">
+                        {formData.file
+                          ? formData.file.name
+                          : "Choose a file..."}
+                      </span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                        />
                       </svg>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-bold text-gray-900 mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -464,7 +519,7 @@ export default function TabPartnership() {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 resize-none"
                     placeholder="Tell us about your partnership proposal..."
                     value={formData.message}
                     onChange={handleInputChange}
@@ -475,7 +530,7 @@ export default function TabPartnership() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-[#0D9244] text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full bg-primary text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   Send Partnership Inquiry
                 </motion.button>
@@ -495,7 +550,8 @@ export default function TabPartnership() {
                   Partnership Contact
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-8 font-medium">
-                  Ready to explore partnership opportunities? Get in touch with our partnership team.
+                  Ready to explore partnership opportunities? Get in touch with
+                  our partnership team.
                 </p>
               </div>
 
@@ -576,7 +632,6 @@ export default function TabPartnership() {
           </div>
         </div>
       </section>
-
     </motion.div>
-  )
+  );
 }

@@ -444,7 +444,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                   {currentSection === 'mission' && (
                     <SectionWithVideo
                       title="MISSION"
-                      content="Assist MSMEs to become the driver of <br /> Industrialisation, Growth and Job creation in <br /> Developing & Emerging countries."
+                      content="Assist MSMEs to become the driver of <br /> Industrialisation, Growth and Job creation in ASEU"
                       youtubeVideoId="gW22hVe5_fI"
                       fallbackVideoSrc="/videos/hero-background.mp4"
                     />
