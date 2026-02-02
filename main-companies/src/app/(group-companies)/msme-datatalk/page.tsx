@@ -281,6 +281,7 @@ const D3MP = () => {
     <section id="d3mp" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <Image src="/logo/group-companies/datatalk-d3mp.png" alt="D3MP" width={500} height={500} className="mx-auto mb-10" />
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             D³MP — Dynamic Development Data Management Platform
           </h2>

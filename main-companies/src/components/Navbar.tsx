@@ -44,7 +44,7 @@ const Navbar = () => {
     if (pathname?.includes('msme-finance')) return '/logo/group-companies/finance.png';
     if (pathname?.includes('msme-izitec')) return '/logo/group-companies/izitec.png';
     if (pathname?.includes('msme-media')) return '/logo/group-companies/media.png';
-    if (pathname?.includes('msme-datatalk')) return '/logo/group-companies/datatalk.png';
+    if (pathname?.includes('msme-datatalk')) return '/logo/group-companies/datatalk.jpeg';
     return '/images/logo.jpg';
   };
 
