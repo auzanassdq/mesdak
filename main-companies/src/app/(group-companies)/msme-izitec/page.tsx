@@ -249,8 +249,8 @@ export default function IzitecPage() {
       <section id="benefits" className="py-20 bg-blue-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-xl">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">A Faster, More Cost-Efficient, Higher-Performance Delivery Model</h2>
-            <p className="text-center text-slate-600 mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">A Faster, More Cost-Efficient, <br /> Higher-Performance Delivery Model</h2>
+            <p className="text-lg text-center text-slate-600 mb-10">
               All M&apos;IZITec solutions are delivered faster, at a more competitive cost, and with superior performance thanks to the ability to build on the M&apos;World digital infrastructure.
             </p>
             
@@ -260,21 +260,21 @@ export default function IzitecPage() {
                   $
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Lower Costs</h3>
-                <p className="text-sm text-slate-500">Lower development and integration costs</p>
+                <p className="text-md text-slate-500">Lower development and integration costs</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                   🚀
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Faster Speed</h3>
-                <p className="text-sm text-slate-500">Faster deployment timelines</p>
+                <p className="text-md text-slate-500">Faster deployment timelines</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                   📈
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Higher ROI</h3>
-                <p className="text-sm text-slate-500">Higher long-term ROI for clients</p>
+                <p className="text-md text-slate-500">Higher long-term ROI for clients</p>
               </div>
             </div>
           </div>

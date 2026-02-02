@@ -22,7 +22,7 @@ const ContactPage = () => {
 const officeData: OfficeData[] = [
                   {
                     name: 'MSME Solutions Africa - Mauritius',
-                    headquarter: 'Headquarters - Mauritius',
+                    headquarter: 'MSME Solutions World',
                     img: [],
                     video: "",
                     link: 'https://mesdak-africa.vercel.app/'

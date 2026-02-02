@@ -147,7 +147,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -162,11 +162,11 @@ const Hero = () => {
                 Socio-Economic Development
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-5xl mx-auto">
               We build innovative data-intelligence platforms that enable
-              developement finance Institutions, governments, microfinance
+              developement finance Institutions, governments, <br /> microfinance
               institutions, banks, VC/PE, guarantiors, insurance companies and
-              development agencies and alike to transform raw data into
+              development agencies and alike <br /> to transform raw data into
               strategic advantage - powering smarter decisions and large-scale
               socio-economic progress.
             </p>

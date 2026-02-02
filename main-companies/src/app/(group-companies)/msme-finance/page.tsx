@@ -59,6 +59,9 @@ export default function MFIPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <span className="inline-block py-1 px-3 rounded-full bg-slate-800/50 border border-slate-700 text-[#D4AF37] text-xs font-bold tracking-wider uppercase mb-6 backdrop-blur-sm">
+              Member of MSME Solutions World Group
+            </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight">
               Finance <span className="text-[#D4AF37]">Re-Imagined.</span><br />
               Growth <span className="text-[#D4AF37]">Re-Defined.</span><br />
