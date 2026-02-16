@@ -1,79 +1,75 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import LocationTabs from "@/components/LocationTabs";
-import {
-  EnvelopeSimpleIcon,
-  MapPinIcon,
-  PaperPlaneTiltIcon,
-  PhoneIcon,
-} from "@phosphor-icons/react/dist/ssr";
-import Link from "next/link";
-import { ArrowRightIcon } from "@phosphor-icons/react";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import LocationTabs from '@/components/LocationTabs';
+import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon } from '@phosphor-icons/react/dist/ssr';
+import Link from 'next/link';
+import { ArrowRightIcon } from '@phosphor-icons/react';
 
 const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState(0);
 
   interface OfficeData {
-    name: string;
-    headquarter: string;
-    img: string[];
-    video: string;
-    link?: string;
-  }
+  name: string;
+  headquarter: string;
+  img: string[];
+  video: string;
+  link?: string;
+}
 
-  const officeData: OfficeData[] = [
-    {
-      name: "MSME Solutions Africa - Mauritius",
-      headquarter: "Headquarters - Mauritius",
-      img: [],
-      video: "",
-      link: "#",
-    },
-    {
-      name: "MSME Solutions Asia - Singapore",
-      headquarter: "Singapore",
-      img: [],
-      video: "",
-      link: "#",
-    },
-    {
-      name: "MSME Solutions Latin America - Panama",
-      headquarter: "Panama",
-      img: [],
-      video: "",
-      link: "#",
-    },
-    {
-      name: "MSME Solutions North America - Canada",
-      headquarter: "Canada",
-      img: [],
-      video: "",
-      link: "#",
-    },
-    {
-      name: "MSME Solutions ASEU - Georgia",
-      headquarter: "Georgia",
-      img: [],
-      video: "",
-      link: "#",
-    },
-    {
-      name: "MSME Solutions Europe - Germany",
-      headquarter: "Germany",
-      img: [],
-      video: "",
-      link: "#",
-    },
-    {
-      name: "MSME Solutions World - Mauritius (Headquarters)",
-      headquarter: "Mauritius (Headquarters)",
-      img: [],
-      video: "",
-    },
-  ];
+const officeData: OfficeData[] = [
+                  {
+                    name: 'MSME Solutions Africa - Mauritius',
+                    headquarter: 'MSME Solutions World',
+                    img: [],
+                    video: "",
+                    link: 'https://mesdak-africa.vercel.app/'
+                  },
+                  {
+                    name: 'MSME Solutions Asia - Singapore',
+                    headquarter: 'Singapore',
+                    img: [],
+                    video: "",
+                    link: 'https://mesdak-asia.vercel.app/'
+                  },
+                  {
+                    name: 'MSME Solutions Latin America - Panama',
+                    headquarter: 'Panama',
+                    img: [],
+                    video: "",
+                    link: 'https://mesdak-latin-america.vercel.app/'
+                  },
+                  {
+                    name: 'MSME Solutions North America - Canada',
+                    headquarter: 'Canada',
+                    img: [],
+                    video: "",
+                    link: 'https://mesdak-north-america.vercel.app/'
+                  },
+                  {
+                    name: 'MSME Solutions ASEU - Georgia',
+                    headquarter: 'Georgia',
+                    img: [],
+                    video: "",
+                    link: 'https://mesdak-aseu.vercel.app/'
+                  },
+                  {
+                    name: 'MSME Solutions Europe - Germany',
+                    headquarter: 'Germany',
+                    img: [],
+                    video: "",
+                    link: 'https://mesdak-europe.vercel.app/'
+                  },
+                  {
+                    name: 'MSME Solutions World - Mauritius (Headquarters)',
+                    headquarter: 'Mauritius (Headquarters)',
+                    img: [],
+                    video: "",
+                    link: "https://mesdak.vercel.app/"
+                  }
+                ]
 
   interface FormData {
     name: string;
@@ -86,31 +82,28 @@ const ContactPage = () => {
   }
 
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
     file: null,
-    countryOffice: "",
+    countryOffice: ''
   });
 
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, files } = e.target as HTMLInputElement;
 
-    if (files && name === "file") {
-      setFormData((prev) => ({
+    if (files && name === 'file') {
+      setFormData(prev => ({
         ...prev,
-        [name]: files[0],
+        [name]: files[0]
+
       }));
     } else {
-      setFormData((prev) => ({
+      setFormData(prev => ({
         ...prev,
-        [name]: value,
+        [name]: value
       }));
     }
   };
@@ -118,34 +111,41 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log("Form submitted:", formData);
+    console.log('Form submitted:', formData);
     // Reset form
     setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
       file: null,
-      countryOffice: "",
+      countryOffice: ''
     });
   };
 
   const contactInfo = [
     {
       icon: MapPinIcon,
-      title: "Office Address",
-      details: ["123 Innovation Drive", "Silicon Valley, CA 94301, USA"],
+      title: 'Office Address',
+      details: [
+        '123 Innovation Drive',
+        'Silicon Valley, CA 94301, USA'
+      ]
     },
     {
       icon: PhoneIcon,
-      title: "Phone",
-      details: ["+1 (650) 555-0123"],
+      title: 'Phone',
+      details: [
+        '+1 (650) 555-0123',
+      ]
     },
     {
       icon: EnvelopeSimpleIcon,
-      title: "Email",
-      details: ["info@innovatemsme.com"],
+      title: 'Email',
+      details: [
+        'info@innovatemsme.com',
+      ]
     },
   ];
 
@@ -202,17 +202,39 @@ const ContactPage = () => {
             <div className="lg:w-1/3">
               <div className="space-y-4 sticky top-24">
                 {officeData.map((office, index) => (
-                  <motion.button
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 * index }}
-                    className={`w-full text-left p-4 border-l-4 text-black/20 hover:cursor-pointer ${selectedOffice === index ? "border-primary bg-gray-100 text-black/80" : "border-gray-300 hover:bg-gray-50"} transition-all duration-200`}
+                    className={`w-full text-left p-4 border-l-4 hover:cursor-pointer ${selectedOffice === index ? 'border-primary bg-gray-100 text-black/80' : 'border-gray-300 hover:bg-gray-50 text-black/20'} transition-all duration-200`}
                     onClick={() => setSelectedOffice(index)}
                   >
                     <h3 className="text-xl font-bold ">{office.name}</h3>
                     {/* <p className="text-gray-600 text-sm mt-1">{office.address}</p> */}
-                  </motion.button>
+                    
+                    <AnimatePresence>
+                      {selectedOffice === index && office.link && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                          animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+                          exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <Link 
+                            href={office.link} 
+                            target="_blank" 
+                            className="inline-flex items-center text-sm font-bold text-white bg-primary-600 px-4 py-2 shadow-md hover:bg-primary-700 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>Visit Website</span>
+                            <ArrowRightIcon className="w-4 h-4 ml-2" />
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -227,7 +249,7 @@ const ContactPage = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
                 >
-                  {/* Office Images */}
+                    {/* Office Images */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div className="relative h-40 border-4 border-black overflow-hidden">
                       <Image
@@ -257,31 +279,17 @@ const ContactPage = () => {
 
                   {/* Office Video (replacing Office Details) */}
                   <div className="mt-8 border-4 border-black overflow-hidden">
-                    <iframe
-                      src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className=" top-0 left-0 w-full  object-cover h-[300px]"
-                      style={{ border: "none" }}
-                    />
+                      <iframe
+                        src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className=" top-0 left-0 w-full  object-cover h-[300px]"
+                        style={{ border: 'none' }}
+                      />
 
-                    <div className=" bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
-                      <h3 className="text-2xl font-bold mb-1">
-                        {officeData[selectedOffice].headquarter}
-                      </h3>
-                      {officeData[selectedOffice].link && (
-                        <Link
-                          href={officeData[selectedOffice].link}
-                          target="_blank"
-                          className="group text-primary flex items-center"
-                        >
-                          <span>Visit</span>
-                          <ArrowRightIcon className="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
-                        </Link>
-                      )}
-                    </div>
-                    {/* <div className="relative pt-[56.25%]">
-                    </div> */}
+                      <div className=" bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
+                        <h3 className="text-2xl font-bold mb-1">{officeData[selectedOffice].headquarter}</h3>
+                      </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -289,6 +297,7 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+
 
       {/* Contact Form & Info Section */}
       <section className="py-20 bg-gray-100">
@@ -307,10 +316,7 @@ const ContactPage = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-bold text-gray-900 mb-2"
-                    >
+                    <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -320,15 +326,12 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="Enter your full name"
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-bold text-gray-900 mb-2"
-                    >
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">
                       Email *
                     </label>
                     <input
@@ -338,18 +341,16 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="name@example.com"
                     />
                   </div>
                 </div>
 
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-bold text-gray-900 mb-2"
-                    >
+                    <label htmlFor="phone" className="block text-sm font-bold text-gray-900 mb-2">
                       Phone Number
                     </label>
                     <input
@@ -358,15 +359,12 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="+1 (123) 456-7890"
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-bold text-gray-900 mb-2"
-                    >
+                    <label htmlFor="subject" className="block text-sm font-bold text-gray-900 mb-2">
                       Subject *
                     </label>
                     <input
@@ -376,17 +374,14 @@ const ContactPage = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="Topic of your message"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="countryOffice"
-                    className="block text-sm font-bold text-gray-900 mb-2"
-                  >
+                  <label htmlFor="countryOffice" className="block text-sm font-bold text-gray-900 mb-2">
                     Select Country Office *
                   </label>
                   <select
@@ -395,22 +390,17 @@ const ContactPage = () => {
                     value={formData.countryOffice}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 bg-white"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 bg-white"
                   >
                     <option value="">Select an office...</option>
                     {officeData.map((office, idx) => (
-                      <option key={idx} value={office.name}>
-                        {office.name}
-                      </option>
+                      <option key={idx} value={office.name}>{office.name}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="file"
-                    className="block text-sm font-bold text-gray-900 mb-2"
-                  >
+                  <label htmlFor="file" className="block text-sm font-bold text-gray-900 mb-2">
                     Upload File
                   </label>
                   <div className="relative">
@@ -422,35 +412,18 @@ const ContactPage = () => {
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
                     />
-                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-primary focus-within:border-primary transition-all duration-200 flex items-center justify-between">
-                      <span className="text-gray-500">
-                        {formData.file
-                          ? formData.file.name
-                          : "Choose a file..."}
-                      </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 text-gray-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                        />
+                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between">
+                      <span className="text-gray-500">{formData.file ? formData.file.name : 'Choose a file...'}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                       </svg>
                     </div>
                   </div>
                 </div>
 
+
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-bold text-gray-900 mb-2"
-                  >
+                  <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
                     Message *
                   </label>
                   <textarea
@@ -460,7 +433,7 @@ const ContactPage = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none"
                     placeholder="Tell us how we can help your MSME business..."
                   ></textarea>
                 </div>
@@ -469,7 +442,7 @@ const ContactPage = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-primary text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full bg-[#0D9244] text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <PaperPlaneTiltIcon className="w-5 h-5" />
                   Send Message
@@ -514,10 +487,7 @@ const ContactPage = () => {
                           </h3>
                           <div className="space-y-1">
                             {info.details.map((detail, detailIndex) => (
-                              <p
-                                key={detailIndex}
-                                className="text-gray-700 group-hover:text-white font-medium"
-                              >
+                              <p key={detailIndex} className="text-gray-700 group-hover:text-white font-medium">
                                 {detail}
                               </p>
                             ))}
@@ -566,6 +536,7 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 };

@@ -66,7 +66,8 @@ const officeData: OfficeData[] = [
                     name: 'MSME Solutions World - Mauritius (Headquarters)',
                     headquarter: 'Mauritius (Headquarters)',
                     img: [],
-                    video: ""
+                    video: "",
+                    link: "https://mesdak.vercel.app/"
                   }
                 ]
 
@@ -201,17 +202,39 @@ const officeData: OfficeData[] = [
             <div className="lg:w-1/3">
               <div className="space-y-4 sticky top-24">
                 {officeData.map((office, index) => (
-                  <motion.button
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.1 * index }}
-                    className={`w-full text-left p-4 border-l-4 text-black/20 hover:cursor-pointer ${selectedOffice === index ? 'border-primary bg-gray-100 text-black/80' : 'border-gray-300 hover:bg-gray-50'} transition-all duration-200`}
+                    className={`w-full text-left p-4 border-l-4 hover:cursor-pointer ${selectedOffice === index ? 'border-primary bg-gray-100 text-black/80' : 'border-gray-300 hover:bg-gray-50 text-black/20'} transition-all duration-200`}
                     onClick={() => setSelectedOffice(index)}
                   >
                     <h3 className="text-xl font-bold ">{office.name}</h3>
                     {/* <p className="text-gray-600 text-sm mt-1">{office.address}</p> */}
-                  </motion.button>
+                    
+                    <AnimatePresence>
+                      {selectedOffice === index && office.link && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                          animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+                          exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <Link 
+                            href={office.link} 
+                            target="_blank" 
+                            className="inline-flex items-center text-sm font-bold text-white bg-primary-600 px-4 py-2 shadow-md hover:bg-primary-700 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>Visit Website</span>
+                            <ArrowRightIcon className="w-4 h-4 ml-2" />
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -266,15 +289,7 @@ const officeData: OfficeData[] = [
 
                       <div className=" bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
                         <h3 className="text-2xl font-bold mb-1">{officeData[selectedOffice].headquarter}</h3>
-                        {officeData[selectedOffice].link && (
-                          <Link href={officeData[selectedOffice].link} target="_blank" className="group text-primary flex items-center">
-                            <span>Visit</span>
-                            <ArrowRightIcon className="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
-                          </Link>
-                        )}
                       </div>
-                    {/* <div className="relative pt-[56.25%]">
-                    </div> */}
                   </div>
                 </motion.div>
               </AnimatePresence>

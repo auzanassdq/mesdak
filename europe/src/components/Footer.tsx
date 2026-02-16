@@ -27,7 +27,7 @@ const Footer = () => {
           >
             <Link href="/" className="inline-block mb-6">
               <Image 
-                src="/images/logo.jpg" 
+                src="/images/logo.png" 
                 alt="MSME World Logo" 
                 width={150} 
                 height={50} 
@@ -72,13 +72,13 @@ Institutions Financial Governments
           >
             <h3 className="text-lg font-semibold text-white mb-4">Office Locations</h3>
             <ul className="space-y-2">
-              <li><Link href="/contact" className="hover:text-white transition-colors">Headquarters</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Africa</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Asia</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Latin America</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">North America</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Europe</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">ASEU</Link></li>
+              <li><Link href="https://mesdak.vercel.app/" className="hover:text-white transition-colors">Headquarters</Link></li>
+              <li><Link href="https://mesdak-africa.vercel.app/" className="hover:text-white transition-colors">Africa</Link></li>
+              <li><Link href="https://mesdak-asia.vercel.app/" className="hover:text-white transition-colors">Asia</Link></li>
+              <li><Link href="https://mesdak-latin-america.vercel.app/" className="hover:text-white transition-colors">Latin America</Link></li>
+              <li><Link href="https://mesdak-north-america.vercel.app/" className="hover:text-white transition-colors">North America</Link></li>
+              <li><Link href="https://mesdak-europe.vercel.app/" className="hover:text-white transition-colors">Europe</Link></li>
+              <li><Link href="https://mesdak-aseu.vercel.app/" className="hover:text-white transition-colors">ASEU</Link></li>
             </ul>
           </motion.div>
 
