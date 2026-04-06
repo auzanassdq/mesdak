@@ -180,7 +180,7 @@ export default function MFIPage() {
               "Risk-Mitigation & Insurance Engineering",
               "Payment Infrastructure & Digital Finance Solutions",
               "Digital Financial & Insurance Product Definition, Design & Deployment",
-              "Strategic Partnerships with Banks, DFIs, Governments, Sovereign Wealth Funds & Asset Managers"
+              "Strategic Partnerships with Banks, MDBs, DFIs, Governments, Sovereign Wealth Funds & Asset Managers"
             ].map((capability, idx) => (
               <motion.div 
                 key={idx}

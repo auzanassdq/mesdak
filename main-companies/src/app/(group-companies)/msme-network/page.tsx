@@ -42,7 +42,8 @@ export default function MSMENetworkPage() {
     "Communication Strategy",
     "Community Building, Development & Management",
     "Marketing Solutions",
-    "Online Advertising"
+    "Online Advertising",
+    "Generate Passive Income"
   ];
 
   const pillar2Services = [

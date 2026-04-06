@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { BuildingIcon, ClockIcon, LightbulbFilamentIcon, MapPinIcon, TrendUpIcon, UserCheckIcon } from '@phosphor-icons/react/dist/ssr';
 import { useState } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+import { BuildingIcon, ClockIcon, LightbulbFilamentIcon, MapPinIcon, TrendUpIcon, UserCheckIcon } from '@phosphor-icons/react/dist/ssr';
 
 interface FormData {
   name: string;
@@ -384,13 +385,12 @@ export default function TabPartnership() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="company" className="block text-sm font-bold text-gray-900 mb-2">
-                      Company Name *
+                      Company Name
                     </label>
                     <input
                       type="text"
                       id="company"
                       name="company"
-                      required
                       className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
                       placeholder="Your company name"
                       value={formData.company}
@@ -413,10 +413,24 @@ export default function TabPartnership() {
                   </div>
                 </div>
 
+
+
                 <div>
+                {/* button to M'Network page beside the label */}
+                <div className="flex items-center justify-between gap-2">
                   <label htmlFor="partnership-type" className="block text-sm font-bold text-gray-900 mb-2">
                     Partnership Type *
                   </label>
+                  <Link
+                    href="/msme-network"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-2 py-1 bg-primary text-white font-bold hover:bg-primary/90 transition-colors duration-200"
+                  >
+                    {/* <TrendUpIcon className="w-5 h-5" /> */}
+                    Visit M'Network
+                  </Link>
+                </div>
                   <select
                     id="partnership-type"
                     name="partnership-type"

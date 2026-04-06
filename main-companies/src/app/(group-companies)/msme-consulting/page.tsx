@@ -81,7 +81,7 @@ export default function ConsultingPage() {
             <div className="md:w-1/2">
               <h2 className="text-4xl font-bold text-slate-900 mb-6">Our Mandate</h2>
               <p className="text-lg text-slate-600 mb-8">
-                MDC helps governments, DFIs, financial institutions, and development partners to achieve transformative results.
+                MDC helps governments, MDBs, Bilateral Organizations, DFIs, financial institutions, and development partners to achieve transformative results.
               </p>
               <div className="space-y-4">
                 {[
@@ -148,10 +148,10 @@ export default function ConsultingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "Governments & Public Institutions",
-              "DFIs & Development Banks",
+              "MDBs, DFIs & Development Banks",
               "Commercial Banks & Microfinance Institutions",
               "International Development Agencies & NGOs",
-              "Sovereign Wealth Funds & Investment Authorities",
+              "Sovereign Wealth Funds, Fund Managers <br/> & Investment Authorities",
               "Incubators, Accelerators & Innovation Hubs",
               "Entrepreneurs, MSMEs & Business Innovators"
             ].map((partner, index) => (
@@ -163,7 +163,14 @@ export default function ConsultingPage() {
                 <div className="w-12 h-12 bg-teal-50 rounded-lg flex items-center justify-center mb-4 text-teal-600">
                   <Users size={24} />
                 </div>
-                <h3 className="text-lg font-semibold text-slate-800">{partner}</h3>
+                <h3 className="text-lg font-semibold text-slate-800">
+                  {partner.split(/<br\s*\/?>/).map((line, i, arr) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      {i < arr.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
+                </h3>
               </motion.div>
             ))}
           </div>
@@ -179,13 +186,13 @@ export default function ConsultingPage() {
             <div className="lg:w-1/2">
               <h2 className="text-4xl font-bold mb-6">A New Era of MSME Intelligence</h2>
               <p className="text-teal-100 text-lg mb-8 leading-relaxed">
-                MDC leverages the <span className="font-semibold text-white">Enterprise Development Board (EDB)</span> — an innovative ERP-powered intelligence platform — to enable data-driven decision making.
+                MDC leverages the <span className="font-semibold text-white">Intelligence-ERP (i-ERP)</span> — an innovative ERP-powered intelligence platform — to enable data-driven decision making.
               </p>
               <p className="text-teal-200 mb-8">
                 This empowers institutions to take fast, informed, and high-impact decisions.
               </p>
               <button className="bg-white text-teal-900 px-8 py-3 rounded-full font-semibold hover:bg-teal-50 transition-colors">
-                Learn About EDB
+                Learn About i-ERP
               </button>
             </div>
             

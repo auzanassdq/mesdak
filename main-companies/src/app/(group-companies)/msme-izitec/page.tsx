@@ -169,7 +169,7 @@ export default function IzitecPage() {
                 desc: "Modern, streamlined collection systems for Social Security, Pension & Fiscal Revenue that increase compliance and reduce leakage."
               },
               {
-                title: "Digital Platforms for Support",
+                title: "Digital Platforms & Ecosystem",
                 desc: "Solutions for MSME programme delivery, registration, onboarding, monitoring, compliance, and digital transformation enablement."
               },
               {

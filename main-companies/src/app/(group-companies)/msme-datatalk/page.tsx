@@ -162,10 +162,10 @@ const Hero = () => {
                 Socio-Economic Development
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-5xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-7xl mx-auto">
               We build innovative data-intelligence platforms that enable
-              developement finance Institutions, governments, <br /> microfinance
-              institutions, banks, VC/PE, guarantiors, insurance companies and
+              development finance institutions, <br/> Multilateral Development Bank, governments, <br /> microfinance
+              institutions, banks, VC/PE, guarantors, insurance companies and
               development agencies and alike <br /> to transform raw data into
               strategic advantage - powering smarter decisions and large-scale
               socio-economic progress.
@@ -295,6 +295,18 @@ const D3MP = () => {
           </p>
         </div>
 
+        {/* video youtube */}
+        <div className="relative mx-auto  w-1/2 h-96 rounded-2xl overflow-hidden shadow-2xl mb-16">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
+            title="D3MP Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
@@ -364,39 +376,66 @@ const DataCollection = () => {
   return (
     <section id="collection" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          <div className="lg:order-1">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
-              <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-xl relative z-10">
-                <h4 className="text-lg font-bold text-gray-900 mb-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
+              <div className="bg-white border border-gray-200 rounded-3xl p-8 lg:p-10 shadow-2xl relative z-10">
+                <h4 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">
                   M&apos;Doc & Intelligent Tools
                 </h4>
-                <ul className="space-y-4">
-                  {collectionTypes.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#6b21a8]"></div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="grid md:grid-cols-5 gap-10 items-center">
+                  <div className="md:col-span-2">
+                    <ul className="space-y-4">
+                      {collectionTypes.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3 group">
+                          <div className="w-2 h-2 rounded-full bg-[#6b21a8] mt-2 group-hover:scale-125 transition-transform"></div>
+                          <span className="text-gray-700 font-medium">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="md:col-span-3">
+                    <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gray-50">
+                      <iframe 
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
+                        title="M'DataTalk Product Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <p className="text-xs text-gray-400 mt-3 text-center italic">
+                      Watch how our intelligent tools capture real-time market data
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="order-1 md:order-2">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Advanced Data Collection at Scale
+
+          <div className="lg:order-2">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+              Advanced Data Collection <br className="hidden md:block" /> at Scale
             </h2>
-            <p className="text-xl text-[#6b21a8] mb-6">
+            <div className="w-20 h-1.5 bg-[#6b21a8] rounded-full mb-8"></div>
+            <p className="text-xl text-[#6b21a8] mb-8 font-bold">
               Powered by M&apos;Doc and Intelligent AI-Driven Survey Tools
             </p>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              M&apos;DataTalk enhances D³MP with advanced, AI-enabled data
-              collection tools such as M&apos;Doc. These tools create a
-              continuous, high-quality flow of fresh data, enhancing the
-              accuracy, depth, and reliability of every insight.
-            </p>
+            <div className="space-y-6">
+              <p className="text-gray-600 text-lg leading-relaxed">
+                M&apos;DataTalk enhances D³MP with advanced, AI-enabled data
+                collection tools such as M&apos;Doc. These tools create a
+                continuous, high-quality flow of fresh data, enhancing the
+                accuracy, depth, and reliability of every insight.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Our proprietary capturing engines ensure that institutional decisions are built on a foundation of verifiable, multi-regional, and longitudinal datasets.
+              </p>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -406,9 +445,9 @@ const DataCollection = () => {
 const Audience = () => {
   const audiences = [
     "Governments & Ministries",
-    "Development Banks & DFIs",
+    "MDBs, DFIs, & Development Banks",
     "Commercial Banks & Microfinance Institutions",
-    "Insurance Companies",
+    "Insurance Companies <br/> Guarantee Funds",
     "Corporations & Multinationals",
     "Development Agencies & NGOs",
     "Asset Managers & Institutional Investors",
@@ -436,7 +475,14 @@ const Audience = () => {
               className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-colors text-center flex flex-col items-center justify-center h-40"
             >
               <Users className="text-purple-400 mb-3" size={32} />
-              <span className="font-medium">{audience}</span>
+              <span className="font-medium">
+                {audience.split(/<br\s*\/?>/).map((line, i, arr) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < arr.length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </span>
             </motion.div>
           ))}
         </div>

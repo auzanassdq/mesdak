@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import LocationTabs from '@/components/LocationTabs';
-import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon } from '@phosphor-icons/react/dist/ssr';
 import Link from 'next/link';
-import { ArrowRightIcon } from '@phosphor-icons/react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon, ArrowRightIcon} from '@phosphor-icons/react/dist/ssr';
+
+import LocationTabs from '@/components/LocationTabs';
 
 const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState(0);
@@ -381,9 +381,20 @@ const officeData: OfficeData[] = [
                 </div>
 
                 <div>
+                  <div className="flex items-center justify-between gap-2">
                   <label htmlFor="countryOffice" className="block text-sm font-bold text-gray-900 mb-2">
                     Select Country Office *
                   </label>
+                  <Link
+                    href="/msme-network"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-2 py-1 bg-primary text-white font-bold hover:bg-primary/90 transition-colors duration-200"
+                  >
+                    Visit M'Network
+                  </Link>
+                </div>
+
                   <select
                     id="countryOffice"
                     name="countryOffice"
