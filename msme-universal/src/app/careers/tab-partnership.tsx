@@ -12,6 +12,7 @@ interface FormData {
   'partnership-type': string;
   message: string;
   file: File | null;
+  mnetworkProfile: string;
 }
 
 export default function TabPartnership() {
@@ -22,7 +23,8 @@ export default function TabPartnership() {
     phone: '',
     'partnership-type': '',
     message: '',
-    file: null
+    file: null,
+    mnetworkProfile: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -56,7 +58,8 @@ export default function TabPartnership() {
         phone: '',
         'partnership-type': '',
         message: '',
-        file: null
+        file: null,
+        mnetworkProfile: ''
       });
       
       alert('Form berhasil dikirim!');
@@ -416,21 +419,9 @@ export default function TabPartnership() {
 
 
                 <div>
-                {/* button to M'Network page beside the label */}
-                <div className="flex items-center justify-between gap-2">
                   <label htmlFor="partnership-type" className="block text-sm font-bold text-gray-900 mb-2">
                     Partnership Type *
                   </label>
-                  <Link
-                    href="/msme-network"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-2 py-1 bg-primary text-white font-bold hover:bg-primary/90 transition-colors duration-200"
-                  >
-                    {/* <TrendUpIcon className="w-5 h-5" /> */}
-                    Visit M'Network
-                  </Link>
-                </div>
                   <select
                     id="partnership-type"
                     name="partnership-type"
@@ -445,6 +436,22 @@ export default function TabPartnership() {
                     <option value="technology">Technology Partnership</option>
                     <option value="other">Other</option>
                   </select>
+                </div>
+
+                <div>
+                  <label htmlFor="mnetworkProfile" className="block text-sm font-bold text-gray-900 mb-2">
+                    Link to your M&apos;Network Profile
+                  </label>
+                  <input
+                    type="url"
+                    id="mnetworkProfile"
+                    name="mnetworkProfile"
+                    value={formData.mnetworkProfile}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                    placeholder="https://network.msme.com/profile/..."
+                  />
+                  <p className="mt-1 text-xs text-gray-500">Paste the URL of your M&apos;Network profile (business connection platform)</p>
                 </div>
 
                                 <div>

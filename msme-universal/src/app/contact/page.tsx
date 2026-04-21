@@ -79,6 +79,7 @@ const officeData: OfficeData[] = [
     message: string;
     file: File | null;
     countryOffice: string;
+    mnetworkProfile: string;
   }
 
   const [formData, setFormData] = useState<FormData>({
@@ -88,7 +89,8 @@ const officeData: OfficeData[] = [
     subject: '',
     message: '',
     file: null,
-    countryOffice: ''
+    countryOffice: '',
+    mnetworkProfile: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -120,7 +122,8 @@ const officeData: OfficeData[] = [
       subject: '',
       message: '',
       file: null,
-      countryOffice: ''
+      countryOffice: '',
+      mnetworkProfile: ''
     });
   };
 
@@ -381,20 +384,9 @@ const officeData: OfficeData[] = [
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between gap-2">
                   <label htmlFor="countryOffice" className="block text-sm font-bold text-gray-900 mb-2">
                     Select Country Office *
                   </label>
-                  <Link
-                    href="/msme-network"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-2 py-1 bg-primary text-white font-bold hover:bg-primary/90 transition-colors duration-200"
-                  >
-                    Visit M'Network
-                  </Link>
-                </div>
-
                   <select
                     id="countryOffice"
                     name="countryOffice"
@@ -408,6 +400,22 @@ const officeData: OfficeData[] = [
                       <option key={idx} value={office.name}>{office.name}</option>
                     ))}
                   </select>
+                </div>
+
+                <div>
+                  <label htmlFor="mnetworkProfile" className="block text-sm font-bold text-gray-900 mb-2">
+                    Link to your M&apos;Network Profile
+                  </label>
+                  <input
+                    type="url"
+                    id="mnetworkProfile"
+                    name="mnetworkProfile"
+                    value={formData.mnetworkProfile}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                    placeholder="https://network.msme.com/profile/..."
+                  />
+                  <p className="mt-1 text-xs text-gray-500">Paste the URL of your M&apos;Network profile (business connection platform)</p>
                 </div>
 
                 <div>
