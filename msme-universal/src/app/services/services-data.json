@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Strategic Management",
+    "tagline": "Active Holding",
+    "shortDescription": "We strengthen our group companies through clear strategy, strong governance, and disciplined capital allocation.",
+    "fullDescription": "<p class='mb-4 text-justify'><strong>We are an active holding company focused on value creation.</strong><br>We strengthen our group companies through clear strategy, strong governance, and disciplined capital allocation, with the objective of delivering sustainable, risk-adjusted returns.<br>We set direction at group level, manage risk and compliance, enable shared capabilities, and drive operational discipline—allowing each subsidiary to remain operationally autonomous while benefiting from institutional-grade oversight and scale.</p><h4 class='text-lg font-bold mb-2'>What we do</h4><ul class='list-disc pl-5 space-y-2 mb-4'><li>Align group strategy and priorities to maximize long-term value</li><li>Allocate capital to the highest-impact opportunities, with disciplined return expectations</li><li>Strengthen governance, risk management, and compliance across the group</li><li>Drive performance and operational synergies to improve efficiency and scalability</li><li>Build strategic partnerships that expand market access and growth potential</li></ul>",
+    "icon": "ChartBarIcon"
+  },
+  {
+    "id": 2,
+    "title": "Research, Development & Innovation",
+    "tagline": "Scalable Advantage",
+    "shortDescription": "We provide group-level Research, Development & Innovation (RDI) services to strengthen the competitiveness and long-term value of our portfolio companies.",
+    "fullDescription": "<p class='mb-4 text-justify'><strong>Scalable Advantage.</strong><br>We provide group-level Research, Development & Innovation (RDI) services to strengthen the competitiveness and long-term value of our portfolio companies.<br>By centralising innovation strategy, applied research, and technology development, we reduce execution risk, accelerate time-to-market, and improve capital efficiency across the group.<br>Our approach allows subsidiaries to innovate faster—without duplicating cost—while retaining full ownership of their operational execution.</p><h4 class='text-lg font-bold mb-2'>What we deliver</h4><ul class='list-disc pl-5 space-y-2 mb-4'><li>Strategic research & market intelligence to inform investment and product decisions</li><li>Product, service, and platform development aligned with group strategy</li><li>Technology and digital innovation to improve scalability and resilience</li><li>Process innovation and operational optimisation to enhance margins</li><li>Partnership-driven innovation, including academia, industry, and technology partners</li></ul>",
+    "icon": "CpuIcon"
+  },
+  {
+    "id": 3,
+    "title": "Strategic & Innovation Consulting",
+    "tagline": "For MSME sector Development",
+    "shortDescription": "Strategic and innovation consulting that transforms MSME sector strategies and ambition into investable platforms and measurable outcomes.",
+    "fullDescription": "<p class='mb-4 text-justify'><strong>For our Holding Companies, but also for Organisations, Institutions & Governments</strong><br>MSME sector and platform ecosystem strategy — at national, regional, group, and global levels. Strategic and innovation consulting that transforms MSME sector strategies and ambition into investable platforms and measurable outcomes.<br>We support our holding companies, but also other organisations, financial institutions, and governments in designing and executing scalable MSME development strategies that connect policy, capital, innovations, and delivery.<br>Operating at the intersection of strategy, digital transformation, and development finance, we help stakeholders move from vision to execution—building MSME ecosystems that are bankable, scalable, and impact-driven.</p><h4 class='text-lg font-bold mb-2'>What we deliver</h4><ul class='list-disc pl-5 space-y-2 mb-4'><li>MSME sector and platform ecosystem strategy at national, regional, group, and global level</li><li>Innovation-led business and operating models for MSME ecosystems</li><li>Design of MSME finance and risk-sharing mechanisms (blended finance, guarantees, platforms)</li><li>Digital and data-driven solutions for market access, formalisation, and funding readiness</li><li>Institutional strengthening and governance frameworks aligned with regulatory and investor expectations</li><li>Impact, ESG, and results measurement frameworks aligned with SDGs and development mandates</li></ul><h4 class='text-lg font-bold mb-2'>Value for decision-makers</h4><ul class='list-disc pl-5 space-y-2 mb-4'><li><strong>Holding Companies:</strong> scalable MSME platforms, and ecosystems , capital readiness, and portfolio-level value creation</li><li><strong>Institutions & Organisations:</strong> deployable programmes that crowd in private capital</li><li><strong>Governments:</strong> policy-to-execution models delivering jobs, inclusion, and sustainable growth</li></ul>",
+    "icon": "UsersIcon"
+  }
+]
