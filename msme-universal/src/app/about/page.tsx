@@ -221,10 +221,11 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                 About <span className="text-primary-light">Us</span>
               </h1>
               <div className="text-white text-xl md:text-2xl font-medium md:leading-relaxed">
-                <p>Bridging the {getRegionConfig().region} three biggest gaps</p>
+                <p>Bridging the {getRegionConfig().region} fourth biggest gaps</p>
                 <p>MSME Finance,</p>
                 <p>SDG Execution,</p>
-                <p>Real-Time Economic Intelligence</p>
+                <p>Real-Time Economic Intelligence,</p>
+                <p>Human Capital Activation Gap</p>
               </div>
             </motion.div>
           </div>

@@ -188,7 +188,7 @@ export default function ConsultingPage() {
             <div className="lg:w-1/2">
               <h2 className="text-4xl font-bold mb-6">A New Era of MSME Intelligence</h2>
               <p className="text-teal-100 text-lg mb-8 leading-relaxed">
-                MDC leverages the <span className="font-semibold text-white">Intelligence-ERP (i-ERP)</span> — an innovative ERP-powered intelligence platform — to enable data-driven decision making.
+                MDC leverages the <span className="font-semibold text-white">Intelligent-ERP (i-ERP)</span> — an innovative ERP-powered intelligence platform — to enable data-driven decision making.
               </p>
               <p className="text-teal-200 mb-8">
                 This empowers institutions to take fast, informed, and high-impact decisions.
