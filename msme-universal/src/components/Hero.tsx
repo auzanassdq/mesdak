@@ -155,8 +155,8 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-30 text-center text-white px-4 max-w-6xl mx-auto">
-        {/* MSME World White Logo */}
-        <div className="absolute hero-logo top-[-150] left-1/2 -translate-x-1/2">
+        {/* MSME Logo */}
+        <div className="absolute hero-logo top-[-150] left-1/2 -translate-x-1/2 bg-white px-4 py-3  shadow-lg">
           <Image
             src={config.logo}
             width={200}

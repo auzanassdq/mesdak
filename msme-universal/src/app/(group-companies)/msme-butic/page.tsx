@@ -212,7 +212,7 @@ export default function MButicPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl md:text-4xl font-bold mb-8 leading-tight">
-              &ldquo;Compressing Time and Distance between <br /> Producers &amp; Markets &mdash; unlocking new economic <br /> value at scale.
+              &ldquo;Compressing <span className="text-[#73BF43]">Time and Distance</span> between <br /> Producers &amp; Markets &mdash; unlocking new economic <br /> value <span className="text-[#73BF43]">at scale.</span>
             </h2>
             <p className="text-xl text-slate-400 mb-12">
               M&apos;Butic handles everything beyond production, forming one of the world&apos;s largest distribution channels.&rdquo;
