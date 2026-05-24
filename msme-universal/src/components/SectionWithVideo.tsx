@@ -46,7 +46,7 @@ export default function SectionWithVideo({
             top: '-10%'
           }}
         />
-        
+
         {/* Fallback: Local Video (if YouTube fails) */}
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-10"
@@ -59,17 +59,17 @@ export default function SectionWithVideo({
           <source src={fallbackVideoSrc} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        
+
         <div className="absolute inset-0 bg-black/70"></div>
       </div>
-      
+
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-center z-10 text-white">
         <h2 className={`text-5xl lg:text-6xl font-bold mb-8 ${titleColor}`}>
           {title}
         </h2>
         <div className={`w-24 h-1 ${dividerColor} mx-auto mb-8`}></div>
-        <div 
+        <div
           className="text-2xl leading-relaxed font-medium"
           dangerouslySetInnerHTML={{ __html: content }}
         />

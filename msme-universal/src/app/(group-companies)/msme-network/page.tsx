@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { 
+import {
   EyeIcon,
   HandshakeIcon,
   GlobeIcon,
@@ -23,6 +23,10 @@ import {
   ShieldCheckIcon,
   CheckIcon
 } from "@phosphor-icons/react";
+import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import NetworkChart from "@/components/group-org-charts/NetworkChart";
+import OurReachSection from "@/components/group-org-charts/OurReachSection";
+
 
 export default function MSMENetworkPage() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -68,19 +72,21 @@ export default function MSMENetworkPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden selection:bg-[#E86F28] selection:text-slate-950 scroll-smooth">
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/network.png" />
+
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black z-0" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-0 mix-blend-overlay"></div>
-        
+
         {/* Animated Orbs matching Orange theme */}
         <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#E86F28]/10 rounded-full blur-[128px] animate-pulse" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-slate-800/30 rounded-full blur-[128px] animate-pulse delay-700" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <motion.div 
+          <motion.div
             style={{ opacity, y }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,12 +99,12 @@ export default function MSMENetworkPage() {
               Unlock <span className="text-[#E86F28]">Untapped</span><br />
               <span className="text-[#E86F28]">Potential</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-12">
               MSME Network Incorporation, member of the MSME Solutions World group, is the operating firm behind M'Network — the platform that transforms unrealised potential into real opportunities, powerful partnerships, and new revenue streams.
             </p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
@@ -126,13 +132,13 @@ export default function MSMENetworkPage() {
                 M'Network connects private individuals — students, professionals, and retirees — and organisations of all sizes, from micro-enterprises to large corporations, as well as financial institutions and governments, into a unified digital ecosystem where collaboration, visibility, and growth become inevitable.
               </p>
             </motion.div>
-            
+
             <motion.div
-               initial={{ opacity: 0, x: 50 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="space-y-8"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8"
             >
               <div className="p-6 border-l-2 border-[#E86F28] bg-slate-900/30">
                 <p className="text-slate-400 text-lg">
@@ -150,7 +156,7 @@ export default function MSMENetworkPage() {
       </section>
 
       {/* Pillar 1: Build Visibility & Trust */}
-      <section id="pillar-1" className="py-24 bg-slate-900 scroll-mt-24">
+      <section id="services" className="py-24 bg-slate-900 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <motion.div
@@ -173,7 +179,7 @@ export default function MSMENetworkPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {pillar1Services.map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -213,7 +219,7 @@ export default function MSMENetworkPage() {
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {pillar2Services.map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -253,7 +259,7 @@ export default function MSMENetworkPage() {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {pillar3Services.map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -293,7 +299,7 @@ export default function MSMENetworkPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {pillar4Services.map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -330,6 +336,15 @@ export default function MSMENetworkPage() {
           </motion.div>
         </div>
       </section>
+
+      
+      {/* Group Companies Section */}
+      <div id="companies">
+        <NetworkChart />
+      </div>
+
+      {/* Our Reach Section */}
+      <OurReachSection />
 
       {/* Footer */}
       <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm">

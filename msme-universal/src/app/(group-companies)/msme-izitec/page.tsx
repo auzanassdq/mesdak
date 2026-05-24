@@ -2,40 +2,15 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Globe, Layers, Shield, Zap } from 'lucide-react';
+import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import IZITecChart from "@/components/group-org-charts/IZITecChart";
+import OurReachSection from "@/components/group-org-charts/OurReachSection";
+
 
 export default function IzitecPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      {/* Navbar */}
-      {/* <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-          <Link href="/izitec" className="flex items-center gap-2">
-            <div className="relative h-10 w-32 md:h-12 md:w-40">
-              <Image 
-                src="/izitec-logo.png" 
-                alt="M&apos;IZITec Logo" 
-                fill 
-                className="object-contain object-left"
-                priority
-              />
-            </div>
-          </Link>
-          
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <Link href="#solutions" className="hover:text-blue-600 transition-colors">Solutions</Link>
-            <Link href="#deliverables" className="hover:text-blue-600 transition-colors">Deliverables</Link>
-            <Link href="#integration" className="hover:text-blue-600 transition-colors">Integration</Link>
-            <Link href="#benefits" className="hover:text-blue-600 transition-colors">Benefits</Link>
-          </div>
-
-          <button className="md:hidden p-2 text-slate-600">
-            <span className="sr-only">Menu</span>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </nav> */}
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/izitec.png" />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-slate-50 to-blue-50/30">
@@ -99,7 +74,7 @@ export default function IzitecPage() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Solutions for Transformation</h2>
             <p className="text-slate-600">
-              M&apos;IZITec develops digital solutions primarily aimed at advancing the MSME sector, while also creating adjacent system-solutions that enable governments and institutions to better support MSMEs.
+              M&apos;IZITec develops digital solutions primarily aimed at advancing the MSME sector, while also creating system-solutions that enable governments and institutions to better support MSMEs.
             </p>
           </div>
 
@@ -151,7 +126,7 @@ export default function IzitecPage() {
       </section>
 
       {/* Deliverables Section */}
-      <section id="deliverables" className="py-20 bg-white">
+      <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">What M&apos;IZITec Delivers</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -166,7 +141,7 @@ export default function IzitecPage() {
               },
               {
                 title: "Revenue Collection Solutions",
-                desc: "Modern, streamlined collection systems for Social Security, Pension & Fiscal Revenue that increase compliance and reduce leakage."
+                desc: "Modern, streamlined collection systems for Social Security, Pension & Fiscal Revenue that insure compliance."
               },
               {
                 title: "Digital Platforms & Ecosystem",
@@ -174,11 +149,11 @@ export default function IzitecPage() {
               },
               {
                 title: "Enterprise Systems",
-                desc: "Custom platforms supporting supply chains, MSME onboarding, risk scoring, digital loan processes, and ecosystem integration."
+                desc: "Onboarding MSMEs on Enterprise Grade Systems facility supporting Production, Processing, Supply Chain management, Risk scoring, Digital access to finance, and Seamless ecosystem integration."
               },
               {
                 title: "Strategic Advisory",
-                desc: "Customized AI Solutions <br/> ICT Architecture & Solutions"
+                desc: "Alligning your requirement with advanced ICT Architecture to provide custom sulution, leveraging on state-of-the-art technologies and Artificial Intelligence adoption."
               },
             ].map((item, i) => (
               <div key={i} className="group p-8 rounded-2xl border border-slate-200 hover:border-blue-200 hover:shadow-lg transition-all bg-slate-50 hover:bg-white">
@@ -219,10 +194,10 @@ export default function IzitecPage() {
               </div>
             </div>
             <div className="relative h-full min-h-[400px] bg-slate-800 rounded-2xl p-8 flex items-center justify-center border border-slate-700">
-               <div className="text-center">
-                 <h3 className="text-2xl font-bold text-blue-400 mb-2">Unmatched Capability</h3>
-                 <p className="text-slate-400">This capability is unmatched by conventional IT providers.</p>
-               </div>
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-blue-400 mb-2">Unmatched Capability</h3>
+                <p className="text-slate-400">This capability is unmatched by conventional IT providers.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -235,10 +210,10 @@ export default function IzitecPage() {
           <p className="max-w-3xl mx-auto text-slate-600 mb-12">
             Because it is part of the MSME Solutions World Group, M&apos;IZITec can join forces with other divisions—M&apos;Network, M&apos;Butic, MSME Finance Incorporation, MSME Development Consulting, and M&apos;DataTalk—to deliver top-tier, integrated, end-to-end solutions.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              "Technology", "Finance", "Media & Communication", "Marketplace Access", 
+              "Technology", "Finance", "Media & Communication", "Marketplace Access",
               "Advisory & Consulting", "Data Intelligence", "Distribution & Support"
             ].map((tag, i) => (
               <span key={i} className="px-6 py-3 bg-slate-100 text-slate-700 rounded-full font-medium border border-slate-200">
@@ -257,7 +232,7 @@ export default function IzitecPage() {
             <p className="text-lg text-center text-slate-600 mb-10">
               All M&apos;IZITec solutions are delivered faster, at a more competitive cost, and with superior performance thanks to the ability to build on the M&apos;World digital infrastructure.
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
@@ -285,16 +260,25 @@ export default function IzitecPage() {
         </div>
       </section>
 
+      
+      {/* Group Companies Section */}
+      <div id="companies">
+        <IZITecChart />
+      </div>
+
+      {/* Our Reach Section */}
+      <OurReachSection />
+
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="relative h-12 w-40 mx-auto mb-6 opacity-80">
-             <Image 
-                src="/izitec-logo.png" 
-                alt="M&apos;IZITec Logo" 
-                fill 
-                className="object-contain"
-              />
+            <Image
+              src="/izitec-logo.png"
+              alt="M&apos;IZITec Logo"
+              fill
+              className="object-contain"
+            />
           </div>
           <h2 className="text-2xl font-bold text-white mb-4">The Digital Engine of MSME Growth</h2>
           <p className="max-w-2xl mx-auto mb-8">

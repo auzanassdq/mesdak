@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon, GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon, X, CaretLeftIcon } from '@phosphor-icons/react/dist/ssr';
 import companySummaries from '@/app/companies/data/companies-summary.json';
-
+import MSWHoldingStructureUI from './holding-structure';
 
 interface Company {
   id: number;
@@ -37,7 +37,7 @@ const GroupCompaniesPage = () => {
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
   };
-  
+
 
   const staggerContainer = {
     initial: {},
@@ -111,14 +111,14 @@ const GroupCompaniesPage = () => {
   const handleCompanyClick = (company: BaseCompany) => {
     const summaryData = companySummaries.find((s) => s.id === company.id);
     if (summaryData) {
-        setSelectedCompany({ ...company, ...summaryData, icon: company.icon } as Company);
+      setSelectedCompany({ ...company, ...summaryData, icon: company.icon } as Company);
     }
   };
 
   const closeModal = () => {
     setSelectedCompany(null);
   };
-  
+
   const navigateCompany = (direction: 'prev' | 'next') => {
     if (!selectedCompany) return;
     const currentIndex = companies.findIndex(c => c.id === selectedCompany.id);
@@ -132,7 +132,7 @@ const GroupCompaniesPage = () => {
     const summaryData = companySummaries.find((s) => s.id === targetCompany.id);
 
     if (summaryData) {
-        setSelectedCompany({ ...targetCompany, ...summaryData, icon: targetCompany.icon } as Company);
+      setSelectedCompany({ ...targetCompany, ...summaryData, icon: targetCompany.icon } as Company);
     }
   };
 
@@ -174,6 +174,11 @@ const GroupCompaniesPage = () => {
         </div>
       </section>
 
+      {/* Holding Structure Section */}
+      <section className="bg-white">
+        <MSWHoldingStructureUI />
+      </section>
+
       {/* About Section */}
       <section className="py-28 bg-white">
         <div className="container mx-auto px-6">
@@ -196,7 +201,7 @@ const GroupCompaniesPage = () => {
                     textShadow: "0 0 8px rgb(var(--primary-rgb) / 0.6)"
                   }}
                 >
-                  Seven Companies. One Precision Engine
+                  Seven Companies - One Precision Engine
 
                 </motion.span> <br className="mb-4" /> <br className="mb-4" />
                 Each delivers specialized expertise, united in a seamless mission: <br />
@@ -366,77 +371,77 @@ const GroupCompaniesPage = () => {
             />
             <div className="relative z-10 w-full max-w-4xl flex flex-col max-h-[90vh]">
               <motion.div
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                  className="bg-white w-full overflow-y-auto rounded-xl shadow-2xl relative flex-shrink"
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="bg-white w-full overflow-y-auto rounded-xl shadow-2xl relative flex-shrink"
               >
-                  <button
+                <button
                   onClick={closeModal}
                   className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
-                  >
+                >
                   <X className="w-6 h-6 text-gray-500" />
-                  </button>
+                </button>
 
-                  <div className="p-8 lg:p-12">
+                <div className="p-8 lg:p-12">
                   <div className="flex flex-col gap-6">
-                      <div>
+                    <div>
                       <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                          {selectedCompany.name}
+                        {selectedCompany.name}
                       </h2>
-                          <p className="text-xl text-primary font-medium" dangerouslySetInnerHTML={{ __html: selectedCompany.tagline }}></p>
-                      </div>
-                      
-                      <div className="w-full h-px bg-gray-200 my-2"></div>
-                      
-                      <div className="prose prose-lg max-w-none text-gray-600 text-lg">
-                      <div className="whitespace-pre-line leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedCompany.summary }}></div>
-                      </div>
+                      <p className="text-xl text-primary font-medium" dangerouslySetInnerHTML={{ __html: selectedCompany.tagline }}></p>
+                    </div>
 
-                      <div className="mt-8 flex justify-end">
+                    <div className="w-full h-px bg-gray-200 my-2"></div>
+
+                    <div className="prose prose-lg max-w-none text-gray-600 text-lg">
+                      <div className="whitespace-pre-line leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedCompany.summary }}></div>
+                    </div>
+
+                    <div className="mt-8 flex justify-end">
                       <Link href={selectedCompany.link}>
-                          <button className="bg-primary text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
+                        <button className="bg-primary text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
                           Visit {selectedCompany.name}
                           <ArrowRightIcon className="w-5 h-5" />
-                          </button>
+                        </button>
                       </Link>
-                      </div>
+                    </div>
                   </div>
-                  </div>
+                </div>
               </motion.div>
 
               {/* Navigation Buttons */}
-              <motion.div 
-                 initial={{ opacity: 0, y: 10 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 exit={{ opacity: 0, y: 10 }}
-                 className="flex justify-between items-center mt-4 text-white"
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="flex justify-between items-center mt-4 text-white"
               >
-                 {prevCompany && (
-                   <button 
-                     onClick={(e) => { e.stopPropagation(); navigateCompany('prev'); }}
-                     className="flex items-center gap-2 px-4 py-2 hover:bg-white/10 rounded-lg transition-colors group"
-                   >
-                     <CaretLeftIcon className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-                     <div className="text-left">
-                       <div className="text-xs text-white/70">Previous Company</div>
-                       <div className="font-bold">{prevCompany.name}</div>
-                     </div>
-                   </button>
-                 )}
-                 
-                 {nextCompany && (
-                   <button 
-                     onClick={(e) => { e.stopPropagation(); navigateCompany('next'); }}
-                     className="flex items-center gap-2 px-4 py-2 hover:bg-white/10 rounded-lg transition-colors group ml-auto"
-                   >
-                     <div className="text-right">
-                       <div className="text-xs text-white/70">Next Company</div>
-                       <div className="font-bold">{nextCompany.name}</div>
-                     </div>
-                     <CaretRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                   </button>
-                 )}
+                {prevCompany && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); navigateCompany('prev'); }}
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-white/10 rounded-lg transition-colors group"
+                  >
+                    <CaretLeftIcon className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+                    <div className="text-left">
+                      <div className="text-xs text-white/70">Previous Company</div>
+                      <div className="font-bold">{prevCompany.name}</div>
+                    </div>
+                  </button>
+                )}
+
+                {nextCompany && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); navigateCompany('next'); }}
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-white/10 rounded-lg transition-colors group ml-auto"
+                  >
+                    <div className="text-right">
+                      <div className="text-xs text-white/70">Next Company</div>
+                      <div className="font-bold">{nextCompany.name}</div>
+                    </div>
+                    <CaretRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                )}
               </motion.div>
             </div>
           </div>

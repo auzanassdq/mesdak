@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import DataTalkChart from "@/components/group-org-charts/DataTalkChart";
+import OurReachSection from "@/components/group-org-charts/OurReachSection";
 import {
   BarChart3,
   Database,
@@ -42,6 +44,7 @@ const Navbar = () => {
     { name: "Data Collection", href: "#collection" },
     { name: "Who We Serve", href: "#audience" },
     { name: "Benefits", href: "#benefits" },
+    { name: "Our Reach", href: "#reach" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -54,11 +57,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-md py-2"
           : "bg-transparent py-4"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div
@@ -81,9 +83,8 @@ const Navbar = () => {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className={`text-sm font-medium transition-colors hover:text-[#6b21a8] ${
-                isScrolled ? "text-gray-700" : "text-gray-800"
-              }`}
+              className={`text-sm font-medium transition-colors hover:text-[#6b21a8] ${isScrolled ? "text-gray-700" : "text-gray-800"
+                }`}
             >
               {link.name}
             </button>
@@ -164,7 +165,7 @@ const Hero = () => {
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-7xl mx-auto">
               We build innovative data-intelligence platforms that enable
-              development finance institutions, <br/> Multilateral Development Bank, governments, <br /> microfinance
+              development finance institutions, <br /> Multilateral Development Bank, governments, <br /> microfinance
               institutions, banks, VC/PE, guarantors, insurance companies and
               development agencies and alike <br /> to transform raw data into
               strategic advantage - powering smarter decisions and large-scale
@@ -377,7 +378,7 @@ const DataCollection = () => {
     <section id="collection" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+
           <div className="lg:order-1">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
@@ -398,11 +399,11 @@ const DataCollection = () => {
                   </div>
                   <div className="md:col-span-3">
                     <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-gray-50">
-                      <iframe 
+                      <iframe
                         className="absolute inset-0 w-full h-full"
                         src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
                         title="M'DataTalk Product Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       ></iframe>
                     </div>
@@ -598,13 +599,20 @@ const Footer = () => {
 export default function MDataTalkPage() {
   return (
     <main className="min-h-screen font-sans text-gray-900 selection:bg-purple-100 selection:text-purple-900">
-      {/* <Navbar /> */}
+      <Navbar />
       <Hero />
       <About />
       <D3MP />
       <DataCollection />
       <Audience />
       <Benefits />
+      {/* Group Companies Section */}
+      <div id="companies">
+        <DataTalkChart />
+      </div>
+
+      {/* Our Reach Section */}
+      <OurReachSection />
       <Footer />
     </main>
   );

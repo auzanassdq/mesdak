@@ -16,6 +16,10 @@ import {
   Briefcase,
   CheckCircle2,
 } from "lucide-react";
+import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import MediaChart from "@/components/group-org-charts/MediaChart";
+import OurReachSection from "@/components/group-org-charts/OurReachSection";
+
 
 export default function MediaPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,8 +34,7 @@ export default function MediaPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      {/* Navbar */}
-
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/media.png" />
 
       {/* Hero Section */}
       <section
@@ -160,7 +163,7 @@ export default function MediaPage() {
       </section>
 
       {/* What M'Media Offers */}
-      <section id="offers" className="py-24 bg-slate-50">
+      <section id="services" className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
@@ -429,6 +432,15 @@ export default function MediaPage() {
           </div>
         </div>
       </section>
+
+      
+      {/* Group Companies Section */}
+      <div id="companies">
+        <MediaChart />
+      </div>
+
+      {/* Our Reach Section */}
+      <OurReachSection />
 
       {/* Footer / Closing */}
       <footer className="bg-slate-900 text-white py-20">

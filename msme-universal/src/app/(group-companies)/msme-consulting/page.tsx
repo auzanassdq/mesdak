@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, BarChart3, Globe, Users, Lightbulb, Layers } from "lucide-react";
+import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import ConsultingChart from "@/components/group-org-charts/ConsultingChart";
+import OurReachSection from "@/components/group-org-charts/OurReachSection";
 
 export default function ConsultingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,9 +22,7 @@ export default function ConsultingPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      {/* Navbar */}
-      
-
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/consulting.png" />
 
       {/* Hero Section */}
       <section id="hero" className="relative pt-40 pb-32 overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
@@ -39,7 +40,7 @@ export default function ConsultingPage() {
                 MSME Development Consulting (MDC) is the strategic consulting arm of the MSME Solutions World Group — dedicated to helping countries, regions, and institutions build high-performance MSME development systems that unlock inclusive growth and long-term economic transformation.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,11 +67,11 @@ export default function ConsultingPage() {
             </motion.div>
           </div>
         </div>
-        
+
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-30">
-           <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-teal-200 rounded-full blur-3xl"></div>
-           <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-teal-100 rounded-full blur-3xl"></div>
+          <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-teal-200 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-teal-100 rounded-full blur-3xl"></div>
         </div>
       </section>
 
@@ -91,7 +92,7 @@ export default function ConsultingPage() {
                   "Implement large-scale MSME programmes with measurable development outcomes",
                   "Monitor results in real time and continuously refine programme delivery"
                 ].map((item, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -108,35 +109,35 @@ export default function ConsultingPage() {
               </div>
             </div>
             <div className="md:w-1/2 relative">
-               <div className="aspect-square bg-gradient-to-tr from-teal-600 to-teal-400 rounded-3xl p-1 shadow-2xl rotate-3">
-                 <div className="bg-white w-full h-full rounded-2xl flex items-center justify-center p-8">
-                    <div className="grid grid-cols-2 gap-4 w-full h-full">
-                        <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
-                            <BarChart3 className="text-teal-600 w-10 h-10 mb-2" />
-                            <span className="text-sm font-semibold text-teal-900">Data Driven</span>
-                        </div>
-                        <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
-                            <Globe className="text-teal-600 w-10 h-10 mb-2" />
-                            <span className="text-sm font-semibold text-teal-900">Global Reach</span>
-                        </div>
-                        <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
-                            <Users className="text-teal-600 w-10 h-10 mb-2" />
-                            <span className="text-sm font-semibold text-teal-900">Inclusive Growth</span>
-                        </div>
-                        <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
-                            <Lightbulb className="text-teal-600 w-10 h-10 mb-2" />
-                            <span className="text-sm font-semibold text-teal-900">Innovation</span>
-                        </div>
+              <div className="aspect-square bg-gradient-to-tr from-teal-600 to-teal-400 rounded-3xl p-1 shadow-2xl rotate-3">
+                <div className="bg-white w-full h-full rounded-2xl flex items-center justify-center p-8">
+                  <div className="grid grid-cols-2 gap-4 w-full h-full">
+                    <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
+                      <BarChart3 className="text-teal-600 w-10 h-10 mb-2" />
+                      <span className="text-sm font-semibold text-teal-900">Data Driven</span>
                     </div>
-                 </div>
-               </div>
+                    <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
+                      <Globe className="text-teal-600 w-10 h-10 mb-2" />
+                      <span className="text-sm font-semibold text-teal-900">Global Reach</span>
+                    </div>
+                    <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
+                      <Users className="text-teal-600 w-10 h-10 mb-2" />
+                      <span className="text-sm font-semibold text-teal-900">Inclusive Growth</span>
+                    </div>
+                    <div className="bg-teal-50 rounded-xl flex flex-col items-center justify-center p-4 text-center">
+                      <Lightbulb className="text-teal-600 w-10 h-10 mb-2" />
+                      <span className="text-sm font-semibold text-teal-900">Innovation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Who We Serve Section */}
-      <section id="who-we-serve" className="py-24 bg-slate-50">
+      <section id="services" className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">Who We Serve</h2>
@@ -144,7 +145,7 @@ export default function ConsultingPage() {
               MDC supports a wide range of partners across the economic spectrum, fostering collaboration and sustainable development.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "Governments & Public Institutions",
@@ -182,7 +183,7 @@ export default function ConsultingPage() {
       {/* A New Era of MSME Intelligence */}
       <section id="intelligence" className="py-24 bg-teal-900 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-800/30 skew-x-12 transform origin-top-right"></div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row gap-16">
             <div className="lg:w-1/2">
@@ -197,7 +198,7 @@ export default function ConsultingPage() {
                 Learn About i-ERP
               </button>
             </div>
-            
+
             <div className="lg:w-1/2">
               <div className="grid gap-4">
                 {[
@@ -254,7 +255,7 @@ export default function ConsultingPage() {
                 desc: "Sector intelligence, performance analytics, and predictive modelling to guide policy and investment decisions."
               }
             ].map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 group hover:border-teal-500/30 transition-all"
@@ -270,6 +271,14 @@ export default function ConsultingPage() {
         </div>
       </section>
 
+      {/* Group Companies Section */}
+      <div id="companies">
+        <ConsultingChart />
+      </div>
+
+      {/* Our Reach Section */}
+      <OurReachSection />
+
       {/* Footer / Closing */}
       <footer className="bg-slate-900 text-white py-20">
         <div className="container mx-auto px-6 text-center">
@@ -279,14 +288,14 @@ export default function ConsultingPage() {
               MSME Development Consulting is more than an advisory firm — it is a strategic transformation partner that helps countries and institutions redesign how MSMEs grow, create jobs, compete, and generate value at scale.
             </p>
             <div className="flex justify-center gap-6">
-               <div className="relative h-12 w-48 opacity-80 hover:opacity-100 transition-opacity">
-                 <Image
+              <div className="relative h-12 w-48 opacity-80 hover:opacity-100 transition-opacity">
+                <Image
                   src="/assets/mdc-logo.png"
                   alt="MDC Logo"
                   fill
                   className="object-contain object-center brightness-0 invert"
                 />
-               </div>
+              </div>
             </div>
             <div className="mt-12 pt-8 border-t border-slate-800 text-slate-500 text-sm">
               &copy; {new Date().getFullYear()} MSME Development Consulting. All rights reserved.

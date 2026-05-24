@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon, ArrowRightIcon} from '@phosphor-icons/react/dist/ssr';
+import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon, ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 import LocationTabs from '@/components/LocationTabs';
 
@@ -12,64 +12,64 @@ const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState(0);
 
   interface OfficeData {
-  name: string;
-  headquarter: string;
-  img: string[];
-  video: string;
-  link?: string;
-}
+    name: string;
+    headquarter: string;
+    img: string[];
+    video: string;
+    link?: string;
+  }
 
-const officeData: OfficeData[] = [
-                  {
-                    name: 'MSME Solutions Africa - Mauritius',
-                    headquarter: 'MSME Solutions World',
-                    img: [],
-                    video: "",
-                    link: 'https://mesdak-africa.vercel.app/'
-                  },
-                  {
-                    name: 'MSME Solutions Asia - Singapore',
-                    headquarter: 'Singapore',
-                    img: [],
-                    video: "",
-                    link: 'https://mesdak-asia.vercel.app/'
-                  },
-                  {
-                    name: 'MSME Solutions Latin America - Panama',
-                    headquarter: 'Panama',
-                    img: [],
-                    video: "",
-                    link: 'https://mesdak-latin-america.vercel.app/'
-                  },
-                  {
-                    name: 'MSME Solutions North America - Canada',
-                    headquarter: 'Canada',
-                    img: [],
-                    video: "",
-                    link: 'https://mesdak-north-america.vercel.app/'
-                  },
-                  {
-                    name: 'MSME Solutions ASEU - Georgia',
-                    headquarter: 'Georgia',
-                    img: [],
-                    video: "",
-                    link: 'https://mesdak-aseu.vercel.app/'
-                  },
-                  {
-                    name: 'MSME Solutions Europe - Germany',
-                    headquarter: 'Germany',
-                    img: [],
-                    video: "",
-                    link: 'https://mesdak-europe.vercel.app/'
-                  },
-                  {
-                    name: 'MSME Solutions World - Mauritius (Headquarters)',
-                    headquarter: 'Mauritius (Headquarters)',
-                    img: [],
-                    video: "",
-                    link: "https://mesdak.vercel.app/"
-                  }
-                ]
+  const officeData: OfficeData[] = [
+    {
+      name: 'MSME Solutions Africa - Mauritius',
+      headquarter: 'MSME Solutions World',
+      img: [],
+      video: "",
+      link: 'https://mesdak-africa.vercel.app/'
+    },
+    {
+      name: 'MSME Solutions Asia - Singapore',
+      headquarter: 'Singapore',
+      img: [],
+      video: "",
+      link: 'https://mesdak-asia.vercel.app/'
+    },
+    {
+      name: 'MSME Solutions Latin America - Panama',
+      headquarter: 'Panama',
+      img: [],
+      video: "",
+      link: 'https://mesdak-latin-america.vercel.app/'
+    },
+    {
+      name: 'MSME Solutions North America - Canada',
+      headquarter: 'Canada',
+      img: [],
+      video: "",
+      link: 'https://mesdak-north-america.vercel.app/'
+    },
+    {
+      name: 'MSME Solutions ASEU - Russia',
+      headquarter: 'Russia',
+      img: [],
+      video: "",
+      link: 'https://mesdak-aseu.vercel.app/'
+    },
+    {
+      name: 'MSME Solutions Europe - Luxembourg',
+      headquarter: 'Luxembourg',
+      img: [],
+      video: "",
+      link: 'https://mesdak-europe.vercel.app/'
+    },
+    {
+      name: 'MSME Solutions World - Mauritius (Headquarters)',
+      headquarter: 'Mauritius (Headquarters)',
+      img: [],
+      video: "",
+      link: "https://mesdak.vercel.app/"
+    }
+  ]
 
   interface FormData {
     name: string;
@@ -215,7 +215,7 @@ const officeData: OfficeData[] = [
                   >
                     <h3 className="text-xl font-bold ">{office.name}</h3>
                     {/* <p className="text-gray-600 text-sm mt-1">{office.address}</p> */}
-                    
+
                     <AnimatePresence>
                       {selectedOffice === index && office.link && (
                         <motion.div
@@ -225,9 +225,9 @@ const officeData: OfficeData[] = [
                           transition={{ duration: 0.3 }}
                           className="overflow-hidden"
                         >
-                          <Link 
-                            href={office.link} 
-                            target="_blank" 
+                          <Link
+                            href={office.link}
+                            target="_blank"
                             className="inline-flex items-center text-sm font-bold text-white bg-primary-600 px-4 py-2 shadow-md hover:bg-primary-700 transition-colors"
                             onClick={(e) => e.stopPropagation()}
                           >
@@ -252,7 +252,7 @@ const officeData: OfficeData[] = [
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
                 >
-                    {/* Office Images */}
+                  {/* Office Images */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div className="relative h-40 border-4 border-black overflow-hidden">
                       <Image
@@ -282,17 +282,17 @@ const officeData: OfficeData[] = [
 
                   {/* Office Video (replacing Office Details) */}
                   <div className="mt-8 border-4 border-black overflow-hidden">
-                      <iframe
-                        src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className=" top-0 left-0 w-full  object-cover h-[300px]"
-                        style={{ border: 'none' }}
-                      />
+                    <iframe
+                      src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className=" top-0 left-0 w-full  object-cover h-[300px]"
+                      style={{ border: 'none' }}
+                    />
 
-                      <div className=" bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
-                        <h3 className="text-2xl font-bold mb-1">{officeData[selectedOffice].headquarter}</h3>
-                      </div>
+                    <div className=" bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
+                      <h3 className="text-2xl font-bold mb-1">{officeData[selectedOffice].headquarter}</h3>
+                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -461,7 +461,7 @@ const officeData: OfficeData[] = [
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-[#0D9244] text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full bg-primary-600 text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <PaperPlaneTiltIcon className="w-5 h-5" />
                   Send Message

@@ -18,11 +18,7 @@ export default function ConditionalLayout({
 
   return (
     <>
-      {/* {!shouldHide && <Navbar />}
-      {children}
-      {!shouldHide && <Footer />} */}
-
-      <Navbar />
+      {!shouldHide && <Navbar />}
       {children}
       {!shouldHide && <Footer />}
     </>

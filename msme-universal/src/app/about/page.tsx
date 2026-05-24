@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutPage = () => {
   type SectionType = 'vision' | 'mission' | 'action' | 'our board';
-const [currentSection, setCurrentSection] = useState<SectionType>('vision');
+  const [currentSection, setCurrentSection] = useState<SectionType>('vision');
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -140,18 +140,18 @@ const [currentSection, setCurrentSection] = useState<SectionType>('vision');
   const [selectedBoard, setSelectedBoard] = useState<'executive' | 'supervisory' | 'advisory' | null>(null);
 
   interface BoardMember {
-  name: string;
-  position: string;
-  experience: string;
-}
+    name: string;
+    position: string;
+    experience: string;
+  }
 
-interface BoardData {
-  title: string;
-  description: string;
-  members: BoardMember[];
-}
+  interface BoardData {
+    title: string;
+    description: string;
+    members: BoardMember[];
+  }
 
-const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
+  const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
     executive: {
       title: 'Executive Board',
       description: 'Our executive team leads strategic initiatives and drives organizational growth.',
@@ -234,7 +234,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
 
       {/* Vision, Mission, Action Section */}
       <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
-        
+
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
@@ -249,11 +249,11 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
           </video>
           <div className="absolute inset-0 bg-white/80"></div>
         </div>
-        
+
         <div ref={containerRef} className="relative h-full z-10">
           <div className="container mx-auto px-6 relative z-10 h-full">
             <div className="flex h-full justify-between">
-              
+
               {/* Floating Navigation - Left Side */}
               <div className="w-80 flex flex-col justify-center space-y-4 pr-12">
                 {/* Scroll Progress Indicator */}
@@ -289,7 +289,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   onClick={() => handleSectionClick('vision')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'vision'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative rounded-2xl ${currentSection === 'vision'
                     ? 'bg-primary text-white'
                     : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -321,7 +321,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   onClick={() => handleSectionClick('mission')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'mission'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative rounded-2xl ${currentSection === 'mission'
                     ? 'bg-primary text-white'
                     : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -352,7 +352,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                   onClick={() => handleSectionClick('action')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'action'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative rounded-2xl ${currentSection === 'action'
                     ? 'bg-primary text-white'
                     : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -383,7 +383,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                   onClick={() => handleSectionClick('our board')}
-                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative ${currentSection === 'our board'
+                  className={`group cursor-pointer p-6 border-4 border-black transition-all duration-300 relative rounded-2xl ${currentSection === 'our board'
                     ? 'bg-primary text-white'
                     : 'bg-white text-black hover:bg-primary hover:text-white'
                     }`}
@@ -488,7 +488,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.1 }}
                           onClick={() => setSelectedBoard('executive' as const)}
-                          className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
+                          className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105 rounded-2xl"
                         >
                           <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -508,7 +508,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.2 }}
                           onClick={() => setSelectedBoard('supervisory' as const)}
-                          className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
+                          className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105 rounded-2xl"
                         >
                           <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -528,7 +528,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.3 }}
                           onClick={() => setSelectedBoard('advisory' as const)}
-                          className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105"
+                          className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105 rounded-2xl"
                         >
                           <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -647,7 +647,7 @@ const boardData: Record<'executive' | 'supervisory' | 'advisory', BoardData> = {
                 <span className="text-lg">{selectedBoard === 'supervisory' ? 'Executive Board' : 'Supervisory Board'}</span>
               </button>
             )}
-            
+
             {/* Next Button */}
             {selectedBoard !== 'advisory' ? (
               <button

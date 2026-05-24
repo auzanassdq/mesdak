@@ -11,6 +11,10 @@ import {
   ArrowRight,
   CaretDown
 } from "@phosphor-icons/react";
+import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import ButicChart from "@/components/group-org-charts/ButicChart";
+import OurReachSection from "@/components/group-org-charts/OurReachSection";
+
 
 export default function MButicPage() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -24,27 +28,7 @@ export default function MButicPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 selection:bg-[#73BF43] selection:text-slate-950 scroll-smooth font-sans overflow-x-hidden">
-      {/* Navbar */}
-      {/* <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="relative h-12 w-48">
-             <Image 
-               src="/images/mbutic-logo.png" 
-               alt="M'Butic Logo" 
-               fill 
-               className="object-contain object-left"
-             />
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#about" className="hover:text-[#73BF43] transition-colors">About</a>
-            <a href="#services" className="hover:text-[#73BF43] transition-colors">Services</a>
-            <a href="#vision" className="hover:text-[#73BF43] transition-colors">Vision</a>
-            <button className="px-5 py-2 bg-[#73BF43] hover:bg-[#73BF43]/80 text-slate-950 font-bold rounded-full transition-all shadow-[0_0_20px_rgba(115,191,67,0.3)] hover:shadow-[0_0_30px_rgba(115,191,67,0.5)]">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </nav> */}
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/butic.png" />
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -223,6 +207,15 @@ export default function MButicPage() {
           </motion.div>
         </div>
       </section>
+
+      
+      {/* Group Companies Section */}
+      <div id="companies">
+        <ButicChart />
+      </div>
+
+      {/* Our Reach Section */}
+      <OurReachSection />
 
       {/* Footer */}
       <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm">
