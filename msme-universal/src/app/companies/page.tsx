@@ -174,13 +174,6 @@ const GroupCompaniesPage = () => {
         </div>
       </section>
 
-      {/* Holding Structure Section (Africa Only) */}
-      {process.env.NEXT_PUBLIC_REGION === 'africa' && (
-        <section className="bg-white">
-          <MSWHoldingStructureUI />
-        </section>
-      )}
-
       {/* About Section */}
       <section className="py-28 bg-white">
         <div className="container mx-auto px-6">
@@ -232,6 +225,12 @@ const GroupCompaniesPage = () => {
         </div>
       </section>
 
+      {/* Holding Structure Section (Africa Only) */}
+      {process.env.NEXT_PUBLIC_REGION === 'africa' && (
+        <section className="bg-white mb-32">
+          <MSWHoldingStructureUI />
+        </section>
+      )}
 
       {/* List Companies */}
       <section className="pb-12 bg-white">

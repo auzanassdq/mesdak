@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import DataTalkChart from "@/components/group-org-charts/DataTalkChart";
+import DataTalkChartEcharts from "@/components/group-org-charts/DataTalkChartEcharts";
 import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   BarChart3,
   Database,
@@ -22,118 +23,10 @@ import {
   Search,
   FileText,
 } from "lucide-react";
+import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
 
 // --- Components ---
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "D³MP", href: "#d3mp" },
-    { name: "Data Collection", href: "#collection" },
-    { name: "Who We Serve", href: "#audience" },
-    { name: "Benefits", href: "#benefits" },
-    { name: "Our Reach", href: "#reach" },
-  ];
-
-  const scrollToSection = (href: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-md py-2"
-          : "bg-transparent py-4"
-        }`}
-    >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <div
-          className="flex items-center cursor-pointer"
-          onClick={() => scrollToSection("#hero")}
-        >
-          <div className="relative h-10 w-40 md:h-12 md:w-48">
-            <Image
-              src="/images/mdatatalk-logo.png"
-              alt="M'DataTalk Logo"
-              fill
-              className="object-contain object-left"
-            />
-          </div>
-        </div>
-
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => scrollToSection(link.href)}
-              className={`text-sm font-medium transition-colors hover:text-[#6b21a8] ${isScrolled ? "text-gray-700" : "text-gray-800"
-                }`}
-            >
-              {link.name}
-            </button>
-          ))}
-          <button className="bg-[#6b21a8] text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#581c87] transition-colors shadow-lg shadow-purple-500/30">
-            Contact Us
-          </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-gray-700 p-2"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
-          >
-            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-left text-gray-700 font-medium py-2 hover:text-[#6b21a8]"
-                >
-                  {link.name}
-                </button>
-              ))}
-              <button className="bg-[#6b21a8] text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-[#581c87] transition-colors w-full">
-                Contact Us
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
 
 const Hero = () => {
   return (
@@ -599,7 +492,7 @@ const Footer = () => {
 export default function MDataTalkPage() {
   return (
     <main className="min-h-screen font-sans text-gray-900 selection:bg-purple-100 selection:text-purple-900">
-      <Navbar />
+      <GroupCompanyNavbar logoSrc="/images/mdatatalk-logo.png" />
       <Hero />
       <About />
       <D3MP />
@@ -609,6 +502,11 @@ export default function MDataTalkPage() {
       {/* Group Companies Section */}
       <div id="companies">
         <DataTalkChart />
+        
+        {/* ECharts Comparison
+        <div className="py-12 bg-gray-50/50">
+          <DataTalkChartEcharts />
+        </div> */}
       </div>
 
       {/* Our Reach Section */}
