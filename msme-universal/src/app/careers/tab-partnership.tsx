@@ -133,7 +133,7 @@ export default function TabPartnership() {
                 scale: 1.02,
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
               }}
-              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden"
+              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden rounded-3xl"
             >
               {/* Animated Border Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -159,7 +159,7 @@ export default function TabPartnership() {
                     scale: 1.1
                   }}
                   transition={{ duration: 0.5 }}
-                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg"
+                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg rounded-lg"
                 >
                   <LightbulbFilamentIcon className="w-8 h-8 text-white group-hover:text-primary transition-colors duration-300" />
                 </motion.div>
@@ -205,9 +205,9 @@ export default function TabPartnership() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300"
+            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300 rounded-3xl"
           >
-            <div className="w-16 h-16 bg-blue-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
+            <div className="w-16 h-16 bg-blue-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300 rounded-lg">
               <MapPinIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Unleash Your Ideas</h4>
@@ -222,9 +222,9 @@ export default function TabPartnership() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300"
+            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300 rounded-3xl"
           >
-            <div className="w-16 h-16 bg-green-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
+            <div className="w-16 h-16 bg-green-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300 rounded-lg">
               <BuildingIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Building a Better Tomorrow</h4>
@@ -239,9 +239,9 @@ export default function TabPartnership() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300"
+            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300 rounded-3xl"
           >
-            <div className="w-16 h-16 bg-orange-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
+            <div className="w-16 h-16 bg-orange-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300 rounded-lg">
               <ClockIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Swift Response</h4>
@@ -256,9 +256,9 @@ export default function TabPartnership() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300"
+            className="bg-white border-4 border-black p-8 hover:bg-primary hover:text-white group transition-all duration-300 rounded-3xl"
           >
-            <div className="w-16 h-16 bg-purple-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300">
+            <div className="w-16 h-16 bg-purple-600 border-2 border-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:border-white transition-all duration-300 rounded-lg">
               <TrendUpIcon className="w-8 h-8 text-white group-hover:text-primary" />
             </div>
             <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-white">Exciting Opportunities</h4>
@@ -285,7 +285,7 @@ export default function TabPartnership() {
                 rotateY: 5,
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
               }}
-              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden"
+              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden rounded-3xl"
             >
               {/* Animated Border Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -311,7 +311,7 @@ export default function TabPartnership() {
                     scale: 1.1
                   }}
                   transition={{ duration: 0.5 }}
-                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg"
+                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg rounded-lg"
                 >
                   <TrendUpIcon className="w-8 h-8 text-white group-hover:text-primary transition-colors duration-300" />
                 </motion.div>
@@ -343,7 +343,7 @@ export default function TabPartnership() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white border-4 border-black p-8"
+              className="bg-white border-4 border-black p-8 rounded-3xl"
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Partnership Inquiry
@@ -362,7 +362,7 @@ export default function TabPartnership() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="Enter your full name"
                       value={formData.name}
                       onChange={handleInputChange}
@@ -377,7 +377,7 @@ export default function TabPartnership() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="name@example.com"
                       value={formData.email}
                       onChange={handleInputChange}
@@ -394,7 +394,7 @@ export default function TabPartnership() {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="Your company name"
                       value={formData.company}
                       onChange={handleInputChange}
@@ -408,7 +408,7 @@ export default function TabPartnership() {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="+1 (123) 456-7890"
                       value={formData.phone}
                       onChange={handleInputChange}
@@ -426,7 +426,7 @@ export default function TabPartnership() {
                     id="partnership-type"
                     name="partnership-type"
                     required
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                     value={formData['partnership-type']}
                     onChange={handleInputChange}
                   >
@@ -448,7 +448,7 @@ export default function TabPartnership() {
                     name="mnetworkProfile"
                     value={formData.mnetworkProfile}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                     placeholder="https://network.msme.com/profile/..."
                   />
                   <p className="mt-1 text-xs text-gray-500">Paste the URL of your M&apos;Network profile (business connection platform)</p>
@@ -467,7 +467,7 @@ export default function TabPartnership() {
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
                     />
-                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between">
+                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between rounded-lg">
                       <span className="text-gray-500">{formData.file ? formData.file.name : 'Choose a file...'}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -485,7 +485,7 @@ export default function TabPartnership() {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none rounded-lg"
                     placeholder="Tell us about your partnership proposal..."
                     value={formData.message}
                     onChange={handleInputChange}
@@ -496,7 +496,7 @@ export default function TabPartnership() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-[#0D9244] text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full bg-primary text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2 rounded-lg"
                 >
                   Send Partnership Inquiry
                 </motion.button>
@@ -526,10 +526,10 @@ export default function TabPartnership() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                   viewport={{ once: true }}
-                  className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300"
+                  className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300 rounded-3xl"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="bg-primary group-hover:bg-white p-3 border-2 border-black">
+                    <div className="bg-primary group-hover:bg-white p-3 border-2 border-black rounded-lg">
                       <MapPinIcon className="w-6 h-6 text-white group-hover:text-primary" />
                     </div>
                     <div>
@@ -551,10 +551,10 @@ export default function TabPartnership() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                   viewport={{ once: true }}
-                  className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300"
+                  className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300 rounded-3xl"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="bg-primary group-hover:bg-white p-3 border-2 border-black">
+                    <div className="bg-primary group-hover:bg-white p-3 border-2 border-black rounded-lg">
                       <UserCheckIcon className="w-6 h-6 text-white group-hover:text-primary" />
                     </div>
                     <div>
@@ -573,10 +573,10 @@ export default function TabPartnership() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                   viewport={{ once: true }}
-                  className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300"
+                  className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300 rounded-3xl"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="bg-primary group-hover:bg-white p-3 border-2 border-black">
+                    <div className="bg-primary group-hover:bg-white p-3 border-2 border-black rounded-lg">
                       <ClockIcon className="w-6 h-6 text-white group-hover:text-primary" />
                     </div>
                     <div>

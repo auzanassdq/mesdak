@@ -213,7 +213,7 @@ export default function SuperDealPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white mt-12 border-t border-gray-200">
+      <footer className="bg-white mt-12 border-t border-gray-200 rounded-2xl">
         <div className="container mx-auto px-6 py-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}

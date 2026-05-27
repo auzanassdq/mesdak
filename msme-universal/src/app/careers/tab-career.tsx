@@ -173,7 +173,7 @@ function TabCareer() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => setSelectedVideo(card)}
-                  className="w-40 h-32 bg-white overflow-hidden border-2 border-black hover:border-primary transition-all duration-300 cursor-pointer group"
+                  className="w-40 h-32 bg-white overflow-hidden border-2 border-black hover:border-primary transition-all duration-300 cursor-pointer group rounded-2xl"
                 >
                   <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100">
                     <h3 className="text-center text-sm font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
@@ -239,7 +239,7 @@ function TabCareer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white p-4 sm:p-6 lg:p-8 mb-12 border-4 border-black relative overflow-hidden"
+            className="bg-white p-4 sm:p-6 lg:p-8 mb-12 border-4 border-black relative overflow-hidden rounded-3xl"
           >
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5 pointer-events-none">
@@ -274,7 +274,7 @@ function TabCareer() {
                     <select
                       value={selectedSectors[0] || ''}
                       onChange={(e) => handleSectorChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                      className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors rounded-lg"
                     >
                       <option value="">All Types</option>
                       {jobCategories.map((category) => (
@@ -294,7 +294,7 @@ function TabCareer() {
                     <select
                       value={selectedLocation}
                       onChange={(e) => setSelectedLocation(e.target.value)}
-                      className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                      className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors rounded-lg"
                     >
                       <option value="">All Countries</option>
                       {locations.map((location) => (
@@ -375,7 +375,7 @@ function TabCareer() {
                             <select
                               value={selectedLocation}
                               onChange={(e) => setSelectedLocation(e.target.value)}
-                              className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                              className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors rounded-lg"
                             >
                               <option value="">All Countries</option>
                               {locations.map((location) => (
@@ -394,7 +394,7 @@ function TabCareer() {
                             <select
                               value={selectedLocation}
                               onChange={(e) => setSelectedLocation(e.target.value)}
-                              className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                              className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors rounded-lg"
                             >
                               <option value="">All Countries</option>
                               {locations.map((location) => (
@@ -415,7 +415,7 @@ function TabCareer() {
                           <select
                             value={selectedLocation}
                             onChange={(e) => setSelectedLocation(e.target.value)}
-                            className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors"
+                            className="w-full px-4 py-3 bg-white border-2 border-black text-sm sm:text-base text-gray-700 focus:outline-none appearance-none cursor-pointer hover:border-primary transition-colors rounded-lg"
                           >
                             <option value="">All Countries</option>
                             {locations.map((location) => (
@@ -438,7 +438,7 @@ function TabCareer() {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto min-w-[200px] px-8 py-3.5 bg-primary text-white font-medium border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center justify-center gap-3"
+                className="w-full sm:w-auto min-w-[200px] px-8 py-3.5 bg-primary text-white font-medium border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center justify-center gap-3 rounded-lg hover:cursor-pointer"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -457,21 +457,21 @@ function TabCareer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="bg-white border-4 border-black p-6"
+                className="bg-white border-4 border-black p-6 rounded-2xl"
               >
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{job.title}</h3>
                 <p className="text-gray-600 mb-4">{job.description}</p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-4">
-                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium border border-blue-800 text-blue-800">
+                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium border border-blue-800 text-blue-800 rounded-2xl">
                       {job.type}
                     </span>
-                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium border border-green-800 text-green-800">
+                    <span className="inline-flex items-center px-3 py-1 text-xs font-medium border border-green-800 text-green-800 rounded-2xl">
                       {job.location}
                     </span>
                   </div>
                   <motion.button
-                    className="bg-primary text-white font-medium py-2 px-4 border-2 border-black hover:bg-black hover:text-white hover:cursor-pointer"
+                    className="bg-primary text-white font-medium py-2 px-4 border-2 border-black hover:bg-black hover:text-white hover:cursor-pointer rounded-lg"
                   >
                     Apply Now
                   </motion.button>

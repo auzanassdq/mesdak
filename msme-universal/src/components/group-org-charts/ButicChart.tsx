@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { ShoppingCart, ShoppingBag, Tag, TrendingUp, CheckCircle2 } from "lucide-react";
 
@@ -27,12 +28,8 @@ export default function MButicOrgChart() {
     <div className="w-full max-w-5xl mx-auto p-8 font-sans">
       {/* Root Node */}
       <div className="flex flex-col items-center">
-        <div className="bg-gradient-to-br from-[#73bf43] to-[#1e662a] text-white rounded-2xl shadow-xl p-8 w-[420px] flex flex-col items-center relative z-10 border-4 border-white">
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-[#73bf43] shadow-inner mb-4">
-            <ShoppingCart className="w-8 h-8" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-wide text-center">M’Butic Incorporation</h1>
-          <p className="text-green-100 text-[11px] font-bold uppercase tracking-[0.2em] mt-2">Commerce & Marketplace</p>
+        <div className="bg-[#73bf43] text-white rounded-2xl shadow-xl p-8 w-[420px] flex flex-col items-center relative z-10 border-4 border-white">
+            <Image src="/logo/group-companies/butic.png" alt="M'Butic Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

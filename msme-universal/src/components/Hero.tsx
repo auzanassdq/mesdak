@@ -148,7 +148,7 @@ const Hero = () => {
       {/* Full Screen Background Overlay */}
       <div
         // ref={backgroundRef}
-        className="bg-reveal absolute inset-0 w-full h-full z-20 "
+        className="bg-reveal absolute inset-0 w-full h-full z-20"
         style={{ background: "#111111" }}
       >
       </div>
@@ -156,7 +156,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-30 text-center text-white px-4 max-w-6xl mx-auto">
         {/* MSME Logo */}
-        <div className="absolute hero-logo top-[-150] left-1/2 -translate-x-1/2 bg-white px-4 py-3  shadow-lg">
+        <div className="absolute hero-logo top-[-150] left-1/2 -translate-x-1/2 bg-white px-4 py-3 shadow-lg rounded-2xl">
           <Image
             src={config.logo}
             width={200}
@@ -188,7 +188,7 @@ const Hero = () => {
       >
         <Link
           href="/about"
-          className="group flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium transition-all duration-300 hover:scale-105"
+          className="group flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium transition-all duration-300 hover:scale-105 rounded-xl"
         >
           About Us
           <CaretRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

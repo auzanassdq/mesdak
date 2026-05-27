@@ -21,9 +21,9 @@ const continentalCompanies = [
     name: "MSME Network Incorporation Africa",
     slogan: "Unlock Untapped Potentials",
     role: "Identity, networking & ecosystem infrastructure",
-    color: "text-[#1769d8]",
-    borderColor: "border-[#1769d8]",
-    bgActive: "bg-[#1769d8]",
+    color: "text-[#e86f28]",
+    borderColor: "border-[#e86f28]",
+    bgActive: "bg-[#e86f28]",
     icon: <Network className="w-6 h-6" />,
   },
   {
@@ -31,9 +31,9 @@ const continentalCompanies = [
     name: "M'Butic Incorporation Africa",
     slogan: "Welcome to the Future of Commerce",
     role: "Commerce & marketplace infrastructure",
-    color: "text-[#2f963f]",
-    borderColor: "border-[#2f963f]",
-    bgActive: "bg-[#2f963f]",
+    color: "text-[#73bf43]",
+    borderColor: "border-[#73bf43]",
+    bgActive: "bg-[#73bf43]",
     icon: <ShoppingCart className="w-6 h-6" />,
   },
   {
@@ -41,9 +41,9 @@ const continentalCompanies = [
     name: "MSME Development Consulting Incorporation Africa",
     slogan: "Think the Unthought",
     role: "Advisory, capacity building & implementation",
-    color: "text-[#5a3fa3]",
-    borderColor: "border-[#5a3fa3]",
-    bgActive: "bg-[#5a3fa3]",
+    color: "text-[#0d9488]",
+    borderColor: "border-[#0d9488]",
+    bgActive: "bg-[#0d9488]",
     icon: <Users className="w-6 h-6" />,
   },
   {
@@ -51,9 +51,9 @@ const continentalCompanies = [
     name: "MSME Finance Incorporation Africa",
     slogan: "Finance Re-imagined",
     role: "Financial ecosystem & capital infrastructure",
-    color: "text-[#f28a00]",
-    borderColor: "border-[#f28a00]",
-    bgActive: "bg-[#f28a00]",
+    color: "text-[#d4af37]",
+    borderColor: "border-[#d4af37]",
+    bgActive: "bg-[#d4af37]",
     icon: <CircleDollarSign className="w-6 h-6" />,
     hasRegionalLayer: true,
   },
@@ -62,9 +62,9 @@ const continentalCompanies = [
     name: "M'IZITec Incorporation Africa",
     slogan: "Driving Business Through Digital Power",
     role: "Technology engineering & AI",
-    color: "text-[#00939b]",
-    borderColor: "border-[#00939b]",
-    bgActive: "bg-[#00939b]",
+    color: "text-[#4182C0]",
+    borderColor: "border-[#4182C0]",
+    bgActive: "bg-[#4182C0]",
     icon: <Zap className="w-6 h-6" />,
     hasRegionalLayer: true,
   },
@@ -73,9 +73,9 @@ const continentalCompanies = [
     name: "M'Media Incorporation Africa",
     slogan: "Be Faster, Easier & Everywhere",
     role: "Media, communication & engagement",
-    color: "text-[#dd2525]",
-    borderColor: "border-[#dd2525]",
-    bgActive: "bg-[#dd2525]",
+    color: "text-[#30308E]",
+    borderColor: "border-[#30308E]",
+    bgActive: "bg-[#30308E]",
     icon: <PlayCircle className="w-6 h-6" />,
     hasRegionalLayer: true,
   },
@@ -84,9 +84,9 @@ const continentalCompanies = [
     name: "M'DataTalk Incorporation Africa",
     slogan: "Unlock Insight Within Data",
     role: "Data, analytics & intelligence",
-    color: "text-[#0f6b3a]",
-    borderColor: "border-[#0f6b3a]",
-    bgActive: "bg-[#0f6b3a]",
+    color: "text-[#6b21a8]",
+    borderColor: "border-[#6b21a8]",
+    bgActive: "bg-[#6b21a8]",
     icon: <BarChart2 className="w-6 h-6" />,
   },
 ];
@@ -169,41 +169,41 @@ const countryOperatingCompanies = [
   {
     name: "M'Network Incorporation",
     role: "Identity, Network &\nEcosystem Infrastructure",
-    color: "text-[#1769d8]",
-    borderColor: "border-[#1769d8]",
-    bgActive: "bg-[#1769d8]",
+    color: "text-[#e86f28]",
+    borderColor: "border-[#e86f28]",
+    bgActive: "bg-[#e86f28]",
     icon: <Network className="w-6 h-6" />,
   },
   {
     name: "M'DataTalk Incorporation",
     role: "Data, Analytics &\nIntelligence",
-    color: "text-[#0f6b3a]",
-    borderColor: "border-[#0f6b3a]",
-    bgActive: "bg-[#0f6b3a]",
+    color: "text-[#6b21a8]",
+    borderColor: "border-[#6b21a8]",
+    bgActive: "bg-[#6b21a8]",
     icon: <BarChart2 className="w-6 h-6" />,
   },
   {
     name: "M'Butic Incorporation",
     role: "Commerce & Marketplace\nInfrastructure",
-    color: "text-[#2f963f]",
-    borderColor: "border-[#2f963f]",
-    bgActive: "bg-[#2f963f]",
+    color: "text-[#73bf43]",
+    borderColor: "border-[#73bf43]",
+    bgActive: "bg-[#73bf43]",
     icon: <ShoppingCart className="w-6 h-6" />,
   },
   {
     name: "M'Pay",
     role: "Payments & Financial\nSolutions",
-    color: "text-[#5a3fa3]",
-    borderColor: "border-[#5a3fa3]",
-    bgActive: "bg-[#5a3fa3]",
+    color: "text-[#0d9488]",
+    borderColor: "border-[#0d9488]",
+    bgActive: "bg-[#0d9488]",
     icon: <Wallet className="w-6 h-6" />,
   },
   {
     name: "MSME Consulting Incorporation",
     role: "Advisory, Capacity\nBuilding & Implementation",
-    color: "text-[#f28a00]",
-    borderColor: "border-[#f28a00]",
-    bgActive: "bg-[#f28a00]",
+    color: "text-[#d4af37]",
+    borderColor: "border-[#d4af37]",
+    bgActive: "bg-[#d4af37]",
     icon: <Users className="w-6 h-6" />,
   },
 ];
@@ -211,16 +211,6 @@ const countryOperatingCompanies = [
 function cx(...classes: (string | undefined | null | false)[]) {
   return classes.filter(Boolean).join(" ");
 }
-
-const AfricaIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="w-full h-full text-current"
-  >
-    <path d="M11.5 2.5C9.8 2.5 8.1 3.4 7 4.5C6 5.5 5 7 4.8 8.5C4.6 10 5.2 12 5.5 13.5C5.8 15 6 16.5 6.5 17.5C7 18.5 8 19 9 20C10 21 11 22 12 21.5C13 21 13.5 20 14.5 19.5C15.5 19 16.5 18 17 17C17.5 16 18 14 18.5 12.5C19 11 19.5 9 19 7.5C18.5 6 17 5 16 4.5C15 4 13.5 3 12.5 2.8C12.2 2.7 11.8 2.5 11.5 2.5Z" />
-  </svg>
-);
 
 function SidebarLabel({
   type,
@@ -237,8 +227,7 @@ function SidebarLabel({
 }) {
   return (
     <aside
-      className={cx(
-        "flex-shrink-0 w-36 rounded-lg p-5 text-white text-center flex flex-col items-center justify-center shadow-lg relative",
+      className={cx("flex-shrink-0 w-36 rounded-lg p-5 text-white text-center flex flex-col items-center justify-center shadow-lg relative",
         type === "continental"
           ? "bg-[#1B2956]"
           : type === "regional"
@@ -258,8 +247,8 @@ function SidebarLabel({
       <h3 className="m-0 text-[15px] font-bold leading-tight uppercase">
         {title}
       </h3>
-      <div className="w-8 h-px bg-white/50 my-3" />
-      <p className="m-0 font-medium text-xs whitespace-pre-wrap">{subtitle}</p>
+      {/* <div className="w-8 h-px bg-white/50 my-3" />
+      <p className="m-0 font-medium text-xs whitespace-pre-wrap">{subtitle}</p> */}
       {/* {note && <small className="mt-5 text-[11px] opacity-80">{note}</small>} */}
       {/* {extra && <div className="mt-auto pt-5 text-[11px] font-bold w-full">{extra}</div>} */}
     </aside>
@@ -269,16 +258,14 @@ function SidebarLabel({
 function CompanyCard({ company }: { company: any }) {
   return (
     <article
-      className={cx(
-        "border rounded-xl flex flex-col bg-white min-h-[150px] shadow-sm relative",
+      className={cx("border rounded-xl flex flex-col bg-white min-h-[150px] shadow-sm relative",
         company.borderColor,
         company.color,
       )}
     >
       {/* Number block in top right */}
       <div
-        className={cx(
-          "absolute top-0 right-0 w-[30px] h-7 flex items-center justify-center text-white text-[13px] font-bold rounded-bl-xl rounded-tr-[11px]",
+        className={cx("absolute top-0 right-0 w-[30px] h-7 flex items-center justify-center text-white text-[13px] font-bold rounded-bl-xl rounded-tr-[11px]",
           company.bgActive,
         )}
       >
@@ -287,8 +274,7 @@ function CompanyCard({ company }: { company: any }) {
 
       <div className="p-4 flex flex-col h-full items-center text-center">
         <div
-          className={cx(
-            "w-11 h-11 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-sm mb-4",
+          className={cx("w-11 h-11 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-sm mb-4",
             company.bgActive,
           )}
         >
@@ -322,8 +308,7 @@ function RegionalPanel({
 }) {
   return (
     <article
-      className={cx(
-        "border rounded-xl p-5 flex flex-col bg-white shadow-sm relative",
+      className={cx("border rounded-xl p-5 flex flex-col bg-white shadow-sm relative",
         company.borderColor,
       )}
     >
@@ -333,8 +318,7 @@ function RegionalPanel({
 
       <header className="flex items-center gap-3 mb-5">
         <div
-          className={cx(
-            "w-11 h-11 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-sm",
+          className={cx("w-11 h-11 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-sm",
             company.bgActive,
           )}
         >
@@ -345,8 +329,7 @@ function RegionalPanel({
             {company.name}
           </h4>
           <p
-            className={cx(
-              "m-0 text-[11px] font-semibold mt-0.5",
+            className={cx("m-0 text-[11px] font-semibold mt-0.5",
               company.color,
             )}
           >
@@ -360,13 +343,12 @@ function RegionalPanel({
           Select Region
         </span>
         <div
-          className={cx(
-            "flex-grow border rounded-lg bg-white px-3 py-2 text-[11px] font-medium shadow-sm relative",
+          className={cx("flex-grow border rounded-lg bg-white px-3 py-2 text-[11px] font-medium shadow-sm relative",
             company.borderColor,
           )}
         >
           <select
-            className="w-full border-none outline-none bg-transparent text-[#172033] cursor-pointer appearance-none relative z-10"
+            className="w-full border-none outline-none bg-transparent text-[#172033] cursor-pointer appearance-none relative z-10 rounded-2xl"
             value={selectedRegion}
             onChange={(e) => setSelectedRegion(e.target.value)}
           >
@@ -398,8 +380,7 @@ function RegionalPanel({
       <div className="flex justify-center mt-2 pb-2">
         <button
           disabled={!selectedRegion || selectedRegion === "Select Region"}
-          className={cx(
-            "w-full py-3 rounded-lg font-bold text-[13px] uppercase tracking-wider transition-all shadow-md flex justify-center items-center gap-2",
+          className={cx("w-full py-3 rounded-lg font-bold text-[13px] uppercase tracking-wider transition-all shadow-md flex justify-center items-center gap-2",
             selectedRegion && selectedRegion !== "Select Region"
               ? cx(
                   company.bgActive,
@@ -428,19 +409,17 @@ function CountryCompanyCard({
 }) {
   const displayName =
     selectedCountry && selectedCountry !== "Select a Country"
-      ? `[${selectedCountry}]`
+      ? `${selectedCountry}`
       : "[Country Name]";
   return (
     <article
-      className={cx(
-        "border rounded-xl p-4 flex flex-col items-center text-center bg-white min-h-[190px] shadow-sm",
+      className={cx("border rounded-xl p-4 flex flex-col items-center text-center bg-white min-h-[190px] shadow-sm",
         item.borderColor,
         item.color,
       )}
     >
       <div
-        className={cx(
-          "w-12 h-12 rounded-full flex items-center justify-center text-white text-xl font-bold shadow-md mb-3",
+        className={cx("w-12 h-12 rounded-full flex items-center justify-center text-white text-xl font-bold shadow-md mb-3",
           item.bgActive,
         )}
       >
@@ -547,7 +526,7 @@ export default function MSWHoldingStructureUI() {
           title="REGIONAL LEVEL"
           subtitle="Regional Companies (For 3 Continental Companies Only)"
           // extra={
-          //     <div className="flex items-center gap-2 text-left justify-center border-t border-white/20 pt-4 w-full">
+          //     <div className="flex items-center gap-2 text-left justify-center border-t border-white/20 pt-4 w-full rounded-2xl">
           //         Select a Region <span className="text-lg font-light tracking-widest relative top-px">---&gt;</span><br/>from the Menu
           //     </div>
           // }
@@ -576,7 +555,7 @@ export default function MSWHoldingStructureUI() {
           title="COUNTRY LEVEL"
           subtitle="Country Holding Companies & Operating Companies"
           // extra={
-          //     <div className="flex items-center gap-2 text-left justify-center border-t border-white/20 pt-4 w-full">
+          //     <div className="flex items-center gap-2 text-left justify-center border-t border-white/20 pt-4 w-full rounded-2xl">
           //         Select a Country <span className="text-lg font-light tracking-[0.1em]">--&gt;</span><br/>from the Menu
           //     </div>
           // }
@@ -585,26 +564,15 @@ export default function MSWHoldingStructureUI() {
         <div className="flex-grow flex gap-8 bg-gradient-to-r from-[#eef4fb] to-[#f4f8fe] border border-[#d2e3f5] p-6 rounded-2xl shadow-sm">
           {/* Left: Country Selector */}
           <div className="w-[440px] flex flex-col flex-shrink-0">
-            <header className="mb-5 text-center">
-              <h2 className="m-0 text-xl font-bold text-[#1B2956] tracking-wide">
-                MSME Solutions{" "}
-                {selectedCountry && selectedCountry !== "Select a Country"
-                  ? `[${selectedCountry}]`
-                  : "[Country Name]"}
-              </h2>
-              <p className="m-0 text-sm font-medium text-[#1769d8] mt-0.5">
-                Country Holding Company
-              </p>
-            </header>
 
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-3">
                 <span className="text-[#1B2956] font-medium text-sm">
                   Select Country
                 </span>
-                <div className="border border-gray-300 rounded-md bg-white px-3 py-1.5 text-xs shadow-sm relative">
+                <div className="border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs shadow-sm relative">
                   <select
-                    className="w-[170px] border-none outline-none bg-transparent font-medium text-gray-700 cursor-pointer appearance-none relative z-10"
+                    className="w-[170px] border-none outline-none bg-transparent font-medium text-gray-700 cursor-pointer appearance-none relative z-10 rounded-2xl"
                     value={selectedCountry}
                     onChange={(e) => setSelectedCountry(e.target.value)}
                   >
@@ -634,7 +602,7 @@ export default function MSWHoldingStructureUI() {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#e2f1e6] text-[#2f963f] border border-[#c4e3cc] rounded-md px-3 py-1.5 text-[11px] font-medium whitespace-nowrap flex items-center gap-1.5">
+              <div className="bg-[#e2f1e6] text-[#73bf43] border border-[#c4e3cc] rounded-lg ml-2 px-3 py-1.5 text-[11px] font-medium whitespace-nowrap flex items-center gap-1.5">
                 <svg
                   className="w-3.5 h-3.5"
                   fill="none"
@@ -653,14 +621,12 @@ export default function MSWHoldingStructureUI() {
             </div>
 
             <div className="relative mt-2">
-              <div className="absolute -top-[5px] left-36 w-3 h-3 bg-white border-t border-l border-gray-300 rotate-45 z-10" />
-              <div className="bg-white border border-gray-300 rounded-xl h-[170px] overflow-y-auto grid grid-cols-3 gap-x-2 gap-y-1.5 shadow-sm p-4 relative z-20">
+              <div className=" bg-white border border-gray-300 rounded-xl h-[280px] overflow-y-auto grid grid-cols-3 gap-x-2 gap-y-1.5 shadow-sm p-4 relative z-20">
                 {countries.map((country) => (
                   <button
                     type="button"
                     key={country}
-                    className={cx(
-                      "flex items-center gap-1.5 px-2 py-1 text-[10px] font-medium border-none bg-transparent text-left cursor-pointer text-gray-700 rounded transition-colors",
+                    className={cx("flex items-center gap-1.5 px-2 py-1 text-[10px] font-medium border-none bg-transparent text-left cursor-pointer text-gray-700 rounded transition-colors",
                       selectedCountry === country
                         ? "bg-blue-50 text-blue-700 font-bold"
                         : "hover:bg-gray-50",
@@ -677,6 +643,17 @@ export default function MSWHoldingStructureUI() {
 
           {/* Right: Operating Companies */}
           <div className="flex-grow flex flex-col justify-end">
+                       <header className="mb-5 text-center">
+              <h2 className="m-0 text-xl font-bold text-[#1B2956] tracking-wide">
+                MSME Solutions{" "}
+                {selectedCountry && selectedCountry !== "Select a Country"
+                  ? `${selectedCountry}`
+                  : "[Country Name]"}
+              </h2>
+              <p className="m-0 text-sm font-medium text-[#e86f28] mt-0.5">
+                Country Holding Company
+              </p>
+            </header>
             <div className="grid grid-cols-5 gap-0 w-full mb-1">
               {Array.from({ length: 5 }).map((_, i) => (
                 <div
@@ -723,7 +700,7 @@ export default function MSWHoldingStructureUI() {
           <i className="w-3 h-3 rounded-sm bg-[#115e34]" /> Regional Level
         </span>
         <span className="flex items-center gap-2">
-          <i className="w-3 h-3 rounded-sm bg-[#1769d8]" /> Country Level
+          <i className="w-3 h-3 rounded-sm bg-[#e86f28]" /> Country Level
         </span>
         <span className="ml-auto font-normal text-gray-500">
           Only MSME Finance Incorporation Africa, M'IZITec Incorporation Africa

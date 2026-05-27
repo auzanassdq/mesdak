@@ -22,7 +22,7 @@ export default function ConsultingPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/consulting.png" />
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/consulting.png" themeColor="#0d9488" />
 
       {/* Hero Section */}
       <section id="hero" className="relative pt-40 pb-32 overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
@@ -277,7 +277,7 @@ export default function ConsultingPage() {
       </div>
 
       {/* Our Reach Section */}
-      <OurReachSection />
+      <OurReachSection company="M'Consulting" themeColor="#0d9488" />
 
       {/* Footer / Closing */}
       <footer className="bg-slate-900 text-white py-20">
@@ -297,7 +297,7 @@ export default function ConsultingPage() {
                 />
               </div>
             </div>
-            <div className="mt-12 pt-8 border-t border-slate-800 text-slate-500 text-sm">
+            <div className="mt-12 pt-8 border-t border-slate-800 text-slate-500 text-sm rounded-2xl">
               &copy; {new Date().getFullYear()} MSME Development Consulting. All rights reserved.
             </div>
           </div>

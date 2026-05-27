@@ -34,7 +34,7 @@ export default function MediaPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/media.png" />
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/media.png" themeColor="#30308E" />
 
       {/* Hero Section */}
       <section
@@ -48,9 +48,9 @@ export default function MediaPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-5xl md:text-7xl font-bold text-blue-900 mb-6 tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-bold text-[#30308E] mb-6 tracking-tight">
                 Be Faster, Easier &{" "}
-                <span className="text-indigo-600 italic">Everywhere</span>
+                <span className="text-[#30308E] italic">Everywhere</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed">
                 M&apos;Media Incorporation is the media, communication, and
@@ -63,11 +63,11 @@ export default function MediaPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white p-8 rounded-2xl shadow-xl border border-blue-100 text-left"
+              className="bg-white p-8 rounded-2xl shadow-xl border border-[#30308E]/20 text-left"
             >
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-blue-900 font-semibold text-lg mb-3">
+                  <h3 className="text-[#30308E] font-semibold text-lg mb-3">
                     Our Mission
                   </h3>
                   <p className="text-slate-600">
@@ -78,7 +78,7 @@ export default function MediaPage() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-blue-900 font-semibold text-lg mb-3">
+                  <h3 className="text-[#30308E] font-semibold text-lg mb-3">
                     Our Scope
                   </h3>
                   <p className="text-slate-600">
@@ -94,8 +94,8 @@ export default function MediaPage() {
 
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-30">
-          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-100 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-indigo-100 rounded-full blur-3xl"></div>
+          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-[#30308E]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#30308E]/10 rounded-full blur-3xl"></div>
         </div>
       </section>
 
@@ -105,14 +105,14 @@ export default function MediaPage() {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
               <div className="relative">
-                <div className="absolute -inset-4 bg-blue-600/5 rounded-2xl transform -rotate-2"></div>
-                <div className="bg-blue-900 text-white p-10 rounded-2xl shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
-                  <BookOpen className="w-12 h-12 mb-6 text-blue-300" />
+                <div className="absolute -inset-4 bg-[#30308E]/5 rounded-2xl transform -rotate-2"></div>
+                <div className="bg-[#30308E] text-white p-10 rounded-2xl shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#30308E]/20 rounded-full blur-2xl"></div>
+                  <BookOpen className="w-12 h-12 mb-6 text-white/80" />
                   <h2 className="text-3xl font-bold mb-2">
                     M&apos;Media Magazine
                   </h2>
-                  <p className="text-blue-200 font-medium mb-6">
+                  <p className="text-white/80 font-medium mb-6">
                     Twice a Year — Print & Digital
                   </p>
                   <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-semibold mb-8">
@@ -144,9 +144,9 @@ export default function MediaPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl hover:bg-blue-50 transition-colors border border-slate-100 hover:border-blue-100"
+                    className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl hover:bg-[#30308E]/10 transition-colors border border-slate-100 hover:border-[#30308E]/20"
                   >
-                    <div className="bg-blue-100 p-2 rounded-full text-blue-700">
+                    <div className="bg-[#30308E]/10 p-2 rounded-full text-[#30308E]">
                       <CheckCircle2 size={18} />
                     </div>
                     <p className="text-slate-700 font-medium">{item}</p>
@@ -210,9 +210,9 @@ export default function MediaPage() {
               <motion.div
                 key={index}
                 whileHover={{ y: -5 }}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-blue-200 transition-all"
+                className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md hover:border-[#30308E]/20 transition-all"
               >
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-blue-600">
+                <div className="w-14 h-14 bg-[#30308E]/10 rounded-xl flex items-center justify-center mb-6 text-[#30308E]">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
@@ -230,7 +230,7 @@ export default function MediaPage() {
       {/* M'Event Section */}
       <section
         id="events"
-        className="py-24 bg-blue-900 text-white relative overflow-hidden"
+        className="py-24 bg-[#30308E] text-white relative overflow-hidden"
       >
         {/* Background Pattern */}
         <div
@@ -243,7 +243,7 @@ export default function MediaPage() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <span className="bg-blue-800 text-blue-200 px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wider mb-4 inline-block">
+            <span className="bg-[#30308E] text-white/80 px-4 py-1 rounded-full text-sm font-semibold uppercase tracking-wider mb-4 inline-block">
               M&apos;Event Division
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -260,29 +260,29 @@ export default function MediaPage() {
             {/* National Event */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-blue-500 p-3 rounded-lg">
+                <div className="bg-[#30308E] p-3 rounded-lg">
                   <MapPin className="text-white w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold">National M&apos;Event</h3>
               </div>
-              <p className="text-blue-200 font-medium mb-4">
+              <p className="text-white/80 font-medium mb-4">
                 First Half of Each Year
               </p>
               <ul className="space-y-3 text-blue-100">
                 <li className="flex gap-3">
-                  <span className="text-blue-400">•</span> Held annually in each
+                  <span className="text-white/80">•</span> Held annually in each
                   country of operation
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-blue-400">•</span> Hosted in a different
+                  <span className="text-white/80">•</span> Hosted in a different
                   city each time
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-blue-400">•</span> Subscribed users
+                  <span className="text-white/80">•</span> Subscribed users
                   enjoy free access
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-blue-400">•</span> Drives national-level
+                  <span className="text-white/80">•</span> Drives national-level
                   networking & deals
                 </li>
               </ul>
@@ -291,29 +291,29 @@ export default function MediaPage() {
             {/* Regional Event */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
               <div className="flex items-center gap-4 mb-6">
-                <div className="bg-indigo-500 p-3 rounded-lg">
+                <div className="bg-[#30308E] p-3 rounded-lg">
                   <Globe className="text-white w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold">Regional M&apos;Event</h3>
               </div>
-              <p className="text-blue-200 font-medium mb-4">
+              <p className="text-white/80 font-medium mb-4">
                 Second Half of Each Year
               </p>
               <ul className="space-y-3 text-blue-100">
                 <li className="flex gap-3">
-                  <span className="text-indigo-400">•</span> Held in one
+                  <span className="text-white/80">•</span> Held in one
                   selected country per region
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-indigo-400">•</span> Brings together
+                  <span className="text-white/80">•</span> Brings together
                   MSME actors from neighbours
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-indigo-400">•</span> 3 days of regional
+                  <span className="text-white/80">•</span> 3 days of regional
                   collaboration
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-indigo-400">•</span> Cross-border
+                  <span className="text-white/80">•</span> Cross-border
                   exploration & expansion
                 </li>
               </ul>
@@ -322,13 +322,13 @@ export default function MediaPage() {
 
           {/* Tourism Impact */}
           <div className="bg-white text-slate-800 rounded-3xl p-10 shadow-2xl">
-            <h3 className="text-3xl font-bold text-center mb-12 text-blue-900">
+            <h3 className="text-3xl font-bold text-center mb-12 text-[#30308E]">
               A Driver of Tourism & Local Economic Development
             </h3>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div>
-                <h4 className="font-bold text-lg mb-4 text-indigo-600">
+                <h4 className="font-bold text-lg mb-4 text-[#30308E]">
                   Domestic Tourism
                 </h4>
                 <p className="text-sm text-slate-600 mb-3">
@@ -342,7 +342,7 @@ export default function MediaPage() {
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-4 text-indigo-600">
+                <h4 className="font-bold text-lg mb-4 text-[#30308E]">
                   Regional Tourism
                 </h4>
                 <p className="text-sm text-slate-600 mb-3">
@@ -356,7 +356,7 @@ export default function MediaPage() {
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-4 text-indigo-600">
+                <h4 className="font-bold text-lg mb-4 text-[#30308E]">
                   Local Spillovers
                 </h4>
                 <p className="text-sm text-slate-600">
@@ -365,7 +365,7 @@ export default function MediaPage() {
                 </p>
               </div>
               <div>
-                <h4 className="font-bold text-lg mb-4 text-indigo-600">
+                <h4 className="font-bold text-lg mb-4 text-[#30308E]">
                   Place Branding
                 </h4>
                 <p className="text-sm text-slate-600 mb-3">Host cities gain:</p>
@@ -401,13 +401,13 @@ export default function MediaPage() {
                   "Real deals and measurable results",
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#30308E] rounded-full"></div>
                     <span className="text-slate-700 font-medium">{item}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-100">
-                <p className="text-blue-800 font-medium">
+              <div className="mt-8 p-6 bg-[#30308E]/10 rounded-xl border border-[#30308E]/20">
+                <p className="text-[#30308E] font-medium">
                   Dedicated facilitation teams ensure every participant leaves
                   with connections, opportunities, and partnerships that matter.
                 </p>
@@ -418,11 +418,11 @@ export default function MediaPage() {
                 <div className="bg-slate-100 h-48 rounded-2xl flex items-center justify-center">
                   <Users className="text-slate-300 w-16 h-16" />
                 </div>
-                <div className="bg-blue-100 h-48 rounded-2xl flex items-center justify-center mt-8">
-                  <TrendingUp className="text-blue-400 w-16 h-16" />
+                <div className="bg-[#30308E]/10 h-48 rounded-2xl flex items-center justify-center mt-8">
+                  <TrendingUp className="text-white/80 w-16 h-16" />
                 </div>
-                <div className="bg-indigo-100 h-48 rounded-2xl flex items-center justify-center -mt-8">
-                  <Globe className="text-indigo-400 w-16 h-16" />
+                <div className="bg-[#30308E]/10 h-48 rounded-2xl flex items-center justify-center -mt-8">
+                  <Globe className="text-white/80 w-16 h-16" />
                 </div>
                 <div className="bg-slate-100 h-48 rounded-2xl flex items-center justify-center">
                   <Briefcase className="text-slate-300 w-16 h-16" />
@@ -440,7 +440,7 @@ export default function MediaPage() {
       </div>
 
       {/* Our Reach Section */}
-      <OurReachSection />
+      <OurReachSection company="M'Media" themeColor="#30308E" />
 
       {/* Footer / Closing */}
       <footer className="bg-slate-900 text-white py-20">
@@ -464,7 +464,7 @@ export default function MediaPage() {
                 />
               </div>
             </div>
-            <div className="mt-12 pt-8 border-t border-slate-800 text-slate-500 text-sm">
+            <div className="mt-12 pt-8 border-t border-slate-800 text-slate-500 text-sm rounded-2xl">
               &copy; {new Date().getFullYear()} M&apos;Media Incorporation. All
               rights reserved.
             </div>

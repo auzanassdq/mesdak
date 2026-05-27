@@ -224,7 +224,7 @@ const LocationTabs: React.FC = () => {
                   <select
                     value={selectedCountry}
                     onChange={(e) => handleCountryChange(e.target.value)}
-                    className="px-3 py-2 border-2 border-black bg-white text-gray-900 font-medium rounded-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+                    className="px-3 py-2 border-2 border-black bg-white text-gray-900 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                   >
                     <option value="">Select Country</option>
                     {activeLocation.countries.map((country) => (
@@ -239,7 +239,7 @@ const LocationTabs: React.FC = () => {
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="bg-primary p-2 border-2 border-black mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1 rounded-md">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -251,7 +251,7 @@ const LocationTabs: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="bg-primary p-2 border-2 border-black mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1 rounded-md">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -261,7 +261,7 @@ const LocationTabs: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="bg-primary p-2 border-2 border-black mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1 rounded-md">
                   <Globe className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -273,7 +273,7 @@ const LocationTabs: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="bg-primary p-2 border-2 border-black mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1 rounded-md">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -285,7 +285,7 @@ const LocationTabs: React.FC = () => {
 
 
               <div className="flex items-start gap-3">
-                <div className="bg-primary p-2 border-2 border-black mt-1">
+                <div className="bg-primary p-2 border-2 border-black mt-1 rounded-md">
                   <Clock className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -299,7 +299,7 @@ const LocationTabs: React.FC = () => {
           </div>
 
           {/* Map */}
-          <div className="h-96 overflow-hidden border-4 border-black">
+          <div className="h-96 overflow-hidden border-4 border-black rounded-md">
             <iframe
               src={activeLocation.mapEmbedUrl}
               width="100%"

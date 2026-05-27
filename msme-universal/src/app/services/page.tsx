@@ -102,12 +102,12 @@ const ServicesPage = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
                   viewport={{ once: true }}
-                  className={`bg-white border-4 border-black p-12 hover:bg-primary hover:text-white transition-all duration-300 group text-center cursor-pointer relative flex flex-col h-full`}
+                  className={`bg-white border-4 border-black p-12 hover:bg-primary rounded-2xl hover:text-white transition-all duration-300 group text-center cursor-pointer relative flex flex-col h-full`}
                   onClick={() => handleServiceClick(service)}
                 >
-                   <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-xs font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" >LEARN MORE</div>
+                   <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-xs font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary rounded-md" >LEARN MORE</div>
 
-                  <div className="bg-primary group-hover:bg-white w-20 h-20 flex items-center justify-center mx-auto mb-8 transition-colors">
+                  <div className="bg-primary group-hover:bg-white rounded-lg w-20 h-20 flex items-center justify-center mx-auto mb-8 transition-colors">
                     {IconComponent && <IconComponent className="w-10 h-10 text-white group-hover:text-primary transition-colors" />}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 group-hover:text-white transition-colors mb-4">{service.title}</h3>
@@ -152,7 +152,7 @@ const ServicesPage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                  className="group relative inline-flex items-center overflow-hidden rounded-2xl border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   Explore Careers
                   <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />

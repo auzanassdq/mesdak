@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { CircleDollarSign, Building2, Factory, Smartphone, TrendingUp, Shield, Award, Users, Coins, Handshake, ShieldAlert, Target } from "lucide-react";
 
@@ -69,13 +70,8 @@ export default function MSMEFinanceOrgChart() {
     <div className="w-full max-w-[1500px] mx-auto p-8 font-sans overflow-hidden">
       {/* Root Node */}
       <div className="flex flex-col items-center relative z-10">
-        <div className="bg-gradient-to-br from-[#d4af37] to-[#c26e00] text-white rounded-2xl shadow-xl p-8 w-[460px] flex flex-col items-center relative z-10 border-4 border-white">
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-[#d4af37] shadow-inner mb-4">
-            <CircleDollarSign className="w-8 h-8" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-wide text-center">MSME Finance</h1>
-          <h2 className="text-xl font-bold tracking-wide text-center mb-2">Incorporation</h2>
-          <p className="text-orange-100 text-[11px] font-bold uppercase tracking-[0.2em] mt-1 text-center">Financial Ecosystem & Capital Infrastructure</p>
+        <div className="bg-[#d4af37] text-white rounded-2xl shadow-xl p-8 w-[460px] flex flex-col items-center relative z-10 border-4 border-white">
+            <Image src="/logo/group-companies/finance.png" alt="MFI Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

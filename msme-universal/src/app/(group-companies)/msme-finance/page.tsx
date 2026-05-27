@@ -37,7 +37,7 @@ export default function MFIPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden selection:bg-[#D4AF37] selection:text-slate-950 scroll-smooth">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/finance.png" />
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/finance.png" themeColor="#d4af37" />
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
@@ -105,12 +105,12 @@ export default function MFIPage() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="p-6 border-l-2 border-[#D4AF37] bg-slate-900/30">
+              <div className="p-6 border-l-2 border-[#D4AF37] bg-slate-900/30 rounded-3xl">
                 <p className="text-slate-400 text-lg">
                   On one side, we open new frontiers of investment for institutional, professional, and private investors seeking superior performance and sustained value creation.
                 </p>
               </div>
-              <div className="p-6 border-l-2 border-[#D4AF37] bg-slate-900/30">
+              <div className="p-6 border-l-2 border-[#D4AF37] bg-slate-900/30 rounded-3xl">
                 <p className="text-slate-400 text-lg">
                   On the other, we unlock fair, scalable, and sustainable access to capital for MSMEs — as well as for key intermediaries such as VC/PE funds, microfinance institutions, and banks — enabling them to grow, innovate, and participate more competitively in the global economy.
                 </p>
@@ -218,10 +218,10 @@ export default function MFIPage() {
       </div>
 
       {/* Our Reach Section */}
-      <OurReachSection />
+      <OurReachSection company="M'Finance" themeColor="#d4af37" />
 
       {/* Footer */}
-      <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm">
+      <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm rounded-2xl">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div>
             &copy; {new Date().getFullYear()} MSME Finance Incorporation. All rights reserved.

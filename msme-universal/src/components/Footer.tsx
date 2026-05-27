@@ -145,7 +145,7 @@ Institutions Financial Governments
 
         {/* Bottom Footer */}
         <motion.div 
-          className="pt-8 mt-8 border-t border-gray-800 text-sm text-center md:flex md:justify-between md:text-left"
+          className="pt-8 mt-8 border-t border-gray-800 text-sm text-center md:flex md:justify-between md:text-left rounded-2xl"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}

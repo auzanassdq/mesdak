@@ -225,14 +225,7 @@ const GroupCompaniesPage = () => {
         </div>
       </section>
 
-      {/* Holding Structure Section (Africa Only) */}
-      {process.env.NEXT_PUBLIC_REGION === 'africa' && (
-        <section className="bg-white mb-32">
-          <MSWHoldingStructureUI />
-        </section>
-      )}
-
-      {/* List Companies */}
+            {/* List Companies */}
       <section className="pb-12 bg-white">
         <div className="container mx-auto px-6 mb-12">
           <motion.div
@@ -250,11 +243,11 @@ const GroupCompaniesPage = () => {
                   <motion.div
                     key={company.id}
                     variants={fadeInUp}
-                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative"
+                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative rounded-2xl"
                     onClick={() => handleCompanyClick(company)}
                   >
-                    <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
-                    <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                    <div className="absolute top-3 right-3 bg-primary rounded-md text-white px-3 py-1 text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
+                    <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors rounded-lg">
                       <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                     </div>
 
@@ -279,12 +272,12 @@ const GroupCompaniesPage = () => {
                   <motion.div
                     key={company.id}
                     variants={fadeInUp}
-                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative"
+                    className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative rounded-2xl"
                     onClick={() => handleCompanyClick(company)}
                   >
-                    <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 text-right text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
+                    <div className="absolute top-3 right-3 bg-primary rounded-md text-white px-3 py-1 text-right text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
 
-                    <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                    <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors rounded-lg">
                       <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                     </div>
 
@@ -315,6 +308,13 @@ const GroupCompaniesPage = () => {
           </motion.p>
         </div>
       </section>
+
+      {/* Holding Structure Section (Africa Only) */}
+      {process.env.NEXT_PUBLIC_REGION === 'africa' && (
+        <section className="bg-white mb-32 mt-32">
+          <MSWHoldingStructureUI />
+        </section>
+      )}
 
 
       {/* Services Section */}
@@ -347,7 +347,7 @@ const GroupCompaniesPage = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                    className="group relative inline-flex items-center overflow-hidden rounded-2xl border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
                   >
                     Learn more
                     <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />

@@ -11,11 +11,11 @@ export interface NavLink {
   href: string;
 }
 
-interface GroupCompanyNavbarProps {
+interface GroupCompanyNavbarProps {themeColor?: string;
   logoSrc: string;
 }
 
-const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
+const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("");
@@ -62,7 +62,7 @@ const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
   }, []);
 
   return (
-    <motion.nav
+    <motion.nav style={{ '--nav-theme-color': themeColor } as React.CSSProperties}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -92,14 +92,14 @@ const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setActiveHash(link.href)}
-                className={`relative text-gray-800 hover:text-primary-600 font-medium transition-colors ${isActive ? "text-blue-600" : ""
+                className={`relative text-gray-800 hover:text-[var(--nav-theme-color)] font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
                   }`}
               >
                 {link.name}
                 {isActive && (
                   <motion.div
                     layoutId="groupNavActiveIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-1 bg-primary-600"
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-[var(--nav-theme-color)]"
                     initial={false}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
@@ -117,7 +117,7 @@ const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
               <motion.div className="relative" transition={{ duration: 0.2 }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
+                  className="h-5 w-5 text-gray-600 group-hover:text-[var(--nav-theme-color)] transition-colors"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -182,7 +182,7 @@ const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="xl:hidden bg-white/90 backdrop-blur-md shadow-lg border-t border-gray-100"
+          className="xl:hidden bg-white/90 backdrop-blur-md shadow-lg border-t border-gray-100 rounded-2xl"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => {
@@ -191,7 +191,7 @@ const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`relative text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${isActive ? "text-blue-600" : ""
+                  className={`relative text-gray-800 hover:text-[var(--nav-theme-color)] py-2 pl-3 font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
                     }`}
                   onClick={() => {
                     setActiveHash(link.href);
@@ -202,7 +202,7 @@ const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
                   {isActive && (
                     <motion.div
                       layoutId="mobileGroupNavActiveIndicator"
-                      className="absolute top-0 bottom-0 left-0 w-1 h-full bg-primary-600"
+                      className="absolute top-0 bottom-0 left-0 w-1 h-full bg-[var(--nav-theme-color)]"
                       initial={false}
                       transition={{
                         type: "spring",
@@ -230,7 +230,7 @@ const GroupCompanyNavbar = ({ logoSrc }: GroupCompanyNavbarProps) => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
+                    className="h-5 w-5 text-gray-600 group-hover:text-[var(--nav-theme-color)] transition-colors"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

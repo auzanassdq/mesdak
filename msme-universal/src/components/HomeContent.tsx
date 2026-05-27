@@ -54,7 +54,7 @@ export default function HomeContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-secondary-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300"
+                className="bg-secondary-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 rounded-3xl"
               >
                 <div className="bg-primary w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-white" />
@@ -67,7 +67,7 @@ export default function HomeContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-secondary-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300"
+                className="bg-secondary-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 rounded-3xl"
               >
                 <div className="bg-secondary w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Building2 className="w-8 h-8 text-white" />
@@ -80,7 +80,7 @@ export default function HomeContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-primary-dark-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300"
+                className="bg-primary-dark-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 rounded-3xl"
               >
                 <div className="bg-primary-dark w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <ArrowRight className="w-8 h-8 text-white" />
@@ -93,7 +93,7 @@ export default function HomeContent() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-secondary-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300"
+                className="bg-secondary-50 border-4 border-black p-6 hover:bg-primary-100 transition-all duration-300 rounded-3xl"
               >
                 <div className="bg-gray-800 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-white" />
@@ -113,7 +113,7 @@ export default function HomeContent() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                  className="group relative inline-flex items-center overflow-hidden rounded-2xl border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   Learn more
                   <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />

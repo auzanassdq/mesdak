@@ -213,7 +213,7 @@ const ContactPage = () => {
                     className={`w-full text-left p-4 border-l-4 hover:cursor-pointer ${selectedOffice === index ? 'border-primary bg-gray-100 text-black/80' : 'border-gray-300 hover:bg-gray-50 text-black/20'} transition-all duration-200`}
                     onClick={() => setSelectedOffice(index)}
                   >
-                    <h3 className="text-xl font-bold ">{office.name}</h3>
+                    <h3 className="text-xl font-bold">{office.name}</h3>
                     {/* <p className="text-gray-600 text-sm mt-1">{office.address}</p> */}
 
                     <AnimatePresence>
@@ -228,7 +228,7 @@ const ContactPage = () => {
                           <Link
                             href={office.link}
                             target="_blank"
-                            className="inline-flex items-center text-sm font-bold text-white bg-primary-600 px-4 py-2 shadow-md hover:bg-primary-700 transition-colors"
+                            className="inline-flex items-center rounded-md text-sm font-bold text-white bg-primary-600 px-4 py-2 shadow-md hover:bg-primary-700 transition-colors"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <span>Visit Website</span>
@@ -254,7 +254,7 @@ const ContactPage = () => {
                 >
                   {/* Office Images */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div className="relative h-40 border-4 border-black overflow-hidden">
+                    <div className="relative h-40 border-4 border-black overflow-hidden rounded-2xl">
                       <Image
                         src="/images/building.jpg"
                         alt="Office Building"
@@ -262,7 +262,7 @@ const ContactPage = () => {
                         className="object-cover"
                       />
                     </div>
-                    <div className="relative h-40 border-4 border-black overflow-hidden">
+                    <div className="relative h-40 border-4 border-black overflow-hidden rounded-2xl">
                       <Image
                         src="/images/sean-pollock-PhYq704ffdA-unsplash.jpg"
                         alt="Office Interior"
@@ -270,7 +270,7 @@ const ContactPage = () => {
                         className="object-cover"
                       />
                     </div>
-                    <div className="relative h-40 border-4 border-black overflow-hidden">
+                    <div className="relative h-40 border-4 border-black overflow-hidden rounded-2xl">
                       <Image
                         src="/images/marjan-blan-6bXvYyAYVrE-unsplash.jpg"
                         alt="Office Meeting Room"
@@ -281,16 +281,16 @@ const ContactPage = () => {
                   </div>
 
                   {/* Office Video (replacing Office Details) */}
-                  <div className="mt-8 border-4 border-black overflow-hidden">
+                  <div className="mt-8 border-4 border-black overflow-hidden rounded-2xl">
                     <iframe
                       src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
-                      className=" top-0 left-0 w-full  object-cover h-[300px]"
+                      className="top-0 left-0 w-full object-cover h-[300px]"
                       style={{ border: 'none' }}
                     />
 
-                    <div className=" bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
+                    <div className="bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 text-white flex items-center justify-between">
                       <h3 className="text-2xl font-bold mb-1">{officeData[selectedOffice].headquarter}</h3>
                     </div>
                   </div>
@@ -311,7 +311,7 @@ const ContactPage = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white border-4 border-black p-8"
+              className="bg-white border-4 border-black p-8 rounded-2xl"
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Send a Message
@@ -329,7 +329,7 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -344,7 +344,7 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="name@example.com"
                     />
                   </div>
@@ -362,7 +362,7 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="+1 (123) 456-7890"
                     />
                   </div>
@@ -377,7 +377,7 @@ const ContactPage = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                      className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                       placeholder="Topic of your message"
                     />
                   </div>
@@ -393,7 +393,7 @@ const ContactPage = () => {
                     value={formData.countryOffice}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 bg-white"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 bg-white rounded-lg"
                   >
                     <option value="">Select an office...</option>
                     {officeData.map((office, idx) => (
@@ -412,7 +412,7 @@ const ContactPage = () => {
                     name="mnetworkProfile"
                     value={formData.mnetworkProfile}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 rounded-lg"
                     placeholder="https://network.msme.com/profile/..."
                   />
                   <p className="mt-1 text-xs text-gray-500">Paste the URL of your M&apos;Network profile (business connection platform)</p>
@@ -431,7 +431,7 @@ const ContactPage = () => {
                       className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
                     />
-                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between">
+                    <div className="w-full px-4 py-3 border-2 border-black focus-within:ring-2 focus-within:ring-[#0D9244] focus-within:border-[#0D9244] transition-all duration-200 flex items-center justify-between rounded-lg">
                       <span className="text-gray-500">{formData.file ? formData.file.name : 'Choose a file...'}</span>
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -452,7 +452,7 @@ const ContactPage = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 border-2 border-black focus:ring-2 focus:ring-[#0D9244] focus:border-[#0D9244] transition-all duration-200 resize-none rounded-lg"
                     placeholder="Tell us how we can help your MSME business..."
                   ></textarea>
                 </div>
@@ -461,7 +461,7 @@ const ContactPage = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-primary-600 text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full bg-primary-600 text-white font-bold py-4 px-6 border-4 border-black hover:bg-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2 rounded-lg"
                 >
                   <PaperPlaneTiltIcon className="w-5 h-5" />
                   Send Message
@@ -494,10 +494,10 @@ const ContactPage = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                      className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300"
+                      className="bg-white border-4 border-black p-6 hover:bg-primary hover:text-white group transition-all duration-300 rounded-2xl"
                     >
                       <div className="flex items-start gap-4">
-                        <div className="bg-primary group-hover:bg-white p-3 border-2 border-black">
+                        <div className="bg-primary group-hover:bg-white p-3 border-2 border-black rounded-lg">
                           <IconComponent className="w-6 h-6 text-white group-hover:text-primary" />
                         </div>
                         <div>
@@ -546,7 +546,7 @@ const ContactPage = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-white border-4 border-black overflow-hidden"
+            className="bg-white border-4 border-black overflow-hidden rounded-2xl"
           >
             {/* Office Locations Tabs */}
             <div className="w-full">

@@ -28,7 +28,7 @@ export default function MButicPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 selection:bg-[#73BF43] selection:text-slate-950 scroll-smooth font-sans overflow-x-hidden">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/butic.png" />
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/butic.png" themeColor="#73bf43" />
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -215,10 +215,10 @@ export default function MButicPage() {
       </div>
 
       {/* Our Reach Section */}
-      <OurReachSection />
+      <OurReachSection company="M'Butic" themeColor="#73bf43" />
 
       {/* Footer */}
-      <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm">
+      <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm rounded-2xl">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             &copy; {new Date().getFullYear()} M&apos;Butic Incorporation. All rights reserved.

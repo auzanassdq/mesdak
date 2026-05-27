@@ -413,7 +413,7 @@ const AboutPage = () => {
               {/* Contact - Get in Touch */}
               <div className='absolute bottom-8 w-[272px]'>
                 <Link href='/contact'>
-                  <button className='w-full flex items-center justify-center gap-4 text-black/80  px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
+                  <button className='w-full flex items-center justify-center gap-4 text-black/80 px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
                     <span>
                       Contact - Get in Touch
                     </span>
@@ -425,7 +425,7 @@ const AboutPage = () => {
               {/* News */}
               <div className='absolute bottom-8 right-6 w-[272px]'>
                 <Link href='/contact'>
-                  <button className='w-full flex items-center justify-center gap-4 text-black/80  px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
+                  <button className='w-full flex items-center justify-center gap-4 text-black/80 px-6 py-3 cursor-pointer font-semibold hover:bg-black hover:text-white'>
                     <span>
                       News
                     </span>
@@ -490,7 +490,7 @@ const AboutPage = () => {
                           onClick={() => setSelectedBoard('executive' as const)}
                           className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105 rounded-2xl"
                         >
-                          <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                          <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors rounded-2xl">
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
@@ -510,7 +510,7 @@ const AboutPage = () => {
                           onClick={() => setSelectedBoard('supervisory' as const)}
                           className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105 rounded-2xl"
                         >
-                          <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                          <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors rounded-2xl">
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
@@ -530,7 +530,7 @@ const AboutPage = () => {
                           onClick={() => setSelectedBoard('advisory' as const)}
                           className="bg-primary text-white border-4 border-black p-8 transition-all duration-300 cursor-pointer hover:scale-105 rounded-2xl"
                         >
-                          <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors">
+                          <div className="w-16 h-16 bg-white text-primary border-2 border-black flex items-center justify-center mb-6 transition-colors rounded-2xl">
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                             </svg>
@@ -559,7 +559,7 @@ const AboutPage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-white border-8 border-black p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+            className="bg-white border-8 border-black p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Title */}
@@ -567,7 +567,7 @@ const AboutPage = () => {
               <h3 className="text-3xl font-bold text-black">{boardData[selectedBoard as keyof typeof boardData].title.toUpperCase()}</h3>
               <button
                 onClick={() => setSelectedBoard(null)}
-                className="w-10 h-10 bg-white hover:bg-black text-black/80 hover:text-white border-2 border-black flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-white hover:bg-black text-black/80 hover:text-white border-2 border-black flex items-center justify-center transition-colors rounded-lg"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -590,9 +590,9 @@ const AboutPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative group bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 max-w-sm mx-auto"
+                className="relative group bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 max-w-sm mx-auto rounded-3xl"
               >
-                <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
+                <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto rounded-2xl">
                   <span className="text-white font-bold text-xl">{boardData[selectedBoard].members[0].name.charAt(0)}</span>
                 </div>
                 <h4 className="text-xl font-bold mb-2 text-center">{boardData[selectedBoard].members[0].name.toUpperCase()}</h4>
@@ -615,9 +615,9 @@ const AboutPage = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-                        className="relative group bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105"
+                        className="relative group bg-white border-4 border-black p-6 hover:bg-primary text-black/80 hover:text-white transition-all duration-300 hover:scale-105 rounded-3xl"
                       >
-                        <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto">
+                        <div className="w-16 h-16 bg-black border-2 border-black flex items-center justify-center mb-4 mx-auto rounded-2xl">
                           <span className="text-white font-bold text-xl">{member.name.charAt(0)}</span>
                         </div>
                         <h4 className="text-xl font-bold mb-2 text-center">{member.name.toUpperCase()}</h4>
@@ -639,7 +639,7 @@ const AboutPage = () => {
             {(selectedBoard === 'supervisory' || selectedBoard === 'advisory') && (
               <button
                 onClick={() => setSelectedBoard(selectedBoard === 'supervisory' ? 'executive' : 'supervisory')}
-                className="fixed left-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60]"
+                className="fixed left-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
               >
                 <svg className="w-8 h-8 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -652,7 +652,7 @@ const AboutPage = () => {
             {selectedBoard !== 'advisory' ? (
               <button
                 onClick={() => setSelectedBoard(selectedBoard === 'executive' ? 'supervisory' : 'advisory')}
-                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60]"
+                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
               >
                 <span className="text-lg">{selectedBoard === 'executive' ? 'Supervisory' : 'Advisory'}</span>
                 <span className="text-lg">Board</span>
@@ -666,7 +666,7 @@ const AboutPage = () => {
                   setSelectedBoard(null);
                   router.push('/companies');
                 }}
-                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60]"
+                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
               >
                 <span className="text-lg">Our Companies</span>
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -709,7 +709,7 @@ const AboutPage = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                    className="group relative inline-flex items-center overflow-hidden rounded-2xl border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
                   >
                     Learn more
                     <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />

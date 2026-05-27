@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { Network, Users, BookOpen, Building2, Rocket, Briefcase, CheckCircle2 } from "lucide-react";
 
@@ -32,19 +33,15 @@ export default function MSMENetworkOrgChart() {
     <div className="w-full max-w-6xl mx-auto p-8 font-sans">
       {/* Root Node & Management Box */}
       <div className="flex flex-col items-center">
-        <div className="bg-gradient-to-br from-[#e86f28] to-[#104a99] text-white rounded-2xl shadow-xl p-8 w-[440px] flex flex-col items-center relative z-10 border-4 border-white">
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-[#e86f28] shadow-inner mb-4">
-            <Network className="w-8 h-8" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-wide text-center">MSME Network Incorporation</h1>
-          <p className="text-blue-100 text-[11px] font-bold uppercase tracking-[0.2em] mt-2 text-center">Identity, networking & ecosystem</p>
+        <div className="bg-[#e86f28] text-white rounded-2xl shadow-xl p-8 w-[440px] flex flex-col items-center relative z-10 border-4 border-white">
+            <Image src="/logo/group-companies/network.png" alt="MSME Network Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}
         <div className="w-0.5 h-6 bg-[#e86f28]" />
 
         {/* Management Card */}
-        <div className="bg-gray-800 text-white rounded-xl shadow-md px-6 py-4 flex items-center gap-4 relative z-10 w-fit">
+        {/* <div className="bg-gray-800 text-white rounded-xl shadow-md px-6 py-4 flex items-center gap-4 relative z-10 w-fit">
           <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center">
              <Users className="w-6 h-6 text-white" />
           </div>
@@ -57,7 +54,7 @@ export default function MSMENetworkOrgChart() {
               <li>M’Advisor Management</li>
             </ul>
           </div>
-        </div>
+        </div> */}
 
         {/* Vertical line dropping from management */}
         <div className="w-0.5 h-6 bg-[#e86f28]" />

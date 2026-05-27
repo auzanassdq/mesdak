@@ -3,9 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import DataTalkChart from "@/components/group-org-charts/DataTalkChart";
-import DataTalkChartEcharts from "@/components/group-org-charts/DataTalkChartEcharts";
 import OurReachSection from "@/components/group-org-charts/OurReachSection";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   BarChart3,
   Database,
@@ -276,7 +275,7 @@ const DataCollection = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
               <div className="bg-white border border-gray-200 rounded-3xl p-8 lg:p-10 shadow-2xl relative z-10">
-                <h4 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4">
+                <h4 className="text-2xl font-bold text-gray-900 mb-8 border-b border-gray-100 pb-4 rounded-2xl">
                   M&apos;Doc & Intelligent Tools
                 </h4>
                 <div className="grid md:grid-cols-5 gap-10 items-center">
@@ -442,7 +441,7 @@ const Benefits = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-16 border-t border-gray-800">
+    <footer className="bg-gray-900 text-white py-16 border-t border-gray-800 rounded-2xl">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div>
@@ -467,7 +466,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 rounded-2xl">
           <p>
             &copy; {new Date().getFullYear()} M&apos;DataTalk Incorporation. All
             rights reserved.
@@ -492,7 +491,7 @@ const Footer = () => {
 export default function MDataTalkPage() {
   return (
     <main className="min-h-screen font-sans text-gray-900 selection:bg-purple-100 selection:text-purple-900">
-      <GroupCompanyNavbar logoSrc="/images/mdatatalk-logo.png" />
+      <GroupCompanyNavbar logoSrc="/images/mdatatalk-logo.png" themeColor="#6b21a8" />
       <Hero />
       <About />
       <D3MP />
@@ -510,7 +509,7 @@ export default function MDataTalkPage() {
       </div>
 
       {/* Our Reach Section */}
-      <OurReachSection />
+      <OurReachSection company="M'Data Talk" themeColor="#6b21a8"/>
       <Footer />
     </main>
   );

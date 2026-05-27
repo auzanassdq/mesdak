@@ -48,7 +48,7 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Tab Navigation */}
-      <section className="sticky top-14 bg-white border-b border-gray-200 z-20 shadow-2xl">
+      <section className="sticky top-14 bg-white border-b border-gray-200 z-20 shadow-2xl rounded-2xl">
         <div className="container mx-auto px-6">
           <div className="flex w-full">
             <button
@@ -113,7 +113,7 @@ const CareersPage: React.FC = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative inline-flex items-center overflow-hidden rounded-md border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300"
+                    className="group relative inline-flex items-center overflow-hidden rounded-2xl border-4 text-white border-black bg-primary px-8 py-4 text-lg font-bold hover:bg-primary hover:text-white transition-all duration-300 hover:cursor-pointer"
                   >
                     Get in touch
                     <CaretRightIcon className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />

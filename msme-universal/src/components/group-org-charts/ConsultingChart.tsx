@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { Users, Globe, Landmark, BarChart3, CheckCircle2 } from "lucide-react";
 
@@ -17,43 +18,43 @@ const developmentEntities: Entity[] = [
     title: "Africa Development Incorporation",
     icon: <Globe className="w-8 h-8" />,
     description: "Sustainable development & business growth in Africa.",
-    themeClass: "border-blue-200 hover:border-blue-300",
-    iconClass: "bg-blue-50 text-blue-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "Asia Development Incorporation",
     icon: <Globe className="w-8 h-8" />,
     description: "Fostering economic growth & partnerships in Asia.",
-    themeClass: "border-blue-200 hover:border-blue-300",
-    iconClass: "bg-blue-50 text-blue-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "Latin America Development Incorporation",
     icon: <Globe className="w-8 h-8" />,
     description: "Accelerating initiatives & opportunities in LatAm.",
-    themeClass: "border-blue-200 hover:border-blue-300",
-    iconClass: "bg-blue-50 text-blue-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "North America Development Incorporation",
     icon: <Globe className="w-8 h-8" />,
     description: "Supporting innovation & growth across NA markets.",
-    themeClass: "border-blue-200 hover:border-blue-300",
-    iconClass: "bg-blue-50 text-blue-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "ASEU Development Incorporation",
     icon: <Globe className="w-8 h-8" />,
     description: "Advancing economic collaboration across ASEU.",
-    themeClass: "border-blue-200 hover:border-blue-300",
-    iconClass: "bg-blue-50 text-blue-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "Europe Development Incorporation",
     icon: <Globe className="w-8 h-8" />,
     description: "Business transformation & sustainable growth in EU.",
-    themeClass: "border-blue-200 hover:border-blue-300",
-    iconClass: "bg-blue-50 text-blue-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
 ];
 
@@ -62,15 +63,15 @@ const serviceEntities: Entity[] = [
     title: "M’Government Consulting Corporation",
     icon: <Landmark className="w-8 h-8" />,
     description: "Policy advisory, public-sector & governance solutions.",
-    themeClass: "border-green-200 hover:border-green-300",
-    iconClass: "bg-green-50 text-green-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "I-ERP Consulting Corporation",
     icon: <BarChart3 className="w-8 h-8" />,
     description: "Enterprise resource planning & digital transformation.",
-    themeClass: "border-purple-200 hover:border-purple-300",
-    iconClass: "bg-purple-50 text-purple-600",
+    themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
+    iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
     functions: ["Sales", "Advertising", "Purchase", "Market Entry"],
   },
 ];
@@ -82,13 +83,8 @@ export default function MSMEConsultingGlobalOrgChart() {
     <div className="w-full max-w-[1600px] mx-auto p-8 font-sans overflow-hidden">
       {/* Root Node */}
       <div className="flex flex-col items-center relative z-10">
-        <div className="bg-gradient-to-br from-[#0d9488] to-[#3f2b75] text-white rounded-2xl shadow-xl p-8 w-[460px] flex flex-col items-center relative z-10 border-4 border-white">
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-[#0d9488] shadow-inner mb-4">
-            <Users className="w-8 h-8" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-wide text-center">MSME Consulting</h1>
-          <h2 className="text-xl font-bold tracking-wide text-center mb-2">Incorporation</h2>
-          <p className="text-purple-100 text-[11px] font-bold uppercase tracking-[0.2em] mt-1">Advisory & Capacity Building</p>
+        <div className="bg-[#0d9488] text-white rounded-2xl shadow-xl p-8 w-[460px] flex flex-col items-center relative z-10 border-4 border-white">
+            <Image src="/logo/group-companies/consulting.png" alt="Consulting Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

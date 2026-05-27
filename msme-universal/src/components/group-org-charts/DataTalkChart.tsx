@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { BarChart2, FileText, ClipboardList, Briefcase } from "lucide-react";
 
@@ -26,13 +27,8 @@ export default function MDataTalkOrgChart() {
     <div className="w-full max-w-5xl mx-auto p-8 font-sans">
       {/* Root Node */}
       <div className="flex flex-col items-center">
-        <div className="bg-gradient-to-br from-[#6b21a8] to-[#4c1d95] text-white rounded-2xl shadow-xl p-8 w-[420px] flex flex-col items-center relative z-10 border-4 border-white">
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-[#6b21a8] shadow-inner mb-4">
-            <BarChart2 className="w-8 h-8" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-wide text-center">M’DataTalk Incorporation</h1>
-          <div className="w-16 h-0.5 bg-purple-200/50 my-3" />
-          <p className="text-purple-100 text-[12px] font-bold uppercase tracking-[0.15em] text-center">Data. Insights. Solutions.</p>
+        <div className="bg-[#6b21a8] text-white rounded-2xl shadow-xl p-8 w-[420px] flex flex-col items-center relative z-10 border-4 border-white">
+          <Image src="/logo/group-companies/datatalk.jpeg" alt="M'DataTalk Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

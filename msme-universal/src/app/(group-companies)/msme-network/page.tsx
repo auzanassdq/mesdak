@@ -72,7 +72,7 @@ export default function MSMENetworkPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden selection:bg-[#E86F28] selection:text-slate-950 scroll-smooth">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/network.png" />
+      <GroupCompanyNavbar logoSrc="/logo/group-companies/network.png" themeColor="#e86f28" />
 
 
       {/* Hero Section */}
@@ -140,12 +140,12 @@ export default function MSMENetworkPage() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div className="p-6 border-l-2 border-[#E86F28] bg-slate-900/30">
+              <div className="p-6 border-l-2 border-[#E86F28] bg-slate-900/30 rounded-3xl">
                 <p className="text-slate-400 text-lg">
                   We deliver innovative, data-driven service solutions that unlock growth at every stage of the business journey.
                 </p>
               </div>
-              <div className="p-6 border-l-2 border-[#E86F28] bg-slate-900/30">
+              <div className="p-6 border-l-2 border-[#E86F28] bg-slate-900/30 rounded-3xl">
                 <p className="text-slate-400 text-lg">
                   Our integrated <span className="text-[#E86F28] font-bold">Global MSME Directory</span> elevates partner identification to a new standard by allowing businesses to find and connect with verified, screened, and trusted partners worldwide — dramatically reducing risk, preventing scams, and accelerating trusted collaboration.
                 </p>
@@ -344,10 +344,10 @@ export default function MSMENetworkPage() {
       </div>
 
       {/* Our Reach Section */}
-      <OurReachSection />
+      <OurReachSection company="M'Network" themeColor="#e86f28" />
 
       {/* Footer */}
-      <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm">
+      <footer className="py-12 bg-slate-950 border-t border-slate-900 text-slate-500 text-sm rounded-2xl">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div>
             &copy; {new Date().getFullYear()} MSME Network Incorporation. All rights reserved.
