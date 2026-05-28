@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon, GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon, X, CaretLeftIcon } from '@phosphor-icons/react/dist/ssr';
 import companySummaries from '@/app/companies/data/companies-summary.json';
-import MSWHoldingStructureUI from './holding-structure';
 
 interface Company {
   id: number;
@@ -87,7 +86,7 @@ const GroupCompaniesPage = () => {
       name: "M'IZITec Incorporation",
       description: "A technology company developing innovative tech solutions for MSMEs, including software, platforms, and digital tools to enhance their operations and competitiveness.",
       icon: LightningIcon,
-      tagline: "Driving Business Through Digital Power",
+      tagline: "Driving Business Through  Digital Power",
       link: "/msme-izitec"
     },
     {
@@ -246,7 +245,7 @@ const GroupCompaniesPage = () => {
                     className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative rounded-2xl"
                     onClick={() => handleCompanyClick(company)}
                   >
-                    <div className="absolute top-3 right-3 bg-primary rounded-md text-white px-3 py-1 text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
+                    <div className="absolute top-2 right-2 bg-primary rounded-md text-white px-3 py-1 text-xs font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
                     <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors rounded-lg">
                       <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
                     </div>
@@ -275,7 +274,7 @@ const GroupCompaniesPage = () => {
                     className="bg-white border-4 border-black p-8 lg:p-12 transition-all duration-300 group cursor-pointer hover:bg-primary hover:text-white flex flex-col h-full relative rounded-2xl"
                     onClick={() => handleCompanyClick(company)}
                   >
-                    <div className="absolute top-3 right-3 bg-primary rounded-md text-white px-3 py-1 text-right text-sm font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
+                    <div className="absolute top-2 right-2 bg-primary rounded-md text-white px-3 py-1 text-right text-xs font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg z-10 group-hover:bg-white group-hover:text-primary" dangerouslySetInnerHTML={{ __html: company.tagline }}></div>
 
                     <div className="w-16 h-16 bg-black group-hover:bg-white border-2 border-black flex items-center justify-center mb-6 transition-colors rounded-lg">
                       <IconComponent className="w-8 h-8 text-white group-hover:text-black transition-colors" />
@@ -308,14 +307,6 @@ const GroupCompaniesPage = () => {
           </motion.p>
         </div>
       </section>
-
-      {/* Holding Structure Section (Africa Only) */}
-      {process.env.NEXT_PUBLIC_REGION === 'africa' && (
-        <section className="bg-white mb-32 mt-32">
-          <MSWHoldingStructureUI />
-        </section>
-      )}
-
 
       {/* Services Section */}
       <section className="py-20 bg-gray-200">

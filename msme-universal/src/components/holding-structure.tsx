@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import NextLink from "next/link";
 import {
   Network,
   BarChart2,
@@ -13,6 +14,8 @@ import {
   Zap,
   PlayCircle,
   Globe,
+  ArrowRight,
+  Link,
 } from "lucide-react";
 
 const continentalCompanies = [
@@ -24,6 +27,7 @@ const continentalCompanies = [
     color: "text-[#e86f28]",
     borderColor: "border-[#e86f28]",
     bgActive: "bg-[#e86f28]",
+    link: "/msme-network",
     icon: <Network className="w-6 h-6" />,
   },
   {
@@ -34,6 +38,7 @@ const continentalCompanies = [
     color: "text-[#73bf43]",
     borderColor: "border-[#73bf43]",
     bgActive: "bg-[#73bf43]",
+    link: "/msme-butic",
     icon: <ShoppingCart className="w-6 h-6" />,
   },
   {
@@ -44,6 +49,7 @@ const continentalCompanies = [
     color: "text-[#0d9488]",
     borderColor: "border-[#0d9488]",
     bgActive: "bg-[#0d9488]",
+    link: "/msme-consulting",
     icon: <Users className="w-6 h-6" />,
   },
   {
@@ -54,6 +60,7 @@ const continentalCompanies = [
     color: "text-[#d4af37]",
     borderColor: "border-[#d4af37]",
     bgActive: "bg-[#d4af37]",
+    link: "/msme-finance",
     icon: <CircleDollarSign className="w-6 h-6" />,
     hasRegionalLayer: true,
   },
@@ -66,6 +73,7 @@ const continentalCompanies = [
     borderColor: "border-[#4182C0]",
     bgActive: "bg-[#4182C0]",
     icon: <Zap className="w-6 h-6" />,
+    link: "/msme-izitec",
     hasRegionalLayer: true,
   },
   {
@@ -76,6 +84,7 @@ const continentalCompanies = [
     color: "text-[#30308E]",
     borderColor: "border-[#30308E]",
     bgActive: "bg-[#30308E]",
+    link: "/msme-media",
     icon: <PlayCircle className="w-6 h-6" />,
     hasRegionalLayer: true,
   },
@@ -87,6 +96,7 @@ const continentalCompanies = [
     color: "text-[#6b21a8]",
     borderColor: "border-[#6b21a8]",
     bgActive: "bg-[#6b21a8]",
+    link: "/msme-datatalk",
     icon: <BarChart2 className="w-6 h-6" />,
   },
 ];
@@ -258,7 +268,7 @@ function SidebarLabel({
 function CompanyCard({ company }: { company: any }) {
   return (
     <article
-      className={cx("border rounded-xl flex flex-col bg-white min-h-[150px] shadow-sm relative",
+      className={cx("h-[250px] border rounded-xl flex flex-col bg-white min-h-[150px] shadow-sm relative",
         company.borderColor,
         company.color,
       )}
@@ -285,14 +295,21 @@ function CompanyCard({ company }: { company: any }) {
           {company.name}
         </h4>
         <div className="flex-grow" />
-        {/* <div className={cx("w-12 h-px my-3 mx-auto", company.bgActive)} /> */}
-        {/* <p className="m-0 text-[11px] text-gray-500 font-medium">{company.slogan}</p> */}
+        
+        {company.link && (
+          <NextLink
+            href={company.link}
+            className={cx("w-full mt-4 py-2 rounded-lg font-bold text-[12px] uppercase tracking-wider transition-all shadow-sm flex justify-center items-center gap-1.5",
+              company.bgActive,
+              "text-white hover:opacity-90 cursor-pointer"
+            )}
+          >
+            Visit
+            <span className="text-sm leading-none mb-0.5">→</span>
+          </NextLink>
+        )}
       </div>
 
-      {/* Outgoing dashed arrows to Regional Level for 4, 5, 6 */}
-      {/* {company.hasRegionalLayer && (
-                <div className={cx("absolute -bottom-[22px] left-1/2 -translate-x-1/2 w-px h-[22px] border-l border-dashed z-0", company.borderColor)} />
-            )} */}
     </article>
   );
 }
@@ -430,11 +447,6 @@ function CountryCompanyCard({
         <br />
         {displayName}
       </h4>
-      <div className="flex-grow" />
-      <div className="w-12 h-px bg-current opacity-30 my-3" />
-      <p className="m-0 text-[11px] text-gray-500 font-medium whitespace-pre-wrap">
-        {item.role}
-      </p>
     </article>
   );
 }
@@ -561,15 +573,15 @@ export default function MSWHoldingStructureUI() {
           // }
         />
 
-        <div className="flex-grow flex gap-8 bg-gradient-to-r from-[#eef4fb] to-[#f4f8fe] border border-[#d2e3f5] p-6 rounded-2xl shadow-sm">
+        <div className="flex items-center gap-8 bg-[#eef4fb] border border-[#d2e3f5] p-6 rounded-2xl shadow-sm">
           {/* Left: Country Selector */}
           <div className="w-[440px] flex flex-col flex-shrink-0">
-
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-3">
+            <div className=" items-center justify-between mb-2">
+              <div className="flex flex-col items-center gap-3">
                 <span className="text-[#1B2956] font-medium text-sm">
                   Select Country
                 </span>
+
                 <div className="border border-gray-300 rounded-lg bg-white px-3 py-1.5 text-xs shadow-sm relative">
                   <select
                     className="w-[170px] border-none outline-none bg-transparent font-medium text-gray-700 cursor-pointer appearance-none relative z-10 rounded-2xl"
@@ -602,48 +614,13 @@ export default function MSWHoldingStructureUI() {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#e2f1e6] text-[#73bf43] border border-[#c4e3cc] rounded-lg ml-2 px-3 py-1.5 text-[11px] font-medium whitespace-nowrap flex items-center gap-1.5">
-                <svg
-                  className="w-3.5 h-3.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  ></path>
-                </svg>
-                54 African Countries
-              </div>
-            </div>
-
-            <div className="relative mt-2">
-              <div className=" bg-white border border-gray-300 rounded-xl h-[280px] overflow-y-auto grid grid-cols-3 gap-x-2 gap-y-1.5 shadow-sm p-4 relative z-20">
-                {countries.map((country) => (
-                  <button
-                    type="button"
-                    key={country}
-                    className={cx("flex items-center gap-1.5 px-2 py-1 text-[10px] font-medium border-none bg-transparent text-left cursor-pointer text-gray-700 rounded transition-colors",
-                      selectedCountry === country
-                        ? "bg-blue-50 text-blue-700 font-bold"
-                        : "hover:bg-gray-50",
-                    )}
-                    onClick={() => setSelectedCountry(country)}
-                  >
-                    <span className="text-xs">🚩</span>{" "}
-                    <span className="truncate">{country}</span>
-                  </button>
-                ))}
-              </div>
+         
             </div>
           </div>
 
           {/* Right: Operating Companies */}
           <div className="flex-grow flex flex-col justify-end">
-                       <header className="mb-5 text-center">
+            <header className="mb-5 text-center">
               <h2 className="m-0 text-xl font-bold text-[#1B2956] tracking-wide">
                 MSME Solutions{" "}
                 {selectedCountry && selectedCountry !== "Select a Country"
@@ -690,23 +667,6 @@ export default function MSWHoldingStructureUI() {
           </div>
         </div>
       </section>
-
-      {/* Legend */}
-      <footer className="flex flex-wrap items-center gap-5 px-5 py-4 text-xs font-bold bg-gray-50 rounded-xl border border-gray-100">
-        <span className="flex items-center gap-2">
-          <i className="w-3 h-3 rounded-sm bg-[#1B2956]" /> Continental Level
-        </span>
-        <span className="flex items-center gap-2">
-          <i className="w-3 h-3 rounded-sm bg-[#115e34]" /> Regional Level
-        </span>
-        <span className="flex items-center gap-2">
-          <i className="w-3 h-3 rounded-sm bg-[#e86f28]" /> Country Level
-        </span>
-        <span className="ml-auto font-normal text-gray-500">
-          Only MSME Finance Incorporation Africa, M'IZITec Incorporation Africa
-          and M'Media Incorporation Africa have regional companies.
-        </span>
-      </footer>
     </main>
   );
 }

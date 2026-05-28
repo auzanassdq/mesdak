@@ -8,12 +8,12 @@ const financeCompanies = [
   {
     title: "MSME Finance Management Company",
     icon: <Building2 className="w-8 h-8" />,
-    description: "Professional fund and financial management services for MSME finance initiatives and investments.",
+    description: "Financial services for MSME finance initiatives.",
   },
   {
     title: "MSME Trade & Industrialisation Finance Company",
     icon: <Factory className="w-8 h-8" />,
-    description: "Financing trade, industry and industrialisation initiatives to drive productivity and economic growth.",
+    description: "Financing trade, industry and industrialisation initiatives.",
   },
   {
     title: "M’Pay International",
@@ -23,7 +23,7 @@ const financeCompanies = [
   {
     title: "MSW Fund Management",
     icon: <TrendingUp className="w-8 h-8" />,
-    description: "Investment management and wealth creation solutions for sustainable growth.",
+    description: "Financing MSME Growth & Development Globally.",
   },
   {
     title: "MSME Insurance Company",

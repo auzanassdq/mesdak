@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon, ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 
 import LocationTabs from '@/components/LocationTabs';
+import MSWHoldingStructureUI from '../../components/holding-structure';
 
 const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState(0);
@@ -555,6 +556,13 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
+
+            {/* Holding Structure Section (Africa Only) */}
+      {/* {process.env.NEXT_PUBLIC_REGION === 'africa' && ( */}
+        <section className="bg-white mb-32 mt-32">
+          <MSWHoldingStructureUI />
+        </section>
+      {/* )} */}
 
     </div>
   );

@@ -24,10 +24,10 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
     { name: "About Us", href: "#about" },
     { name: "Group Companies", href: "#companies" },
     { name: "Services", href: "#services" },
-    { name: "Careers", href: "#careers" },
+    { name: "Careers", href: "/careers" },
     { name: "Our Reach", href: "#reach" },
-    { name: "M'Brand", href: "#mbrand" },
-    { name: "M'SuperDeal", href: "#super-deal" },
+    { name: "M'Brand", href: "/mbrand" },
+    { name: "M'SuperDeal", href: "/super-deal" },
     { name: "Business Directory", href: "https://mnetgo.com/bd" },
   ];
 
