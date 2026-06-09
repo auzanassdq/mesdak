@@ -122,7 +122,7 @@ export default function OurReachSection({
                     href={region.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 text-gray-400 transition-colors duration-300 cursor-pointer flex items-center justify-center hover:scale-110 transform"
+                    className="flex-col px-4 py-2 text-gray-400 transition-colors duration-300 cursor-pointer flex items-center justify-center hover:scale-110 transform"
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = region.color;
                     }}
@@ -131,6 +131,7 @@ export default function OurReachSection({
                     }}
                   >
                     <ArrowRightIcon weight="light" className="w-7 h-7" />
+                    <div className="w-7 h-1 bg-black mt-2" style={{ backgroundColor: region.color }}></div>
                   </a>
                 )}
               </div>
