@@ -39,21 +39,19 @@ const AboutPage = () => {
     const newProgress = progressMap[sectionHash as keyof typeof progressMap];
     setScrollProgress(newProgress);
 
-    // Update browser scroll position to specific values
-    const scrollPositionMap: Record<string, number> = {
-      'vision': 500,
-      'mission': 700,
-      'action': 1200,
-      'our-board': 1400
-    };
-    const targetScrollY = scrollPositionMap[sectionHash as keyof typeof scrollPositionMap];
+    // Update browser scroll position dynamically based on sectionRef
+    if (sectionRef.current) {
+      const startY = sectionRef.current.offsetTop;
+      const totalScrollDistance = 9 * window.innerHeight; // matches "+=900vh" in ScrollTrigger
+      const targetScrollY = startY + (totalScrollDistance * newProgress);
 
-    console.log('Section Click:', section, 'Progress:', newProgress, 'TargetScrollY:', targetScrollY);
+      console.log('Section Click:', section, 'Progress:', newProgress, 'TargetScrollY:', targetScrollY);
 
-    window.scrollTo({
-      top: targetScrollY,
-      behavior: 'smooth'
-    });
+      window.scrollTo({
+        top: targetScrollY,
+        behavior: 'smooth'
+      });
+    }
   };
 
   // Handle URL hash on component mount
@@ -212,22 +210,80 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center max-w-4xl mx-auto"
+              className="max-w-4xl"
             >
-              {/* <span className="inline-block px-6 py-3 bg-primary text-white font-bold text-sm mb-6">
-                ABOUT INNOVATE MSME
-              </span> */}
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6">
                 About <span className="text-primary-light">Us</span>
               </h1>
-              <div className="text-white text-xl md:text-2xl font-medium md:leading-relaxed">
-                <p>Bridging the {getRegionConfig().region} fourth biggest gaps</p>
-                <p>MSME Finance,</p>
-                <p>SDG Execution,</p>
-                <p>Real-Time Economic Intelligence,</p>
-                <p>Human Capital Activation Gap</p>
-              </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Four Gaps Videos Section */}
+      <section className="relative z-20 py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">Bridging the {getRegionConfig().region} fourth biggest gaps</h2>
+            <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto">
+            {/* MSME Finance */}
+            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-6 text-center text-black">MSME Finance</h3>
+              <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/uWQ_8CtvzoY"
+                  title="MSME Finance Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
+            {/* SDG Execution */}
+            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-6 text-center text-black">SDG Execution</h3>
+              <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/gW22hVe5_fI"
+                  title="SDG Execution Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Real-Time Economic Intelligence */}
+            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-6 text-center text-black">Real-Time Economic Intelligence</h3>
+              <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/Dezxrb9fpM0"
+                  title="Real-Time Economic Intelligence Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Human Capital Activation Gap */}
+            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-6 text-center text-black">Human Capital Activation Gap</h3>
+              <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/uWQ_8CtvzoY"
+                  title="Human Capital Activation Gap Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -644,7 +700,10 @@ const AboutPage = () => {
                 <svg className="w-8 h-8 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <span className="text-lg">{selectedBoard === 'supervisory' ? 'Executive Board' : 'Supervisory Board'}</span>
+                <div className="flex flex-col items-start leading-tight">
+                  <span className="text-lg">{selectedBoard === 'supervisory' ? 'Executive' : 'Supervisory'}</span>
+                  <span className="text-lg">Board</span>
+                </div>
               </button>
             )}
 
@@ -654,8 +713,10 @@ const AboutPage = () => {
                 onClick={() => setSelectedBoard(selectedBoard === 'executive' ? 'supervisory' : 'advisory')}
                 className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
               >
-                <span className="text-lg">{selectedBoard === 'executive' ? 'Supervisory' : 'Advisory'}</span>
-                <span className="text-lg">Board</span>
+                <div className="flex flex-col items-end leading-tight">
+                  <span className="text-lg">{selectedBoard === 'executive' ? 'Supervisory' : 'Advisory'}</span>
+                  <span className="text-lg">Board</span>
+                </div>
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -668,7 +729,10 @@ const AboutPage = () => {
                 }}
                 className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
               >
-                <span className="text-lg">Our Companies</span>
+                <div className="flex flex-col items-end leading-tight">
+                  <span className="text-lg">Our</span>
+                  <span className="text-lg">Companies</span>
+                </div>
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
