@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import NextLink from "next/link";
+import { getRegionConfig } from "../lib/config";
 import {
   Network,
   BarChart2,
@@ -17,11 +18,22 @@ import {
   ArrowRight,
   Link,
 } from "lucide-react";
+import {
+  AfricaIcon,
+  AsiaIcon,
+  EuropeIcon,
+  LatinAmericaIcon,
+  NorthAmericaIcon,
+  AseuIcon,
+} from "@/components/icons/ContinentIcons";
+
+const regionConfig = getRegionConfig();
+const regionName = regionConfig.region;
 
 const continentalCompanies = [
   {
     id: 1,
-    name: "MSME Network Incorporation Africa",
+    name: `MSME Network Incorporation ${regionName}`,
     slogan: "Unlock Untapped Potentials",
     role: "Identity, networking & ecosystem infrastructure",
     color: "text-[#e86f28]",
@@ -32,7 +44,7 @@ const continentalCompanies = [
   },
   {
     id: 2,
-    name: "M'Butic Incorporation Africa",
+    name: `M'Butic Incorporation ${regionName}`,
     slogan: "Welcome to the Future of Commerce",
     role: "Commerce & marketplace infrastructure",
     color: "text-[#73bf43]",
@@ -43,7 +55,7 @@ const continentalCompanies = [
   },
   {
     id: 3,
-    name: "MSME Development Consulting Incorporation Africa",
+    name: `MSME Development Consulting Incorporation ${regionName}`,
     slogan: "Think the Unthought",
     role: "Advisory, capacity building & implementation",
     color: "text-[#0d9488]",
@@ -54,7 +66,7 @@ const continentalCompanies = [
   },
   {
     id: 4,
-    name: "MSME Finance Incorporation Africa",
+    name: `MSME Finance Incorporation ${regionName}`,
     slogan: "Finance Re-imagined",
     role: "Financial ecosystem & capital infrastructure",
     color: "text-[#d4af37]",
@@ -66,7 +78,7 @@ const continentalCompanies = [
   },
   {
     id: 5,
-    name: "M'IZITec Incorporation Africa",
+    name: `M'IZITec Incorporation ${regionName}`,
     slogan: "Driving Business Through Digital Power",
     role: "Technology engineering & AI",
     color: "text-[#4182C0]",
@@ -78,7 +90,7 @@ const continentalCompanies = [
   },
   {
     id: 6,
-    name: "M'Media Incorporation Africa",
+    name: `M'Media Incorporation ${regionName}`,
     slogan: "Be Faster, Easier & Everywhere",
     role: "Media, communication & engagement",
     color: "text-[#30308E]",
@@ -90,7 +102,7 @@ const continentalCompanies = [
   },
   {
     id: 7,
-    name: "M'DataTalk Incorporation Africa",
+    name: `M'DataTalk Incorporation ${regionName}`,
     slogan: "Unlock Insight Within Data",
     role: "Data, analytics & intelligence",
     color: "text-[#6b21a8]",
@@ -222,6 +234,18 @@ function cx(...classes: (string | undefined | null | false)[]) {
   return classes.filter(Boolean).join(" ");
 }
 
+const ContinentIcon = ({ regionId, className }: { regionId: string, className?: string }) => {
+  switch (regionId) {
+    case "africa": return <AfricaIcon className={className} color="white" />;
+    case "asia": return <AsiaIcon className={className} color="white" />;
+    case "europe": return <EuropeIcon className={className} color="white" />;
+    case "latin-america": return <LatinAmericaIcon className={className} color="white" />;
+    case "north-america": return <NorthAmericaIcon className={className} color="white" />;
+    case "aseu": return <AseuIcon className={className} color="white" />;
+    default: return <Globe className={className} strokeWidth={1.5} color="white" />;
+  }
+};
+
 function SidebarLabel({
   type,
   title,
@@ -247,7 +271,7 @@ function SidebarLabel({
     >
       <div className="text-4xl leading-none mb-3">
         {type === "continental" ? (
-          <Globe className="w-12 h-12 mx-auto opacity-90" strokeWidth={1.5} />
+          <ContinentIcon regionId={regionConfig.id} className="w-12 h-12 mx-auto opacity-90" />
         ) : type === "regional" ? (
           <MapPin className="w-12 h-12 mx-auto" />
         ) : (
@@ -456,9 +480,9 @@ export default function MSWHoldingStructureUI() {
   const [selectedRegions, setSelectedRegions] = useState<
     Record<string, string>
   >({
-    "MSME Finance Incorporation Africa": "Select Region",
-    "M'IZITec Incorporation Africa": "Select Region",
-    "M'Media Incorporation Africa": "Select Region",
+    [`MSME Finance Incorporation ${regionName}`]: "Select Region",
+    [`M'IZITec Incorporation ${regionName}`]: "Select Region",
+    [`M'Media Incorporation ${regionName}`]: "Select Region",
   });
 
   const selectedCountryEntities = useMemo(
@@ -491,8 +515,8 @@ export default function MSWHoldingStructureUI() {
         <div className="flex-grow bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
           <header className="bg-white text-white rounded-xl flex items-center justify-center px-12 py-4 w-fit mx-auto shadow-lg relative z-10 border border-gray-100">
             <img
-              src="/images/logo-africa.png"
-              alt="MSME Solutions Africa Logo"
+              src={regionConfig.logo}
+              alt={`${regionConfig.name} Logo`}
               className="h-[70px] w-auto object-contain"
             />
           </header>

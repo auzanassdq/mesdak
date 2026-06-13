@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon, GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon, X, CaretLeftIcon } from '@phosphor-icons/react/dist/ssr';
 import companySummaries from '@/app/companies/data/companies-summary.json';
+import MSWHoldingStructureUI from '@/components/holding-structure';
 
 interface Company {
   id: number;
@@ -306,6 +307,10 @@ const GroupCompaniesPage = () => {
             This is a purpose-built ecosystem that makes scale and complexity its core moat and value driver
           </motion.p>
         </div>
+      </section>
+
+      <section className="bg-white mb-32 mt-32">
+        <MSWHoldingStructureUI />
       </section>
 
       {/* Services Section */}

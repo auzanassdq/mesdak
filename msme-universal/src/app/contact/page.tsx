@@ -556,14 +556,6 @@ const ContactPage = () => {
           </motion.div>
         </div>
       </section>
-
-            {/* Holding Structure Section (Africa Only) */}
-      {/* {process.env.NEXT_PUBLIC_REGION === 'africa' && ( */}
-        <section className="bg-white mb-32 mt-32">
-          <MSWHoldingStructureUI />
-        </section>
-      {/* )} */}
-
     </div>
   );
 };
