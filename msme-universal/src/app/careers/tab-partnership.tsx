@@ -77,110 +77,29 @@ export default function TabPartnership() {
       transition={{ duration: 0.5 }}
     >
      
-      <section className="min-h-[calc(100vh-16rem)] bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden py-16">
-        {/* Floating Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
+      {/* unleash your idea */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
           <motion.div
-            animate={{
-              y: [-20, 20, -20],
-              rotate: [0, 5, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"
-          />
-          <motion.div
-            animate={{
-              y: [20, -20, 20],
-              rotate: [0, -5, 0],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-40 right-20 w-32 h-32 bg-blue-400/10 rounded-full blur-xl"
-          />
-          <motion.div
-            animate={{
-              y: [-15, 15, -15],
-              x: [-10, 10, -10],
-            }}
-            transition={{
-              duration: 7,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-400/10 rounded-full blur-xl"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="container mx-auto px-6 relative z-10 flex flex-col gap-8 h-[calc(100vh-16rem)] justify-center">
-          {/* Unleash Your Ideas */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto bg-white rounded-[2rem] p-10 md:p-16 border border-gray-200 shadow-sm flex flex-col md:flex-row items-center gap-10 md:gap-16"
           >
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-              }}
-              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden rounded-3xl"
-            >
-              {/* Animated Border Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Sparkle Effects */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute top-4 right-4 w-2 h-2 bg-yellow-400 rounded-full"
-              />
-
-              <div className="flex items-center justify-center mb-4 relative z-10">
-                <motion.div
-                  whileHover={{
-                    rotate: [0, -10, 10, 0],
-                    scale: 1.1
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg rounded-lg"
-                >
-                  <LightbulbFilamentIcon className="w-8 h-8 text-white group-hover:text-primary transition-colors duration-300" />
-                </motion.div>
+            <div className="flex-shrink-0">
+              <div className="w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-primary/5 flex items-center justify-center border border-primary/10">
+                <LightbulbFilamentIcon className="w-12 h-12 md:w-16 md:h-16 text-primary" />
               </div>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl font-bold text-gray-900 group-hover:text-white leading-tight mb-4 relative z-10"
-              >
-                Unleash Your Ideas, <br /> Build a Better Tomorrow
-              </motion.h3>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-xl text-gray-700 group-hover:text-white leading-relaxed max-w-3xl mx-auto font-medium relative z-10"
-              >
-                We are committed to fostering a collaborative environment where <br /> your expertise can drive meaningful change in the MSME landscape.
-              </motion.p>
-            </motion.div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
+                Unleash Your Ideas, <br className="hidden lg:block" /> Build a Better Tomorrow
+              </h3>
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                We are committed to fostering a collaborative environment where your expertise can drive meaningful change in the MSME landscape.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -270,63 +189,21 @@ export default function TabPartnership() {
       </section>
 
       {/* Share Your Game */}
-      <section className="bg-gradient-to-br from-primary-50 via-white to-purple-50 relative overflow-hidden py-16">
-        <div className="container mx-auto px-6 relative z-10">
+      <section className="bg-white py-16 border-t border-gray-100">
+        <div className="container mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-center max-w-4xl mx-auto bg-gray-50 rounded-3xl p-12 border border-gray-200"
           >
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                rotateY: 5,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-              }}
-              className="bg-white/90 backdrop-blur-sm border-4 border-black p-8 shadow-2xl hover:bg-primary hover:text-white group transition-all duration-500 relative overflow-hidden rounded-3xl"
-            >
-              {/* Animated Border Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Sparkle Effects */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute top-4 right-4 w-2 h-2 bg-yellow-400 rounded-full"
-              />
-
-              <div className="flex items-center justify-center mb-4 relative z-10">
-                <motion.div
-                  whileHover={{
-                    rotate: [0, -10, 10, 0],
-                    scale: 1.1
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-primary group-hover:bg-white p-4 border-2 border-black shadow-lg rounded-lg"
-                >
-                  <TrendUpIcon className="w-8 h-8 text-white group-hover:text-primary transition-colors duration-300" />
-                </motion.div>
-              </div>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl font-bold text-gray-900 group-hover:text-white leading-tight mb-4 relative z-10"
-              >
-                Share Your Game-Changing Ideas and <br /> Shape the Future of MSMEs
-              </motion.h3>
-
-        
-            </motion.div>
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
+              <TrendUpIcon className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+              Share Your Game-Changing Ideas and <br className="hidden md:block" /> Shape the Future of MSMEs
+            </h3>
           </motion.div>
         </div>
       </section>
