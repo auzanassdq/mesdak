@@ -308,10 +308,12 @@ const GroupCompaniesPage = () => {
           </motion.p>
         </div>
       </section>
-
-      <section className="bg-white mb-32 mt-32">
-        <MSWHoldingStructureUI />
-      </section>
+      
+      {process.env.NEXT_PUBLIC_REGION !== "world" && (
+        <section className="bg-white mb-32 mt-32">
+          <MSWHoldingStructureUI />
+        </section>
+      )}
 
       {/* Services Section */}
       <section className="py-20 bg-gray-200">

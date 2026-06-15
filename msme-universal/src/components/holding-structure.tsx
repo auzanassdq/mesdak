@@ -221,7 +221,7 @@ const countryOperatingCompanies = [
     icon: <Wallet className="w-6 h-6" />,
   },
   {
-    name: "MSME Consulting Incorporation",
+    name: "M'Consulting Incorporation",
     role: "Advisory, Capacity\nBuilding & Implementation",
     color: "text-[#d4af37]",
     borderColor: "border-[#d4af37]",
@@ -454,7 +454,7 @@ function CountryCompanyCard({
       : "[Country Name]";
   return (
     <article
-      className={cx("border rounded-xl p-4 flex flex-col items-center text-center bg-white min-h-[190px] shadow-sm",
+      className={cx("border rounded-xl p-4 flex flex-col items-center text-center bg-white min-h-[180px] shadow-sm",
         item.borderColor,
         item.color,
       )}
