@@ -508,7 +508,7 @@ const AboutPage = () => {
                   {currentSection === 'mission' && (
                     <SectionWithVideo
                       title="MISSION"
-                      content="Assist MSMEs to become the driver of <br /> Industrialisation, Growth and Job creation in <br /> Developing & Emerging countries."
+                      content={`Assist MSMEs to become the driver of <br /> Industrialisation, Growth and Job creation in ${getRegionConfig().region}.`}
                       youtubeVideoId="gW22hVe5_fI"
                       fallbackVideoSrc="/videos/hero-background.mp4"
                     />
