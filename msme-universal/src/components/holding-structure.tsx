@@ -613,7 +613,7 @@ export default function MSWHoldingStructureUI() {
                     onChange={(e) => setSelectedCountry(e.target.value)}
                   >
                     <option value="Select a Country">
-                      Select a Country (1 of 54)
+                      Select Country
                     </option>
                     {countries.map((country) => (
                       <option key={country} value={country}>

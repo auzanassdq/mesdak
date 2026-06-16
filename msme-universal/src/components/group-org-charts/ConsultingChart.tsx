@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { Users, Globe, Landmark, BarChart3, CheckCircle2 } from "lucide-react";
+import { AfricaIcon, AsiaIcon, LatinAmericaIcon, NorthAmericaIcon, AseuIcon, EuropeIcon } from "../icons/ContinentIcons";
 
 interface Entity {
   title: string;
@@ -16,42 +17,42 @@ interface Entity {
 const developmentEntities: Entity[] = [
   {
     title: "Africa Development Incorporation",
-    icon: <Globe className="w-8 h-8" />,
+    icon: <AfricaIcon className="w-8 h-8" />,
     description: "Sustainable development & business growth in Africa.",
     themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
     iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "Asia Development Incorporation",
-    icon: <Globe className="w-8 h-8" />,
+    icon: <AsiaIcon className="w-8 h-8" />,
     description: "Fostering economic growth & partnerships in Asia.",
     themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
     iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "Latin America Development Incorporation",
-    icon: <Globe className="w-8 h-8" />,
+    icon: <LatinAmericaIcon className="w-8 h-8" />,
     description: "Accelerating initiatives & opportunities in LatAm.",
     themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
     iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "North America Development Incorporation",
-    icon: <Globe className="w-8 h-8" />,
+    icon: <NorthAmericaIcon className="w-8 h-8" />,
     description: "Supporting innovation & growth across NA markets.",
     themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
     iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "ASEU Development Incorporation",
-    icon: <Globe className="w-8 h-8" />,
+    icon: <AseuIcon className="w-8 h-8" />,
     description: "Advancing economic collaboration across ASEU.",
     themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
     iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
   },
   {
     title: "Europe Development Incorporation",
-    icon: <Globe className="w-8 h-8" />,
+    icon: <EuropeIcon className="w-8 h-8" />,
     description: "Business transformation & sustainable growth in EU.",
     themeClass: "border-[#0d9488]/20 hover:border-[#0d9488]/40",
     iconClass: "bg-[#0d9488]/10 text-[#0d9488]",
@@ -80,7 +81,7 @@ const allEntities = [...developmentEntities, ...serviceEntities];
 
 export default function MSMEConsultingGlobalOrgChart() {
   return (
-    <div className="w-full max-w-[1600px] mx-auto p-8 font-sans overflow-hidden">
+    <div className="w-full max-w-[1600px] mx-auto p-4 md:p-8 font-sans">
       {/* Root Node */}
       <div className="flex flex-col items-center relative z-10">
         <div className="bg-[#0d9488] text-white rounded-2xl shadow-xl p-8 w-[460px] flex flex-col items-center relative z-10 border-4 border-white">
@@ -91,8 +92,8 @@ export default function MSMEConsultingGlobalOrgChart() {
         <div className="w-0.5 h-10 bg-[#0d9488]" />
       </div>
 
-      <div className="w-full overflow-x-auto pb-12 pt-2 -mt-2">
-        <div className="min-w-[1300px]">
+      <div className="w-full pb-12 pt-2 -mt-2">
+        <div className="w-full">
           {/* Orthogonal Connection Lines using Grid */}
           <div className="grid grid-cols-8 gap-0 w-full">
             {allEntities.map((_, i) => (
