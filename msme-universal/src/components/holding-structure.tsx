@@ -33,7 +33,7 @@ const regionName = regionConfig.region;
 const continentalCompanies = [
   {
     id: 1,
-    name: `MSME Network Incorporation ${regionName}`,
+    name: `MSME Network Incorporation\n${regionName}`,
     slogan: "Unlock Untapped Potentials",
     role: "Identity, networking & ecosystem infrastructure",
     color: "text-[#e86f28]",
@@ -44,7 +44,7 @@ const continentalCompanies = [
   },
   {
     id: 2,
-    name: `M'Butic Incorporation ${regionName}`,
+    name: `M'Butic Incorporation\n${regionName}`,
     slogan: "Welcome to the Future of Commerce",
     role: "Commerce & marketplace infrastructure",
     color: "text-[#73bf43]",
@@ -55,7 +55,7 @@ const continentalCompanies = [
   },
   {
     id: 3,
-    name: `MSME Development Consulting Incorporation ${regionName}`,
+    name: `MSME Development Consulting Incorporation\n${regionName}`,
     slogan: "Think the Unthought",
     role: "Advisory, capacity building & implementation",
     color: "text-[#0d9488]",
@@ -66,7 +66,7 @@ const continentalCompanies = [
   },
   {
     id: 4,
-    name: `MSME Finance Incorporation ${regionName}`,
+    name: `MSME Finance Incorporation\n${regionName}`,
     slogan: "Finance Re-imagined",
     role: "Financial ecosystem & capital infrastructure",
     color: "text-[#d4af37]",
@@ -78,7 +78,7 @@ const continentalCompanies = [
   },
   {
     id: 5,
-    name: `M'IZITec Incorporation ${regionName}`,
+    name: `M'IZITec Incorporation\n${regionName}`,
     slogan: "Driving Business Through Digital Power",
     role: "Technology engineering & AI",
     color: "text-[#4182C0]",
@@ -90,7 +90,7 @@ const continentalCompanies = [
   },
   {
     id: 6,
-    name: `M'Media Incorporation ${regionName}`,
+    name: `M'Media Incorporation\n${regionName}`,
     slogan: "Be Faster, Easier & Everywhere",
     role: "Media, communication & engagement",
     color: "text-[#30308E]",
@@ -102,7 +102,7 @@ const continentalCompanies = [
   },
   {
     id: 7,
-    name: `M'DataTalk Incorporation ${regionName}`,
+    name: `M'DataTalk Incorporation\n${regionName}`,
     slogan: "Unlock Insight Within Data",
     role: "Data, analytics & intelligence",
     color: "text-[#6b21a8]",
@@ -130,62 +130,12 @@ const regionalOptions = [
   "DRC",
 ];
 
-const countries = [
-  "Algeria",
-  "Angola",
-  "Benin",
-  "Botswana",
-  "Burkina Faso",
-  "Burundi",
-  "Cabo Verde",
-  "Cameroon",
-  "Central African Republic",
-  "Chad",
-  "Comoros",
-  "Congo",
-  "Côte d'Ivoire",
-  "Djibouti",
-  "DRC",
-  "Egypt",
-  "Equatorial Guinea",
-  "Eritrea",
-  "Eswatini",
-  "Ethiopia",
-  "Gabon",
-  "Gambia",
-  "Ghana",
-  "Guinea",
-  "Guinea-Bissau",
-  "Kenya",
-  "Lesotho",
-  "Liberia",
-  "Libya",
-  "Madagascar",
-  "Malawi",
-  "Mali",
-  "Mauritania",
-  "Mauritius",
-  "Morocco",
-  "Mozambique",
-  "Namibia",
-  "Niger",
-  "Nigeria",
-  "Rwanda",
-  "São Tomé and Príncipe",
-  "Senegal",
-  "Seychelles",
-  "Sierra Leone",
-  "Somalia",
-  "South Africa",
-  "South Sudan",
-  "Sudan",
-  "Tanzania",
-  "Togo",
-  "Tunisia",
-  "Uganda",
-  "Zambia",
-  "Zimbabwe",
-];
+import countriesData from '../lib/countries.json';
+
+const allCountries = Array.from(new Set(Object.values(countriesData).flat())).sort();
+const countries = regionConfig.id === 'world' 
+  ? allCountries 
+  : (countriesData as Record<string, string[]>)[regionConfig.id] || [];
 
 const countryOperatingCompanies = [
   {
@@ -315,7 +265,7 @@ function CompanyCard({ company }: { company: any }) {
           {company.icon}
         </div>
 
-        <h4 className="m-0 text-[13px] font-bold leading-snug px-1 text-current">
+        <h4 className="m-0 text-[13px] font-bold leading-snug px-1 text-current whitespace-pre-line">
           {company.name}
         </h4>
         <div className="flex-grow" />
@@ -366,7 +316,7 @@ function RegionalPanel({
           {company.icon}
         </div>
         <div>
-          <h4 className="m-0 text-[13px] font-bold leading-snug text-[#172033]">
+          <h4 className="m-0 text-[13px] font-bold leading-snug text-[#172033] whitespace-pre-line">
             {company.name}
           </h4>
           <p
@@ -480,9 +430,9 @@ export default function MSWHoldingStructureUI() {
   const [selectedRegions, setSelectedRegions] = useState<
     Record<string, string>
   >({
-    [`MSME Finance Incorporation ${regionName}`]: "Select Region",
-    [`M'IZITec Incorporation ${regionName}`]: "Select Region",
-    [`M'Media Incorporation ${regionName}`]: "Select Region",
+    [`MSME Finance Incorporation\n${regionName}`]: "Select Region",
+    [`M'IZITec Incorporation\n${regionName}`]: "Select Region",
+    [`M'Media Incorporation\n${regionName}`]: "Select Region",
   });
 
   const selectedCountryEntities = useMemo(
