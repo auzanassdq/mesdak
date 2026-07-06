@@ -344,7 +344,7 @@ function RegionalPanel({
             onChange={(e) => setSelectedRegion(e.target.value)}
           >
             <option value="Select Region">Select Region</option>
-            {regionalOptions.map((region) => (
+            {regionConfig.id === 'africa' && regionalOptions.map((region) => (
               <option key={region} value={region}>
                 {region}
               </option>
