@@ -148,7 +148,7 @@ export default function ConsultingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Governments & Public Institutions",
+              "Governments, Public Institutions, <br/> Central Bank, & Financial Centre",
               "MDBs, DFIs & Development Banks",
               "Commercial Banks & Microfinance Institutions",
               "International Development Agencies & NGOs",

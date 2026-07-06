@@ -21,7 +21,7 @@ const financeCompanies = [
     description: "Global payment solutions and financial technology services for MSMEs across borders.",
   },
   {
-    title: "MSW Fund Management",
+    title: "MSW Asset Management",
     icon: <TrendingUp className="w-8 h-8" />,
     description: "Financing MSME Growth & Development Globally.",
   },

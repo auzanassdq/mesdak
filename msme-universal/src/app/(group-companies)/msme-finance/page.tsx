@@ -173,11 +173,11 @@ export default function MFIPage() {
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
               "Investment Strategy & Structuring for MSME growth",
-              "Fundraising, Capital Mobilisation & Fund Management",
+              "Fundraising, Capital Mobilisation & Asset Management",
               "Risk-Mitigation & Insurance Engineering",
               "Payment Infrastructure & Digital Finance Solutions",
               "Digital Financial & Insurance Product Definition, Design & Deployment",
-              "Strategic Partnerships with Banks, MDBs, DFIs, Governments, Sovereign Wealth Funds, Pension Funds & Asset Managers"
+              "Strategic Partnerships with Banks, MDBs, DFIs, Governments, Sovereign Wealth Funds, Pension Funds & Asset Managers, Financial Centre and Central Bank"
             ].map((capability, idx) => (
               <motion.div
                 key={idx}

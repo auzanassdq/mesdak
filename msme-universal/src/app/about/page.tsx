@@ -18,6 +18,7 @@ const AboutPage = () => {
   const [currentSection, setCurrentSection] = useState<SectionType>('vision');
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollTriggerRef = useRef<globalThis.ScrollTrigger | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -29,21 +30,24 @@ const AboutPage = () => {
     const sectionHash = section.replace(' ', '-');
     window.history.pushState(null, '', `#${sectionHash}`);
 
-    // Update scroll progress based on section
+    // Update scroll progress based on section to land safely within each bracket
+    // vision: 0 ( < 0.15)
+    // mission: 0.35 ( 0.15 - 0.65 )
+    // action: 0.75 ( 0.65 - 0.95 )
+    // our-board: 0.98 ( > 0.95 )
     const progressMap: Record<string, number> = {
       'vision': 0,
-      'mission': 0.33,
-      'action': 0.66,
-      'our-board': 1
+      'mission': 0.35,
+      'action': 0.75,
+      'our-board': 0.98
     };
     const newProgress = progressMap[sectionHash as keyof typeof progressMap];
     setScrollProgress(newProgress);
 
-    // Update browser scroll position dynamically based on sectionRef
-    if (sectionRef.current) {
-      const startY = sectionRef.current.offsetTop;
-      const totalScrollDistance = 9 * window.innerHeight; // matches "+=900vh" in ScrollTrigger
-      const targetScrollY = startY + (totalScrollDistance * newProgress);
+    // Update browser scroll position dynamically based on ScrollTrigger's actual boundaries
+    if (scrollTriggerRef.current) {
+      const st = scrollTriggerRef.current;
+      const targetScrollY = st.start + (st.end - st.start) * newProgress;
 
       console.log('Section Click:', section, 'Progress:', newProgress, 'TargetScrollY:', targetScrollY);
 
@@ -79,7 +83,7 @@ const AboutPage = () => {
     let currentIndex = 0;
 
     // Create ScrollTrigger for pinning the section with smooth scrolling
-    ScrollTrigger.create({
+    scrollTriggerRef.current = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
       end: "+=900vh", // 4x viewport height for smoother transitions
@@ -116,6 +120,9 @@ const AboutPage = () => {
     });
 
     return () => {
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+      }
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
