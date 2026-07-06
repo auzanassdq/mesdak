@@ -93,11 +93,11 @@ Institutions Financial Governments
           >
             <ul className='flex gap-2'>
               <li><Image alt="logo" src="/logo/blue.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/teal.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/green.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/orange.png" width={20} height={20} /> </li>
               <li><Image alt="logo" src="/logo/brown.png" width={20} height={20} /> </li>
+              <li><Image alt="logo" src="/logo/teal.png" width={20} height={20} /> </li>
               <li><Image alt="logo" src="/logo/indigo.png" width={20} height={20} /> </li>
+              <li><Image alt="logo" src="/logo/orange.png" width={20} height={20} /> </li>
+              <li><Image alt="logo" src="/logo/green.png" width={20} height={20} /> </li>
               <li><Image alt="logo" src="/logo/pink.png" width={20} height={20} /> </li>
             </ul>
 
