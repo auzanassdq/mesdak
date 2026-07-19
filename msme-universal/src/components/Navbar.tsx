@@ -44,19 +44,19 @@ const Navbar = () => {
 
   const getLogo = () => {
     if (pathname?.includes("msme-network"))
-      return "/logo/group-companies/network.png";
+      return "/logos/group-companies/network.png";
     if (pathname?.includes("msme-butic"))
-      return "/logo/group-companies/butic.png";
+      return "/logos/group-companies/butic.png";
     if (pathname?.includes("msme-consulting"))
-      return "/logo/group-companies/consulting.png";
+      return "/logos/group-companies/consulting.png";
     if (pathname?.includes("msme-finance"))
-      return "/logo/group-companies/finance.png";
+      return "/logos/group-companies/finance.png";
     if (pathname?.includes("msme-izitec"))
-      return "/logo/group-companies/izitec.png";
+      return "/logos/group-companies/izitec.png";
     if (pathname?.includes("msme-media"))
-      return "/logo/group-companies/media.png";
+      return "/logos/group-companies/media.png";
     if (pathname?.includes("msme-datatalk"))
-      return "/logo/group-companies/datatalk.jpeg";
+      return "/logos/group-companies/datatalk.jpeg";
     return config.logo;
   };
 

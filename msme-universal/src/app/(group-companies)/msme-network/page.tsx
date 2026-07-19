@@ -72,7 +72,7 @@ export default function MSMENetworkPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden selection:bg-[#E86F28] selection:text-slate-950 scroll-smooth">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/network.png" themeColor="#e86f28" />
+      <GroupCompanyNavbar logoSrc="/logos/group-companies/network.png" themeColor="#e86f28" />
 
 
       {/* Hero Section */}

@@ -45,7 +45,7 @@ export default function MMediaOrgChart() {
       {/* Root Node */}
       <div className="flex flex-col items-center">
         <div className="bg-[#30308E] text-white rounded-2xl shadow-xl p-8 w-[440px] flex flex-col items-center relative z-10 border-4 border-white">
-          <Image src="/logo/group-companies/media.png" alt="Media Logo" width={400} height={400} className="object-contain" />
+          <Image src="/logos/group-companies/media.png" alt="Media Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import { FacebookLogoIcon, LinkedinLogoIcon, MagnifyingGlassIcon, XLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 import { getRegionConfig } from '@/lib/config';
+import { products } from '@/lib/products';
 
 const Footer = () => {
   const config = getRegionConfig();
@@ -91,14 +92,14 @@ Institutions Financial Governments
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <ul className='flex gap-2'>
-              <li><Image alt="logo" src="/logo/blue.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/brown.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/teal.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/indigo.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/orange.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/green.png" width={20} height={20} /> </li>
-              <li><Image alt="logo" src="/logo/pink.png" width={20} height={20} /> </li>
+            <ul className='flex gap-2 flex-wrap'>
+              {products.map((product) => (
+                <li key={product.id}>
+                  <Link href={product.route} title={product.name}>
+                    <Image alt={product.name} src={product.logo} width={20} height={20} className="object-contain h-[20px] w-auto" />
+                  </Link>
+                </li>
+              ))}
             </ul>
 
             <ul className="space-y-2 mt-4">

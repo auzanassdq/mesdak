@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
 import Image from 'next/image';
 import { getRegionConfig } from '@/lib/config';
+import { products } from '@/lib/products';
 
 const Hero = () => {
   const config = getRegionConfig();
@@ -123,14 +124,12 @@ const Hero = () => {
       {/* Logo Collection - positioned at bottom */}
       <div className="absolute bottom-6 z-15 container mx-auto px-8">
         <div className="flex justify-between">
-          <div className='flex gap-2'>
-            <img src="/logo/blue.png" alt="Blue Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-            <img src="/logo/brown.png" alt="Brown Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-            <img src="/logo/teal.png" alt="Teal Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-            <img src="/logo/indigo.png" alt="Indigo Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-            <img src="/logo/orange.png" alt="Orange Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-            <img src="/logo/green.png" alt="Green Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
-            <img src="/logo/pink.png" alt="Pink Logo" className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+          <div className='flex gap-2 flex-wrap'>
+            {products.map((product) => (
+              <Link key={product.id} href={product.route} title={product.name}>
+                <Image src={product.logo} alt={product.name} width={24} height={24} className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity object-contain" />
+              </Link>
+            ))}
           </div>
 
           {/* Social Media Icons */}

@@ -37,7 +37,7 @@ export default function MFIPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden selection:bg-[#D4AF37] selection:text-slate-950 scroll-smooth">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/finance.png" themeColor="#d4af37" />
+      <GroupCompanyNavbar logoSrc="/logos/group-companies/finance.png" themeColor="#d4af37" />
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">

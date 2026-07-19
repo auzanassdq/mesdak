@@ -22,7 +22,7 @@ export default function ConsultingPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/consulting.png" themeColor="#0d9488" />
+      <GroupCompanyNavbar logoSrc="/logos/group-companies/consulting.png" themeColor="#0d9488" />
 
       {/* Hero Section */}
       <section id="hero" className="relative pt-40 pb-32 overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30">
@@ -131,6 +131,29 @@ export default function ConsultingPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlight Banner Section */}
+      <section className="bg-white pb-12">
+        <div className="container mx-auto px-6">
+          <div className="bg-slate-900 rounded-2xl shadow-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                Enterprise Growth & Transition Advisory
+              </h3>
+              <p className="text-slate-300 text-lg">
+                Transforming Enterprises. • Building Wealth. • Creating Family Legacies.
+              </p>
+            </div>
+            
+            <div>
+              <Link href="#services" className="bg-teal-600 text-white font-semibold px-8 py-4 rounded-xl flex items-center gap-2 hover:bg-teal-500 transition-colors duration-300 whitespace-nowrap group">
+                <span>Explore Our Services</span>
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
         </div>

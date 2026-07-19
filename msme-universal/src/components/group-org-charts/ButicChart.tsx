@@ -29,7 +29,7 @@ export default function MButicOrgChart() {
       {/* Root Node */}
       <div className="flex flex-col items-center">
         <div className="bg-[#73bf43] text-white rounded-2xl shadow-xl p-8 w-[420px] flex flex-col items-center relative z-10 border-4 border-white">
-            <Image src="/logo/group-companies/butic.png" alt="M'Butic Logo" width={400} height={400} className="object-contain" />
+            <Image src="/logos/group-companies/butic.png" alt="M'Butic Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

@@ -28,7 +28,7 @@ export default function MDataTalkOrgChart() {
       {/* Root Node */}
       <div className="flex flex-col items-center">
         <div className="bg-[#6b21a8] text-white rounded-2xl shadow-xl p-8 w-[420px] flex flex-col items-center relative z-10 border-4 border-white">
-          <Image src="/logo/group-companies/datatalk.jpeg" alt="M'DataTalk Logo" width={400} height={400} className="object-contain" />
+          <Image src="/logos/group-companies/datatalk.jpeg" alt="M'DataTalk Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

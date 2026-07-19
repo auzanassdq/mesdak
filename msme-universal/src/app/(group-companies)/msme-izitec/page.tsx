@@ -10,7 +10,7 @@ import OurReachSection from "@/components/group-org-charts/OurReachSection";
 export default function IzitecPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/izitec.png" />
+      <GroupCompanyNavbar logoSrc="/logos/group-companies/izitec.png" />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-slate-50 to-blue-50/30">
@@ -274,7 +274,7 @@ export default function IzitecPage() {
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="relative h-12 w-40 mx-auto mb-6 opacity-80">
             <Image
-              src="/izitec-logo.png"
+              src="/logos/group-companies/izitec.png"
               alt="M&apos;IZITec Logo"
               fill
               className="object-contain"

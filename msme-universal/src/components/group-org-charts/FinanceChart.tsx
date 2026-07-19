@@ -71,7 +71,7 @@ export default function MSMEFinanceOrgChart() {
       {/* Root Node */}
       <div className="flex flex-col items-center relative z-10">
         <div className="bg-[#d4af37] text-white rounded-2xl shadow-xl p-8 w-[460px] flex flex-col items-center relative z-10 border-4 border-white">
-            <Image src="/logo/group-companies/finance.png" alt="MFI Logo" width={400} height={400} className="object-contain" />
+            <Image src="/logos/group-companies/finance.png" alt="MFI Logo" width={400} height={400} className="object-contain" />
         </div>
 
         {/* Vertical line dropping from root */}

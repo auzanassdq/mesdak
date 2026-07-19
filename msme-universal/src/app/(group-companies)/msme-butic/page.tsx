@@ -28,7 +28,7 @@ export default function MButicPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 selection:bg-[#73BF43] selection:text-slate-950 scroll-smooth font-sans overflow-x-hidden">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/butic.png" themeColor="#73bf43" />
+      <GroupCompanyNavbar logoSrc="/logos/group-companies/butic.png" themeColor="#73bf43" />
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative h-screen flex items-center justify-center pt-20 overflow-hidden">

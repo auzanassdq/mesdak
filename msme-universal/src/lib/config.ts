@@ -57,7 +57,7 @@ export const regionConfigs: Record<Region, RegionConfig> = {
     name: 'MSME Solutions North America',
     region: 'North America',
     heroTitle: 'Welcome to MSME Solutions North America',
-    logo: '/images/logo-north-america.png',
+    logo: '/logos/regions/logo-north-america.png',
     colors: {
       primary: '#0E1E39',
       primaryDark: '#081222',
@@ -82,7 +82,7 @@ export const regionConfigs: Record<Region, RegionConfig> = {
     name: 'MSME Solutions Asia',
     region: 'Asia',
     heroTitle: 'Welcome to MSME Solutions Asia',
-    logo: '/images/logo-asia.png',
+    logo: '/logos/regions/logo-asia.png',
     colors: {
       primary: '#BC3126',
       primaryDark: '#8d251c',
@@ -107,7 +107,7 @@ export const regionConfigs: Record<Region, RegionConfig> = {
     name: 'MSME Solutions Africa',
     region: 'Africa',
     heroTitle: 'Welcome to MSME Solutions Africa',
-    logo: '/images/logo-africa.png',
+    logo: '/logos/regions/logo-africa.png',
     colors: {
       primary: '#B8940F',
       primaryDark: '#705609',
@@ -132,7 +132,7 @@ export const regionConfigs: Record<Region, RegionConfig> = {
     name: 'MSME Solutions Europe',
     region: 'Europe',
     heroTitle: 'Welcome to MSME Solutions Europe',
-    logo: '/images/logo-europe.png',
+    logo: '/logos/regions/logo-europe.png',
     colors: {
       primary: '#1F4A7F',
       primaryDark: '#132c4c',
@@ -157,7 +157,7 @@ export const regionConfigs: Record<Region, RegionConfig> = {
     name: 'MSME Solutions Latin America',
     region: 'Latin America',
     heroTitle: 'Welcome to MSME Solutions Latin America',
-    logo: '/images/logo-latin-america.png',
+    logo: '/logos/regions/logo-latin-america.png',
     colors: {
       primary: '#DE641B',
       primaryDark: '#853c10',
@@ -182,7 +182,7 @@ export const regionConfigs: Record<Region, RegionConfig> = {
     name: 'MSME Solutions ASEU',
     region: 'ASEU',
     heroTitle: 'Welcome to MSME Solutions ASEU',
-    logo: '/images/logo-aseu.png',
+    logo: '/logos/regions/logo-aseu.png',
     colors: {
       primary: '#442876',
       primaryDark: '#291847',

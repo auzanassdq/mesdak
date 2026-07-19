@@ -34,7 +34,7 @@ export default function MediaPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      <GroupCompanyNavbar logoSrc="/logo/group-companies/media.png" themeColor="#30308E" />
+      <GroupCompanyNavbar logoSrc="/logos/group-companies/media.png" themeColor="#30308E" />
 
       {/* Hero Section */}
       <section

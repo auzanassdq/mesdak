@@ -100,7 +100,7 @@ export default function RootLayout({
               "name": config.name,
               "description": "Leading digitization, decentralization, and decarbonization towards sustainable development for MSMEs worldwide.",
               "url": "https://msmeworld.com",
-              "logo": "https://msmeworld.com/logo/msme-world-white.png",
+              "logo": "https://msmeworld.com/logos/msme-world-white.png",
               "sameAs": [
                 "https://www.linkedin.com/company/msme-world",
                 "https://twitter.com/msmeworld",
