@@ -9,7 +9,7 @@ import styles from "./m-doc.module.css";
 const ASSETS = {
   logo: "/logos/products/m-doc.png",
   icon: "/assets/products/mdoc-icon.png",
-  mnetwork: "/assets/products/mnetwork-icon.png",
+  mnetwork: "/logos/products/m-network.png",
 };
 
 export default function MDocLanding() {
@@ -102,16 +102,20 @@ export default function MDocLanding() {
           </div>
         </section>
 
-        <section className={styles.trustInstall}>
-          <Trust icon={Lock} title="Enterprise Security" text="End-to-end encryption & access control"/>
-          <Trust icon={ShieldCheck} title="Compliance & Privacy" text="Global standards & regulations"/>
-          <Trust icon={FileCheck} title="Audit & Transparency" text="Complete activity logs & audit trails"/>
-          <Trust icon={Cloud} title="Secure Cloud" text="Redundant, reliable & always available"/>
-          <div className={styles.install}>
-            <b>Install M’Doc on your device</b>
-            <span>Access your files anytime, anywhere.</span>
-            <div className={styles.stores}>
-              <a>▶ Google Play</a><a> App Store</a><a>Huawei AppGallery</a>
+        <section className="max-w-[1500px] mx-auto mt-10 mb-8 lg:mx-auto bg-white border border-[#E2E8F0] rounded-[18px] grid grid-cols-1 lg:grid-cols-12 overflow-hidden shadow-sm">
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#E2E8F0] border-b lg:border-b-0 lg:border-r border-[#E2E8F0]">
+            <Trust icon={Lock} title="Enterprise Security" text="End-to-end encryption & access control"/>
+            <Trust icon={ShieldCheck} title="Compliance & Privacy" text="Global standards & regulations"/>
+            <Trust icon={FileCheck} title="Audit & Transparency" text="Complete activity logs & audit trails"/>
+            <Trust icon={Cloud} title="Secure Cloud" text="Redundant, reliable & always available"/>
+          </div>
+          <div className="lg:col-span-4 p-5 lg:p-6 flex flex-col justify-center bg-white">
+            <b className="block text-[15px] font-bold text-[#111B31] mb-1">Install M’Doc on your device</b>
+            <span className="text-[13px] text-[#5F6B7A] mb-4 block leading-snug">Access your files anytime, anywhere.</span>
+            <div className="flex flex-wrap gap-2">
+              <a className="inline-flex items-center gap-2 bg-[#111B31] text-white text-[12px] font-semibold px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-800 transition">▶ Google Play</a>
+              <a className="inline-flex items-center gap-2 bg-[#111B31] text-white text-[12px] font-semibold px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-800 transition"> App Store</a>
+              <a className="inline-flex items-center gap-2 bg-[#111B31] text-white text-[12px] font-semibold px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-800 transition">Huawei AppGallery</a>
             </div>
           </div>
         </section>
@@ -127,7 +131,10 @@ export default function MDocLanding() {
         <FooterCol title="Resources" items={["Help Center","Documentation","Blog","Community"]}/>
         <div className={styles.social}>
           <b>Stay Connected</b>
-          <span><Image src={ASSETS.mnetwork} alt="M'Network" width={42} height={42} /><Linkedin/><Twitter/><Youtube/></span>
+          <span><Image src={ASSETS.mnetwork} alt="M'Network" width={140} height={42} className="object-contain" /><Linkedin/><Twitter/><Youtube/></span>
+        </div>
+        <div style={{ gridColumn: "1 / -1" }} className="mt-8 pt-6 border-t border-gray-200 text-center text-[12px] text-gray-500">
+          M&apos;Doc is a member of the MSME Solutions World Group. Empowering MSMEs. Connecting Capital. Creating Impact.
         </div>
       </footer>
     </div>
@@ -159,7 +166,15 @@ function AdminExperience(){
   )
 }
 function Trust({icon:Icon,title,text}: any){
-  return <div className={styles.trustItem}><Icon/><b>{title}</b><span>{text}</span></div>
+  return (
+    <div className="bg-white grid grid-cols-[44px_1fr] gap-3 items-center p-4 lg:p-5">
+      <Icon className="w-[34px] h-[34px] text-[#A87548]" />
+      <div>
+        <b className="block text-[14px] mb-1 text-[#111B31]">{title}</b>
+        <span className="text-[13px] text-[#5F6B7A] leading-snug block">{text}</span>
+      </div>
+    </div>
+  );
 }
 function FooterCol({title,items}: any){
   return <div><b>{title}</b>{items.map((i: string)=><a key={i}>{i}</a>)}</div>

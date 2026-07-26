@@ -38,14 +38,14 @@ export const products: ProductInfo[] = [
   {
     id: "m-network",
     name: "M_Network",
-    route: "/msme-network",
+    route: "https://mnetgo.com",
     logo: "/logos/products/m-network.png",
     primaryColor: "#000000", // Placeholder
   },
   {
     id: "m-butic",
     name: "M_Butic",
-    route: "/msme-butic",
+    route: "https://mbutic.com/",
     logo: "/logos/products/m-butic.png",
     primaryColor: "#000000", // Placeholder
   },

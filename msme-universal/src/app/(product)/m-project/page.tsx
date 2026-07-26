@@ -10,7 +10,7 @@ const features = [
   ["🛡️", "Steering Committee", "Review progress, approve decisions and guide project execution."],
   ["📋", "Project Management", "Plan projects, assign work, manage priorities and meet deadlines."],
   ["🎯", "SDG Action Planning", "Select up to 3 SDGs, define action plans, execute and track impact."],
-  ["🧠", "Intelligent i-ERP Builder", "Build your intelligent i-ERP step by step as your project progresses."],
+  ["🧠", "Intelligent-ERP Builder", "Build your Intelligent-ERP step by step as your project progresses."],
   ["🏁", "Milestones & Deliverables", "Track milestones, deliverables and project completion."],
   ["📈", "Execution Tracking", "Monitor progress, KPIs and project health in real time."],
   ["📊", "Reports & Analytics", "Generate insights, reports and data-driven decisions."],
@@ -44,17 +44,17 @@ export default function MProjectLanding() {
 
       <section className={`${styles.hero} ${styles["section-grid"]}`}>
         <div className={styles["hero-copy"]}>
-          <p className={styles.eyebrow}>Part of M’World Ecosystem</p>
+          {/* <p className={styles.eyebrow}>Part of M’World Ecosystem</p> */}
           <h1>Plan Together.<br /><span>Execute Smarter.</span><br />Deliver Lasting Impact.</h1>
-          <p className={styles["hero-text"]}>M’Project is the collaborative execution workspace of the M’World ecosystem, bringing together teams, governance, SDG Action Planning, intelligent i-ERP implementation and real-time performance management to help teams deliver projects with confidence, accountability and measurable impact.</p>
+          <p className={styles["hero-text"]}>M’Project is the collaborative execution workspace of the M’World ecosystem, bringing together teams, governance, SDG Action Planning, Intelligent-ERP implementation and real-time performance management to help teams deliver projects with confidence, accountability and measurable impact.</p>
           <div className={styles["hero-badges"]}>
-            {["Team Collaboration","Steering Committee","Project Management","SDG Action Planning","Intelligent i-ERP","Execution Tracking"].map(item => <span key={item}>{item}</span>)}
+            {["Team Collaboration","Steering Committee","Project Management","SDG Action Planning","Intelligent-ERP","Execution Tracking"].map(item => <span key={item}>{item}</span>)}
           </div>
           <div className={styles["hero-cta"]}>
             <a className={`${styles.btn} ${styles["btn-primary"]} ${styles["btn-large"]}`} href="#start">Start Your Project — It’s Free</a>
             <a className={`${styles.btn} ${styles["btn-outline"]} ${styles["btn-large"]}`} href="#demo">Watch Overview</a>
           </div>
-          <p className={styles["trust-note"]}>Trusted by SMEs, advisors, institutions and governments.</p>
+          <p className={styles["trust-note"]}>Trusted by MSMEs, advisors, institutions and governments.</p>
         </div>
         <DashboardMockup />
       </section>
@@ -84,34 +84,44 @@ export default function MProjectLanding() {
         </div>
       </section>
 
-      <section className={styles["download-section"]}>
-        <div>
-          <h2>Take M’Project Anywhere</h2>
-          <p>Stay connected and productive on any device, anywhere.</p>
-          <div className={styles["store-row"]}>
-            <a href="#">▶ Google Play</a>
-            <a href="#"> App Store</a>
-            <a href="#">H HarmonyOS</a>
+      <section className="max-w-[1780px] mx-5 xl:mx-auto mt-20 mb-12 flex flex-col md:flex-row justify-between items-center gap-10 rounded-[26px] border border-[#edf0f5] bg-gradient-to-br from-white to-[#fff4f4] p-9 md:px-12 md:py-10 shadow-sm">
+        <div className="flex-1 text-center md:text-left">
+          <h2 className="text-[28px] md:text-[32px] font-bold text-[#0b0d12] tracking-tight mb-2">Take M’Project Anywhere</h2>
+          <p className="text-[#697386] font-semibold mb-8 md:mb-10 text-[15px]">Stay connected and productive on any device, anywhere.</p>
+          <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            <a href="#" className="bg-[#0b0d12] text-white rounded-xl px-6 py-3.5 font-black min-w-[160px] text-center text-[14px] hover:bg-gray-800 transition">▶ Google Play</a>
+            <a href="#" className="bg-[#0b0d12] text-white rounded-xl px-6 py-3.5 font-black min-w-[160px] text-center text-[14px] hover:bg-gray-800 transition"> App Store</a>
+            <a href="#" className="bg-[#0b0d12] text-white rounded-xl px-6 py-3.5 font-black min-w-[160px] text-center text-[14px] hover:bg-gray-800 transition">HarmonyOS</a>
           </div>
         </div>
-        <div className={styles["phone-mockup"]}>
-          <span>M’Project</span><strong>72%</strong><p>Project Progress</p>
+        <div className="w-[170px] h-[300px] border-[10px] border-[#111] rounded-[36px] bg-white shadow-[0_24px_70px_rgba(16,24,40,0.12)] p-6 px-4 text-center flex flex-col shrink-0 mx-auto md:mx-0">
+          <span className="block text-white bg-[#ef2f2f] -mx-4 -mt-6 mb-8 py-4 rounded-t-[26px] font-black text-[13px]">M’Project</span>
+          <strong className="text-[48px] text-[#ef2f2f] leading-none mb-1 mt-2">72%</strong>
+          <p className="text-[#697386] font-bold text-[12px] leading-tight">Project<br/>Progress</p>
         </div>
       </section>
 
-      <footer className={styles["ecosystem-footer"]}>
-        <div className={styles["footer-label"]}>Part of<br />M’World Ecosystem</div>
-        {["M’Network|Connect","M’Butic|E-Commerce","i-ERP|Intelligent ERP","M’Finance|Funding","M’Pay|Payments","M’Doc|Documents","M’Call|Communications","And More…|Explore All"].map(item => {
-          const [name, sub] = item.split("|");
-          return <a key={name} href="#">{name}<br /><small>{sub}</small></a>;
-        })}
+      <footer className="mt-7 bg-gradient-to-br from-[#D92D20] to-[#A91A10] text-white py-6 px-6 md:px-12 flex flex-col gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-y-6">
+          {["M’Network|Connect","M’Butic|E-Commerce","i-ERP|Intelligent-ERP","M’Finance|Funding","M’Pay|Payments","M’Doc|Documents","M’Call|Communications","And More…|Explore All"].map((item, i) => {
+            const [name, sub] = item.split("|");
+            return (
+              <a key={name} href="#" className="text-center font-black border-white/40 lg:border-l lg:first:border-l-0 py-2">
+                {name}<br /><small className="font-medium opacity-85">{sub}</small>
+              </a>
+            );
+          })}
+        </div>
+        <div className="text-center text-[11px] font-normal leading-relaxed opacity-90 border-t border-white/20 pt-4 mx-auto w-full max-w-2xl">
+          M&apos;Project is a member of the MSME Solutions World Group. Empowering MSMEs. Connecting Capital. Creating Impact.
+        </div>
       </footer>
     </main>
   );
 }
 
 function DashboardMockup() {
-  const menu = ["Dashboard", "+ New Project", "Projects", "Team & Collaboration", "Steering Committee", "Project Management", "Milestones", "Tasks", "Documents", "Communications", "SDGs", "Intelligent i-ERP", "Reports", "Settings"];
+  const menu = ["Dashboard", "+ New Project", "Projects", "Team & Collaboration", "Steering Committee", "Project Management", "Milestones", "Tasks", "Documents", "Communications", "SDGs", "Intelligent-ERP", "Reports", "Settings"];
   return (
     <div className={styles["dashboard-card"]} aria-label="M'Project dashboard preview">
       <aside className={styles["app-sidebar"]}>

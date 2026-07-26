@@ -146,22 +146,25 @@ function DashList({title,items}: any){
 
 function Audiences(){
   const items = [
-    [UserRound,"For Everyone","Chat with family, friends and business contacts easily and securely.","everyone"],
-    [Store,"For MSMEs","Communicate with customers, suppliers and teams while managing business conversations in one place.","msmes"],
-    [Building2,"For Enterprises","Improve collaboration across departments with secure meetings, shared workspaces and integrated workflows.","enterprises"],
-    [Landmark,"For Governments","Connect ministries, agencies, field officers and citizens through secure digital communication.","governments"],
-    [Network,"For M’Network Users","Communicate with your business network, investors, advisors and communities directly inside M’Network.","mnetwork"]
+    { icon: UserRound, title: "For Everyone", desc: "Chat with family, friends and business contacts easily and securely.", id: "everyone" },
+    { icon: Store, title: "For MSMEs", desc: "Communicate with customers, suppliers and teams while managing business conversations in one place.", id: "msmes" },
+    { icon: Building2, title: "For Enterprises", desc: "Improve collaboration across departments with secure meetings, shared workspaces and integrated workflows.", id: "enterprises" },
+    { icon: Landmark, title: "For Governments", desc: "Connect ministries, agencies, field officers and citizens through secure digital communication.", id: "governments" },
+    { icon: Network, title: "For M’Network Users", desc: "Communicate with your business network, investors, advisors and communities directly inside M’Network.", id: "mnetwork" }
   ];
   return (
-    <section className={styles.audiences} id="solutions">
-      <h2>One Platform. Built for Everyone.</h2>
-      <p>M’Call serves all key participants in the digital economy.</p>
-      <div className={styles.audienceGrid}>
-        {items.map(([I,t,p,id]: any)=>(
-          <article id={id} key={t}>
-            <I/>
-            <h3>{t}</h3><p>{p}</p>
-            <a>Learn more <ArrowRight size={15}/></a>
+    <section className="text-center py-10 lg:py-16 px-6 lg:px-14" id="solutions">
+      <h2 className="text-[28px] font-bold mb-2 text-[#06183F]">One Platform. Built for Everyone.</h2>
+      <p className="text-[#5F6E85] mb-10 text-[15px]">M’Call serves all key participants in the digital economy.</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 max-w-[1420px] mx-auto">
+        {items.map(({ icon: Icon, title, desc, id }) => (
+          <article id={id} key={title} className="bg-white border border-[#E6ECFA] rounded-[18px] p-6 text-left shadow-[0_14px_45px_rgba(31,91,222,0.04)] flex flex-col h-full hover:shadow-[0_28px_90px_rgba(31,91,222,0.12)] transition-shadow duration-300">
+            <Icon className="w-[46px] h-[46px] p-2.5 rounded-2xl bg-[#F6F9FF] text-[#1F5BDE] mb-5" />
+            <h3 className="text-[18px] font-bold text-[#06183F] mb-2">{title}</h3>
+            <p className="text-[#5F6E85] text-[14px] leading-relaxed mb-6">{desc}</p>
+            <a className="mt-auto text-[#1F5BDE] font-black text-[14px] flex items-center gap-2 cursor-pointer hover:underline">
+              Learn more <ArrowRight size={15}/>
+            </a>
           </article>
         ))}
       </div>
@@ -171,20 +174,22 @@ function Audiences(){
 
 function Experiences(){
   const items = [
-    [MessagesSquare,"Messaging",["Instant messaging","Group chats & channels","Business messaging","Broadcasts","Smart notifications"]],
-    [Video,"Voice & Video",["Voice calls","HD video meetings","Screen sharing","Meeting recording","Live streaming"]],
-    [UsersRound,"Collaboration",["Shared workspaces","Projects & tasks","File sharing","Calendar & scheduling","Real-time co-editing"]],
-    [ShoppingCart,"Commerce",["Customer support","Order discussions","Payment requests","Funding conversations","Investor meetings"]]
+    { icon: MessagesSquare, title: "Messaging", list: ["Instant messaging","Group chats & channels","Business messaging","Broadcasts","Smart notifications"] },
+    { icon: Video, title: "Voice & Video", list: ["Voice calls","HD video meetings","Screen sharing","Meeting recording","Live streaming"] },
+    { icon: UsersRound, title: "Collaboration", list: ["Shared workspaces","Projects & tasks","File sharing","Calendar & scheduling","Real-time co-editing"] },
+    { icon: ShoppingCart, title: "Commerce", list: ["Customer support","Order discussions","Payment requests","Funding conversations","Investor meetings"] }
   ];
   return (
-    <section className={styles.experiences}>
-      <h2>One Platform. Four Communication Experiences.</h2>
-      <div className={styles.experienceGrid}>
-        {items.map(([I,t,list]: any)=>(
-          <article key={t}>
-            <I/>
-            <h3>{t}</h3>
-            <ul>{list.map((i: string)=><li key={i}>{i}</li>)}</ul>
+    <section className="text-center py-10 lg:py-16 px-6 lg:px-14">
+      <h2 className="text-[28px] font-bold mb-10 text-[#06183F]">One Platform. Four Communication Experiences.</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1420px] mx-auto">
+        {items.map(({ icon: Icon, title, list }) => (
+          <article key={title} className="bg-white border border-[#E6ECFA] rounded-[18px] p-7 text-left shadow-[0_14px_40px_rgba(31,91,222,0.05)] hover:shadow-[0_28px_90px_rgba(31,91,222,0.14)] transition-shadow duration-300">
+            <Icon className="w-12 h-12 p-3 rounded-full bg-[#EAF1FF] text-[#1F5BDE] mb-4" />
+            <h3 className="text-xl font-bold text-[#06183F] mb-4">{title}</h3>
+            <ul className="list-disc pl-5 space-y-2 text-[#263A58] text-[15px] leading-relaxed">
+              {list.map((i: string) => <li key={i}>{i}</li>)}
+            </ul>
           </article>
         ))}
       </div>
@@ -228,42 +233,50 @@ function Trust(){
   )
 }
 
-function CTA(){
+function PhoneMockup() {
   return (
-    <section className={styles.cta} id="start">
-      <div className={styles.ctaVisual}>
-        <div className={styles.phoneMockup}>
-          <div className={styles.phoneHeader}>Group Meeting</div>
-          <div className={styles.phoneBody}>
-            <div className={styles.videoGrid}>
-               <div className={styles.videoCell}><User size={24}/></div>
-               <div className={styles.videoCell}><User size={24}/></div>
-               <div className={styles.videoCell}><User size={24}/></div>
-               <div className={styles.videoCell}><User size={24}/></div>
-            </div>
-          </div>
-          <div className={styles.phoneControls}>
-             <div className={styles.controlBtn}><Video size={14}/></div>
-             <div className={styles.controlBtn}><MessageCircle size={14}/></div>
-             <div className={`${styles.controlBtn} ${styles.danger}`}><Phone size={14}/></div>
-          </div>
+    <div className="w-[200px] h-[380px] border-[10px] border-slate-900 rounded-[34px] bg-white shadow-[0_24px_50px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden mx-auto shrink-0">
+      <div className="bg-gradient-to-br from-[#1F5BDE] to-[#0B2F93] text-white pt-7 pb-4 px-3.5 font-extrabold text-center text-[13px]">
+        Group Meeting
+      </div>
+      <div className="flex-1 bg-slate-50 p-2.5 flex flex-col gap-2.5">
+        <div className="grid grid-cols-2 gap-1.5 flex-1">
+           <div className="bg-slate-300 rounded-lg grid place-items-center text-slate-500 overflow-hidden relative"><User size={24}/></div>
+           <div className="bg-slate-300 rounded-lg grid place-items-center text-slate-500 overflow-hidden relative"><User size={24}/></div>
+           <div className="bg-slate-300 rounded-lg grid place-items-center text-slate-500 overflow-hidden relative"><User size={24}/></div>
+           <div className="bg-slate-300 rounded-lg grid place-items-center text-slate-500 overflow-hidden relative"><User size={24}/></div>
         </div>
       </div>
+      <div className="flex justify-evenly p-3 bg-white border-t border-slate-200">
+         <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-600 grid place-items-center"><Video size={14}/></div>
+         <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-600 grid place-items-center"><MessageCircle size={14}/></div>
+         <div className="w-8 h-8 rounded-full bg-red-500 text-white grid place-items-center"><Phone size={14}/></div>
+      </div>
+    </div>
+  );
+}
+
+function CTA(){
+  return (
+    <section className="max-w-[1420px] mx-5 lg:mx-auto mt-10 mb-12 bg-gradient-to-br from-[#1F5BDE] to-[#1479FF] text-white rounded-[20px] p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-[200px_1fr_auto_330px] gap-8 lg:gap-10 items-center shadow-lg" id="start">
       <div>
-        <h2>Ready to Connect Your Business?</h2>
-        <p>Join professionals, MSMEs, enterprises and governments using M’Call to communicate, collaborate and grow together.</p>
+        <PhoneMockup />
       </div>
-      <div className={styles.ctaActions}>
-        <a>Create Account</a>
-        <a className={styles.outline}>Contact Sales</a>
+      <div className="text-center lg:text-left">
+        <h2 className="text-[28px] lg:text-[32px] font-bold mb-3">Ready to Connect Your Business?</h2>
+        <p className="opacity-90 text-[15px] leading-relaxed max-w-xl mx-auto lg:mx-0">Join professionals, MSMEs, enterprises and governments using M’Call to communicate, collaborate and grow together.</p>
       </div>
-      <div className={styles.stores}>
-        <b>Get M’Call on your device</b>
-        <span>
-          <Image src={A.google} alt="Google Play" width={120} height={38} />
-          <Image src={A.apple} alt="App Store" width={120} height={38} />
-          <Image src={A.harmony} alt="HarmonyOS" width={120} height={38} />
-        </span>
+      <div className="flex flex-col gap-3 w-full lg:w-auto">
+        <a className="bg-white text-[#1F5BDE] px-6 py-3.5 rounded-xl text-center font-black cursor-pointer hover:bg-gray-50 transition">Create Account</a>
+        <a className="bg-transparent text-white border border-white/75 px-6 py-3.5 rounded-xl text-center font-black cursor-pointer hover:bg-white/10 transition">Contact Sales</a>
+      </div>
+      <div className="text-center lg:text-left">
+        <b className="block mb-3 text-[14px]">Get M’Call on your device</b>
+        <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+          <Image src={A.google} alt="Google Play" width={120} height={38} className="bg-black rounded-lg cursor-pointer hover:opacity-90 transition" />
+          <Image src={A.apple} alt="App Store" width={120} height={38} className="bg-black rounded-lg cursor-pointer hover:opacity-90 transition" />
+          <Image src={A.harmony} alt="HarmonyOS" width={120} height={38} className="bg-black rounded-lg cursor-pointer hover:opacity-90 transition" />
+        </div>
       </div>
     </section>
   )

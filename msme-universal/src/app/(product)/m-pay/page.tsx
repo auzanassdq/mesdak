@@ -51,7 +51,7 @@ function Hero() {
       <div className={styles["hero-copy"]}>
         <h1>M’Pay</h1>
         <div className={styles.slogan}>Rock Your Finance</div>
-        <h2>The Payment & Investment Platform for MSMEs, Investors, Funds & Governments.</h2>
+        <h2>The Payment & Investment Platform for MSMEs, Investors, Asset Managers & Governments.</h2>
         <p>M’Pay enables MSMEs to pay, receive, manage and trace money across business, e-commerce, taxation and cross-border investment flows.</p>
         <div className={styles["quick-points"]}>
           {[[Send, "Pay"], [Download, "Receive"], [TrendingUp, "Invest"], [Sprout, "Grow"]].map(([I, t]: any) => (
@@ -127,19 +127,26 @@ function Dashboard() {
 
 function Audiences() {
   const items = [
-    [Store, "For MSMEs", "Receive payments, sell online, manage taxes and access funding to grow your business.", "msmes"],
-    [UserRound, "For Investors", "Invest in MSMEs and regional funds, track your portfolio and receive dividends transparently.", "investors"],
-    [Landmark, "For Funds", "Collect capital, invest in MSMEs and distribute returns through a compliant, secure platform.", "funds"],
-    [Building2, "For Governments", "Drive financial inclusion, simplify tax collection and monitor economic impact in real time.", "governments"],
-    [Network, "For M’Network Users", "Invest in eligible regional funds and receive dividends directly in your M’Pay wallet.", ""]
+    { icon: Store, title: "For MSMEs", desc: "Receive payments, sell online, manage taxes and access funding to grow your business.", id: "msmes" },
+    { icon: UserRound, title: "For Investors", desc: "Invest in MSMEs and regional funds, track your portfolio and receive dividends transparently.", id: "investors" },
+    { icon: Landmark, title: "For Funds", desc: "Collect capital, invest in MSMEs and distribute returns through a compliant, secure platform.", id: "funds" },
+    { icon: Building2, title: "For Governments", desc: "Drive financial inclusion, simplify tax collection and monitor economic impact in real time.", id: "governments" },
+    { icon: Network, title: "For M’Network Users", desc: "Invest in eligible regional funds and receive dividends directly in your M’Pay wallet.", id: "" }
   ];
   return (
-    <section className={styles.audiences} id="solutions">
-      <h2>One Platform. Built for Everyone.</h2>
-      <p>M’Pay serves all key participants in the MSME and investment ecosystem.</p>
-      <div className={styles["audience-grid"]}>
-        {items.map(([I, t, p, id]: any) => (
-          <article id={id || undefined} key={t}><I /><h3>{t}</h3><p>{p}</p><a>Learn more <ArrowRight size={15} /></a></article>
+    <section className="text-center py-10 lg:py-16 px-6 lg:px-14" id="solutions">
+      <h2 className="text-[28px] font-bold mb-2 text-[#071D35]">One Platform. Built for Everyone.</h2>
+      <p className="text-[#5C6B7A] mb-10 text-[15px]">M’Pay serves all key participants in the MSME and investment ecosystem.</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 max-w-[1420px] mx-auto">
+        {items.map(({ icon: Icon, title, desc, id }) => (
+          <article id={id || undefined} key={title} className="bg-white border border-[#E6EEF0] rounded-[18px] p-6 text-left shadow-[0_14px_45px_rgba(0,75,80,0.05)] flex flex-col h-full hover:shadow-[0_28px_80px_rgba(0,75,80,0.12)] transition-shadow duration-300">
+            <Icon className="w-[46px] h-[46px] p-2.5 rounded-2xl bg-[#E9FFFC] text-[#007A75] mb-5" />
+            <h3 className="text-[18px] font-bold text-[#071D35] mb-2">{title}</h3>
+            <p className="text-[#071D35] text-[14px] leading-relaxed mb-6">{desc}</p>
+            <a className="mt-auto text-[#007A75] font-black text-[14px] flex items-center gap-2 cursor-pointer hover:underline">
+              Learn more <ArrowRight size={15} />
+            </a>
+          </article>
         ))}
       </div>
     </section>
@@ -186,19 +193,30 @@ function ImageCards() {
 
 function Trust() {
   const items = [
-    [IdCard, "KYC / KYB", "Verified onboarding for all users"],
-    [Radar, "AML Monitoring", "Advanced monitoring & risk management"],
-    [FileCheck, "Audit Trail", "End-to-end transaction transparency"],
-    [WalletCards, "Secure Wallets", "Multi-currency secure storage"],
-    [UsersRound, "Institutional Reporting", "Real-time reports for governments & partners"]
+    { icon: IdCard, title: "KYC / KYB", desc: "Verified onboarding for all users" },
+    { icon: Radar, title: "AML Monitoring", desc: "Advanced monitoring & risk management" },
+    { icon: FileCheck, title: "Audit Trail", desc: "End-to-end transaction transparency" },
+    { icon: WalletCards, title: "Secure Wallets", desc: "Multi-currency secure storage" },
+    { icon: UsersRound, title: "Institutional Reporting", desc: "Real-time reports for governments & partners" }
   ];
   return (
     <section className={styles.trust} id="security">
       <h2>Built on Trust. Secured for You.</h2>
       <p>Bank-grade security. Full transparency. Complete peace of mind.</p>
-      <div className={styles["trust-grid"]}>
-        {items.map(([I, t, p]: any) => (
-          <div key={t}><I /><b>{t}</b><span>{p}</span></div>
+      <div className="grid grid-cols-1 lg:grid-cols-5 border border-[#E6EEF0] rounded-[18px] bg-white max-w-[1420px] mx-auto overflow-hidden">
+        {items.map(({ icon: Icon, title, desc }) => (
+          <div 
+            key={title}
+            className="flex flex-col gap-3 p-5 lg:p-6 text-left border-[#E6EEF0] border-b lg:border-b-0 lg:border-r last:border-b-0 last:border-r-0"
+          >
+            <div className="flex items-center gap-3">
+              <Icon className="text-[#007A75] bg-[#E9FFFC] rounded-full p-2.5 w-[42px] h-[42px] shrink-0" />
+              <b className="text-[#071D35] text-[15px] leading-tight">{title}</b>
+            </div>
+            <p className="text-[#5C6B7A] text-[13px] m-0 leading-relaxed">
+              {desc}
+            </p>
+          </div>
         ))}
       </div>
     </section>

@@ -50,7 +50,7 @@ const partners = [
 
 const ecosystem = [
   ["M’Network", "Connect"], ["M’Call", "Communicate"], ["M’Project", "Collaborate"], ["M’Pay", "Transact"],
-  ["M’Doc", "Digitise"], ["M’Butic", "Sell"], ["M’ERP", "Manage"], ["M’D³MP", "Measure Impact"], ["M’Government", "Institutions"],
+  ["M’Doc", "Digitise"], ["M’Butic", "Sell"], ["M’Finance", "Access Finance"], ["M’D³MP", "Measure Impact"], ["M’Government", "Institutions"],
 ];
 
 function Logo() {
@@ -93,7 +93,7 @@ function Hero() {
         <div className={styles["hero-copy"]}>
           <p className={styles.eyebrow}>M’EVENT INC</p>
           <h1>Where Businesses, Financial Institutions, Governments & Communities <span>Connect, Collaborate & Create Opportunities</span></h1>
-          <p className={styles.lead}>M’Event Inc is the global event ecosystem bringing together businesses, financial institutions, governments, development partners, investors and communities through conferences, exhibitions, trade missions and business matchmaking to accelerate partnerships, innovation and sustainable economic growth.</p>
+          <p className={styles.lead}>M’Event is the global event ecosystem bringing together businesses, financial institutions, governments, development partners, investors and communities through conferences, exhibitions, trade missions and business matchmaking to accelerate partnerships, innovation and sustainable economic growth.</p>
           <div className={styles["powered-line"]}><CheckCircle2 size={18}/> Powered by MSME Solutions World Group</div>
           <div className={styles["cta-row"]}>
             <button className={`${styles.btn} ${styles.primary}`}>Explore Events <ChevronRight size={18}/></button>
@@ -104,7 +104,7 @@ function Hero() {
         <div className={styles["summit-card"]}>
           <p>Upcoming Global Summit</p>
           <h3>M’World Global Summit 2027</h3>
-          <span>📍 Dubai, UAE</span>
+          <span>📍 Ebene - Mauritius</span>
           <span>📅 12 – 15 March 2027</span>
           <div className={styles.timer}>
             <b>256<small>Days</small></b>
@@ -121,7 +121,7 @@ function Hero() {
 
 function StatsBar() {
   return (
-    <section className={styles["stats-bar"]}>
+    <section className={`${styles["stats-bar"]} mx-auto`}>
       {stats.map(({icon:Icon,value,label}) => (
         <div className={styles.stat} key={label}>
           <Icon/><strong>{value}</strong><span>{label}</span>
@@ -133,47 +133,55 @@ function StatsBar() {
 
 function Solutions() {
   return (
-    <section className={`${styles.section} ${styles["solutions-section"]}`}>
-      <div className={styles["section-head"]}>
-        <p className={styles.eyebrow}>What we do</p>
-        <h2>Solutions That Drive Meaningful Connections</h2>
+    <section className="max-w-[1680px] mx-auto mt-8 mb-8 bg-white border border-[#e7e9f3] rounded-[24px] p-6 lg:p-9 shadow-[0_10px_38px_rgba(20,24,75,0.05)]">
+      <div className="mb-8">
+        <p className="uppercase tracking-wider text-[#ec3c9b] text-[13px] font-black mb-3">What we do</p>
+        <h2 className="text-[28px] lg:text-[30px] font-bold text-[#070b2f] tracking-tight m-0">Solutions That Drive Meaningful Connections</h2>
       </div>
-      <div className={styles["solution-grid"]}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {solutions.map(({icon:Icon,title,text}) => (
-          <article className={styles["solution-card"]} key={title}>
-            <Icon/><h3>{title}</h3><p>{text}</p>
+          <article className="border border-[#e7e9f3] rounded-2xl p-6 text-center bg-white hover:shadow-md transition-shadow" key={title}>
+            <Icon className="w-[34px] h-[34px] text-[#ec3c9b] mx-auto mb-4" />
+            <h3 className="text-[16px] font-bold text-[#070b2f] mb-2">{title}</h3>
+            <p className="text-[13px] leading-relaxed text-[#59607a]">{text}</p>
           </article>
         ))}
       </div>
-      <a className={styles["text-link"]}>View All Solutions <ChevronRight size={16}/></a>
+      <a className="inline-flex items-center gap-1.5 text-[#ec3c9b] font-black mt-6 cursor-pointer hover:underline">
+        View All Solutions <ChevronRight size={16}/>
+      </a>
     </section>
   );
 }
 
 function Events() {
   return (
-    <section className={`${styles.section} ${styles["events-section"]}`}>
-      <div className={styles["section-title-row"]}>
+    <section className="max-w-[1680px] mx-auto mb-8 bg-white border border-[#e7e9f3] rounded-[24px] p-6 lg:p-9 shadow-[0_10px_38px_rgba(20,24,75,0.05)]">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
         <div>
-          <p className={styles.eyebrow}>Upcoming events</p>
-          <h2>Discover Upcoming Opportunities</h2>
+          <p className="uppercase tracking-wider text-[#ec3c9b] text-[13px] font-black mb-3">Upcoming events</p>
+          <h2 className="text-[28px] lg:text-[30px] font-bold text-[#070b2f] tracking-tight m-0">Discover Upcoming Opportunities</h2>
         </div>
-        <a className={styles["text-link"]}>View full calendar <ChevronRight size={16}/></a>
+        <a className="inline-flex items-center gap-1.5 text-[#ec3c9b] font-black cursor-pointer hover:underline">
+          View full calendar <ChevronRight size={16}/>
+        </a>
       </div>
-      <div className={styles["event-grid"]}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {events.map(e => (
-          <article className={styles["event-card"]} key={e.title}>
-            <div className={styles["event-image"]} style={{backgroundImage:`url(${e.image})`}}>
-              <span>{e.type}</span>
+          <article className="border border-[#e7e9f3] rounded-2xl overflow-hidden bg-white shadow-[0_8px_24px_rgba(20,24,75,0.06)] hover:shadow-[0_14px_30px_rgba(20,24,75,0.1)] transition-shadow flex flex-col h-full" key={e.title}>
+            <div className="h-[150px] bg-cover bg-center relative" style={{backgroundImage:`url(${e.image})`}}>
+              <span className="absolute left-3 top-3 bg-gradient-to-br from-[#ec3c9b] to-[#5927e8] text-white rounded-lg px-2.5 py-1.5 font-black text-[11px] uppercase tracking-wide">{e.type}</span>
             </div>
-            <div className={styles["event-body"]}>
-              <p className={styles["event-date"]}>📅 {e.date}</p>
-              <h3>{e.title}</h3>
-              <p>{e.place}</p>
-              <div className={styles.tags}>
-                {e.tags.map(t => <span key={t}>{t}</span>)}
+            <div className="p-5 flex flex-col flex-1">
+              <p className="text-[12px] text-[#59607a] mb-2 font-medium">📅 {e.date}</p>
+              <h3 className="text-[16px] font-bold text-[#070b2f] mb-2">{e.title}</h3>
+              <p className="text-[13px] text-[#59607a] mb-4 leading-relaxed">{e.place}</p>
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {e.tags.map(t => <span className="bg-[#f1f2fa] text-[#070b2f] rounded-md px-2 py-1 text-[11px] font-bold" key={t}>{t}</span>)}
               </div>
-              <a>Register Now <ChevronRight size={16}/></a>
+              <a className="text-[#ec3c9b] font-black flex items-center gap-1 mt-auto cursor-pointer hover:underline text-[14px]">
+                Register Now <ChevronRight size={16}/>
+              </a>
             </div>
           </article>
         ))}
@@ -184,7 +192,7 @@ function Events() {
 
 function Partners() {
   return (
-    <section className={`${styles.section} ${styles["partners-section"]}`}>
+    <section className={`${styles.section} ${styles["partners-section"]} mx-auto`}>
       <div className={styles["section-title-row"]}>
         <div>
           <p className={styles.eyebrow}>Our partners ecosystem</p>
@@ -200,7 +208,7 @@ function Partners() {
         ))}
       </div>
       <div className={styles["logo-strip"]}>
-        <strong>Emirates</strong><strong>Qatar Airways</strong><strong>DHL</strong><strong>Marriott</strong><strong>Hilton</strong><strong>STR Global</strong><strong>AVPartners</strong><strong>The Event Experience</strong>
+        <strong>Air Mauritius</strong><strong>Qatar Airways</strong><strong>DHL</strong><strong>Marriott</strong><strong>Hilton</strong><strong>STR Global</strong><strong>AVPartners</strong><strong>The Event Experience</strong>
       </div>
     </section>
   );
@@ -208,25 +216,31 @@ function Partners() {
 
 function HostImpact() {
   return (
-    <section className={`${styles.section} ${styles["host-impact"]}`}>
-      <div className={styles["host-card"]}>
-        <div>
-          <p className={styles.eyebrow}>Why host with M’Event</p>
-          <h2>We Handle Everything. You Achieve More.</h2>
-          <button className={`${styles.btn} ${styles.primary}`}>Host Your Event <ChevronRight size={18}/></button>
+    <section className="max-w-[1680px] mx-auto mb-8 grid grid-cols-1 xl:grid-cols-2 gap-7">
+      <div className="bg-white border border-[#e7e9f3] rounded-[24px] p-6 lg:p-9 shadow-[0_10px_38px_rgba(20,24,75,0.05)] grid grid-cols-1 lg:grid-cols-[330px_1fr] gap-7">
+        <div className="flex flex-col justify-center">
+          <p className="uppercase tracking-wider text-[#ec3c9b] text-[13px] font-black mb-3">Why host with M’Event</p>
+          <h2 className="text-[28px] lg:text-[30px] font-bold text-[#070b2f] tracking-tight m-0 mb-6">We Handle Everything. You Achieve More.</h2>
+          <button className="bg-gradient-to-br from-[#ec3c9b] to-[#5927e8] text-white rounded-xl px-6 py-3.5 font-bold flex items-center gap-2 shadow-[0_14px_32px_rgba(236,60,155,0.28)] hover:-translate-y-0.5 transition-transform w-fit">
+            Host Your Event <ChevronRight size={18}/>
+          </button>
         </div>
-        <ul>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 m-0 p-0 list-none self-center">
           {['End-to-end event management','Marketing & promotion','Registration & ticketing','Travel & accommodation support','Exhibitor & sponsor management','Business matchmaking','Event technology & apps','Reporting & impact measurement'].map(x => (
-            <li key={x}><CheckCircle2/> {x}</li>
+            <li key={x} className="text-[#59607a] font-bold text-[14px] flex items-start gap-2.5">
+              <CheckCircle2 className="w-[18px] h-[18px] text-[#ec3c9b] shrink-0 mt-0.5"/> <span>{x}</span>
+            </li>
           ))}
         </ul>
       </div>
-      <div className={styles["impact-card"]}>
-        <p className={styles.eyebrow}>Making a real impact</p>
-        <h2>Creating Value. Driving Growth.</h2>
-        <div className={styles["impact-grid"]}>
+      <div className="rounded-[24px] p-6 lg:p-9 shadow-[0_10px_38px_rgba(20,24,75,0.05)] bg-gradient-to-br from-[#080b3e] via-[#3710a3] to-[#ef3c9c] text-white flex flex-col justify-center">
+        <p className="uppercase tracking-wider text-[#ffb3dd] text-[13px] font-black mb-3">Making a real impact</p>
+        <h2 className="text-[28px] lg:text-[30px] font-bold tracking-tight m-0">Creating Value. Driving Growth.</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
           {['100K+ Participants','25K+ Business Meetings','$3.2B+ Opportunities','18K+ Partnerships','45+ Countries','60% SMEs & Startups','40% Women Entrepreneurs','35% Youth Entrepreneurs'].map(x => (
-            <span key={x}>{x}</span>
+            <span key={x} className="border border-white/15 rounded-2xl p-3.5 font-black text-center text-[13px] md:text-[14px] leading-tight flex items-center justify-center">
+              {x}
+            </span>
           ))}
         </div>
       </div>
@@ -236,7 +250,7 @@ function HostImpact() {
 
 function Ecosystem() {
   return (
-    <section className={`${styles.section} ${styles["ecosystem-section"]}`}>
+    <section className={`${styles.section} ${styles["ecosystem-section"]} mx-auto`}>
       <div>
         <p className={styles.eyebrow}>Powered by M’World Ecosystem</p>
         <h2>One ecosystem. Endless value.</h2>
@@ -259,7 +273,13 @@ function Footer() {
     <footer className={styles.footer}>
       <div className={styles["footer-top"]}>
         <Logo />
+        <div>
         <p>Join thousands of organisations, governments and partners building the future through collaboration and events that create impact.</p>
+      <div className="mt-2 text-center text-[13px] text-[#94A3B8]">
+        M&apos;Event Inc is a member of the MSME Solutions World Group. Empowering MSMEs. Connecting Capital. Creating Impact.
+      </div>
+
+        </div>
         <button className={`${styles.btn} ${styles.primary}`}>Join M’World Today <ChevronRight size={18}/></button>
       </div>
       <div className={styles["footer-grid"]}>
@@ -290,14 +310,14 @@ export default function MEventLanding() {
       <Header />
       <main>
         <Hero />
-        <StatsBar />
-        <div className={styles["content-grid"]}>
+        <div className="px-6 md:px-12 xl:px-16 2xl:px-8">
+          <StatsBar />
           <Solutions />
           <Events />
+          <Partners />
+          <HostImpact />
+          <Ecosystem />
         </div>
-        <Partners />
-        <HostImpact />
-        <Ecosystem />
       </main>
       <Footer />
     </div>
