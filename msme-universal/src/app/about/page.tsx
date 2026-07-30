@@ -232,13 +232,22 @@ const AboutPage = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">Bridging {getRegionConfig().region === "World" ? "the World's" : getRegionConfig().region + "'s"} fourth biggest gaps</h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-12"></div>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
+              <div className="text-center md:text-right font-medium text-lg text-gray-700">
+                <p>MSME Finance Gap • Real-Time Economic Intelligence </p>
+              </div>
+              <div className="w-24 h-1 bg-primary shrink-0"></div>
+              <div className="text-center md:text-left font-medium text-lg text-gray-700">
+                <p>SDG Execution Gap • Human Capital Activation Gap</p>
+              </div>
+            </div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto">
             {/* MSME Finance */}
-            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
-              <h3 className="text-2xl font-bold mb-6 text-center text-black">MSME Finance</h3>
+            <div className="bg-white p-3 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-3 text-center text-black">MSME Finance Gap</h3>
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"
@@ -251,8 +260,8 @@ const AboutPage = () => {
             </div>
 
             {/* SDG Execution */}
-            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
-              <h3 className="text-2xl font-bold mb-6 text-center text-black">SDG Execution</h3>
+            <div className="bg-white p-3 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-3 text-center text-black">SDG Execution Gap</h3>
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"
@@ -265,8 +274,8 @@ const AboutPage = () => {
             </div>
 
             {/* Real-Time Economic Intelligence */}
-            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
-              <h3 className="text-2xl font-bold mb-6 text-center text-black">Real-Time Economic Intelligence</h3>
+            <div className="bg-white p-3 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-3 text-center text-black">Real-Time Economic Intelligence</h3>
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"
@@ -279,8 +288,8 @@ const AboutPage = () => {
             </div>
 
             {/* Human Capital Activation Gap */}
-            <div className="bg-white p-8 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
-              <h3 className="text-2xl font-bold mb-6 text-center text-black">Human Capital Activation Gap</h3>
+            <div className="bg-white p-3 rounded-3xl border-4 border-black transition-transform hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-3 text-center text-black">Human Capital Activation Gap</h3>
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"

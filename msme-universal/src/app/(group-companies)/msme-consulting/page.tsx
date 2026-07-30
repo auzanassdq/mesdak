@@ -145,7 +145,7 @@ export default function ConsultingPage() {
                 Enterprise Growth & Transition Advisory
               </h3>
               <p className="text-slate-300 text-lg">
-                Transforming Enterprises. • Building Wealth. • Creating Family Legacies.
+                Transforming Enterprises • Building Wealth • Creating Family Legacies • Exit Strategy
               </p>
             </div>
             
