@@ -68,6 +68,7 @@ const Navbar = () => {
     { name: "Careers", href: "/careers" },
     { name: "Our Reach", href: "/contact" },
     { name: "M'Brand", href: "/mbrand" },
+    { name: "M'Trade", href: "/mtrade" },
     { name: "M'SuperDeal", href: "/super-deal" },
     { name: "Business Directory", href: "https://mnetgo.com/bd" },
   ];
@@ -91,14 +92,14 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden xl:flex items-center space-x-8">
+        <div className="hidden xl:flex items-center space-x-5">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative text-gray-800 hover:text-primary-600 font-medium transition-colors ${
+                className={`relative text-sm text-gray-800 hover:text-primary-600 font-medium transition-colors ${
                   isActive ? "text-blue-600" : ""
                 }`}
               >
@@ -198,7 +199,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${
+                  className={`relative text-sm text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${
                     isActive ? "text-blue-600" : ""
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}

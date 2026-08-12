@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import { ShoppingCart, ShoppingBag, Tag, TrendingUp, CheckCircle2 } from "lucide-react";
+import { ShoppingCart, ShoppingBag, Tag, TrendingUp, CheckCircle2, Handshake } from "lucide-react";
 
 const buticUnits = [
   {
@@ -21,6 +21,11 @@ const buticUnits = [
     description: "B2B commerce services",
     services: ["Sales", "Advertising", "Purchase", "Market entry"],
   },
+  {
+    title: "M’Trade Incorporation",
+    icon: <Handshake className="w-8 h-8" />,
+    description: "Verified Trade - Bankable Deals",
+  },
 ];
 
 export default function MButicOrgChart() {
@@ -37,13 +42,13 @@ export default function MButicOrgChart() {
       </div>
 
       {/* Orthogonal Connection Lines using Grid to ensure perfect alignment */}
-      <div className="grid grid-cols-3 gap-0 w-full">
+      <div className="grid grid-cols-4 gap-0 w-full">
         {buticUnits.map((_, i) => (
           <div key={`line-${i}`} className="flex flex-col items-center w-full relative">
             {/* Horizontal connection segment */}
             {i === 0 && <div className="absolute top-0 left-1/2 right-0 h-0.5 bg-[#73bf43]" />}
-            {i === 1 && <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#73bf43]" />}
-            {i === 2 && <div className="absolute top-0 left-0 right-1/2 h-0.5 bg-[#73bf43]" />}
+            {(i > 0 && i < buticUnits.length - 1) && <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#73bf43]" />}
+            {i === buticUnits.length - 1 && <div className="absolute top-0 left-0 right-1/2 h-0.5 bg-[#73bf43]" />}
             
             {/* Vertical drop to card */}
             <div className="w-0.5 h-6 bg-[#73bf43] relative z-10"></div>
@@ -53,7 +58,7 @@ export default function MButicOrgChart() {
       </div>
 
       {/* Children Nodes */}
-      <div className="grid grid-cols-3 gap-0 relative mt-1">
+      <div className="grid grid-cols-4 gap-0 relative mt-1">
         {buticUnits.map((unit) => (
           <div key={unit.title} className="px-4">
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative group h-full">
