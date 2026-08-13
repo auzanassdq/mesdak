@@ -53,7 +53,7 @@ const AboutPage = () => {
 
       window.scrollTo({
         top: targetScrollY,
-        behavior: 'smooth'
+        behavior: 'auto'
       });
     }
   };
