@@ -706,57 +706,63 @@ const AboutPage = () => {
               </div>
             </div>
 
-            {/* Navigation Buttons - Positioned outside the modal */}
-            {/* Previous Button - Show only for supervisory and advisory boards */}
-            {(selectedBoard === 'supervisory' || selectedBoard === 'advisory') && (
-              <button
-                onClick={() => setSelectedBoard(selectedBoard === 'supervisory' ? 'executive' : 'supervisory')}
-                className="fixed left-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
-              >
-                <svg className="w-8 h-8 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-                <div className="flex flex-col items-start leading-tight">
-                  <span className="text-lg">{selectedBoard === 'supervisory' ? 'Executive' : 'Supervisory'}</span>
-                  <span className="text-lg">Board</span>
-                </div>
-              </button>
-            )}
-
-            {/* Next Button */}
-            {selectedBoard !== 'advisory' ? (
-              <button
-                onClick={() => setSelectedBoard(selectedBoard === 'executive' ? 'supervisory' : 'advisory')}
-                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
-              >
-                <div className="flex flex-col items-end leading-tight">
-                  <span className="text-lg">{selectedBoard === 'executive' ? 'Supervisory' : 'Advisory'}</span>
-                  <span className="text-lg">Board</span>
-                </div>
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setSelectedBoard(null);
-                  router.push('/companies');
-                }}
-                className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
-              >
-                <div className="flex flex-col items-end leading-tight">
-                  <span className="text-lg">Our</span>
-                  <span className="text-lg">Companies</span>
-                </div>
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            )}
           </motion.div>
 
-          {/* Floating Companies Button removed as it's now part of the navigation buttons */}
+          {/* Navigation Buttons - Positioned outside the modal to prevent animation glitch */}
+          {/* Previous Button - Show only for supervisory and advisory boards */}
+          {(selectedBoard === 'supervisory' || selectedBoard === 'advisory') && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedBoard(selectedBoard === 'supervisory' ? 'executive' : 'supervisory');
+              }}
+              className="fixed left-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
+            >
+              <svg className="w-8 h-8 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              <div className="flex flex-col items-start leading-tight">
+                <span className="text-lg">{selectedBoard === 'supervisory' ? 'Executive' : 'Supervisory'}</span>
+                <span className="text-lg">Board</span>
+              </div>
+            </button>
+          )}
+
+          {/* Next Button */}
+          {selectedBoard !== 'advisory' ? (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedBoard(selectedBoard === 'executive' ? 'supervisory' : 'advisory');
+              }}
+              className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
+            >
+              <div className="flex flex-col items-end leading-tight">
+                <span className="text-lg">{selectedBoard === 'executive' ? 'Supervisory' : 'Advisory'}</span>
+                <span className="text-lg">Board</span>
+              </div>
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          ) : (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedBoard(null);
+                router.push('/companies');
+              }}
+              className="fixed right-4 top-1/2 transform -translate-y-1/2 group bg-primary hover:bg-black text-white px-6 py-8 hover:cursor-pointer transition-all duration-300 flex items-center gap-2 font-semibold border-4 border-black shadow-xl z-[60] rounded-3xl"
+            >
+              <div className="flex flex-col items-end leading-tight">
+                <span className="text-lg">Our</span>
+                <span className="text-lg">Companies</span>
+              </div>
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
         </div>
       )}
 
