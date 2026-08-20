@@ -68,7 +68,7 @@ const Navbar = () => {
     { name: "Careers", href: "/careers" },
     { name: "Our Reach", href: "/contact" },
     { name: "M'Brand", href: "/mbrand" },
-    { name: "M'Trade", href: "https://mesdak.auzanassidqi.workers.dev/" },
+    { name: "M'Trade", href: "/m-trade" },
     { name: "M'SuperDeal", href: "/super-deal" },
     { name: "Business Directory", href: "https://mnetgo.com/bd" },
   ];

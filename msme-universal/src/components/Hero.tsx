@@ -170,7 +170,7 @@ const Hero = () => {
 
         <div className="hero-description">
           <p className="text-xl md:text-xl lg:text-2xl mb-12 text-gray-200 max-w-3xl mx-auto leading-normal">
-            Economic Digital Infrastructure & Solutions to power MSMEs,
+            Digital Economic Infrastructure & Solutions to power MSMEs,
             <br /> Financial Institutions and Governments
           </p>
         </div>
