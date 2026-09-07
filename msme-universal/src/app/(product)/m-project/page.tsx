@@ -1,178 +1,806 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./m-project.module.css";
+import "./mproject-landing.css";
 
-const features = [
-  ["👥", "Team & Collaboration", "Communicate, coordinate and work together in real time."],
-  ["🛡️", "Steering Committee", "Review progress, approve decisions and guide project execution."],
-  ["📋", "Project Management", "Plan projects, assign work, manage priorities and meet deadlines."],
-  ["🎯", "SDG Action Planning", "Select up to 3 SDGs, define action plans, execute and track impact."],
-  ["🧠", "Intelligent-ERP Builder", "Build your Intelligent-ERP step by step as your project progresses."],
-  ["🏁", "Milestones & Deliverables", "Track milestones, deliverables and project completion."],
-  ["📈", "Execution Tracking", "Monitor progress, KPIs and project health in real time."],
-  ["📊", "Reports & Analytics", "Generate insights, reports and data-driven decisions."],
+const projectCapabilities = [
+  {
+    title: "Project setup",
+    description:
+      "Define the objective, scope, dates, budget, owner and delivery model before work begins.",
+    outcome: "Clear mandate",
+  },
+  {
+    title: "Users & roles",
+    description:
+      "Bring the right people into one workspace with visible ownership and role-based responsibilities.",
+    outcome: "Accountability",
+  },
+  {
+    title: "Milestones & deliverables",
+    description:
+      "Turn the project plan into measurable checkpoints, outputs and acceptance criteria.",
+    outcome: "Visible progress",
+  },
+  {
+    title: "Action plans & tasks",
+    description:
+      "Coordinate day-to-day actions, priorities, deadlines and evidence of completion.",
+    outcome: "Execution rhythm",
+  },
+  {
+    title: "Timeline & dependencies",
+    description:
+      "See the critical path, connect dependent work and anticipate delivery risk earlier.",
+    outcome: "Fewer surprises",
+  },
+  {
+    title: "Control & reporting",
+    description:
+      "Capture observations, decisions, conclusions and performance evidence as work happens.",
+    outcome: "Decision confidence",
+  },
 ];
 
-const workflow = [
-  ["Create Your Project", "Define objectives, team, milestones and governance."],
-  ["Select Your SDGs", "Choose up to three SDGs aligned with your project."],
-  ["Build Your Action Plan", "Turn objectives into tasks, milestones and deliverables."],
-  ["Collaborate & Execute", "Coordinate teams, communicate effectively and stay aligned."],
-  ["Track Performance", "Monitor progress, KPIs, milestones and SDG achievements."],
-  ["Deliver Results", "Complete projects faster and create lasting impact."],
+const modules = [
+  {
+    icon: "PM",
+    title: "Your project workspace",
+    promise: "Build for any initiative",
+    description:
+      "Create and manage a project from objective and budget through milestones, actions, evidence and reporting.",
+    footer: "Project management core",
+    theme: "",
+  },
+  {
+    icon: "ERP",
+    title: "Intelligent i-ERP setting & management",
+    promise: "Digitise how work operates",
+    description:
+      "Structure processes, responsibilities, controls and management information around the way your organisation works.",
+    footer: "Pre-installed specialist area",
+    theme: "violet",
+  },
+  {
+    icon: "MT",
+    title: "M'Trade management",
+    promise: "Move toward finance readiness",
+    description:
+      "Coordinate the transaction journey, requirements, documents, responsibilities and submission status in one governed workflow.",
+    footer: "Pre-installed specialist area",
+    theme: "blue",
+  },
+  {
+    icon: "ESG",
+    title: "ESG & SDG management",
+    promise: "Turn commitments into evidence",
+    description:
+      "Plan actions, assign indicators, monitor results and organise evidence against environmental, social and SDG priorities.",
+    footer: "Pre-installed specialist area",
+    theme: "green",
+  },
 ];
 
-export default function MProjectLanding() {
+const tradeJourney = [
+  ["01", "Opportunity", "Record the trade need and intended outcome."],
+  ["02", "Counterparties", "Coordinate buyers, sellers and relevant parties."],
+  ["03", "Requirements", "Map conditions, documents and responsibilities."],
+  ["04", "Readiness", "Identify gaps before submission."],
+  ["05", "Submission", "Present an organised transaction package."],
+  ["06", "Monitoring", "Track follow-up, status and obligations."],
+];
+
+const impactSteps = [
+  ["01", "Priorities", "Select the ESG themes and SDGs that matter to the initiative."],
+  ["02", "Action plan", "Translate commitments into owners, activities and delivery dates."],
+  ["03", "Indicators", "Define what will be measured and the evidence required."],
+  ["04", "Monitoring", "Review results, exceptions and supporting evidence over time."],
+];
+
+const deliverySteps = [
+  ["01", "Set up", "Define the initiative and desired result."],
+  ["02", "Structure", "Add roles, milestones and dependencies."],
+  ["03", "Activate", "Use the relevant specialist workspace."],
+  ["04", "Execute", "Coordinate tasks, actions and evidence."],
+  ["05", "Monitor", "Track progress, risk and indicators."],
+  ["06", "Report", "Turn delivery data into decisions."],
+];
+
+const audiences = [
+  ["PROJECT LEADS", "Project leaders", "Keep scope, milestones, dependencies and delivery evidence visible."],
+  ["OPERATIONS TEAMS", "Operations teams", "Connect work to processes, controls and i-ERP management settings."],
+  ["TRADE TEAMS", "Trade teams", "Coordinate transaction requirements and trade-finance readiness."],
+  ["ESG & IMPACT TEAMS", "ESG & impact teams", "Manage action plans, indicators, SDGs and performance evidence."],
+];
+
+const trustItems = [
+  ["01", "Role-based working", "Give contributors access aligned with their responsibilities."],
+  ["02", "Evidence by design", "Connect supporting evidence to work, indicators and decisions."],
+  ["03", "Visible accountability", "Keep ownership, status and follow-up clear across teams."],
+  ["04", "Governed workflows", "Structure complex processes without replacing regulated decisions."],
+];
+
+const ecosystem = [
+  ["ERP", "Operations"],
+  ["Banks", "Trade finance"],
+  ["Documents", "Evidence"],
+  ["Data", "Indicators"],
+  ["Email", "Collaboration"],
+  ["Calendar", "Delivery"],
+  ["BI", "Reporting"],
+  ["API", "Integration"],
+];
+
+function ArrowIcon() {
   return (
-    <main className={styles["page-shell"]}>
-      <header className={styles["site-header"]}>
-        <Link className={styles.brand} href="/m-project" aria-label="M'Project home">
-          <Image src="/logos/products/m-project.png" alt="M'Project" width={40} height={40} className="object-contain h-8 w-auto mr-2" />
-          <span className={styles["brand-name"]}>M’<strong>Project</strong></span>
-        </Link>
-        <nav className={styles["main-nav"]} aria-label="Main navigation">
-          <a href="#features">Features</a><a href="#sdgs">SDGs</a><a href="#ierp">i-ERP Integration</a><a href="#pricing">Pricing</a><a href="#resources">Resources</a>
-        </nav>
-        <div className={styles["header-actions"]}>
-          <a className={`${styles.btn} ${styles["btn-primary"]}`} href="#start">Get Started — It’s Free</a>
-          <Link className={`${styles.btn} ${styles["btn-light"]}`} href="/login">Log in</Link>
-        </div>
-      </header>
-
-      <section className={`${styles.hero} ${styles["section-grid"]}`}>
-        <div className={styles["hero-copy"]}>
-          {/* <p className={styles.eyebrow}>Part of M’World Ecosystem</p> */}
-          <h1>Plan Together.<br /><span>Execute Smarter.</span><br />Deliver Lasting Impact.</h1>
-          <p className={styles["hero-text"]}>M’Project is the collaborative execution workspace of the M’World ecosystem, bringing together teams, governance, SDG Action Planning, Intelligent-ERP implementation and real-time performance management to help teams deliver projects with confidence, accountability and measurable impact.</p>
-          <div className={styles["hero-badges"]}>
-            {["Team Collaboration","Steering Committee","Project Management","SDG Action Planning","Intelligent-ERP","Execution Tracking"].map(item => <span key={item}>{item}</span>)}
-          </div>
-          <div className={styles["hero-cta"]}>
-            <a className={`${styles.btn} ${styles["btn-primary"]} ${styles["btn-large"]}`} href="#start">Start Your Project — It’s Free</a>
-            <a className={`${styles.btn} ${styles["btn-outline"]} ${styles["btn-large"]}`} href="#demo">Watch Overview</a>
-          </div>
-          <p className={styles["trust-note"]}>Trusted by MSMEs, advisors, institutions and governments.</p>
-        </div>
-        <DashboardMockup />
-      </section>
-
-      <section id="features" className={styles["features-section"]}>
-        <div className={styles["section-title"]}>
-          <h2>Everything You Need in One Powerful Workspace</h2>
-          <p>Built for teams. Designed for impact.</p>
-        </div>
-        <div className={styles["feature-grid"]}>
-          {features.map(([icon, title, text]) => (
-            <article key={title} id={title.includes("SDG") ? "sdgs" : title.includes("i-ERP") ? "ierp" : undefined}>
-              <span>{icon}</span><h3>{title}</h3><p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles["workflow-section"]}>
-        <h2>How M’Project Works</h2>
-        <div className={styles.workflow}>
-          {workflow.map(([title, text], index) => (
-            <article key={title}>
-              <b>{index + 1}</b><h3>{title}</h3><p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-[1780px] mx-5 xl:mx-auto mt-20 mb-12 flex flex-col md:flex-row justify-between items-center gap-10 rounded-[26px] border border-[#edf0f5] bg-gradient-to-br from-white to-[#fff4f4] p-9 md:px-12 md:py-10 shadow-sm">
-        <div className="flex-1 text-center md:text-left">
-          <h2 className="text-[28px] md:text-[32px] font-bold text-[#0b0d12] tracking-tight mb-2">Take M’Project Anywhere</h2>
-          <p className="text-[#697386] font-semibold mb-8 md:mb-10 text-[15px]">Stay connected and productive on any device, anywhere.</p>
-          <div className="flex flex-wrap justify-center md:justify-start gap-4">
-            <a href="#" className="bg-[#0b0d12] text-white rounded-xl px-6 py-3.5 font-black min-w-[160px] text-center text-[14px] hover:bg-gray-800 transition">▶ Google Play</a>
-            <a href="#" className="bg-[#0b0d12] text-white rounded-xl px-6 py-3.5 font-black min-w-[160px] text-center text-[14px] hover:bg-gray-800 transition"> App Store</a>
-            <a href="#" className="bg-[#0b0d12] text-white rounded-xl px-6 py-3.5 font-black min-w-[160px] text-center text-[14px] hover:bg-gray-800 transition">HarmonyOS</a>
-          </div>
-        </div>
-        <div className="w-[170px] h-[300px] border-[10px] border-[#111] rounded-[36px] bg-white shadow-[0_24px_70px_rgba(16,24,40,0.12)] p-6 px-4 text-center flex flex-col shrink-0 mx-auto md:mx-0">
-          <span className="block text-white bg-[#ef2f2f] -mx-4 -mt-6 mb-8 py-4 rounded-t-[26px] font-black text-[13px]">M’Project</span>
-          <strong className="text-[48px] text-[#ef2f2f] leading-none mb-1 mt-2">72%</strong>
-          <p className="text-[#697386] font-bold text-[12px] leading-tight">Project<br/>Progress</p>
-        </div>
-      </section>
-
-      <footer className="mt-7 bg-gradient-to-br from-[#D92D20] to-[#A91A10] text-white py-6 px-6 md:px-12 flex flex-col gap-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-y-6">
-          {["M’Network|Connect","M’Butic|E-Commerce","i-ERP|Intelligent-ERP","M’Finance|Funding","M’Pay|Payments","M’Doc|Documents","M’Call|Communications","And More…|Explore All"].map((item, i) => {
-            const [name, sub] = item.split("|");
-            return (
-              <a key={name} href="#" className="text-center font-black border-white/40 lg:border-l lg:first:border-l-0 py-2">
-                {name}<br /><small className="font-medium opacity-85">{sub}</small>
-              </a>
-            );
-          })}
-        </div>
-        <div className="text-center text-[11px] font-normal leading-relaxed opacity-90 border-t border-white/20 pt-4 mx-auto w-full max-w-2xl">
-          M&apos;Project is a member of the MSME Solutions World Group. Empowering MSMEs. Connecting Capital. Creating Impact.
-        </div>
-      </footer>
-    </main>
+    <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M5 12h13M13 6l6 6-6 6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
-function DashboardMockup() {
-  const menu = ["Dashboard", "+ New Project", "Projects", "Team & Collaboration", "Steering Committee", "Project Management", "Milestones", "Tasks", "Documents", "Communications", "SDGs", "Intelligent-ERP", "Reports", "Settings"];
+function MenuIcon({ open }: { open: boolean }) {
+  return open ? (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M6 6l12 12M18 6L6 18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  ) : (
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M4 7h16M4 12h16M4 17h16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ProductPreview() {
+  const metrics = [
+    ["Delivery progress", "68%", "68%", "#ef2f2f"],
+    ["Budget control", "On plan", "81%", "#6b4ec4"],
+    ["Trade readiness", "72%", "72%", "#167b91"],
+    ["Impact evidence", "76%", "76%", "#579b43"],
+  ];
+
   return (
-    <div className={styles["dashboard-card"]} aria-label="M'Project dashboard preview">
-      <aside className={styles["app-sidebar"]}>
-        <div className={styles["mini-brand"]}><span>M’</span>Project</div>
-        {menu.map((item, i) => (
-          <a key={item} className={i === 0 ? styles.active : i === 1 ? styles["new-project"] : ""} href="#">{item}</a>
-        ))}
-      </aside>
-      <div className={styles["dashboard-main"]}>
-        <div className={styles["dash-top"]}>
-          <div><h2>Dashboard</h2><p>Your Project Command Center</p></div>
-          <div className={styles["company-pill"]}>EcoBuild Ltd.</div>
-        </div>
-        <div className={styles["stats-row"]}>
-          <div><strong>12</strong><span>Active Projects</span></div>
-          <div><strong>34</strong><span>Tasks in Progress</span></div>
-          <div><strong>6</strong><span>Upcoming Milestones</span></div>
-          <div><strong>72%</strong><span>Overall Progress</span></div>
-        </div>
-        <div className={styles["dash-grid"]}>
-          <article className={`${styles.panel} ${styles["chart-panel"]}`}>
-            <h3>Project Progress</h3>
-            <div className={styles["line-chart"]}>
-              <span style={{height:"22%"}} /><span style={{height:"34%"}} /><span style={{height:"48%"}} /><span style={{height:"55%"}} /><span style={{height:"78%"}} /><span style={{height:"88%"}} />
+    <div
+      className="mp-product-frame"
+      aria-label="Illustrative M'Project command centre preview"
+    >
+      <div className="mp-browser-bar">
+        <i />
+        <i />
+        <i />
+        <span>workspace.mproject.app</span>
+      </div>
+      <div className="mp-dashboard">
+        <aside className="mp-preview-nav" aria-label="Preview navigation">
+          <div className="mp-preview-brand">
+            <Image
+              src="/M_Project-3.png"
+              alt="M'Project"
+              width={27}
+              height={27}
+              className="object-contain"
+            />
+            <span>M&apos;PROJECT</span>
+          </div>
+          <a className="active" href="#project">Command centre</a>
+          <a href="#project">Project delivery</a>
+          <a href="#ierp">i-ERP management</a>
+          <a className="trade" href="#mtrade">M&apos;Trade workflow</a>
+          <a href="#esg">ESG &amp; SDG impact</a>
+          <a href="#how">Reports &amp; evidence</a>
+          <div className="mp-preview-note">
+            <strong>CONNECTED EXECUTION</strong>
+            <span>One coordinated view of delivery, operations, trade readiness and impact.</span>
+          </div>
+        </aside>
+
+        <div className="mp-preview-main">
+          <div className="mp-preview-top">
+            <div>
+              <small>PROGRAMME COMMAND CENTRE</small>
+              <h2>Solar value-chain expansion</h2>
+              <p>Cross-functional execution workspace</p>
             </div>
-          </article>
-          <article className={`${styles.panel} ${styles["sdg-panel"]}`}>
-            <h3>SDG Impact Overview</h3>
-            <div className={styles.donut}>
-              <span>8<br /><small>SDGs</small></span>
-            </div>
-            <ul>
-              <li>SDG 8 — Decent Work</li>
-              <li>SDG 12 — Responsible Production</li>
-              <li>SDG 13 — Climate Action</li>
-            </ul>
-          </article>
-          <article className={`${styles.panel} ${styles["activity-panel"]}`}>
-            <h3>Recent Activity</h3>
-            <p>Q2 Impact Report submitted</p>
-            <p>Milestone: Prototype completed</p>
-            <p>Payment received via M’Pay</p>
-          </article>
-          <article className={`${styles.panel} ${styles["milestone-panel"]}`}>
-            <h3>Upcoming Milestones</h3>
-            <p>Mobile App Launch <strong>5 days</strong></p>
-            <p>SDG Impact Assessment <strong>10 days</strong></p>
-            <p>Q2 Financial Review <strong>16 days</strong></p>
-          </article>
+            <span className="mp-status">On track</span>
+          </div>
+
+          <div className="mp-metrics">
+            {metrics.map(([label, value, width, colour]) => (
+              <div className="mp-metric" key={label}>
+                <small>{label}</small>
+                <strong>{value}</strong>
+                <div className="mp-meter">
+                  <i style={{ width, "--accent": colour } as React.CSSProperties} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mp-preview-grid">
+            <article className="mp-preview-card">
+              <span className="label">M&apos;TRADE / TRANSACTION 04</span>
+              <h3>Trade-finance readiness journey</h3>
+              <div className="mp-mini-journey">
+                {["Need", "Parties", "Terms", "Ready", "Submit", "Monitor"].map(
+                  (label, index) => (
+                    <div key={label}>
+                      <i>{index + 1}</i>
+                      <span>{label}</span>
+                    </div>
+                  )
+                )}
+              </div>
+              <div className="mp-governance-note">
+                <strong>Governed hand-off</strong>
+                M&apos;Project organises readiness and evidence; financial institutions retain assessment, compliance and credit decisions.
+              </div>
+            </article>
+
+            <article
+              className="mp-preview-card"
+              style={{ "--accent": "#579b43" } as React.CSSProperties}
+            >
+              <span className="label">ESG &amp; SDG PERFORMANCE</span>
+              <h3>Impact evidence</h3>
+              <div className="mp-impact-score">
+                <strong>76%</strong>
+                <small>evidence ready</small>
+              </div>
+              <div className="mp-impact-list">
+                <span>
+                  <i style={{ "--sdg": "#f4a22b" } as React.CSSProperties}>7</i>
+                  Affordable clean energy
+                </span>
+                <span>
+                  <i style={{ "--sdg": "#3f7e44" } as React.CSSProperties}>8</i>
+                  Decent work &amp; growth
+                </span>
+                <span>
+                  <i style={{ "--sdg": "#56c02b" } as React.CSSProperties}>13</i>
+                  Climate action
+                </span>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+export default function MProjectLanding({
+  workspaceHref = "#contact",
+}: {
+  workspaceHref?: string;
+}) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+  const navItems = [
+    ["#project", "Project"],
+    ["#ierp", "i-ERP"],
+    ["#mtrade", "M'Trade"],
+    ["#esg", "ESG & SDG"],
+    ["#how", "How it works"],
+    ["#ecosystem", "Ecosystem"],
+  ];
+
+  return (
+    <div className="mp-site">
+      <header className="mp-header">
+        <Link className="mp-brand" href="#top" aria-label="M'Project home">
+          <Image
+            src="/M_Project-3.png"
+            alt="M'Project logo"
+            width={46}
+            height={46}
+            className="object-contain"
+            priority
+          />
+          <span>M&apos;Project</span>
+        </Link>
+        <nav className="mp-nav" aria-label="Primary navigation">
+          {navItems.map(([href, label]) => (
+            <a key={href} href={href}>
+              {label}
+            </a>
+          ))}
+        </nav>
+        <a className="mp-button primary mp-header-cta" href={workspaceHref}>
+          Open workspace <ArrowIcon />
+        </a>
+        <button
+          className="mp-menu-button"
+          type="button"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="mp-mobile-navigation"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <MenuIcon open={menuOpen} />
+        </button>
+        <nav
+          id="mp-mobile-navigation"
+          className={`mp-mobile-nav${menuOpen ? " open" : ""}`}
+          aria-label="Mobile navigation"
+        >
+          {navItems.map(([href, label]) => (
+            <a key={href} href={href} onClick={closeMenu}>
+              {label}
+            </a>
+          ))}
+          <a href={workspaceHref} onClick={closeMenu}>
+            Open workspace
+          </a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section className="mp-container mp-hero" aria-labelledby="hero-title">
+          <div className="mp-hero-copy">
+            <span className="mp-eyebrow">
+              Project • i-ERP • M&apos;Trade • ESG &amp; SDG
+            </span>
+            <h1 id="hero-title">
+              Manage projects. Digitise operations. Measure impact.{" "}
+              <span className="accent">Become trade-finance ready.</span>
+            </h1>
+            <p>
+              M&apos;Project moves teams from plans to coordinated execution by
+              connecting governance and collaboration with intelligent i-ERP setup
+              and management, M&apos;Trade workflows, ESG and SDG action
+              planning, monitoring, and performance evidence — all in one
+              workspace.
+            </p>
+            <div className="mp-hero-actions">
+              <a className="mp-button primary" href={workspaceHref}>
+                Open your workspace <ArrowIcon />
+              </a>
+              <a className="mp-button secondary" href="#how">
+                See how it works
+              </a>
+            </div>
+            <p className="mp-audience">
+              <strong>Built for coordinated delivery</strong>
+              Project leaders · Operations teams · Trade teams · ESG and impact
+              teams
+            </p>
+          </div>
+          <ProductPreview />
+        </section>
+
+        <section
+          className="mp-section mp-problem"
+          aria-labelledby="problem-title"
+        >
+          <div className="mp-container">
+            <div className="mp-section-heading centered">
+              <span className="mp-kicker">One operating view</span>
+              <h2 id="problem-title">
+                Complex initiatives lose momentum when the work is fragmented.
+              </h2>
+              <p>
+                M&apos;Project gives every team a shared structure for planning,
+                ownership, execution, evidence and decisions.
+              </p>
+            </div>
+            <div className="mp-problem-grid">
+              <article className="mp-problem-card dark">
+                <span>WITHOUT A CONNECTED WORKSPACE</span>
+                <h3>Activity increases. Visibility falls.</h3>
+                <div className="mp-comparison-list">
+                  <div className="mp-comparison-item">
+                    <b>01</b>
+                    <div>
+                      <strong>Disconnected plans</strong>
+                      <p>
+                        Schedules, spreadsheets and documents tell different
+                        versions of the same initiative.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mp-comparison-item">
+                    <b>02</b>
+                    <div>
+                      <strong>Unclear ownership</strong>
+                      <p>
+                        Responsibilities and dependencies become visible only
+                        after something slips.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mp-comparison-item">
+                    <b>03</b>
+                    <div>
+                      <strong>Evidence collected too late</strong>
+                      <p>
+                        Reporting, trade submissions and impact reviews become
+                        expensive reconstruction exercises.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article className="mp-problem-card light">
+                <span>WITH M&apos;PROJECT</span>
+                <h3>One plan becomes coordinated execution.</h3>
+                <div className="mp-comparison-list">
+                  <div className="mp-comparison-item">
+                    <b>01</b>
+                    <div>
+                      <strong>Shared delivery structure</strong>
+                      <p>
+                        Objectives, budgets, milestones, tasks and evidence
+                        connect in a single workspace.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mp-comparison-item">
+                    <b>02</b>
+                    <div>
+                      <strong>Specialist workflows built in</strong>
+                      <p>
+                        Activate i-ERP, M&apos;Trade and ESG &amp; SDG management
+                        when the initiative needs them.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mp-comparison-item">
+                    <b>03</b>
+                    <div>
+                      <strong>Decisions backed by evidence</strong>
+                      <p>
+                        Progress, risk, indicators and supporting records remain
+                        visible as work happens.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="mp-section"
+          id="project"
+          aria-labelledby="project-title"
+        >
+          <div className="mp-container">
+            <div className="mp-section-heading">
+              <span className="mp-kicker">Project management core</span>
+              <h2 id="project-title">
+                Set up and manage any project — from first objective to final
+                evidence.
+              </h2>
+              <p>
+                Use M&apos;Project as the delivery backbone for an internal
+                initiative, investment programme, operational transformation,
+                trade transaction or impact plan.
+              </p>
+            </div>
+            <div className="mp-core-grid">
+              {projectCapabilities.map((item, index) => (
+                <article className="mp-feature-card" key={item.title}>
+                  <span className="mp-feature-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="outcome">{item.outcome}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <footer>Connected to the workspace</footer>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="mp-section mp-installed"
+          id="ierp"
+          aria-labelledby="installed-title"
+        >
+          <div className="mp-container">
+            <div className="mp-section-heading">
+              <span className="mp-kicker">Ready from day one</span>
+              <h2 id="installed-title">
+                Start with the project you need. Activate the specialist areas
+                already installed.
+              </h2>
+              <p>
+                Every workspace includes the flexible project-management core
+                plus pre-installed settings for operational management, trade
+                workflows and impact monitoring.
+              </p>
+            </div>
+            <div className="mp-module-grid">
+              {modules.map((module) => (
+                <article
+                  className={`mp-module-card ${module.theme}`}
+                  key={module.title}
+                >
+                  <div className="mp-module-top">
+                    <span className="mp-module-icon">{module.icon}</span>
+                    <span className="mp-module-badge">Available</span>
+                  </div>
+                  <span className="promise">{module.promise}</span>
+                  <h3>{module.title}</h3>
+                  <p>{module.description}</p>
+                  <footer>{module.footer}</footer>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="mp-section mp-trade"
+          id="mtrade"
+          aria-labelledby="trade-title"
+        >
+          <div className="mp-container">
+            <div className="mp-section-heading">
+              <span className="mp-kicker">M&apos;Trade management</span>
+              <h2 id="trade-title">
+                Coordinate the path from trade opportunity to finance-ready
+                submission.
+              </h2>
+              <p>
+                M&apos;Trade brings the transaction journey, people,
+                requirements, documents, actions and status into one governed
+                workflow — so teams can address gaps before presenting the case
+                to a financing partner.
+              </p>
+            </div>
+            <div className="mp-trade-journey">
+              <div className="mp-journey">
+                {tradeJourney.map(([number, title, description], index) => (
+                  <article
+                    className={`mp-journey-step ${
+                      index === 3 ? "current" : index > 3 ? "future" : ""
+                    }`}
+                    key={title}
+                  >
+                    <b>{number}</b>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="mp-trade-audiences">
+              <article>
+                <span>FOR BUSINESSES</span>
+                <p>
+                  Understand what the transaction needs, assign the work and
+                  maintain a coherent readiness record.
+                </p>
+              </article>
+              <article>
+                <span>FOR ADVISERS</span>
+                <p>
+                  Coordinate the client journey, requirements and evidence
+                  without losing context across hand-offs.
+                </p>
+              </article>
+              <article>
+                <span>FOR FINANCING PARTNERS</span>
+                <p>
+                  Receive a better-organised case with clearer ownership,
+                  status and supporting information.
+                </p>
+              </article>
+            </div>
+            <p className="mp-boundary">
+              <strong>Important governance boundary:</strong> M&apos;Project
+              supports preparation, coordination and monitoring. Banks and other
+              authorised institutions retain KYC/AML review, compliance
+              assessment, credit decisions, pricing, approval and the provision
+              of finance.
+            </p>
+          </div>
+        </section>
+
+        <section className="mp-section mp-esg" id="esg" aria-labelledby="esg-title">
+          <div className="mp-container">
+            <div className="mp-section-heading">
+              <span className="mp-kicker">ESG &amp; SDG management</span>
+              <h2 id="esg-title">
+                Move from impact ambition to actions, indicators and evidence.
+              </h2>
+              <p>
+                Build a practical line of sight from the priorities you choose to
+                the work delivered, the results observed and the evidence
+                available for review.
+              </p>
+            </div>
+            <div className="mp-impact-steps">
+              {impactSteps.map(([number, title, description]) => (
+                <article className="mp-impact-step" key={title}>
+                  <b>{number}</b>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mp-impact-board">
+              <span>Illustrative impact board</span>
+              <h3>
+                Connect each initiative to the outcomes it is designed to
+                support.
+              </h3>
+              <div className="mp-sdg-grid">
+                <article className="mp-sdg">
+                  <b style={{ "--sdg": "#f4a22b" } as React.CSSProperties}>7</b>
+                  <div>
+                    <strong>Affordable &amp; clean energy</strong>
+                    <p>Capacity, access and efficiency indicators</p>
+                  </div>
+                </article>
+                <article className="mp-sdg">
+                  <b style={{ "--sdg": "#3f7e44" } as React.CSSProperties}>8</b>
+                  <div>
+                    <strong>Decent work &amp; growth</strong>
+                    <p>Employment, skills and local value indicators</p>
+                  </div>
+                </article>
+                <article className="mp-sdg">
+                  <b style={{ "--sdg": "#56c02b" } as React.CSSProperties}>13</b>
+                  <div>
+                    <strong>Climate action</strong>
+                    <p>Emissions, resilience and transition indicators</p>
+                  </div>
+                </article>
+              </div>
+              <p className="mp-assurance">
+                M&apos;Project organises management information and evidence.
+                External assurance, certification and regulatory opinions remain
+                with appropriately qualified parties.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mp-section mp-how" id="how" aria-labelledby="how-title">
+          <div className="mp-container">
+            <div className="mp-section-heading centered">
+              <span className="mp-kicker">How M&apos;Project works</span>
+              <h2 id="how-title">
+                A practical rhythm from setup to accountable reporting.
+              </h2>
+              <p>
+                The same delivery logic connects general project management
+                with i-ERP, M&apos;Trade and ESG &amp; SDG workflows.
+              </p>
+            </div>
+            <div className="mp-steps">
+              {deliverySteps.map(([number, title, description]) => (
+                <article className="mp-step" key={title}>
+                  <b>{number}</b>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mp-users-heading">
+              <span>Designed for the whole delivery network</span>
+              <h3>
+                Give each contributor the view they need — while keeping one
+                coordinated record.
+              </h3>
+            </div>
+            <div className="mp-user-grid">
+              {audiences.map(([label, title, description], index) => (
+                <article className="mp-user-card" key={label}>
+                  <b>
+                    0{index + 1} / {label}
+                  </b>
+                  <h4>{title}</h4>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="mp-section mp-trust"
+          id="ecosystem"
+          aria-labelledby="trust-title"
+        >
+          <div className="mp-container">
+            <div className="mp-section-heading">
+              <span className="mp-kicker">Control without friction</span>
+              <h2 id="trust-title">
+                Built to strengthen governance, accountability and confidence.
+              </h2>
+              <p>
+                M&apos;Project makes the working record easier to understand,
+                maintain and review across the life of an initiative.
+              </p>
+            </div>
+            <div className="mp-trust-grid">
+              {trustItems.map(([number, title, description]) => (
+                <article className="mp-trust-card" key={title}>
+                  <b>{number}</b>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mp-ecosystem">
+              <span>Integration-ready ecosystem</span>
+              <div className="mp-app-grid">
+                {ecosystem.map(([name, type]) => (
+                  <div className="mp-app" key={name}>
+                    <strong>{name}</strong>
+                    <span>{type}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mp-final-cta" id="contact">
+              <div>
+                <h3>
+                  Bring your plans, operations, trade readiness and impact
+                  evidence into one place.
+                </h3>
+                <p>
+                  Start with a project. Activate the specialist workflows your
+                  initiative needs.
+                </p>
+              </div>
+              <a className="mp-button on-dark" href={workspaceHref}>
+                Open M&apos;Project <ArrowIcon />
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="mp-footer">
+        <div className="mp-footer-row">
+          <div className="mp-footer-brand">
+            <Image
+              src="/M_Project-3.png"
+              alt="M'Project"
+              width={42}
+              height={42}
+              className="object-contain"
+            />
+            <div>
+              <strong>M&apos;PROJECT</strong>
+              <span>Coordinated execution. Evidence-ready management.</span>
+            </div>
+          </div>
+          <nav className="mp-footer-links" aria-label="Footer navigation">
+            <a href="#project">Project</a>
+            <a href="#mtrade">M&apos;Trade</a>
+            <a href="#esg">ESG &amp; SDG</a>
+            <a href="#top">Back to top</a>
+          </nav>
+        </div>
+      </footer>
     </div>
   );
 }

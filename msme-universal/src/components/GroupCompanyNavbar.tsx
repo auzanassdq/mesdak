@@ -27,6 +27,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
     { name: "Careers", href: "/careers" },
     { name: "Our Reach", href: "#reach" },
     { name: "M'Brand", href: "/mbrand" },
+    { name: "M'Trade", href: "/m-trade" },
     { name: "M'SuperDeal", href: "/super-deal" },
     { name: "Business Directory", href: "https://mnetgo.com/bd" },
   ];
@@ -66,11 +67,9 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      // Group company navbars always have a white background because they might have different colored headers
-      // Or we can keep the same logic: bg-white/90 backdrop-blur-md shadow-md py-2
       className="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md py-2"
     >
-      <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <Image
             src={logoSrc}
@@ -82,17 +81,17 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden xl:flex items-center space-x-8">
+        <div className="hidden xl:flex items-center space-x-5">
           {navLinks.map((link) => {
             // Because it's a one-page site structure for companies, we use activeHash to track
-            const isActive = activeHash === link.href || (activeHash === "" && link.href === "#about"); // Assuming #about is default
+            const isActive = activeHash === link.href || (activeHash === "" && link.href === "#about");
 
             return (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setActiveHash(link.href)}
-                className={`relative text-gray-800 hover:text-[var(--nav-theme-color)] font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
+                className={`relative text-sm text-gray-800 hover:text-[var(--nav-theme-color)] font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
                   }`}
               >
                 {link.name}
@@ -112,7 +111,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 hover:bg-gray-100 transition-colors group cursor-pointer rounded-full"
+              className="p-2 hover:bg-gray-100 transition-colors group cursor-pointer"
             >
               <motion.div className="relative" transition={{ duration: 0.2 }}>
                 <svg
@@ -138,7 +137,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
 
         {/* Mobile Menu Button */}
         <button
-          className="xl:hidden text-gray-800 p-2"
+          className="xl:hidden text-gray-800"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
@@ -182,7 +181,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="xl:hidden bg-white/90 backdrop-blur-md shadow-lg border-t border-gray-100 rounded-2xl"
+          className="xl:hidden bg-white/90 backdrop-blur-md shadow-lg"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => {
@@ -191,7 +190,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`relative text-gray-800 hover:text-[var(--nav-theme-color)] py-2 pl-3 font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
+                  className={`relative text-sm text-gray-800 hover:text-[var(--nav-theme-color)] py-2 pl-3 font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
                     }`}
                   onClick={() => {
                     setActiveHash(link.href);
@@ -216,7 +215,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
             })}
 
             {/* Search and Language - Mobile */}
-            <div className="flex items-center justify-between py-3 pl-2">
+            <div className="flex items-center justify-between py-3">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}

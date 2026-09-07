@@ -63,11 +63,11 @@ export const products: ProductInfo[] = [
     logo: "/logos/products/m-media.png",
     primaryColor: "#000000", // Placeholder
   },
-  // {
-  //   id: "m-trade",
-  //   name: "M_Trade",
-  //   route: "/m-trade",
-  //   logo: "/logos/products/m-trade.png",
-  //   primaryColor: "#078c4b",
-  // },
+  {
+    id: "m-trade",
+    name: "M_Trade",
+    route: "/m-trade",
+    logo: "/logos/products/m-trade.png",
+    primaryColor: "#078c4b",
+  },
 ];

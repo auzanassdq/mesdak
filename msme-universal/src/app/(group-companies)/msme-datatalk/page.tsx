@@ -188,14 +188,14 @@ const D3MP = () => {
           </p>
         </div>
 
-        {/* video youtube */}
-        <div className="relative mx-auto  w-1/2 h-96 rounded-2xl overflow-hidden shadow-2xl mb-16">
+        {/* video google drive */}
+        <div className="relative mx-auto w-1/2 h-96 rounded-2xl overflow-hidden shadow-2xl mb-16">
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/D89Dgg32yLk?autoplay=1&mute=1&loop=1&playlist=D89Dgg32yLk&controls=0&showinfo=0&rel=0"
+            src="https://drive.google.com/file/d/1bmZeMxhzEbpqEt_iOmI5kHg5kpfdX9dt/preview"
             title="D3MP Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="autoplay"
             allowFullScreen
           ></iframe>
         </div>
