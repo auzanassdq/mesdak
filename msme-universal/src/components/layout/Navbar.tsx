@@ -15,20 +15,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const groupCompanyRoutes = [
-    "/msme-network",
-    "/msme-butic",
-    "/msme-consulting",
-    "/msme-finance",
-    "/msme-izitec",
-    "/msme-media",
-    "/msme-datatalk",
-  ];
-
-  const isGroupCompanyPage = groupCompanyRoutes.some((route) =>
-    pathname?.startsWith(route),
-  );
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -41,24 +27,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const getLogo = () => {
-    if (pathname?.includes("msme-network"))
-      return "/logos/group-companies/network.png";
-    if (pathname?.includes("msme-butic"))
-      return "/logos/group-companies/butic.png";
-    if (pathname?.includes("msme-consulting"))
-      return "/logos/group-companies/consulting.png";
-    if (pathname?.includes("msme-finance"))
-      return "/logos/group-companies/finance.png";
-    if (pathname?.includes("msme-izitec"))
-      return "/logos/group-companies/izitec.png";
-    if (pathname?.includes("msme-media"))
-      return "/logos/group-companies/media.png";
-    if (pathname?.includes("msme-datatalk"))
-      return "/images/mdatatalk-logo.png";
-    return config.logo;
-  };
 
   const navLinks = [
     // { name: 'Home', href: '/' },
@@ -78,12 +46,12 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isGroupCompanyPage ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "hidden py-4"}`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "hidden py-4"}`}
     >
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <Image
-            src={getLogo()}
+            src={config.logo}
             alt="MSME World Logo"
             width={200}
             height={200}

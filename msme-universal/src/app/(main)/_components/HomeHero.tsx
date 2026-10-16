@@ -15,6 +15,8 @@ import { products } from '@/lib/products';
 
 gsap.registerPlugin(useGSAP);
 
+const SWITCHING_WORDS = ['Digitization', 'Decentralization', 'Decarbonization'] as const;
+
 const Hero = () => {
   const config = getRegionConfig();
   const heroContainerRef = useRef<HTMLElement>(null);
@@ -24,8 +26,6 @@ const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [animationComplete, setAnimationComplete] = useState(false);
-
-  const switchingWords = ['Digitization', 'Decentralization', 'Decarbonization'];
 
   useEffect(() => {
     const video = videoRef.current;
@@ -38,11 +38,11 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % switchingWords.length);
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % SWITCHING_WORDS.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [switchingWords.length]);
+  }, []);
 
   useGSAP(() => {
     // GSAP Timeline Animation
