@@ -251,9 +251,9 @@ const AboutPage = () => {
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/uWQ_8CtvzoY"
+                  src="https://drive.google.com/file/d/1l5rMfGsv_rKh0n6h6_jiOQ8Oa8UGrEXn/preview"
                   title="MSME Finance Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="autoplay"
                   allowFullScreen
                 ></iframe>
               </div>
@@ -265,9 +265,9 @@ const AboutPage = () => {
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/gW22hVe5_fI"
+                  src="https://drive.google.com/file/d/1fOrwWItLjY78vVdYAUDIPFHPcv_jOjlD/preview"
                   title="SDG Execution Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="autoplay"
                   allowFullScreen
                 ></iframe>
               </div>
@@ -279,9 +279,9 @@ const AboutPage = () => {
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/Dezxrb9fpM0"
+                  src="https://drive.google.com/file/d/1bmZeMxhzEbpqEt_iOmI5kHg5kpfdX9dt/preview"
                   title="Real-Time Economic Intelligence Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="autoplay"
                   allowFullScreen
                 ></iframe>
               </div>
@@ -293,9 +293,9 @@ const AboutPage = () => {
               <div className="aspect-video w-full rounded-xl overflow-hidden border-2 border-black bg-gray-200">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/uWQ_8CtvzoY"
+                  src="https://drive.google.com/file/d/1fTHlfKV0dwNP5XmJXTfykLnl5P3OidmN/preview"
                   title="Human Capital Activation Gap Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="autoplay"
                   allowFullScreen
                 ></iframe>
               </div>

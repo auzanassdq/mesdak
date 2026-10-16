@@ -75,6 +75,9 @@ export default function MTradeLanding() {
 
         {/* 1. GEDEKAN NAVLINKS (text-lg font-bold) */}
         <div className="hidden md:flex gap-10 mx-auto text-lg font-bold">
+          <Link href="/" className="text-[#10231b] hover:text-[#078c4b] transition-colors">
+            MSME World
+          </Link>
           <Link href="#ecosystem" className="text-[#10231b] hover:text-[#078c4b] transition-colors">
             Ecosystem
           </Link>
@@ -185,11 +188,11 @@ export default function MTradeLanding() {
 
         {/* Proof / Stats Bar */}
         <section
-          className="bg-[#063d2a] text-white w-full py-10 px-6 lg:px-[max(24px,calc((100%-1180px)/2))] grid grid-cols-3 md:grid-cols-[repeat(3,1fr)_1.7fr] items-center gap-6"
+          className="bg-[#063d2a] text-white w-full py-10 px-6 lg:px-[max(24px,calc((100%-1180px)/2))] grid grid-cols-3 md:grid-cols-[repeat(3,auto)_1fr] items-center gap-4 lg:gap-8"
           aria-label="Platform benefits"
         >
           {/* 4. GEDEKAN STATS DESC (text-base sm:text-lg md:text-xl) */}
-          <div className="border-r border-white/20 pr-4 md:pr-6">
+          <div className="border-r border-white/20 pr-4 lg:pr-8">
             <strong className="block font-serif text-3xl sm:text-4xl md:text-5xl text-[#71d49d] font-normal mb-1">
               One
             </strong>
@@ -197,7 +200,7 @@ export default function MTradeLanding() {
               connected ecosystem
             </span>
           </div>
-          <div className="border-r border-white/20 pl-4 md:pl-6 pr-4 md:pr-6">
+          <div className="border-r border-white/20 pl-2 md:pl-4 lg:pl-6 pr-4 lg:pr-8">
             <strong className="block font-serif text-3xl sm:text-4xl md:text-5xl text-[#71d49d] font-normal mb-1">
               Six
             </strong>
@@ -205,16 +208,16 @@ export default function MTradeLanding() {
               essential groups
             </span>
           </div>
-          <div className="border-r-0 md:border-r border-white/20 pl-4 md:pl-6 pr-4 md:pr-6">
-            <strong className="block font-serif text-3xl sm:text-4xl md:text-5xl text-[#71d49d] font-normal mb-1">
+          <div className="border-r-0 md:border-r border-white/20 pl-2 md:pl-4 lg:pl-6 pr-4 lg:pr-8">
+            <strong className="block font-serif text-3xl sm:text-4xl md:text-5xl text-[#71d49d] font-normal mb-1 whitespace-nowrap">
               End-to-end
             </strong>
-            <span className="text-base sm:text-lg md:text-xl text-[#c9dfd1] font-medium leading-snug block">
+            <span className="text-base sm:text-lg md:text-xl text-[#c9dfd1] font-medium leading-snug block whitespace-nowrap">
               trade visibility
             </span>
           </div>
           {/* 5. GEDEKAN STATS PARAGRAPH (text-base sm:text-lg md:text-xl) */}
-          <p className="hidden md:block text-right leading-relaxed text-base sm:text-lg md:text-xl text-[#c9dfd1] m-0 pl-6">
+          <p className="hidden md:block text-right leading-relaxed text-sm lg:text-base text-[#c9dfd1] m-0 pl-4 lg:pl-6">
             Built for the people and institutions
             <br />
             that make global trade possible.

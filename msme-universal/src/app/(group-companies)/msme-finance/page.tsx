@@ -177,7 +177,7 @@ export default function MFIPage() {
               "Risk-Mitigation & Insurance Engineering",
               "Payment Infrastructure & Digital Finance Solutions",
               "Digital Financial & Insurance Product Definition, Design & Deployment",
-              "Strategic Partnerships with Banks, MDBs, DFIs, Governments, Sovereign Wealth Funds, Pension Funds & Asset Managers, Financial Centre and Central Bank"
+              "Strategic Partnerships with Banks, MDBs, DFIs, Governments, Sovereign Wealth Funds, Pension Funds & Asset Managers, Financial Centre and Central Banks"
             ].map((capability, idx) => (
               <motion.div
                 key={idx}

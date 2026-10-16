@@ -82,7 +82,7 @@ export default function ConsultingPage() {
             <div className="md:w-1/2">
               <h2 className="text-4xl font-bold text-slate-900 mb-6">Our Mandate</h2>
               <p className="text-lg text-slate-600 mb-8">
-                MDC helps governments, MDBs, Bilateral Organizations, DFIs, financial institutions, and development partners to achieve transformative results.
+                MDC helps governments, Central Banks, MDBs, Bilateral Organizations, DFIs, financial institutions, and development partners to achieve transformative results.
               </p>
               <div className="space-y-4">
                 {[
@@ -311,12 +311,12 @@ export default function ConsultingPage() {
               MSME Development Consulting is more than an advisory firm — it is a strategic transformation partner that helps countries and institutions redesign how MSMEs grow, create jobs, compete, and generate value at scale.
             </p>
             <div className="flex justify-center gap-6">
-              <div className="relative h-12 w-48 opacity-80 hover:opacity-100 transition-opacity">
+              <div className="relative h-20 w-72 md:h-24 md:w-96 opacity-90 hover:opacity-100 transition-opacity">
                 <Image
-                  src="/assets/mdc-logo.png"
+                  src="/assets/mdc-logo-white.png"
                   alt="MDC Logo"
                   fill
-                  className="object-contain object-center brightness-0 invert"
+                  className="object-contain object-center"
                 />
               </div>
             </div>

@@ -337,7 +337,7 @@ const DataCollection = () => {
 
 const Audience = () => {
   const audiences = [
-    "Governments & Ministries",
+    "Governments, Ministries, <br/> & Central Banks",
     "MDBs, DFIs, & Development Banks",
     "Commercial Banks & Microfinance Institutions",
     "Insurance Companies <br/> Guarantee Funds",
@@ -456,12 +456,12 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex justify-start md:justify-end">
-            <div className="relative h-16 w-64">
+            <div className="relative h-20 w-72 md:h-28 md:w-96 opacity-90 hover:opacity-100 transition-opacity">
               <Image
-                src="/images/mdatatalk-logo.png"
+                src="/images/mdatatalk-logo-white.png"
                 alt="M'DataTalk Logo"
                 fill
-                className="object-contain object-left md:object-right brightness-0 invert"
+                className="object-contain object-left md:object-right"
               />
             </div>
           </div>
