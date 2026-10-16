@@ -23,7 +23,7 @@ import {
   ShieldCheckIcon,
   CheckIcon
 } from "@phosphor-icons/react";
-import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import NetworkChart from "../_components/group-org-charts/NetworkChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 

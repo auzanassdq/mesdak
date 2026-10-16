@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Globe, Layers, Shield, Zap } from 'lucide-react';
-import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import IZITecChart from "../_components/group-org-charts/IZITecChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 

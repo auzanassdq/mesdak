@@ -17,7 +17,7 @@ import {
   List,
   X
 } from "@phosphor-icons/react";
-import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import FinanceChart from "../_components/group-org-charts/FinanceChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 

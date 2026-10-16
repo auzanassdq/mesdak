@@ -16,7 +16,7 @@ import {
   Briefcase,
   CheckCircle2,
 } from "lucide-react";
-import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import MediaChart from "../_components/group-org-charts/MediaChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 

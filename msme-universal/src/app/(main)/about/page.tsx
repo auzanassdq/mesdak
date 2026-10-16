@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowArcRightIcon, ArrowRightIcon, CaretRightIcon, NewspaperIcon } from '@phosphor-icons/react/dist/ssr';
 import { useRouter } from 'next/navigation';
-import SectionWithVideo from '@/components/SectionWithVideo';
+import SectionWithVideo from './_components/SectionWithVideo';
 import { getRegionConfig } from '@/lib/config';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);

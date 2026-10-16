@@ -4,76 +4,87 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import TranslateComponent from "./translate-btn";
+import { usePathname } from "next/navigation";
+import TranslateComponent from "@/components/ui/translate-btn";
 
-export interface NavLink {
-  name: string;
-  href: string;
-}
+import { getRegionConfig } from "@/lib/config";
 
-interface GroupCompanyNavbarProps {themeColor?: string;
-  logoSrc: string;
-}
-
-const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNavbarProps) => {
+const Navbar = () => {
+  const config = getRegionConfig();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("");
+  const pathname = usePathname();
 
-  const navLinks: NavLink[] = [
-    { name: "About Us", href: "#about" },
-    { name: "Group Companies", href: "#companies" },
-    { name: "Services", href: "#services" },
-    { name: "Careers", href: "/careers" },
-    { name: "Our Reach", href: "#reach" },
-    { name: "M'Brand", href: "/mbrand" },
-    { name: "M'Trade", href: "/m-trade" },
-    { name: "M'SuperDeal", href: "/super-deal" },
-    { name: "Business Directory", href: "https://mnetgo.com/bd" },
+  const groupCompanyRoutes = [
+    "/msme-network",
+    "/msme-butic",
+    "/msme-consulting",
+    "/msme-finance",
+    "/msme-izitec",
+    "/msme-media",
+    "/msme-datatalk",
   ];
 
-  useEffect(() => {
-    // Update active hash based on scroll position or click
-    const handleHashChange = () => {
-      setActiveHash(window.location.hash);
-    };
+  const isGroupCompanyPage = groupCompanyRoutes.some((route) =>
+    pathname?.startsWith(route),
+  );
 
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
-
-      // Attempt to highlight active section based on scroll (basic implementation)
-      // This can be enhanced further if needed.
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("hashchange", handleHashChange);
-
-    // Initial check
-    handleHashChange();
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleHashChange);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const getLogo = () => {
+    if (pathname?.includes("msme-network"))
+      return "/logos/group-companies/network.png";
+    if (pathname?.includes("msme-butic"))
+      return "/logos/group-companies/butic.png";
+    if (pathname?.includes("msme-consulting"))
+      return "/logos/group-companies/consulting.png";
+    if (pathname?.includes("msme-finance"))
+      return "/logos/group-companies/finance.png";
+    if (pathname?.includes("msme-izitec"))
+      return "/logos/group-companies/izitec.png";
+    if (pathname?.includes("msme-media"))
+      return "/logos/group-companies/media.png";
+    if (pathname?.includes("msme-datatalk"))
+      return "/images/mdatatalk-logo.png";
+    return config.logo;
+  };
+
+  const navLinks = [
+    // { name: 'Home', href: '/' },
+    { name: "About Us", href: "/about" },
+    { name: "Group Companies", href: "/companies" },
+    { name: "Services", href: "/services" },
+    { name: "Careers", href: "/careers" },
+    { name: "Our Reach", href: "/contact" },
+    { name: "M'Brand", href: "/mbrand" },
+    { name: "M'Trade", href: "/m-trade" },
+    { name: "M'SuperDeal", href: "/super-deal" },
+    { name: "Business Directory", href: "https://mnetgo.com/bd" },
+  ];
+
   return (
-    <motion.nav style={{ '--nav-theme-color': themeColor } as React.CSSProperties}
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md py-2"
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isGroupCompanyPage ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "hidden py-4"}`}
     >
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <Image
-            src={logoSrc}
-            alt="Group Company Logo"
+            src={getLogo()}
+            alt="MSME World Logo"
             width={200}
             height={200}
             className="object-contain h-12 w-auto"
@@ -83,27 +94,25 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
         {/* Desktop Navigation */}
         <div className="hidden xl:flex items-center space-x-5">
           {navLinks.map((link) => {
-            // Because it's a one-page site structure for companies, we use activeHash to track
-            const isActive = activeHash === link.href || (activeHash === "" && link.href === "#about");
-
+            const isActive = pathname === link.href;
             return (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setActiveHash(link.href)}
-                className={`relative text-sm text-gray-800 hover:text-[var(--nav-theme-color)] font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
-                  }`}
+                className={`relative text-sm text-gray-800 hover:text-primary-600 font-medium transition-colors ${
+                  isActive ? "text-blue-600" : ""
+                }`}
               >
                 {link.name}
                 {isActive && (
                   <motion.div
-                    layoutId="groupNavActiveIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-1 bg-[var(--nav-theme-color)]"
+                    layoutId="activeIndicator"
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-primary-600"
                     initial={false}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-              </a>
+              </Link>
             );
           })}
 
@@ -116,7 +125,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
               <motion.div className="relative" transition={{ duration: 0.2 }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600 group-hover:text-[var(--nav-theme-color)] transition-colors"
+                  className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -185,23 +194,21 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => {
-              const isActive = activeHash === link.href || (activeHash === "" && link.href === "#about");
+              const isActive = pathname === link.href;
               return (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative text-sm text-gray-800 hover:text-[var(--nav-theme-color)] py-2 pl-3 font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
-                    }`}
-                  onClick={() => {
-                    setActiveHash(link.href);
-                    setIsMobileMenuOpen(false);
-                  }}
+                  className={`relative text-sm text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${
+                    isActive ? "text-blue-600" : ""
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                   {isActive && (
                     <motion.div
-                      layoutId="mobileGroupNavActiveIndicator"
-                      className="absolute top-0 bottom-0 left-0 w-1 h-full bg-[var(--nav-theme-color)]"
+                      layoutId="mobileActiveIndicator"
+                      className="absolute top-0 bottom-0 left-0 w-1 h-full bg-primary-600"
                       initial={false}
                       transition={{
                         type: "spring",
@@ -210,7 +217,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
                       }}
                     />
                   )}
-                </a>
+                </Link>
               );
             })}
 
@@ -229,7 +236,7 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600 group-hover:text-[var(--nav-theme-color)] transition-colors"
+                    className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -253,4 +260,4 @@ const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNav
   );
 };
 
-export default GroupCompanyNavbar;
+export default Navbar;

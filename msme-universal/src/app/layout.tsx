@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Host_Grotesk, Sansation } from "next/font/google";
 import "./globals.css";
-import ConditionalLayout from "@/components/ConditionalLayout";
 import { getRegionConfig } from "@/lib/config";
 
 const sansation = Sansation({
@@ -127,9 +126,7 @@ export default function RootLayout({
       <body
         className={`${sansation.className} ${sansation.variable} antialiased`}
       >
-        <ConditionalLayout>
-          {children}
-        </ConditionalLayout>
+        {children}
       </body>
     </html>
   );

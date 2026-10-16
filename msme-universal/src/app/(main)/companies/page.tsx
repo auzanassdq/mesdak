@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon, GlobeIcon, LightningIcon, MonitorIcon, TargetIcon, UsersIcon, X, CaretLeftIcon } from '@phosphor-icons/react/dist/ssr';
-import companySummaries from '@/app/companies/data/companies-summary.json';
-import MSWHoldingStructureUI from '@/components/holding-structure';
+import companySummaries from './data/companies-summary.json';
+import MSWHoldingStructureUI from './_components/HoldingStructure';
 
 interface Company {
   id: number;

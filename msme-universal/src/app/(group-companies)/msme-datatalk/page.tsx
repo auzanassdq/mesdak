@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import DataTalkChart from "../_components/group-org-charts/DataTalkChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 

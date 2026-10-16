@@ -4,87 +4,76 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import TranslateComponent from "./translate-btn";
+import TranslateComponent from "@/components/ui/translate-btn";
 
-import { getRegionConfig } from "@/lib/config";
+export interface NavLink {
+  name: string;
+  href: string;
+}
 
-const Navbar = () => {
-  const config = getRegionConfig();
+interface GroupCompanyNavbarProps {themeColor?: string;
+  logoSrc: string;
+}
+
+const GroupCompanyNavbar = ({ logoSrc, themeColor = '#2563eb' }: GroupCompanyNavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [activeHash, setActiveHash] = useState("");
 
-  const groupCompanyRoutes = [
-    "/msme-network",
-    "/msme-butic",
-    "/msme-consulting",
-    "/msme-finance",
-    "/msme-izitec",
-    "/msme-media",
-    "/msme-datatalk",
-  ];
-
-  const isGroupCompanyPage = groupCompanyRoutes.some((route) =>
-    pathname?.startsWith(route),
-  );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const getLogo = () => {
-    if (pathname?.includes("msme-network"))
-      return "/logos/group-companies/network.png";
-    if (pathname?.includes("msme-butic"))
-      return "/logos/group-companies/butic.png";
-    if (pathname?.includes("msme-consulting"))
-      return "/logos/group-companies/consulting.png";
-    if (pathname?.includes("msme-finance"))
-      return "/logos/group-companies/finance.png";
-    if (pathname?.includes("msme-izitec"))
-      return "/logos/group-companies/izitec.png";
-    if (pathname?.includes("msme-media"))
-      return "/logos/group-companies/media.png";
-    if (pathname?.includes("msme-datatalk"))
-      return "/images/mdatatalk-logo.png";
-    return config.logo;
-  };
-
-  const navLinks = [
-    // { name: 'Home', href: '/' },
-    { name: "About Us", href: "/about" },
-    { name: "Group Companies", href: "/companies" },
-    { name: "Services", href: "/services" },
+  const navLinks: NavLink[] = [
+    { name: "About Us", href: "#about" },
+    { name: "Group Companies", href: "#companies" },
+    { name: "Services", href: "#services" },
     { name: "Careers", href: "/careers" },
-    { name: "Our Reach", href: "/contact" },
+    { name: "Our Reach", href: "#reach" },
     { name: "M'Brand", href: "/mbrand" },
     { name: "M'Trade", href: "/m-trade" },
     { name: "M'SuperDeal", href: "/super-deal" },
     { name: "Business Directory", href: "https://mnetgo.com/bd" },
   ];
 
+  useEffect(() => {
+    // Update active hash based on scroll position or click
+    const handleHashChange = () => {
+      setActiveHash(window.location.hash);
+    };
+
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // Attempt to highlight active section based on scroll (basic implementation)
+      // This can be enhanced further if needed.
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("hashchange", handleHashChange);
+
+    // Initial check
+    handleHashChange();
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
-    <motion.nav
+    <motion.nav style={{ '--nav-theme-color': themeColor } as React.CSSProperties}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isGroupCompanyPage ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "hidden py-4"}`}
+      className="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md py-2"
     >
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <Image
-            src={getLogo()}
-            alt="MSME World Logo"
+            src={logoSrc}
+            alt="Group Company Logo"
             width={200}
             height={200}
             className="object-contain h-12 w-auto"
@@ -94,25 +83,27 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden xl:flex items-center space-x-5">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            // Because it's a one-page site structure for companies, we use activeHash to track
+            const isActive = activeHash === link.href || (activeHash === "" && link.href === "#about");
+
             return (
-              <Link
+              <a
                 key={link.name}
                 href={link.href}
-                className={`relative text-sm text-gray-800 hover:text-primary-600 font-medium transition-colors ${
-                  isActive ? "text-blue-600" : ""
-                }`}
+                onClick={() => setActiveHash(link.href)}
+                className={`relative text-sm text-gray-800 hover:text-[var(--nav-theme-color)] font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
+                  }`}
               >
                 {link.name}
                 {isActive && (
                   <motion.div
-                    layoutId="activeIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-1 bg-primary-600"
+                    layoutId="groupNavActiveIndicator"
+                    className="absolute -bottom-1 left-0 right-0 h-1 bg-[var(--nav-theme-color)]"
                     initial={false}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-              </Link>
+              </a>
             );
           })}
 
@@ -125,7 +116,7 @@ const Navbar = () => {
               <motion.div className="relative" transition={{ duration: 0.2 }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
+                  className="h-5 w-5 text-gray-600 group-hover:text-[var(--nav-theme-color)] transition-colors"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -194,21 +185,23 @@ const Navbar = () => {
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = activeHash === link.href || (activeHash === "" && link.href === "#about");
               return (
-                <Link
+                <a
                   key={link.name}
                   href={link.href}
-                  className={`relative text-sm text-gray-800 hover:text-primary-600 py-2 pl-3 font-medium transition-colors ${
-                    isActive ? "text-blue-600" : ""
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`relative text-sm text-gray-800 hover:text-[var(--nav-theme-color)] py-2 pl-3 font-medium transition-colors ${isActive ? "text-[var(--nav-theme-color)]" : ""
+                    }`}
+                  onClick={() => {
+                    setActiveHash(link.href);
+                    setIsMobileMenuOpen(false);
+                  }}
                 >
                   {link.name}
                   {isActive && (
                     <motion.div
-                      layoutId="mobileActiveIndicator"
-                      className="absolute top-0 bottom-0 left-0 w-1 h-full bg-primary-600"
+                      layoutId="mobileGroupNavActiveIndicator"
+                      className="absolute top-0 bottom-0 left-0 w-1 h-full bg-[var(--nav-theme-color)]"
                       initial={false}
                       transition={{
                         type: "spring",
@@ -217,7 +210,7 @@ const Navbar = () => {
                       }}
                     />
                   )}
-                </Link>
+                </a>
               );
             })}
 
@@ -236,7 +229,7 @@ const Navbar = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-600 group-hover:text-primary-600 transition-colors"
+                    className="h-5 w-5 text-gray-600 group-hover:text-[var(--nav-theme-color)] transition-colors"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -260,4 +253,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default GroupCompanyNavbar;

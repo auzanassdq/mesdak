@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { EnvelopeSimpleIcon, MapPinIcon, PaperPlaneTiltIcon, PhoneIcon, ArrowRightIcon } from '@phosphor-icons/react/dist/ssr';
 
-import LocationTabs from '@/components/LocationTabs';
-import MSWHoldingStructureUI from '../../components/holding-structure';
+import LocationTabs from './_components/LocationTabs';
+import MSWHoldingStructureUI from '../companies/_components/HoldingStructure';
 
 const ContactPage = () => {
   const [selectedOffice, setSelectedOffice] = useState(0);

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import NextLink from "next/link";
-import { getRegionConfig } from "../lib/config";
+import { getRegionConfig } from "@/lib/config";
 import {
   Network,
   BarChart2,
@@ -130,7 +130,7 @@ const regionalOptions = [
   "DRC",
 ];
 
-import countriesData from '../lib/countries.json';
+import countriesData from '@/lib/countries.json';
 
 const allCountries = Array.from(new Set(Object.values(countriesData).flat())).sort();
 const countries = regionConfig.id === 'world' 

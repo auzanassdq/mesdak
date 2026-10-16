@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, BarChart3, Globe, Users, Lightbulb, Layers } from "lucide-react";
-import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
+import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import ConsultingChart from "../_components/group-org-charts/ConsultingChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 

@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 
 import Link from 'next/link';
 import { CaretRightIcon } from '@phosphor-icons/react/dist/ssr';
-import TabCareer from './tab-career';
-import TabPartnership from './tab-partnership';
+import TabCareer from './_components/TabCareer';
+import TabPartnership from './_components/TabPartnership';
 
 const CareersPage: React.FC = () => {
 
