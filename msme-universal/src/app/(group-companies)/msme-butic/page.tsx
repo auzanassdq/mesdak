@@ -12,8 +12,8 @@ import {
   CaretDown
 } from "@phosphor-icons/react";
 import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
-import ButicChart from "@/components/group-org-charts/ButicChart";
-import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import ButicChart from "../_components/group-org-charts/ButicChart";
+import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 
 export default function MButicPage() {

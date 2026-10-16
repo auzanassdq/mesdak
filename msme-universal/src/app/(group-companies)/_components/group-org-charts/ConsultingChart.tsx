@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { Users, Globe, Landmark, BarChart3, CheckCircle2 } from "lucide-react";
-import { AfricaIcon, AsiaIcon, LatinAmericaIcon, NorthAmericaIcon, AseuIcon, EuropeIcon } from "../icons/ContinentIcons";
+import { AfricaIcon, AsiaIcon, LatinAmericaIcon, NorthAmericaIcon, AseuIcon, EuropeIcon } from "@/components/icons/ContinentIcons";
 
 interface Entity {
   title: string;

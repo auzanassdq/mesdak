@@ -6,8 +6,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, BarChart3, Globe, Users, Lightbulb, Layers } from "lucide-react";
 import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
-import ConsultingChart from "@/components/group-org-charts/ConsultingChart";
-import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import ConsultingChart from "../_components/group-org-charts/ConsultingChart";
+import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 export default function ConsultingPage() {
   return (

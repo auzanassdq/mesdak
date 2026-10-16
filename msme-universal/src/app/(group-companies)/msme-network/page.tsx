@@ -24,8 +24,8 @@ import {
   CheckIcon
 } from "@phosphor-icons/react";
 import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
-import NetworkChart from "@/components/group-org-charts/NetworkChart";
-import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import NetworkChart from "../_components/group-org-charts/NetworkChart";
+import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 
 export default function MSMENetworkPage() {

@@ -18,8 +18,8 @@ import {
   X
 } from "@phosphor-icons/react";
 import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
-import FinanceChart from "@/components/group-org-charts/FinanceChart";
-import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import FinanceChart from "../_components/group-org-charts/FinanceChart";
+import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 
 export default function MFIPage() {

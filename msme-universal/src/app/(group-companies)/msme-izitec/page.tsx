@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Globe, Layers, Shield, Zap } from 'lucide-react';
 import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
-import IZITecChart from "@/components/group-org-charts/IZITecChart";
-import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import IZITecChart from "../_components/group-org-charts/IZITecChart";
+import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 
 export default function IzitecPage() {

@@ -2,8 +2,8 @@
 
 import React from "react";
 import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
-import DataTalkChart from "@/components/group-org-charts/DataTalkChart";
-import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import DataTalkChart from "../_components/group-org-charts/DataTalkChart";
+import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 import { Hero } from "./_components/Hero";
 import { About } from "./_components/About";

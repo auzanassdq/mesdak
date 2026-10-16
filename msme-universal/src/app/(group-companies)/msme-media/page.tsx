@@ -17,8 +17,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import GroupCompanyNavbar from "@/components/GroupCompanyNavbar";
-import MediaChart from "@/components/group-org-charts/MediaChart";
-import OurReachSection from "@/components/group-org-charts/OurReachSection";
+import MediaChart from "../_components/group-org-charts/MediaChart";
+import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 
 export default function MediaPage() {
