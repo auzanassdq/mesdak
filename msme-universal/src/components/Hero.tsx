@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 // import { Twitter, Facebook, Linkedin, XIcon } from 'lucide-react';
 import { XLogoIcon, FacebookLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react';
 import { ChevronDown } from 'lucide-react';
@@ -12,8 +13,11 @@ import Image from 'next/image';
 import { getRegionConfig } from '@/lib/config';
 import { products } from '@/lib/products';
 
+gsap.registerPlugin(useGSAP);
+
 const Hero = () => {
   const config = getRegionConfig();
+  const heroContainerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   // ... rest of state ...
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -40,7 +44,7 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [switchingWords.length]);
 
-  useEffect(() => {
+  useGSAP(() => {
     // GSAP Timeline Animation
     const tl = gsap.timeline({ delay: 0.5 });
 
@@ -52,7 +56,6 @@ const Hero = () => {
     gsap.set('.hero-sustainable', { opacity: 0, y: 50 });
     gsap.set('.hero-description', { opacity: 0, y: 30 });
     gsap.set('.hero-buttons', { opacity: 0, y: 30 });
-
 
     // Animation sequence
     tl.to('.hero-logo', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
@@ -67,16 +70,11 @@ const Hero = () => {
         duration: 1.2,
         ease: 'power2.inOut',
         onComplete: () => setAnimationComplete(true)
-      }, '>')
-
-
-    return () => {
-      tl.kill();
-    };
-  }, []);
+      }, '>');
+  }, { scope: heroContainerRef });
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <section ref={heroContainerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
 
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">

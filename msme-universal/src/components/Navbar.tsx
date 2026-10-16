@@ -56,7 +56,7 @@ const Navbar = () => {
     if (pathname?.includes("msme-media"))
       return "/logos/group-companies/media.png";
     if (pathname?.includes("msme-datatalk"))
-      return "/logos/group-companies/datatalk.jpeg";
+      return "/images/mdatatalk-logo.png";
     return config.logo;
   };
 

@@ -31,6 +31,7 @@ function Header() {
         <span>Rock Your Finance</span>
       </Link>
       <nav className={styles.navlinks}>
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>MSME World</Link>
         <a href="#solutions">Solutions <ChevronDown size={14} /></a>
         <a href="#msmes">For MSMEs</a>
         <a href="#investors">For Investors</a>

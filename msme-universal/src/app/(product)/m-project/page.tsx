@@ -297,6 +297,7 @@ export default function MProjectLanding({
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
   const navItems = [
+    ["/", "MSME World"],
     ["#project", "Project"],
     ["#ierp", "i-ERP"],
     ["#mtrade", "M'Trade"],

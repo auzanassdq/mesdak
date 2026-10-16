@@ -10,16 +10,6 @@ import ConsultingChart from "@/components/group-org-charts/ConsultingChart";
 import OurReachSection from "@/components/group-org-charts/OurReachSection";
 
 export default function ConsultingPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
       <GroupCompanyNavbar logoSrc="/logos/group-companies/consulting.png" themeColor="#0d9488" />

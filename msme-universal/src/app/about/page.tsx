@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowArcRightIcon, ArrowRightIcon, CaretRightIcon, NewspaperIcon } from '@phosphor-icons/react/dist/ssr';
@@ -11,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import SectionWithVideo from '@/components/SectionWithVideo';
 import { getRegionConfig } from '@/lib/config';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const AboutPage = () => {
   type SectionType = 'vision' | 'mission' | 'action' | 'our board';
@@ -49,8 +50,6 @@ const AboutPage = () => {
       const st = scrollTriggerRef.current;
       const targetScrollY = st.start + (st.end - st.start) * newProgress;
 
-      console.log('Section Click:', section, 'Progress:', newProgress, 'TargetScrollY:', targetScrollY);
-
       window.scrollTo({
         top: targetScrollY,
         behavior: 'auto'
@@ -76,14 +75,14 @@ const AboutPage = () => {
   //   }
   // }, []);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!sectionRef.current || !containerRef.current) return;
 
     const sections: SectionType[] = ['vision', 'mission', 'action', 'our board'];
     let currentIndex = 0;
 
     // Create ScrollTrigger for pinning the section with smooth scrolling
-    scrollTriggerRef.current = ScrollTrigger.create({
+    const st = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
       end: "+=900vh", // 4x viewport height for smoother transitions
@@ -119,13 +118,8 @@ const AboutPage = () => {
       }
     });
 
-    return () => {
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-      }
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+    scrollTriggerRef.current = st;
+  }, { scope: sectionRef });
 
   const staggerContainer = {
     animate: {

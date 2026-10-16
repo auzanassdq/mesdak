@@ -48,8 +48,6 @@ export default function TabPartnership() {
     
     try {
       // Di sini Anda bisa menambahkan logika untuk mengirim data ke server
-      console.log('Form Data:', formData);
-      
       // Reset form setelah berhasil
       setFormData({
         name: '',

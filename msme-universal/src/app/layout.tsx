@@ -8,6 +8,7 @@ const sansation = Sansation({
   weight: ["300", "400", "700"],
   variable: "--font-sansation",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {

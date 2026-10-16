@@ -23,6 +23,7 @@ export default function MDocLanding() {
       <header className={styles.nav}>
         <Link className={styles.brand} href="/m-doc"><Image src={ASSETS.logo} alt="M'Doc" width={50} height={15} /></Link>
         <nav className={styles.navlinks}>
+          <Link href="/">MSME World</Link>
           <Link href="#solutions">Solutions</Link>
           <Link href="#everyone">For Everyone</Link>
           <Link href="#admin">For Teams & Enterprises</Link>
