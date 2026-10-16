@@ -9,6 +9,8 @@ import { ArrowRightIcon, CaretRightIcon, ChartBarIcon, MoneyWavyIcon, GlobeIcon,
 import companySummaries from './data/companies-summary.json';
 import MSWHoldingStructureUI from './_components/HoldingStructure';
 
+import { GROUP_COMPANIES_DATA } from './data/group-companies';
+
 interface Company {
   id: number;
   name: string;
@@ -19,7 +21,6 @@ interface Company {
   summary: string;
 }
 
-
 interface BaseCompany {
   id: number;
   name: string;
@@ -28,6 +29,25 @@ interface BaseCompany {
   tagline: string;
   link: string;
 }
+
+const iconMapById: Record<number, React.ElementType> = {
+  1: GlobeIcon,
+  2: TargetIcon,
+  3: UsersIcon,
+  4: MoneyWavyIcon,
+  5: LightningIcon,
+  6: MonitorIcon,
+  7: ChartBarIcon,
+};
+
+const companies: BaseCompany[] = GROUP_COMPANIES_DATA.map((c) => ({
+  id: c.id,
+  name: c.name,
+  description: c.description,
+  tagline: c.tagline,
+  link: c.link,
+  icon: iconMapById[c.id],
+}));
 
 const GroupCompaniesPage = () => {
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
@@ -38,7 +58,6 @@ const GroupCompaniesPage = () => {
     transition: { duration: 0.6 }
   };
 
-
   const staggerContainer = {
     initial: {},
     animate: {
@@ -47,66 +66,6 @@ const GroupCompaniesPage = () => {
       }
     }
   };
-
-
-  const companies = [
-    {
-      id: 1,
-      name: "MSME Network Incorporation",
-      description: "A leading network organization dedicated to connecting MSMEs with resources, opportunities, and expertise to drive their growth and success.",
-      icon: GlobeIcon,
-      tagline: "Unlock Untapped Potentials",
-      link: "/msme-network"
-    },
-    {
-      id: 2,
-      name: "M'Butic Incorporation",
-      description: "A boutique consulting firm specializing in tailored solutions for MSMEs, focusing on strategic planning, operational efficiency, and market expansion.",
-      icon: TargetIcon,
-      tagline: "Welcome to the Future of Commerce",
-      link: "/msme-butic"
-    },
-    {
-      id: 3,
-      name: "MSME Development Consulting",
-      description: "A consulting firm focused on providing comprehensive development services to MSMEs, including training, mentorship, and capacity building programs.",
-      icon: UsersIcon,
-      tagline: "Think the Unthought",
-      link: "/msme-consulting"
-    },
-    {
-      id: 4,
-      name: "MSME Finance Incorporation",
-      description: "A financial institution offering specialized financial products and services to support the funding needs of MSMEs, including loans and investment solutions.",
-      icon: MoneyWavyIcon,
-      tagline: "Finance Re-Imagined",
-      link: "/msme-finance"
-    },
-    {
-      id: 5,
-      name: "M'IZITec Incorporation",
-      description: "A technology company developing innovative tech solutions for MSMEs, including software, platforms, and digital tools to enhance their operations and competitiveness.",
-      icon: LightningIcon,
-      tagline: "Driving Business Through  Digital Power",
-      link: "/msme-izitec"
-    },
-    {
-      id: 6,
-      name: "M'Media Incorporation",
-      description: "A media and communications agency specializing in creating impactful marketing and communication strategies for MSMEs, helping them build their brand and reach their target audience.",
-      icon: MonitorIcon,
-      tagline: "Be Faster, Easier & Everywhere",
-      link: "/msme-media"
-    },
-    {
-      id: 7,
-      name: "M'DataTalk Incorporation",
-      description: "A data analytics company providing insights and data-driven strategies to help MSMEs make informed decisions and optimize their performance.",
-      icon: ChartBarIcon,
-      tagline: "Unlock Insight Within Data",
-      link: "/msme-datatalk"
-    },
-  ];
 
   const handleCompanyClick = (company: BaseCompany) => {
     const summaryData = companySummaries.find((s) => s.id === company.id);

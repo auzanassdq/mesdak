@@ -27,91 +27,27 @@ import {
   AseuIcon,
 } from "@/components/icons/ContinentIcons";
 
+import { GROUP_COMPANIES_DATA } from "../data/group-companies";
+
 const regionConfig = getRegionConfig();
 const regionName = regionConfig.region;
 
-const continentalCompanies = [
-  {
-    id: 1,
-    name: `MSME Network Incorporation\n${regionName}`,
-    slogan: "Unlock Untapped Potentials",
-    role: "Identity, networking & ecosystem infrastructure",
-    color: "text-[#e86f28]",
-    borderColor: "border-[#e86f28]",
-    bgActive: "bg-[#e86f28]",
-    link: "/msme-network",
-    icon: <Network className="w-6 h-6" />,
-  },
-  {
-    id: 2,
-    name: `M'Butic Incorporation\n${regionName}`,
-    slogan: "Welcome to the Future of Commerce",
-    role: "Commerce & marketplace infrastructure",
-    color: "text-[#73bf43]",
-    borderColor: "border-[#73bf43]",
-    bgActive: "bg-[#73bf43]",
-    link: "/msme-butic",
-    icon: <ShoppingCart className="w-6 h-6" />,
-  },
-  {
-    id: 3,
-    name: `MSME Development Consulting Incorporation\n${regionName}`,
-    slogan: "Think the Unthought",
-    role: "Advisory, capacity building & implementation",
-    color: "text-[#0d9488]",
-    borderColor: "border-[#0d9488]",
-    bgActive: "bg-[#0d9488]",
-    link: "/msme-consulting",
-    icon: <Users className="w-6 h-6" />,
-  },
-  {
-    id: 4,
-    name: `MSME Finance Incorporation\n${regionName}`,
-    slogan: "Finance Re-imagined",
-    role: "Financial ecosystem & capital infrastructure",
-    color: "text-[#d4af37]",
-    borderColor: "border-[#d4af37]",
-    bgActive: "bg-[#d4af37]",
-    link: "/msme-finance",
-    icon: <CircleDollarSign className="w-6 h-6" />,
-    hasRegionalLayer: true,
-  },
-  {
-    id: 5,
-    name: `M'IZITec Incorporation\n${regionName}`,
-    slogan: "Driving Business Through Digital Power",
-    role: "Technology engineering & AI",
-    color: "text-[#4182C0]",
-    borderColor: "border-[#4182C0]",
-    bgActive: "bg-[#4182C0]",
-    icon: <Zap className="w-6 h-6" />,
-    link: "/msme-izitec",
-    hasRegionalLayer: true,
-  },
-  {
-    id: 6,
-    name: `M'Media Incorporation\n${regionName}`,
-    slogan: "Be Faster, Easier & Everywhere",
-    role: "Media, communication & engagement",
-    color: "text-[#30308E]",
-    borderColor: "border-[#30308E]",
-    bgActive: "bg-[#30308E]",
-    link: "/msme-media",
-    icon: <PlayCircle className="w-6 h-6" />,
-    hasRegionalLayer: true,
-  },
-  {
-    id: 7,
-    name: `M'DataTalk Incorporation\n${regionName}`,
-    slogan: "Unlock Insight Within Data",
-    role: "Data, analytics & intelligence",
-    color: "text-[#6b21a8]",
-    borderColor: "border-[#6b21a8]",
-    bgActive: "bg-[#6b21a8]",
-    link: "/msme-datatalk",
-    icon: <BarChart2 className="w-6 h-6" />,
-  },
-];
+const iconMapById: Record<number, React.ReactNode> = {
+  1: <Network className="w-6 h-6" />,
+  2: <ShoppingCart className="w-6 h-6" />,
+  3: <Users className="w-6 h-6" />,
+  4: <CircleDollarSign className="w-6 h-6" />,
+  5: <Zap className="w-6 h-6" />,
+  6: <PlayCircle className="w-6 h-6" />,
+  7: <BarChart2 className="w-6 h-6" />,
+};
+
+const continentalCompanies = GROUP_COMPANIES_DATA.map((c) => ({
+  ...c,
+  name: `${c.name}\n${regionName}`,
+  slogan: c.tagline,
+  icon: iconMapById[c.id],
+}));
 
 const regionalCompanies = continentalCompanies.filter(
   (company) => company.hasRegionalLayer,
