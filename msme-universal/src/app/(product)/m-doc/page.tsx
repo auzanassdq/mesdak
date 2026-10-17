@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, User, Building2, LayoutDashboard, Send, BarChart3, BadgeCheck, MessagesSquare, PieChart, Landmark, Phone, CreditCard, Search, Bell, CircleHelp, CloudUpload, Calendar, Cloud, Share2, MessageSquare, ClipboardList, Sparkles, FileText, LockKeyhole, ShieldCheck, Workflow, Lock, FileCheck, Linkedin, Twitter, Youtube, ChevronDown } from "lucide-react";
+import { ArrowRight, User, Building2, LayoutDashboard, Send, BarChart3, BadgeCheck, MessagesSquare, PieChart, Landmark, Phone, CreditCard, Search, Bell, CircleHelp, CloudUpload, Calendar, Cloud, Share2, MessageSquare, ClipboardList, Sparkles, FileText, LockKeyhole, ShieldCheck, Workflow, Lock, FileCheck, Linkedin, Twitter, Youtube, ChevronDown, LucideIcon } from "lucide-react";
 import styles from "./m-doc.module.css";
 
 const ASSETS = {
@@ -13,7 +13,7 @@ const ASSETS = {
 };
 
 export default function MDocLanding() {
-  const adminMenu = [
+  const adminMenu: [LucideIcon, string, boolean][] = [
     [LayoutDashboard, "Dashboard", true], [Send, "Invite", false], [BarChart3, "Data Analytics", false], [BadgeCheck, "M’D³MP", false],
     [MessagesSquare, "Communicate", false], [PieChart, "Survey", false], [Landmark, "M’Project", false], [Phone, "M’Call", false], [CreditCard, "M’Pay", false],
   ];
@@ -58,7 +58,7 @@ export default function MDocLanding() {
             <div className={styles.laptop}>
               <aside>
                 <div className={styles.miniLogo}>M’Doc <span>Admin</span></div>
-                {adminMenu.map(([Icon,label,active]: any) => <a key={label} className={active ? styles.active : ""}><Icon/> {label}</a>)}
+                {adminMenu.map(([Icon,label,active]) => <a key={label} className={active ? styles.active : ""}><Icon/> {label}</a>)}
               </aside>
               <div className={styles.screen}>
                 <div className={styles.screenTop}>
@@ -143,30 +143,36 @@ export default function MDocLanding() {
 }
 
 function Experience(){
+  const features: [LucideIcon, string][] = [
+    [CloudUpload,"Backup"],[Calendar,"Events"],[Cloud,"MyCloud"],[BarChart3,"Polls"],[Share2,"Share & Invite"],[Bell,"Notifications"],[MessageSquare,"Messages"]
+  ];
   return (
     <article className={styles.experience} id="everyone">
       <h3>M’Doc</h3><strong>For Everyone</strong>
       <p>Store, organise and share your files securely from any device, anytime.</p>
       <div className={styles.featureList}>
-        {[[CloudUpload,"Backup"],[Calendar,"Events"],[Cloud,"MyCloud"],[BarChart3,"Polls"],[Share2,"Share & Invite"],[Bell,"Notifications"],[MessageSquare,"Messages"]].map(([I,t]: any)=><span key={t}><I/>{t}</span>)}
+        {features.map(([I,t])=><span key={t}><I/>{t}</span>)}
       </div>
       <a>Explore all features <ArrowRight size={16}/></a>
     </article>
   )
 }
 function AdminExperience(){
+  const features: [LucideIcon, string][] = [
+    [ClipboardList,"Smart Forms"],[Sparkles,"AI Insights"],[PieChart,"Surveys"],[FileText,"Reports"],[LockKeyhole,"File Permissions"],[ShieldCheck,"Audit Logs"],[BarChart3,"Data Analytics"],[Workflow,"Workflows"]
+  ];
   return (
     <article className={`${styles.experience} ${styles.experienceAdmin}`} id="admin">
       <h3>M’Doc Admin</h3><strong>For Teams & Enterprises</strong>
       <p>Collect, manage, analyse and distribute files and data at scale.</p>
       <div className={styles.featureList}>
-        {[[ClipboardList,"Smart Forms"],[Sparkles,"AI Insights"],[PieChart,"Surveys"],[FileText,"Reports"],[LockKeyhole,"File Permissions"],[ShieldCheck,"Audit Logs"],[BarChart3,"Data Analytics"],[Workflow,"Workflows"]].map(([I,t]: any)=><span key={t}><I/>{t}</span>)}
+        {features.map(([I,t])=><span key={t}><I/>{t}</span>)}
       </div>
       <a>Explore all features <ArrowRight size={16}/></a>
     </article>
   )
 }
-function Trust({icon:Icon,title,text}: any){
+function Trust({icon:Icon,title,text}: {icon: LucideIcon; title: string; text: string}){
   return (
     <div className="bg-white grid grid-cols-[44px_1fr] gap-3 items-center p-4 lg:p-5">
       <Icon className="w-[34px] h-[34px] text-[#A87548]" />
@@ -177,6 +183,6 @@ function Trust({icon:Icon,title,text}: any){
     </div>
   );
 }
-function FooterCol({title,items}: any){
+function FooterCol({title,items}: {title: string; items: string[]}){
   return <div><b>{title}</b>{items.map((i: string)=><a key={i}>{i}</a>)}</div>
 }

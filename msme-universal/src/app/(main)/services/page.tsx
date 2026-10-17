@@ -3,9 +3,9 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { CaretRightIcon, ChartBarIcon, CpuIcon, UsersIcon, X, ArrowRightIcon, CaretLeftIcon } from '@phosphor-icons/react/dist/ssr';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CaretRightIcon, ChartBarIcon, CpuIcon, UsersIcon, X, CaretLeftIcon } from '@phosphor-icons/react/dist/ssr';
 import servicesData from './services-data.json';
 
 // Map icon names to components

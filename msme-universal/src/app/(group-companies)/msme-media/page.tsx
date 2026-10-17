@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   BookOpen,
   Globe,
   Megaphone,
@@ -20,18 +19,7 @@ import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import MediaChart from "../_components/group-org-charts/MediaChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
-
 export default function MediaPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
       <GroupCompanyNavbar logoSrc="/logos/group-companies/media.png" themeColor="#30308E" />

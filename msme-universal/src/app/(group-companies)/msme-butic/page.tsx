@@ -2,13 +2,12 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { 
   RocketLaunch, 
   GlobeHemisphereWest, 
   Megaphone, 
   ShoppingCart, 
-  ArrowRight,
   CaretDown
 } from "@phosphor-icons/react";
 import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
@@ -18,13 +17,6 @@ import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
 export default function MButicPage() {
   const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 selection:bg-[#73BF43] selection:text-slate-950 scroll-smooth font-sans overflow-x-hidden">

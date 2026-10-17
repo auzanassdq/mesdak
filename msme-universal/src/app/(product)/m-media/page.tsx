@@ -123,7 +123,9 @@ export default function MMediaLanding() {
               <div className={styles["story-list"]}>
                 {storyItems.map(([cat,title,time,img]) => (
                   <article className={styles["story-item"]} key={title}>
-                    <div className={styles.thumb}><img src={img} alt="" /></div>
+                    <div className={styles.thumb}>
+                      <Image src={img} alt={title} width={120} height={80} className="object-cover w-full h-full" />
+                    </div>
                     <div><small>{cat}</small><h4>{title}</h4><span>{time}</span></div>
                   </article>
                 ))}
@@ -255,13 +257,13 @@ export default function MMediaLanding() {
             </div>
             <p>M’Media is the media and intelligence platform of the M’World ecosystem, dedicated to the growth and visibility of MSMEs worldwide.</p>
           </div>
-          {[
+          {([
             ["Explore",["News","TV","Markets","Countries","Industries","Opportunities","Events"]],
             ["Resources",["Publications","Library","Reports","Research","Data & Insights","Policy Updates"]],
             ["Services",["Promote Your Business","Media Partnerships","Advertising","Brand Solutions","Event Coverage","Press Releases"]],
             ["About",["About M’Media","Our Mission","Team","Careers","Contact Us"]]
-          ].map(([title,links]: any) => (
-            <div key={title as string}>
+          ] as [string, string[]][]).map(([title,links]) => (
+            <div key={title}>
               <h4>{title}</h4>
               {links.map((l: string) => <a key={l}>{l}</a>)}
             </div>

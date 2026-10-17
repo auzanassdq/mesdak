@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Host_Grotesk, Sansation } from "next/font/google";
+import { Sansation } from "next/font/google";
 import "./globals.css";
 import { getRegionConfig } from "@/lib/config";
 

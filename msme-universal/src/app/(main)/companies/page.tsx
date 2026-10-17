@@ -196,7 +196,7 @@ const GroupCompaniesPage = () => {
           >
             {/* First Row - 3 companies */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {companies.slice(0, 3).map((company, index) => {
+              {companies.slice(0, 3).map((company) => {
                 const IconComponent = company.icon;
                 return (
                   <motion.div
@@ -225,7 +225,7 @@ const GroupCompaniesPage = () => {
 
             {/* Second Row - 4 companies */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {companies.slice(3, 7).map((company, index) => {
+              {companies.slice(3, 7).map((company) => {
                 const IconComponent = company.icon;
                 return (
                   <motion.div

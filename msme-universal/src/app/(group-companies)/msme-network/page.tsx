@@ -1,32 +1,17 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   EyeIcon,
-  HandshakeIcon,
   GlobeIcon,
   BuildingsIcon,
   CaretDownIcon,
-  MegaphoneIcon,
-  ChatsCircleIcon,
-  UsersThreeIcon,
-  TargetIcon,
-  ChartLineUpIcon,
-  RocketIcon,
-  MapPinIcon,
-  UserPlusIcon,
-  WrenchIcon,
-  LightbulbIcon,
-  StrategyIcon,
-  ShieldCheckIcon,
-  CheckIcon
+  ChartLineUpIcon
 } from "@phosphor-icons/react";
 import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import NetworkChart from "../_components/group-org-charts/NetworkChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
-
 
 export default function MSMENetworkPage() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -38,11 +23,9 @@ export default function MSMENetworkPage() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 50]);
 
-  // Primary Orange Color based on logo: #E86F28
-  const primaryColor = "#E86F28";
-
   const pillar1Services = [
     "Branding",
+
     "Communication Strategy",
     "Community Building, Development & Management",
     "Marketing Solutions",
@@ -101,7 +84,7 @@ export default function MSMENetworkPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed mb-12">
-              MSME Network Incorporation, member of the MSME Solutions World group, is the operating firm behind M'Network — the platform that transforms unrealised potential into real opportunities, powerful partnerships, and new revenue streams.
+              MSME Network Incorporation, member of the MSME Solutions World group, is the operating firm behind M&apos;Network — the platform that transforms unrealised potential into real opportunities, powerful partnerships, and new revenue streams.
             </p>
 
             <motion.div
@@ -129,7 +112,7 @@ export default function MSMENetworkPage() {
               transition={{ duration: 0.8 }}
             >
               <p className="text-xl md:text-2xl text-white font-light leading-relaxed mb-8">
-                M'Network connects private individuals — students, professionals, and retirees — and organisations of all sizes, from micro-enterprises to large corporations, as well as financial institutions and governments, into a unified digital ecosystem where collaboration, visibility, and growth become inevitable.
+                M&apos;Network connects private individuals — students, professionals, and retirees — and organisations of all sizes, from micro-enterprises to large corporations, as well as financial institutions and governments, into a unified digital ecosystem where collaboration, visibility, and growth become inevitable.
               </p>
             </motion.div>
 
@@ -331,7 +314,7 @@ export default function MSMENetworkPage() {
               Become <span className="text-[#E86F28]">Inevitable</span>
             </h2>
             <p className="text-xl text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
-              Join M'Network and transform unrealised potential into real opportunities, powerful partnerships, and new revenue streams.
+              Join M&apos;Network and transform unrealised potential into real opportunities, powerful partnerships, and new revenue streams.
             </p>
           </motion.div>
         </div>

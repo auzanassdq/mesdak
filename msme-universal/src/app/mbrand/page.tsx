@@ -1,12 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function MBrandPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-
   const featuredProducts = [
     {
       title: "Luxury Desk Set",

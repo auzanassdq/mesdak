@@ -1,30 +1,14 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import {
-  Bank,
-  TrendUp,
-  ShieldCheck,
-  Handshake,
-  Coins,
-  ChartLineUp,
-  Globe,
-  Buildings,
-  ArrowRight,
-  CaretDown,
-  List,
-  X
-} from "@phosphor-icons/react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { CaretDown } from "@phosphor-icons/react";
 import GroupCompanyNavbar from "../_components/GroupCompanyNavbar";
 import FinanceChart from "../_components/group-org-charts/FinanceChart";
 import OurReachSection from "../_components/group-org-charts/OurReachSection";
 
-
 export default function MFIPage() {
   const targetRef = useRef<HTMLDivElement>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end start"],
@@ -32,6 +16,7 @@ export default function MFIPage() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 50]);
+
 
   // Custom Gold Color based on logo: #D4AF37 approx, using amber-500/400 for tailwind
 

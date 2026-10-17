@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import NextLink from "next/link";
+import Image from "next/image";
 import { getRegionConfig } from "@/lib/config";
 import {
   Network,
@@ -15,8 +16,6 @@ import {
   Zap,
   PlayCircle,
   Globe,
-  ArrowRight,
-  Link,
 } from "lucide-react";
 import {
   AfricaIcon,
@@ -135,13 +134,10 @@ const ContinentIcon = ({ regionId, className }: { regionId: string, className?: 
 function SidebarLabel({
   type,
   title,
-  subtitle,
-  note,
-  extra,
 }: {
   type: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   note?: string;
   extra?: React.ReactNode;
 }) {
@@ -167,15 +163,13 @@ function SidebarLabel({
       <h3 className="m-0 text-[15px] font-bold leading-tight uppercase">
         {title}
       </h3>
-      {/* <div className="w-8 h-px bg-white/50 my-3" />
-      <p className="m-0 font-medium text-xs whitespace-pre-wrap">{subtitle}</p> */}
-      {/* {note && <small className="mt-5 text-[11px] opacity-80">{note}</small>} */}
-      {/* {extra && <div className="mt-auto pt-5 text-[11px] font-bold w-full">{extra}</div>} */}
     </aside>
   );
 }
 
-function CompanyCard({ company }: { company: any }) {
+type ContinentalCompanyItem = (typeof continentalCompanies)[number];
+
+function CompanyCard({ company }: { company: ContinentalCompanyItem }) {
   return (
     <article
       className={cx("h-[250px] border rounded-xl flex flex-col bg-white min-h-[150px] shadow-sm relative",
@@ -229,7 +223,7 @@ function RegionalPanel({
   selectedRegion,
   setSelectedRegion,
 }: {
-  company: any;
+  company: ContinentalCompanyItem;
   selectedRegion: string;
   setSelectedRegion: (v: string) => void;
 }) {
@@ -331,7 +325,7 @@ function CountryCompanyCard({
   item,
   selectedCountry,
 }: {
-  item: any;
+  item: (typeof countryOperatingCompanies)[number];
   selectedCountry: string;
 }) {
   const displayName =
@@ -400,9 +394,11 @@ export default function MSWHoldingStructureUI() {
 
         <div className="flex-grow bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
           <header className="bg-white text-white rounded-xl flex items-center justify-center px-12 py-4 w-fit mx-auto shadow-lg relative z-10 border border-gray-100">
-            <img
+            <Image
               src={regionConfig.logo}
               alt={`${regionConfig.name} Logo`}
+              width={220}
+              height={70}
               className="h-[70px] w-auto object-contain"
             />
           </header>

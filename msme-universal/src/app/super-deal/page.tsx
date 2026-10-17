@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function SuperDealPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -48,10 +49,12 @@ export default function SuperDealPage() {
             <button className="text-gray-600 hover:text-[var(--forest-green)]">
               <span className="material-symbols-outlined">notifications</span>
             </button>
-            <img 
+            <Image 
               alt="User profile picture" 
               className="h-10 w-10 rounded-full object-cover" 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKVsqP3hFo-T3eBUSscMsNoitTzM0kKSmEXsZqwJxl8HsQ_BMd4R1ZNal1wfSYCA3xB6UwrzM18dmu36oCGV76AHFGGezXlAZhzT5dEzUFm3unkUwHU9ffZZdbQ3LLls-lScpnp5YzFCoPCUi-O0IHKMrevqIdrWb1VYJyPsx326MWRrFRrSviY0tNKBbkR__CO2Ip6-MFTSJGIqkA8Oh2ACryRC6szdENCXovYyzJAxl1sO6NuGc8T8J9aGyl-2VJLGos03i43g8"
+              width={40}
+              height={40}
             />
           </div>
         </div>
@@ -127,12 +130,13 @@ export default function SuperDealPage() {
               <h3 className="text-xl font-bold">Deal Preview</h3>
               <p className="text-sm text-gray-500">Sample Deal Solar Kit</p>
             </div>
-            <p className="text-sm text-gray-500 mb-4">This is how your deal will appear.</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">
-              <img 
+              <Image 
                 alt="Deal Preview Image" 
                 className="w-full h-40 object-cover" 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYYTPHbiZsrhWnZjshebDg4G_MnIKMRNtMqt031W4N6v5XFDqh2f0uXbXjanjTGcQQCHVXquXUu2WMbVD_2-ndMlLDYXAg0g2nixE1T45tS9Ll6oTZtjmqfoh7ojIrsVu4aB9FrejwBB81JC0uhcBd8TlO_81GAdPgP_lBgol-DmxfkXn-OU-XWlVM6ng1DehgoUqTrgviYK3a9XjaSD2jC0Ipdtw9AH7k7O72M9ghNypucB34PU2YwUllOOgKS1rtm6ukwWxlxLg"
+                width={600}
+                height={160}
               />
               <div className="p-4">
                 <h4 className="font-bold text-lg">Sample Deal: Solar Kit</h4>
@@ -176,10 +180,12 @@ export default function SuperDealPage() {
             </div>
             <p className="text-sm text-gray-500 mb-4">This is how your deal will appear.</p>
             <div className="rounded-lg overflow-hidden border border-gray-200">
-              <img 
+              <Image 
                 alt="Deal Preview Image: Solar Kit" 
                 className="w-full h-40 object-cover" 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWlSI0slIK1l5babkTrrie0dVu3f47cYdLcdJO9RJAMStgo2IvVAiroqQI-ypbQd98JLw_SkwIax2GfXuVtQotLfYfmjapIFmrlgWbOBe9QBM_Pn0TgecoJd1_vhMQrahUik-I6HDcxRdH1pD_9XcWuMNzasH7lXuWgN6shL7-1-hbC74Z-cWEvYVtvIIdtVmj-owZTQ_uuoWW4A3PMwrTusYL2C050s66n7BPUglQ5qqAPRtcVB_ViJprrLdZm__sOAV03zVb0lA"
+                width={600}
+                height={160}
               />
               <div className="p-4">
                 <h4 className="font-bold text-lg">Sample Deal: Solar Kit</h4>

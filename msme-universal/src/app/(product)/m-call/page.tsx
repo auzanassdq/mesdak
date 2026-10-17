@@ -7,7 +7,7 @@ import {
   ArrowRight, Banknote, BarChart3, Bell, Building2, CalendarDays, ChevronDown, CircleHelp,
   ClipboardCheck, Cloud, Contact, CreditCard, FileCheck, FileText, Landmark, LayoutDashboard,
   Lock, MessageCircle, MessagesSquare, Network, Phone, Search, Settings, ShieldCheck, ShoppingBag,
-  ShoppingCart, Store, User, UserCog, UserRound, Users, UsersRound, Video
+  ShoppingCart, Store, User, UserCog, UserRound, Users, UsersRound, Video, LucideIcon
 } from "lucide-react";
 import styles from "./m-call.module.css";
 
@@ -45,7 +45,7 @@ function Header(){
         <Link href="#msmes">For MSMEs</Link>
         <Link href="#enterprises">For Enterprises</Link>
         <Link href="#governments">For Governments</Link>
-        <Link href="#mnetwork">For M'Network Users</Link>
+        <Link href="#mnetwork">For M&apos;Network Users</Link>
         <Link href="#resources">Resources <ChevronDown size={14}/></Link>
       </nav>
       <Link className={`${styles.signin} text-white`} href="/login">Sign In</Link>
@@ -61,10 +61,12 @@ function Hero(){
         <div className={styles.slogan}>Communicate. Collaborate. Commerce.</div>
         <p className={styles.intro}>The all-in-one communication and collaboration platform that connects people, businesses and institutions across the M’World ecosystem.</p>
         <div className={styles.pillars}>
-          {[[MessagesSquare,"Communicate","Stay connected with messages, voice and video anywhere, anytime."],
-            [UsersRound,"Collaborate","Work together on projects, documents and tasks in real time."],
-            [ShoppingCart,"Commerce","Turn conversations into actions with payments, orders, funding and business transactions."]].map(([I,t,p]: any)=>(
-              <div key={t}><I/><b>{t}</b><span>{p}</span></div>
+          {([
+            [MessagesSquare, "Communicate", "Stay connected with messages, voice and video anywhere, anytime."],
+            [UsersRound, "Collaborate", "Work together on projects, documents and tasks in real time."],
+            [ShoppingCart, "Commerce", "Turn conversations into actions with payments, orders, funding and business transactions."]
+          ] as const).map(([I, t, p]) => (
+            <div key={t}><I/><b>{t}</b><span>{p}</span></div>
           ))}
         </div>
         <div className={styles.heroActions}>
@@ -88,7 +90,7 @@ function Hero(){
 }
 
 function Dashboard(){
-  const menu = [
+  const menu: [LucideIcon, string, number][] = [
     [LayoutDashboard,"Dashboard",1],[MessageCircle,"Messages",0],[Contact,"Contacts",0],
     [CalendarDays,"Meetings",0],[Users,"Communities",0],[ClipboardCheck,"M’Project",0],
     [FileText,"M’Doc",0],[CreditCard,"M’Pay",0],[Bell,"Notifications",0],[Settings,"Settings",0]
@@ -99,7 +101,7 @@ function Dashboard(){
       <div className={styles.dashboard}>
         <aside>
           <Image src={A.logo} alt="M'Call" className={styles.dashLogo} width={105} height={31} />
-          {menu.map(([I,t,a]: any) => (
+          {menu.map(([I,t,a]) => (
             <a key={t} className={a ? styles.active : ""}><I/>{t}</a>
           ))}
         </aside>
@@ -132,7 +134,7 @@ function Dashboard(){
     </div>
   )
 }
-function DashList({title,items}: any){
+function DashList({title,items}: {title: string; items: string[]}){
   return (
     <article>
       <h4>{title} <span>View all</span></h4>
@@ -198,7 +200,7 @@ function Experiences(){
 }
 
 function Ecosystem(){
-  const e = [
+  const e: [LucideIcon, string][] = [
     [Network,"M’Network"],[ShoppingBag,"M’Butic"],[FileText,"M’Doc"],[ClipboardCheck,"M’Project"],
     [CreditCard,"M’Pay"],[BarChart3,"M’D³MP"],[Landmark,"M’Government"],[Banknote,"M’Finance"]
   ];
@@ -206,14 +208,14 @@ function Ecosystem(){
     <section className={styles.ecosystem}>
       <h2>Powering the M’World Ecosystem.</h2>
       <div className={styles.ecosystemRow}>
-        {e.map(([I,t]: any)=><span key={t}><I/>{t}</span>)}
+        {e.map(([I,t])=><span key={t}><I/>{t}</span>)}
       </div>
     </section>
   )
 }
 
 function Trust(){
-  const t = [
+  const t: [LucideIcon, string, string][] = [
     [Lock,"End-to-End Encryption","Industry-standard encryption for all communications."],
     [ShieldCheck,"Private & Secure","Your data and conversations are protected."],
     [UserCog,"Role-Based Access","Granular permissions for teams and organisations."],
@@ -225,7 +227,7 @@ function Trust(){
     <section className={styles.trust}>
       <h2>Built on Trust. Secured for You.</h2>
       <div className={styles.trustGrid}>
-        {t.map(([I,a,b]: any)=>(
+        {t.map(([I,a,b])=>(
           <div key={a}><I/><b>{a}</b><span>{b}</span></div>
         ))}
       </div>

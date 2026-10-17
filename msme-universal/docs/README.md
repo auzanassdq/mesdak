@@ -16,6 +16,8 @@ Dokumentasi ini dibuat sebagai **pustaka rujukan cepat (*index directory*)** dan
    - Lokasi data JSON, master data anak perusahaan, data dewan komisaris, dan konfigurasi region.
 5. [05. Panduan Pengembangan & Aturan AI](file:///Users/mac/Project/upwork/mesdak/msme-universal/docs/05-development-guide.md)
    - Standar coding, penempatan komponen baru, konvensi penamaan, dan *checklist* sebelum commit.
+6. [06. Catatan Refactoring Nested Layout](file:///Users/mac/Project/upwork/mesdak/msme-universal/docs/06-nested-layout-refactoring.md)
+   - Catatan migrasi refactoring nested layout & colocation komponen.
 
 ---
 

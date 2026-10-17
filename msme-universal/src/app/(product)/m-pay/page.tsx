@@ -7,7 +7,7 @@ import {
   ArrowRight, BadgeCheck, Banknote, BarChart3, Bell, Building2, ChevronDown, CircleDollarSign,
   CircleHelp, ClipboardCheck, CreditCard, Download, FileBarChart, FileCheck, FileText, IdCard,
   Landmark, LayoutDashboard, LineChart, Network, Phone, Radar, Search, Send, ShieldCheck,
-  ShoppingBag, ShoppingCart, Sprout, Store, TrendingUp, User, UserRound, UsersRound, Wallet, WalletCards
+  ShoppingBag, ShoppingCart, Sprout, Store, TrendingUp, User, UserRound, UsersRound, Wallet, WalletCards, LucideIcon
 } from "lucide-react";
 import styles from "./m-pay.module.css";
 
@@ -55,7 +55,9 @@ function Hero() {
         <h2>The Payment & Investment Platform for MSMEs, Investors, Asset Managers & Governments.</h2>
         <p>M’Pay enables MSMEs to pay, receive, manage and trace money across business, e-commerce, taxation and cross-border investment flows.</p>
         <div className={styles["quick-points"]}>
-          {[[Send, "Pay"], [Download, "Receive"], [TrendingUp, "Invest"], [Sprout, "Grow"]].map(([I, t]: any) => (
+          {([
+            [Send, "Pay"], [Download, "Receive"], [TrendingUp, "Invest"], [Sprout, "Grow"]
+          ] as [LucideIcon, string][]).map(([I, t]) => (
             <span key={t}><I />{t}</span>
           ))}
         </div>
@@ -77,7 +79,7 @@ function Hero() {
 }
 
 function Dashboard() {
-  const menu = [
+  const menu: [LucideIcon, string, number?][] = [
     [LayoutDashboard, "Dashboard", 1], [CreditCard, "Payments"], [ShoppingCart, "E-commerce"],
     [ShieldCheck, "Tax Reserve"], [LineChart, "Investment Flows"], [Landmark, "Funds"],
     [CircleDollarSign, "Dividends"], [Wallet, "Wallets"], [FileBarChart, "Reports"], [BadgeCheck, "Compliance"]
@@ -87,8 +89,8 @@ function Dashboard() {
       <div className={styles.glow} />
       <div className={styles.dashboard}>
         <aside>
-          <div className={styles["dash-logo"]}><img src={A.logo} alt="M'Pay" /></div>
-          {menu.map(([I, t, active]: any) => <a key={t} className={active ? styles.active : ""}><I />{t}</a>)}
+          <div className={styles["dash-logo"]}><Image src={A.logo} alt="M'Pay" width={75} height={25} className="object-contain" /></div>
+          {menu.map(([I, t, active]) => <a key={t} className={active ? styles.active : ""}><I />{t}</a>)}
         </aside>
         <section className={styles["dash-main"]}>
           <div className={styles["dash-top"]}>
@@ -155,7 +157,7 @@ function Audiences() {
 }
 
 function Flows() {
-  const flows = [
+  const flows: [LucideIcon, string, string][] = [
     [CreditCard, "Payments", "Send and receive payments, invoices, QR payments, wallet, bank and card transactions."],
     [ShoppingCart, "E-commerce", "Secure checkout, order reconciliation, seller settlements and simplified refunds."],
     [ShieldCheck, "Tax Simplification", "Tax reserve wallet, automated calculations, tax payment support and simplified reporting."],
@@ -165,7 +167,7 @@ function Flows() {
     <section className={styles.flows}>
       <h2>One Platform. Four Powerful Financial Flows.</h2>
       <div className={styles["flow-grid"]}>
-        {flows.map(([I, t, p]: any) => (
+        {flows.map(([I, t, p]) => (
           <article key={t}><I /><h3>{t}</h3><p>{p}</p></article>
         ))}
       </div>
@@ -184,7 +186,7 @@ function ImageCards() {
     <section className={styles["image-cards"]}>
       {cards.map(([img, t, p]) => (
         <article key={t}>
-          <img src={img} alt="" />
+          <Image src={img} alt={t} width={320} height={200} className="w-full h-auto object-cover" />
           <div><h3>{t}</h3><p>{p}</p></div>
         </article>
       ))}
@@ -225,7 +227,7 @@ function Trust() {
 }
 
 function Ecosystem() {
-  const e = [
+  const e: [LucideIcon, string][] = [
     [Network, "M’Network"], [ShoppingBag, "M’Butic"], [Phone, "M’Call"], [ClipboardCheck, "M’Project"],
     [BarChart3, "M’D³MP"], [FileText, "M’Doc"], [Landmark, "M’Government"], [Banknote, "M’Finance"]
   ];
@@ -233,7 +235,7 @@ function Ecosystem() {
     <section className={styles.ecosystem}>
       <h2>Powering the M’World Ecosystem.</h2>
       <div className={styles["ecosystem-row"]}>
-        {e.map(([I, t]: any) => <span key={t}><I />{t}</span>)}
+        {e.map(([I, t]) => <span key={t}><I />{t}</span>)}
       </div>
     </section>
   );
@@ -251,9 +253,9 @@ function CTA() {
       <div className={styles.stores}>
         <b>Get M’Pay on your device</b>
         <span>
-          <img src={A.google} alt="Google Play" />
-          <img src={A.apple} alt="App Store" />
-          <img src={A.harmony} alt="HarmonyOS" />
+          <Image src={A.google} alt="Google Play" width={135} height={40} className="h-10 w-auto" />
+          <Image src={A.apple} alt="App Store" width={120} height={40} className="h-10 w-auto" />
+          <Image src={A.harmony} alt="HarmonyOS" width={130} height={40} className="h-10 w-auto" />
         </span>
       </div>
     </section>
@@ -264,7 +266,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div>
-        <img src={A.logo} alt="M'Pay" />
+        <Image src={A.logo} alt="M'Pay" width={75} height={25} className="object-contain" />
         <p>M’Pay is a member of the MSME Solutions World Group. Empowering MSMEs. Connecting Capital. Creating Impact.</p>
       </div>
       {["Product|Payments,E-commerce,Tax Reserve,Investment Flows,Dividends", "Company|About Us,Careers,Partners,Contact Us", "Resources|Help Center,Documentation,Guides,Blog", "Legal|Privacy Policy,Terms of Service,Compliance,Security"].map(col => {
